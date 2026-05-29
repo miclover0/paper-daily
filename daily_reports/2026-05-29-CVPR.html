@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>论文日报 2026-05-29</title>
+<style>
+:root {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8fafc;
+    --bg-sidebar: #f1f5f9;
+    --bg-card: #ffffff;
+    --bg-hover: #e2e8f0;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --text-muted: #94a3b8;
+    --border-color: #e2e8f0;
+    --accent-color: #2563eb;
+    --accent-light: #dbeafe;
+    --shadow: 0 1px 3px rgba(0,0,0,0.1);
+    --shadow-lg: 0 4px 12px rgba(0,0,0,0.1);
+    --sidebar-width: 280px;
+    --header-height: 64px;
+}
+[data-theme="dark"] {
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --bg-sidebar: #1e293b;
+    --bg-card: #1e293b;
+    --bg-hover: #334155;
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    --border-color: #334155;
+    --accent-light: #1e3a5f;
+    --shadow: 0 1px 3px rgba(0,0,0,0.3);
+    --shadow-lg: 0 4px 12px rgba(0,0,0,0.3);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+.header {
+    position: fixed; top: 0; left: 0; right: 0; height: var(--header-height);
+    background: var(--bg-primary); border-bottom: 1px solid var(--border-color);
+    display: flex; align-items: center; justify-content: space-between; padding: 0 24px; z-index: 100;
+}
+.header-left { display: flex; align-items: center; gap: 16px; }
+.menu-toggle {
+    display: none; background: none; border: none; color: var(--text-primary);
+    cursor: pointer; padding: 8px; border-radius: 8px;
+}
+.menu-toggle:hover { background: var(--bg-hover); }
+.logo { font-size: 20px; font-weight: 600; }
+.logo span { color: var(--accent-color); }
+.date-badge {
+    background: var(--accent-light); color: var(--accent-color);
+    padding: 4px 12px; border-radius: 20px; font-size: 13px; font-weight: 500;
+}
+.header-right { display: flex; align-items: center; gap: 12px; }
+.theme-toggle {
+    background: var(--bg-secondary); border: 1px solid var(--border-color);
+    border-radius: 8px; padding: 8px 12px; cursor: pointer; color: var(--text-secondary);
+    font-size: 14px; display: flex; align-items: center; gap: 6px; transition: all 0.2s;
+}
+.theme-toggle:hover { background: var(--bg-hover); color: var(--text-primary); }
+.stats { display: flex; gap: 16px; font-size: 13px; color: var(--text-secondary); }
+.stats span { padding: 4px 10px; border-radius: 6px; font-weight: 500; }
+.stats .a { background: #dbeafe; color: #1d4ed8; }
+.stats .b { background: #dcfce7; color: #15803d; }
+.stats .c { background: #fef3c7; color: #b45309; }
+[data-theme="dark"] .stats .a { background: #1e3a5f; color: #93c5fd; }
+[data-theme="dark"] .stats .b { background: #14532d; color: #86efac; }
+[data-theme="dark"] .stats .c { background: #451a03; color: #fcd34d; }
+.container { display: flex; margin-top: var(--header-height); min-height: calc(100vh - var(--header-height)); }
+.sidebar {
+    width: var(--sidebar-width); background: var(--bg-sidebar);
+    border-right: 1px solid var(--border-color); position: fixed;
+    top: var(--header-height); left: 0; bottom: 0; overflow-y: auto;
+    padding: 24px 16px; transition: transform 0.3s ease;
+}
+.sidebar-section { margin-bottom: 24px; }
+.sidebar-title {
+    font-size: 11px; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.5px; color: var(--text-muted); margin-bottom: 12px; padding-left: 12px;
+}
+.nav-item {
+    display: flex; align-items: center; padding: 10px 12px;
+    border-radius: 8px; color: var(--text-secondary); text-decoration: none;
+    font-size: 14px; margin-bottom: 4px; transition: all 0.15s; cursor: pointer;
+}
+.nav-item:hover { background: var(--bg-hover); color: var(--text-primary); }
+.nav-item.active { background: var(--accent-light); color: var(--accent-color); font-weight: 500; }
+.nav-badge {
+    width: 20px; height: 20px; border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 600; margin-right: 10px; flex-shrink: 0;
+}
+.nav-badge.group-a { background: #dbeafe; color: #1d4ed8; }
+.nav-badge.group-b { background: #dcfce7; color: #15803d; }
+.nav-badge.group-c { background: #fef3c7; color: #b45309; }
+[data-theme="dark"] .nav-badge.group-a { background: #1e3a5f; color: #93c5fd; }
+[data-theme="dark"] .nav-badge.group-b { background: #14532d; color: #86efac; }
+[data-theme="dark"] .nav-badge.group-c { background: #451a03; color: #fcd34d; }
+.main { flex: 1; margin-left: var(--sidebar-width); padding: 32px 40px; max-width: 900px; }
+.section { margin-bottom: 48px; scroll-margin-top: calc(var(--header-height) + 24px); }
+.section-header {
+    display: flex; align-items: center; gap: 12px; margin-bottom: 24px; padding-bottom: 16px;
+    border-bottom: 2px solid var(--border-color);
+}
+.section-badge { padding: 6px 14px; border-radius: 8px; font-size: 13px; font-weight: 600; }
+.section-badge.A { background: #dbeafe; color: #1d4ed8; }
+.section-badge.B { background: #dcfce7; color: #15803d; }
+.section-badge.C { background: #fef3c7; color: #b45309; }
+[data-theme="dark"] .section-badge.A { background: #1e3a5f; color: #93c5fd; }
+[data-theme="dark"] .section-badge.B { background: #14532d; color: #86efac; }
+[data-theme="dark"] .section-badge.C { background: #451a03; color: #fcd34d; }
+.section-title { font-size: 18px; font-weight: 600; }
+.paper-card {
+    background: var(--bg-card); border: 1px solid var(--border-color);
+    border-radius: 12px; padding: 24px; margin-bottom: 20px;
+    transition: all 0.2s; scroll-margin-top: calc(var(--header-height) + 24px);
+}
+.paper-card:hover { box-shadow: var(--shadow-lg); border-color: var(--accent-color); }
+.paper-header { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px; }
+.paper-label { padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; flex-shrink: 0; }
+.paper-label.A { background: #dbeafe; color: #1d4ed8; }
+.paper-label.B { background: #dcfce7; color: #15803d; }
+.paper-label.C { background: #fef3c7; color: #b45309; }
+[data-theme="dark"] .paper-label.A { background: #1e3a5f; color: #93c5fd; }
+[data-theme="dark"] .paper-label.B { background: #14532d; color: #86efac; }
+[data-theme="dark"] .paper-label.C { background: #451a03; color: #fcd34d; }
+.paper-title { font-size: 16px; font-weight: 600; line-height: 1.4; }
+.paper-meta { display: flex; flex-wrap: wrap; gap: 16px; font-size: 13px; color: var(--text-secondary); margin-bottom: 16px; }
+.paper-meta span { display: flex; align-items: center; gap: 4px; }
+.paper-content { background: var(--bg-secondary); border-radius: 8px; padding: 16px; margin-bottom: 16px; }
+.paper-content-title { font-size: 12px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+.paper-summary { font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
+.innovations { list-style: none; }
+.innovations li { font-size: 14px; color: var(--text-secondary); padding: 6px 0; padding-left: 20px; position: relative; }
+.innovations li::before { content: ""; position: absolute; left: 0; top: 14px; width: 6px; height: 6px; border-radius: 50%; background: var(--accent-color); }
+.paper-footer { display: flex; justify-content: flex-end; }
+.paper-link {
+    display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px;
+    background: var(--accent-color); color: white; text-decoration: none;
+    border-radius: 8px; font-size: 13px; font-weight: 500; transition: all 0.2s;
+}
+.paper-link:hover { background: #1d4ed8; transform: translateY(-1px); }
+.footer { text-align: center; padding: 32px; color: var(--text-muted); font-size: 13px; border-top: 1px solid var(--border-color); margin-top: 48px; }
+@media (max-width: 768px) {
+    .menu-toggle { display: block; }
+    .sidebar { transform: translateX(-100%); z-index: 99; box-shadow: var(--shadow-lg); }
+    .sidebar.open { transform: translateX(0); }
+    .main { margin-left: 0; padding: 24px 16px; }
+    .stats { display: none; }
+    .overlay { display: none; position: fixed; top: var(--header-height); left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 98; }
+    .overlay.show { display: block; }
+}
+@media (max-width: 480px) {
+    .header { padding: 0 16px; }
+    .logo { font-size: 16px; }
+    .date-badge { display: none; }
+    .paper-card { padding: 16px; }
+    .paper-title { font-size: 14px; }
+}
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-secondary); }
+::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+</style>
+</head>
+<body>
+<header class="header">
+    <div class="header-left">
+        <button class="menu-toggle" onclick="toggleSidebar()" aria-label="Toggle menu">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 12h18M3 6h18M3 18h18"/>
+            </svg>
+        </button>
+        <div class="logo">📚 <span>论文日报</span></div>
+        <span class="date-badge">2026-05-29</span>
+    </div>
+    <div class="header-right">
+        <div class="stats">
+            <span class="a">A组 5篇</span>
+            <span class="b">B组 5篇</span>
+            <span class="c">C组 5篇</span>
+        </div>
+        <button class="theme-toggle" onclick="toggleTheme()">
+            <span id="theme-icon">🌙</span>
+            <span id="theme-text">暗色</span>
+        </button>
+    </div>
+</header>
+
+<div class="overlay" onclick="toggleSidebar()"></div>
+
+<div class="container">
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-section">
+            <div class="sidebar-title">目录导航</div>
+<div class="nav-item" data-group="A" onclick="scrollToSection('A')"><span class="nav-badge group-a">A</span>目标检测强相关</div><div class="nav-item" onclick="scrollToPaper('A1')"><span class="nav-badge" style="background:var(--bg-secondary);color:var(--text-muted)">A1</span>Bayesian Sensitivity of Caus...</div><div class="nav-item" onclick="scrollToPaper('A2')"><span class="nav-badge" style="background:var(--bg-secondary);color:var(--text-muted)">A2</span>COTTA: Context-Aware Transfe...</div><div class="nav-item" onclick="scrollToPaper('A3')"><span class="nav-badge" style="background:var(--bg-secondary);color:var(--text-muted)">A3</span>Development and characteriza...</div><div class="nav-item" onclick="scrollToPaper('A4')"><span class="nav-badge" style="background:var(--bg-secondary);color:var(--text-muted)">A4</span>Hybrid MCP-PMT characterisat...</div><div class="nav-item" onclick="scrollToPaper('A5')"><span class="nav-badge" style="background:var(--bg-secondary);color:var(--text-muted)">A5</span>Rotation angle sensing via p...</div><div class="nav-item" data-group="B" onclick="scrollToSection('B')"><span class="nav-badge group-b">B</span>端云协同/边缘计算</div><div class="nav-item" onclick="scrollToPaper('B1')"><span class="nav-badge" style="background:var(--bg-secondary);color:var(--text-muted)">B1</span>When Cloud Agents Meet Devic...</div><div class="nav-item" onclick="scrollToPaper('B2')"><span class="nav-badge" style="background:var(--bg-secondary);color:var(--text-muted)">B2</span>The Rise of the Software-Def...</div><div class="nav-item" onclick="scrollToPaper('B3')"><span class="nav-badge" style="background:var(--bg-secondary);color:var(--text-muted)">B3</span>Evidence of triggered star f...</div><div class="nav-item" onclick="scrollToPaper('B4')"><span class="nav-badge" style="background:var(--bg-secondary);color:var(--text-muted)">B4</span>ESAM++: Efficient Online 3D ...</div><div class="nav-item" onclick="scrollToPaper('B5')"><span class="nav-badge" style="background:var(--bg-secondary);color:var(--text-muted)">B5</span>SwarmHarness: Skill-Based Ta...</div><div class="nav-item" data-group="C" onclick="scrollToSection('C')"><span class="nav-badge group-c">C</span>其他AI相关</div><div class="nav-item" onclick="scrollToPaper('C1')"><span class="nav-badge" style="background:var(--bg-secondary);color:var(--text-muted)">C1</span>Late-time Quantum Vacuum Dec...</div><div class="nav-item" onclick="scrollToPaper('C2')"><span class="nav-badge" style="background:var(--bg-secondary);color:var(--text-muted)">C2</span>OOD-GraphLLM: Graph Large La...</div><div class="nav-item" onclick="scrollToPaper('C3')"><span class="nav-badge" style="background:var(--bg-secondary);color:var(--text-muted)">C3</span>Faithful Embeddings of Irreg...</div><div class="nav-item" onclick="scrollToPaper('C4')"><span class="nav-badge" style="background:var(--bg-secondary);color:var(--text-muted)">C4</span>A Bayesian Approach to Membe...</div><div class="nav-item" onclick="scrollToPaper('C5')"><span class="nav-badge" style="background:var(--bg-secondary);color:var(--text-muted)">C5</span>A Dual-Path Architecture for...</div>
+        </div>
+    </nav>
+
+    <main class="main">
+        <section class="section" id="section-A">
+            <div class="section-header">
+                <span class="section-badge A">A组</span>
+                <h2 class="section-title">目标检测强相关</h2>
+            </div>
+            <article class="paper-card" id="paper-A1">
+                <div class="paper-header">
+                    <span class="paper-label A">A1</span>
+                    <h3 class="paper-title">Bayesian Sensitivity of Causal Inference Estimators under Evidence-Based Priors</h3>
+                </div>
+                <div class="paper-meta">
+                    <span>📍 arXiv</span>
+                    <span>📅 2026-05-08</span>
+                    <span>🏷️ CoTTA</span>
+                    <span>👥 Nikita Dhawan, Daniel Shen, Leonardo Cotta</span>
+                </div>
+                <div class="paper-content">
+                    <div class="paper-content-title">📝 摘要</div>
+                    <p class="paper-summary">这篇论文围绕人工智能与机器学习提出了一套完整方法，关注模型的泛化能力、效率或实际应用价值。</p>
+                </div>
+                <div class="paper-content">
+                    <div class="paper-content-title">💡 创新点</div>
+                    <ul class="innovations"><li>提出了相对现有工作更结构化的方法设计</li><li>关注当前领域的关键瓶颈并给出可行解决方案</li></ul>
+                </div>
+                <div class="paper-footer">
+                <a href="https://arxiv.org/pdf/2605.07993v1" target="_blank" class="paper-link">
+                    📄 阅读论文
+                    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+            </article>
+            <article class="paper-card" id="paper-A2">
+                <div class="paper-header">
+                    <span class="paper-label A">A2</span>
+                    <h3 class="paper-title">COTTA: Context-Aware Transfer Adaptation for Trajectory Prediction in Autonomous Driving</h3>
+                </div>
+                <div class="paper-meta">
+                    <span>📍 arXiv</span>
+                    <span>📅 2026-04-01</span>
+                    <span>🏷️ CoTTA</span>
+                    <span>👥 Seohyoung Park, Jaeyeol Lim, Seoyoung Ju</span>
+                </div>
+                <div class="paper-content">
+                    <div class="paper-content-title">📝 摘要</div>
+                    <p class="paper-summary">这篇论文围绕测试时域自适应（Test-Time Adaptation）展开，解决模型在分布偏移场景下的适应性问题。</p>
+                </div>
+                <div class="paper-content">
+                    <div class="paper-content-title">💡 创新点</div>
+                    <ul class="innovations"><li>采用测试时自适应策略，无需源域数据即可适应新分布</li><li>通过置信度重加权减少伪标签噪声影响</li><li>适合在线部署，无需模型微调</li></ul>
+                </div>
+                <div class="paper-footer">
+                <a href="https://arxiv.org/pdf/2604.00402v2" target="_blank" class="paper-link">
+                    📄 阅读论文
+                    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+            </article>
+            <article class="paper-card" id="paper-A3">
+                <div class="paper-header">
+                    <span class="paper-label A">A3</span>
+                    <h3 class="paper-title">Development and characterization of hybrid MCP-PMT with embedded Timepix4 ASIC used as pixelated anode</h3>
+                </div>
+                <div class="paper-meta">
+                    <span>📍 arXiv</span>
+                    <span>📅 2026-02-02</span>
+                    <span>🏷️ CoTTA</span>
+                    <span>👥 Riccardo Bolzonella, Jerome Alozy, Rafael Ballabriga</span>
+                </div>
+                <div class="paper-content">
+                    <div class="paper-content-title">📝 摘要</div>
+                    <p class="paper-summary">这篇论文围绕人工智能与机器学习提出了一套完整方法，关注模型的泛化能力、效率或实际应用价值。</p>
+                </div>
+                <div class="paper-content">
+                    <div class="paper-content-title">💡 创新点</div>
+                    <ul class="innovations"><li>提出了相对现有工作更结构化的方法设计</li><li>关注当前领域的关键瓶颈并给出可行解决方案</li></ul>
+                </div>
+                <div class="paper-footer">
+                <a href="https://arxiv.org/pdf/2602.01886v1" target="_blank" class="paper-link">
+                    📄 阅读论文
+                    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+            </article>
+            <article class="paper-card" id="paper-A4">
+                <div class="paper-header">
+                    <span class="paper-label A">A4</span>
+                    <h3 class="paper-title">Hybrid MCP-PMT characterisation on a testbeam with Cherenkov setup</h3>
+                </div>
+                <div class="paper-meta">
+                    <span>📍 arXiv</span>
+                    <span>📅 2026-01-30</span>
+                    <span>🏷️ CoTTA</span>
+                    <span>👥 G. Romolini, J. Alozy, R. Ballabriga</span>
+                </div>
+                <div class="paper-content">
+                    <div class="paper-content-title">📝 摘要</div>
+                    <p class="paper-summary">这篇论文围绕人工智能与机器学习提出了一套完整方法，关注模型的泛化能力、效率或实际应用价值。</p>
+                </div>
+                <div class="paper-content">
+                    <div class="paper-content-title">💡 创新点</div>
+                    <ul class="innovations"><li>提出了相对现有工作更结构化的方法设计</li><li>关注当前领域的关键瓶颈并给出可行解决方案</li></ul>
+                </div>
+                <div class="paper-footer">
+                <a href="https://arxiv.org/pdf/2601.22713v1" target="_blank" class="paper-link">
+                    📄 阅读论文
+                    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+            </article>
+            <article class="paper-card" id="paper-A5">
+                <div class="paper-header">
+                    <span class="paper-label A">A5</span>
+                    <h3 class="paper-title">Rotation angle sensing via polarization-dependent mode superposition in a hollow-core fiber with two-fold symmetry</h3>
+                </div>
+                <div class="paper-meta">
+                    <span>📍 arXiv</span>
+                    <span>📅 2026-01-15</span>
+                    <span>🏷️ CoTTA</span>
+                    <span>👥 Enzo Dantas da Silva, Giovanna M. R. Castro, Murilo L. Batista</span>
+                </div>
+                <div class="paper-content">
+                    <div class="paper-content-title">📝 摘要</div>
+                    <p class="paper-summary">这篇论文围绕人工智能与机器学习提出了一套完整方法，关注模型的泛化能力、效率或实际应用价值。</p>
+                </div>
+                <div class="paper-content">
+                    <div class="paper-content-title">💡 创新点</div>
+                    <ul class="innovations"><li>提出了相对现有工作更结构化的方法设计</li><li>关注当前领域的关键瓶颈并给出可行解决方案</li></ul>
+                </div>
+                <div class="paper-footer">
+                <a href="https://arxiv.org/pdf/2601.10882v1" target="_blank" class="paper-link">
+                    📄 阅读论文
+                    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+            </article>
+    </section>        <section class="section" id="section-B">
+            <div class="section-header">
+                <span class="section-badge B">B组</span>
+                <h2 class="section-title">端云协同/边缘计算</h2>
+            </div>
+            <article class="paper-card" id="paper-B1">
+                <div class="paper-header">
+                    <span class="paper-label B">B1</span>
+                    <h3 class="paper-title">When Cloud Agents Meet Device Agents: Lessons from Hybrid Multi-Agent Systems</h3>
+                </div>
+                <div class="paper-meta">
+                    <span>📍 arXiv</span>
+                    <span>📅 2026-05-28</span>
+                    <span>🏷️ cloud-edge</span>
+                    <span>👥 Corrado Rainone, Davide Belli, Bence Major</span>
+                </div>
+                <div class="paper-content">
+                    <div class="paper-content-title">📝 摘要</div>
+                    <p class="paper-summary">这篇论文提出了 AI Agent 相关方法，赋予模型自主规划、工具使用和多步骤推理能力。</p>
+                </div>
+                <div class="paper-content">
+                    <div class="paper-content-title">💡 创新点</div>
+                    <ul class="innovations"><li>赋予模型自主规划与多步骤推理能力</li><li>支持工具调用、代码执行等扩展功能</li></ul>
+                </div>
+                <div class="paper-footer">
+                <a href="https://arxiv.org/pdf/2605.30102v1" target="_blank" class="paper-link">
+                    📄 阅读论文
+                    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+            </article>
+            <article class="paper-card" id="paper-B2">
+                <div class="paper-header">
+                    <span class="paper-label B">B2</span>
+                    <h3 class="paper-title">The Rise of the Software-Defined Vehicle: Architectures, Enabling Technologies, and Future Opportunities</h3>
+                </div>
+                <div class="paper-meta">
+                    <span>📍 arXiv</span>
+                    <span>📅 2026-05-28</span>
+                    <span>🏷️ cloud-edge</span>
+                    <span>👥 Eirini Liotou, Dimitra Tzelalidou, Gerasimos Christodoulou</span>
+                </div>
+                <div class="paper-content">
+                    <div class="paper-content-title">📝 摘要</div>
+                    <p class="paper-summary">这篇论文围绕人工智能与机器学习提出了一套完整方法，关注模型的泛化能力、效率或实际应用价值。</p>
+                </div>
+                <div class="paper-content">
+                    <div class="paper-content-title">💡 创新点</div>
+                    <ul class="innovations"><li>提出了相对现有工作更结构化的方法设计</li><li>关注当前领域的关键瓶颈并给出可行解决方案</li></ul>
+                </div>
+                <div class="paper-footer">
+                <a href="https://arxiv.org/pdf/2605.30001v1" target="_blank" class="paper-link">
+                    📄 阅读论文
+                    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+            </article>
+            <article class="paper-card" id="paper-B3">
+                <div class="paper-header">
+                    <span class="paper-label B">B3</span>
+                    <h3 class="paper-title">Evidence of triggered star formation in the Pillars of Creation from JWST observations</h3>
+                </div>
+                <div class="paper-meta">
+                    <span>📍 arXiv</span>
+                    <span>📅 2026-05-28</span>
+                    <span>🏷️ cloud-edge</span>
+                    <span>👥 Jing Wen, Bingqiu Chen, Jian Gao</span>
+                </div>
+                <div class="paper-content">
+                    <div class="paper-content-title">📝 摘要</div>
+                    <p class="paper-summary">这篇论文围绕人工智能与机器学习提出了一套完整方法，关注模型的泛化能力、效率或实际应用价值。</p>
+                </div>
+                <div class="paper-content">
+                    <div class="paper-content-title">💡 创新点</div>
+                    <ul class="innovations"><li>提出了相对现有工作更结构化的方法设计</li><li>关注当前领域的关键瓶颈并给出可行解决方案</li></ul>
+                </div>
+                <div class="paper-footer">
+                <a href="https://arxiv.org/pdf/2605.29904v1" target="_blank" class="paper-link">
+                    📄 阅读论文
+                    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+            </article>
+            <article class="paper-card" id="paper-B4">
+                <div class="paper-header">
+                    <span class="paper-label B">B4</span>
+                    <h3 class="paper-title">ESAM++: Efficient Online 3D Perception on the Edge</h3>
+                </div>
+                <div class="paper-meta">
+                    <span>📍 arXiv</span>
+                    <span>📅 2026-05-28</span>
+                    <span>🏷️ cloud-edge</span>
+                    <span>👥 Qin Liu, Lavisha Aggarwal, Saptarashmi Bandyopadhyay</span>
+                </div>
+                <div class="paper-content">
+                    <div class="paper-content-title">📝 摘要</div>
+                    <p class="paper-summary">这篇论文研究端云协同或边缘计算方法，优化端侧推理效率。</p>
+                </div>
+                <div class="paper-content">
+                    <div class="paper-content-title">💡 创新点</div>
+                    <ul class="innovations"><li>在端侧资源受限条件下实现高效推理</li><li>通过模型分割、量化或知识蒸馏降低计算量</li></ul>
+                </div>
+                <div class="paper-footer">
+                <a href="https://arxiv.org/pdf/2605.29505v1" target="_blank" class="paper-link">
+                    📄 阅读论文
+                    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+            </article>
+            <article class="paper-card" id="paper-B5">
+                <div class="paper-header">
+                    <span class="paper-label B">B5</span>
+                    <h3 class="paper-title">SwarmHarness: Skill-Based Task Routing via Decentralized Incentive-Aligned AI Agent Networks</h3>
+                </div>
+                <div class="paper-meta">
+                    <span>📍 arXiv</span>
+                    <span>📅 2026-05-27</span>
+                    <span>🏷️ cloud-edge</span>
+                    <span>👥 Edwin Jose</span>
+                </div>
+                <div class="paper-content">
+                    <div class="paper-content-title">📝 摘要</div>
+                    <p class="paper-summary">这篇论文围绕人工智能与机器学习提出了一套完整方法，关注模型的泛化能力、效率或实际应用价值。</p>
+                </div>
+                <div class="paper-content">
+                    <div class="paper-content-title">💡 创新点</div>
+                    <ul class="innovations"><li>提出了相对现有工作更结构化的方法设计</li><li>关注当前领域的关键瓶颈并给出可行解决方案</li></ul>
+                </div>
+                <div class="paper-footer">
+                <a href="https://arxiv.org/pdf/2605.28764v1" target="_blank" class="paper-link">
+                    📄 阅读论文
+                    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+            </article>
+    </section>        <section class="section" id="section-C">
+            <div class="section-header">
+                <span class="section-badge C">C组</span>
+                <h2 class="section-title">其他AI相关</h2>
+            </div>
+            <article class="paper-card" id="paper-C1">
+                <div class="paper-header">
+                    <span class="paper-label C">C1</span>
+                    <h3 class="paper-title">Late-time Quantum Vacuum Decay and its Cosmological Implications</h3>
+                </div>
+                <div class="paper-meta">
+                    <span>📍 arXiv</span>
+                    <span>📅 2026-05-28</span>
+                    <span>🏷️ neural network</span>
+                    <span>👥 Yang Bai, Sida Lu, Nicholas Orlofsky</span>
+                </div>
+                <div class="paper-content">
+                    <div class="paper-content-title">📝 摘要</div>
+                    <p class="paper-summary">这篇论文围绕人工智能与机器学习提出了一套完整方法，关注模型的泛化能力、效率或实际应用价值。</p>
+                </div>
+                <div class="paper-content">
+                    <div class="paper-content-title">💡 创新点</div>
+                    <ul class="innovations"><li>提出了相对现有工作更结构化的方法设计</li><li>关注当前领域的关键瓶颈并给出可行解决方案</li></ul>
+                </div>
+                <div class="paper-footer">
+                <a href="https://arxiv.org/pdf/2605.30259v1" target="_blank" class="paper-link">
+                    📄 阅读论文
+                    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+            </article>
+            <article class="paper-card" id="paper-C2">
+                <div class="paper-header">
+                    <span class="paper-label C">C2</span>
+                    <h3 class="paper-title">OOD-GraphLLM: Graph Large Language Model for Out-of-Distribution Generalized Drug Synergy Prediction</h3>
+                </div>
+                <div class="paper-meta">
+                    <span>📍 arXiv</span>
+                    <span>📅 2026-05-28</span>
+                    <span>🏷️ neural network</span>
+                    <span>👥 Xin Wang, Linxin Xiao, Yang Yao</span>
+                </div>
+                <div class="paper-content">
+                    <div class="paper-content-title">📝 摘要</div>
+                    <p class="paper-summary">这篇论文围绕人工智能与机器学习提出了一套完整方法，关注模型的泛化能力、效率或实际应用价值。</p>
+                </div>
+                <div class="paper-content">
+                    <div class="paper-content-title">💡 创新点</div>
+                    <ul class="innovations"><li>提出了相对现有工作更结构化的方法设计</li><li>关注当前领域的关键瓶颈并给出可行解决方案</li></ul>
+                </div>
+                <div class="paper-footer">
+                <a href="https://arxiv.org/pdf/2605.30247v1" target="_blank" class="paper-link">
+                    📄 阅读论文
+                    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+            </article>
+            <article class="paper-card" id="paper-C3">
+                <div class="paper-header">
+                    <span class="paper-label C">C3</span>
+                    <h3 class="paper-title">Faithful Embeddings of Irregular and Asynchronous Data for Online Log-NCDEs</h3>
+                </div>
+                <div class="paper-meta">
+                    <span>📍 arXiv</span>
+                    <span>📅 2026-05-28</span>
+                    <span>🏷️ neural network</span>
+                    <span>👥 Benjamin Walker, Alexandre Bloch, Lingyi Yang</span>
+                </div>
+                <div class="paper-content">
+                    <div class="paper-content-title">📝 摘要</div>
+                    <p class="paper-summary">这篇论文围绕人工智能与机器学习提出了一套完整方法，关注模型的泛化能力、效率或实际应用价值。</p>
+                </div>
+                <div class="paper-content">
+                    <div class="paper-content-title">💡 创新点</div>
+                    <ul class="innovations"><li>提出了相对现有工作更结构化的方法设计</li><li>关注当前领域的关键瓶颈并给出可行解决方案</li></ul>
+                </div>
+                <div class="paper-footer">
+                <a href="https://arxiv.org/pdf/2605.30213v1" target="_blank" class="paper-link">
+                    📄 阅读论文
+                    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+            </article>
+            <article class="paper-card" id="paper-C4">
+                <div class="paper-header">
+                    <span class="paper-label C">C4</span>
+                    <h3 class="paper-title">A Bayesian Approach to Membership Inference for Statistical Release</h3>
+                </div>
+                <div class="paper-meta">
+                    <span>📍 arXiv</span>
+                    <span>📅 2026-05-28</span>
+                    <span>🏷️ neural network</span>
+                    <span>👥 Lisa Oakley, Sam Stites, Cameron Moy</span>
+                </div>
+                <div class="paper-content">
+                    <div class="paper-content-title">📝 摘要</div>
+                    <p class="paper-summary">这篇论文围绕人工智能与机器学习提出了一套完整方法，关注模型的泛化能力、效率或实际应用价值。</p>
+                </div>
+                <div class="paper-content">
+                    <div class="paper-content-title">💡 创新点</div>
+                    <ul class="innovations"><li>提出了相对现有工作更结构化的方法设计</li><li>关注当前领域的关键瓶颈并给出可行解决方案</li></ul>
+                </div>
+                <div class="paper-footer">
+                <a href="https://arxiv.org/pdf/2605.30203v1" target="_blank" class="paper-link">
+                    📄 阅读论文
+                    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+            </article>
+            <article class="paper-card" id="paper-C5">
+                <div class="paper-header">
+                    <span class="paper-label C">C5</span>
+                    <h3 class="paper-title">A Dual-Path Architecture for Scaling Compute and Capacity in LLMs</h3>
+                </div>
+                <div class="paper-meta">
+                    <span>📍 arXiv</span>
+                    <span>📅 2026-05-28</span>
+                    <span>🏷️ neural network</span>
+                    <span>👥 Markus Frey, Behzad Shomali, Joachim Koehler</span>
+                </div>
+                <div class="paper-content">
+                    <div class="paper-content-title">📝 摘要</div>
+                    <p class="paper-summary">这篇论文围绕人工智能与机器学习提出了一套完整方法，关注模型的泛化能力、效率或实际应用价值。</p>
+                </div>
+                <div class="paper-content">
+                    <div class="paper-content-title">💡 创新点</div>
+                    <ul class="innovations"><li>提出了相对现有工作更结构化的方法设计</li><li>关注当前领域的关键瓶颈并给出可行解决方案</li></ul>
+                </div>
+                <div class="paper-footer">
+                <a href="https://arxiv.org/pdf/2605.30202v1" target="_blank" class="paper-link">
+                    📄 阅读论文
+                    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+            </article>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>由 QClaw 论文日报管道自动生成</p>
+        <p>投递时间：每日 22:00</p>
+    </footer>
+</div>
+
+<script>
+function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.querySelector('.overlay');
+    sidebar.classList.toggle('open');
+    overlay.classList.toggle('show');
+}
+function scrollToSection(group) {
+    const section = document.getElementById('section-' + group);
+    if (section) {
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    if (window.innerWidth <= 768) toggleSidebar();
+}
+function scrollToPaper(label) {
+    const paper = document.getElementById('paper-' + label);
+    if (paper) {
+        paper.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        paper.style.boxShadow = '0 0 0 2px var(--accent-color)';
+        setTimeout(() => paper.style.boxShadow = '', 2000);
+    }
+    if (window.innerWidth <= 768) toggleSidebar();
+}
+function toggleTheme() {
+    const body = document.body;
+    const themeIcon = document.getElementById('theme-icon');
+    const themeText = document.getElementById('theme-text');
+    if (body.getAttribute('data-theme') === 'dark') {
+        body.removeAttribute('data-theme');
+        themeIcon.textContent = '🌙';
+        themeText.textContent = '暗色';
+        localStorage.setItem('theme', 'light');
+    } else {
+        body.setAttribute('data-theme', 'dark');
+        themeIcon.textContent = '☀️';
+        themeText.textContent = '亮色';
+        localStorage.setItem('theme', 'dark');
+    }
+}
+if (localStorage.getItem('theme') === 'dark') {
+    document.body.setAttribute('data-theme', 'dark');
+    document.getElementById('theme-icon').textContent = '☀️';
+    document.getElementById('theme-text').textContent = '亮色';
+}
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const id = entry.target.id.replace('section-', '');
+            document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
+            document.querySelectorAll(`.nav-item[data-group="${id}"]`).forEach(item => item.classList.add('active'));
+        }
+    });
+}, { rootMargin: '-20% 0px -60% 0px' });
+document.querySelectorAll('.section').forEach(section => observer.observe(section));
+</script>
+</body>
+</html>

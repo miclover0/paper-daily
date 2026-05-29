@@ -1,497 +1,956 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paper Daily - 2026-05-29</title>
+    <title>Vision Intelligence Daily Archive</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Config Data -->
+    <script src="config.js"></script>
+    
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-               background: #0d1117; color: #c9d1d9; line-height: 1.6; }
-        .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
-        header { text-align: center; padding: 40px 0 30px; border-bottom: 1px solid #21262d; margin-bottom: 40px; }
-        header h1 { font-size: 2rem; color: #58a6ff; margin-bottom: 8px; }
-        header p { color: #8b949e; font-size: 0.9rem; }
-        .stats { display: flex; justify-content: center; gap: 40px; margin-top: 20px; }
-        .stat .num { font-size: 1.8rem; font-weight: 700; color: #58a6ff; }
-        .stat .label { font-size: 0.75rem; color: #8b949e; }
-        .group-section { margin-bottom: 50px; }
-        .group-header { display: flex; align-items: baseline; gap: 16px; margin-bottom: 20px;
-                        padding-bottom: 12px; border-bottom: 2px solid #21262d; }
-        .group-title { font-size: 1.3rem; color: #f0883e; }
-        .group-desc { color: #8b949e; font-size: 0.85rem; }
-        .paper-list { display: flex; flex-direction: column; gap: 16px; }
-        .paper-card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 20px; transition: border-color 0.2s; }
-        .paper-card:hover { border-color: #58a6ff; }
-        .paper-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 8px; }
-        .paper-title { font-size: 1rem; font-weight: 600; flex: 1; }
-        .paper-title a { color: #58a6ff; text-decoration: none; }
-        .paper-title a:hover { text-decoration: underline; }
-        .paper-meta { display: flex; gap: 8px; flex-shrink: 0; flex-wrap: wrap; justify-content: flex-end; }
-        .paper-year, .paper-venue, .paper-cat, .paper-cite { font-size: 0.72rem; padding: 2px 8px; border-radius: 12px; background: #21262d; color: #8b949e; }
-        .paper-venue { color: #79c0ff; }
-        .paper-cite { color: #d2a8ff; }
-        .paper-authors { font-size: 0.8rem; color: #8b949e; margin-bottom: 10px; }
-        .paper-abstract { font-size: 0.85rem; color: #b1bac4; margin-bottom: 14px; line-height: 1.7; }
-        .paper-actions { display: flex; gap: 12px; }
-        .paper-actions a { font-size: 0.8rem; text-decoration: none; color: #58a6ff; padding: 4px 12px;
-                           border: 1px solid #30363d; border-radius: 6px; transition: all 0.2s; }
-        .paper-actions a:hover { background: #21262d; border-color: #58a6ff; }
-        .no-paper { color: #8b949e; font-size: 0.9rem; padding: 20px; text-align: center; }
-        footer { text-align: center; padding: 40px 0; color: #8b949e; font-size: 0.8rem;
-                 border-top: 1px solid #21262d; margin-top: 40px; }
-        footer a { color: #58a6ff; text-decoration: none; }
-        @media (max-width: 600px) { .paper-header { flex-direction: column; } .stats { gap: 16px; } }
+        /* ========== CSS Variables ========== */
+        :root {
+            /* Dark Theme (Default) */
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: rgba(22, 22, 35, 0.7);
+            --bg-glass: rgba(255, 255, 255, 0.03);
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --border-glow: rgba(99, 102, 241, 0.3);
+            --accent-primary: #6366f1;
+            --accent-secondary: #8b5cf6;
+            --accent-glow: rgba(99, 102, 241, 0.15);
+            --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.4);
+            --shadow-hover: 0 20px 60px rgba(0, 0, 0, 0.5);
+            --gradient-hero: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            --gradient-accent: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            
+            /* Spacing */
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+            --space-3xl: 4rem;
+            
+            /* Typography */
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+            
+            /* Transitions */
+            --transition-fast: 150ms ease;
+            --transition-base: 250ms ease;
+            --transition-slow: 400ms ease;
+        }
+
+        /* Light Theme */
+        [data-theme="light"] {
+            --bg-primary: #fafbfc;
+            --bg-secondary: #f1f5f9;
+            --bg-card: rgba(255, 255, 255, 0.8);
+            --bg-glass: rgba(255, 255, 255, 0.5);
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #94a3b8;
+            --border-color: rgba(0, 0, 0, 0.08);
+            --border-glow: rgba(99, 102, 241, 0.2);
+            --accent-glow: rgba(99, 102, 241, 0.1);
+            --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        /* ========== Reset & Base ========== */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* ========== Background Effects ========== */
+        .bg-gradient {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--gradient-hero);
+            opacity: 0.03;
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        .bg-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 60px 60px;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .bg-glow {
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 20%, var(--accent-glow) 0%, transparent 50%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* ========== Layout ========== */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 var(--space-xl);
+        }
+
+        /* ========== Header ========== */
+        header {
+            position: relative;
+            padding: var(--space-3xl) 0;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .header-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-sm) var(--space-lg);
+            background: var(--bg-glass);
+            border: 1px solid var(--border-color);
+            border-radius: 100px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--space-lg);
+            backdrop-filter: blur(10px);
+        }
+
+        .header-badge svg {
+            width: 16px;
+            height: 16px;
+            stroke: var(--accent-primary);
+        }
+
+        .header-title {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: var(--space-md);
+        }
+
+        .header-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            font-weight: 300;
+            max-width: 600px;
+            margin: 0 auto var(--space-xl);
+        }
+
+        .header-stats {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-xl);
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            font-family: var(--font-mono);
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* ========== Navigation ========== */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(10, 10, 15, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            padding: var(--space-md) 0;
+        }
+
+        [data-theme="light"] nav {
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: var(--space-lg);
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            font-weight: 600;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .nav-brand svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--accent-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--space-sm);
+        }
+
+        .nav-link {
+            padding: var(--space-sm) var(--space-md);
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            border-radius: var(--space-sm);
+            transition: all var(--transition-fast);
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--text-primary);
+            background: var(--bg-glass);
+        }
+
+        .nav-theme-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--bg-glass);
+            border: 1px solid var(--border-color);
+            border-radius: var(--space-sm);
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all var(--transition-fast);
+        }
+
+        .nav-theme-btn:hover {
+            background: var(--accent-glow);
+            border-color: var(--accent-primary);
+        }
+
+        /* ========== Main Content ========== */
+        main {
+            padding: var(--space-3xl) 0;
+        }
+
+        .section {
+            margin-bottom: var(--space-3xl);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: var(--space-xl);
+            padding-bottom: var(--space-md);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+        }
+
+        .section-title h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .section-badge {
+            padding: var(--space-xs) var(--space-md);
+            background: var(--accent-glow);
+            color: var(--accent-primary);
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* ========== Card Grid ========== */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: var(--space-lg);
+        }
+
+        /* ========== Paper Card ========== */
+        .paper-card {
+            position: relative;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: var(--space-xl);
+            backdrop-filter: blur(20px);
+            cursor: pointer;
+            transition: all var(--transition-base);
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .paper-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-accent);
+            opacity: 0;
+            transition: opacity var(--transition-base);
+        }
+
+        .paper-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--border-glow);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .paper-card:hover::before {
+            opacity: 1;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: var(--space-md);
+            margin-bottom: var(--space-md);
+        }
+
+        .card-date {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+        }
+
+        .card-date svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        .card-group {
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            line-height: 1.4;
+            margin-bottom: var(--space-md);
+            color: var(--text-primary);
+        }
+
+        .card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-md);
+        }
+
+        .card-tag {
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            background: rgba(99, 102, 241, 0.15);
+            color: var(--accent-primary);
+        }
+
+        .card-summary {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: var(--space-lg);
+        }
+
+        .card-highlights {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+        }
+
+        .card-highlight {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .card-highlight::before {
+            content: '→';
+            color: var(--accent-primary);
+            font-weight: 600;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: var(--space-lg);
+            padding-top: var(--space-md);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .card-authors {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .card-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: var(--accent-glow);
+            border-radius: 50%;
+            color: var(--accent-primary);
+            transition: all var(--transition-fast);
+        }
+
+        .paper-card:hover .card-arrow {
+            transform: translateX(4px);
+        }
+
+        /* ========== Featured Card ========== */
+        .featured-card {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+            border-color: rgba(99, 102, 241, 0.3);
+        }
+
+        .featured-card .card-group {
+            background: var(--accent-primary);
+            color: white;
+        }
+
+        /* ========== Archive Section ========== */
+        .archive-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: var(--space-md);
+        }
+
+        .archive-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            padding: var(--space-lg);
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            text-decoration: none;
+            color: inherit;
+            transition: all var(--transition-base);
+            backdrop-filter: blur(10px);
+        }
+
+        .archive-item:hover {
+            transform: translateX(4px);
+            border-color: var(--accent-primary);
+            background: var(--accent-glow);
+        }
+
+        .archive-date {
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--accent-primary);
+        }
+
+        .archive-info {
+            flex: 1;
+        }
+
+        .archive-day {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .archive-count {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            background: var(--bg-glass);
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: 100px;
+        }
+
+        /* ========== Footer ========== */
+        footer {
+            text-align: center;
+            padding: var(--space-3xl) 0;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--accent-primary);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* ========== Responsive ========== */
+        @media (max-width: 1024px) {
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --space-xl: 1.5rem;
+                --space-2xl: 2rem;
+                --space-3xl: 2.5rem;
+            }
+
+            .container {
+                padding: 0 var(--space-md);
+            }
+
+            .header-stats {
+                gap: var(--space-lg);
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .archive-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-title {
+                font-size: 2rem;
+            }
+
+            .header-subtitle {
+                font-size: 1rem;
+            }
+
+            .paper-card {
+                padding: var(--space-lg);
+            }
+        }
+
+        /* ========== Animations ========== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-in {
+            animation: fadeInUp 0.5s ease forwards;
+        }
+
+        .animate-delay-1 { animation-delay: 100ms; }
+        .animate-delay-2 { animation-delay: 200ms; }
+        .animate-delay-3 { animation-delay: 300ms; }
+        .animate-delay-4 { animation-delay: 400ms; }
+
+        /* ========== Scrollbar ========== */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-color);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--text-muted);
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Paper Daily</h1>
-            <p>AI 论文精选简报 · OpenAlex 每日自动更新</p>
-            <div class="stats">
-                <div class="stat"><div class="num">24</div><div class="label">论文总数</div></div>
-                <div class="stat"><div class="num">2026-05-29</div><div class="label">更新日期</div></div>
+    <!-- Background Effects -->
+    <div class="bg-gradient"></div>
+    <div class="bg-grid"></div>
+    <div class="bg-glow"></div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-badge">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                </svg>
+                <span>Research Paper Digest</span>
             </div>
-        </header>
-        <div class="content">
-    <div class="group-section">
-        <div class="group-header">
-            <h2 class="group-title">A组</h2>
-            <span class="group-desc">目标检测强相关</span>
-        </div>
-        <div class="paper-list">
-        <div class="paper-card">
-            <div class="paper-header">
-                <h3 class="paper-title"><a href="https://doi.org/10.3389/fnins.2021.642251" target="_blank">Decoding Covert Speech From EEG-A Comprehensive Review</a></h3>
-                <div class="paper-meta">
-                    <span class="paper-year">2021</span>
-                    <span class="paper-venue">Frontiers in Neuroscience</span>
-                    <span class="paper-cite">cited: 147</span>
-                    <span class="paper-cat">Frontiers in Neuroscience</span>
+            <h1 class="header-title">Vision Intelligence Daily Archive</h1>
+            <p class="header-subtitle">
+                "The best way to predict the future is to create it."
+                <br>
+                — Peter Drucker
+            </p>
+            <div class="header-stats">
+                <div class="stat-item">
+                    <div class="stat-number" id="stat-papers">--</div>
+                    <div class="stat-label">Papers</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="stat-days">--</div>
+                    <div class="stat-label">Days</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="stat-updated">--</div>
+                    <div class="stat-label">Last Updated</div>
                 </div>
             </div>
-            <div class="paper-authors">Jerrin Thomas Panachakel · Angarai Ganesan Ramakrishnan</div>
-            <p class="paper-abstract">Over the past decade, many researchers have come up with different implementations of systems for decoding covert or imagined speech from EEG (electroencephalogram). They differ from each other in several aspects, from data acquisition to machine learning algorithms, due to which, a comparison between different implementations is often difficult. T...</p>
-            <div class="paper-actions">
-                <a href="https://doi.org/10.3389/fnins.2021.642251" target="_blank">Paper</a>
-                <a href="https://www.frontiersin.org/articles/10.3389/fnins.2021.642251/pdf" target="_blank">PDF</a>
-            </div>
         </div>
-        <div class="paper-card">
-            <div class="paper-header">
-                <h3 class="paper-title"><a href="https://doi.org/10.3390/jimaging8080205" target="_blank">Brain Tumor Diagnosis Using Machine Learning, Convolutional Neural Networks, Capsule Neural Networks and Vision Transformers, Applied to MRI: A Survey</a></h3>
-                <div class="paper-meta">
-                    <span class="paper-year">2022</span>
-                    <span class="paper-venue">Journal of Imaging</span>
-                    <span class="paper-cite">cited: 143</span>
-                    <span class="paper-cat">Journal of Imaging</span>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-content">
+            <a href="#" class="nav-brand">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="3" y1="9" x2="21" y2="9"></line>
+                    <line x1="9" y1="21" x2="9" y2="9"></line>
+                </svg>
+                <span>Archive</span>
+            </a>
+            <div class="nav-links">
+                <a href="#featured" class="nav-link active">Featured</a>
+                <a href="#all-papers" class="nav-link">All Papers</a>
+                <a href="#archives" class="nav-link">Archives</a>
+            </div>
+            <button class="nav-theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+                <span id="theme-icon">🌙</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <!-- Featured Section -->
+            <section class="section" id="featured">
+                <div class="section-header">
+                    <div class="section-title">
+                        <h2>⭐ Featured Papers</h2>
+                        <span class="section-badge">Editor's Choice</span>
+                    </div>
                 </div>
-            </div>
-            <div class="paper-authors">Andronicus A. Akinyelu · Fulvio Zaccagna · James T. Grist · Mauro Castelli · Leonardo Rundo</div>
-            <p class="paper-abstract">Management of brain tumors is based on clinical and radiological information with presumed grade dictating treatment. Hence, a non-invasive assessment of tumor grade is of paramount importance to choose the best treatment plan. Convolutional Neural Networks (CNNs) represent one of the effective Deep Learning (DL)-based techniques that have been use...</p>
-            <div class="paper-actions">
-                <a href="https://doi.org/10.3390/jimaging8080205" target="_blank">Paper</a>
-                <a href="https://www.mdpi.com/2313-433X/8/8/205/pdf?version=1658731086" target="_blank">PDF</a>
-            </div>
-        </div>
-        <div class="paper-card">
-            <div class="paper-header">
-                <h3 class="paper-title"><a href="https://doi.org/10.1080/03057267.2024.2344988" target="_blank">Critical scientific and environmental literacies: a systematic and critical review</a></h3>
-                <div class="paper-meta">
-                    <span class="paper-year">2024</span>
-                    <span class="paper-venue">Studies in Science Education</span>
-                    <span class="paper-cite">cited: 49</span>
-                    <span class="paper-cat">Studies in Science Education</span>
+                <div class="card-grid" id="featured-container">
+                    <!-- Dynamic Content -->
                 </div>
-            </div>
-            <div class="paper-authors">Gonzalo Guerrero · Jesper Sjöström</div>
-            <p class="paper-abstract">In a global context of climate crisis and extension of other planetary boundaries, science education and particularly scientific and environmental literacies have a key role towards a sustainable transformation and climate and environmental action.However, scientific, or ecological literacies are highly complex, defined and interpreted in different...</p>
-            <div class="paper-actions">
-                <a href="https://doi.org/10.1080/03057267.2024.2344988" target="_blank">Paper</a>
-                <a href="https://www.tandfonline.com/doi/pdf/10.1080/03057267.2024.2344988?download=true" target="_blank">PDF</a>
-            </div>
-        </div>
-        <div class="paper-card">
-            <div class="paper-header">
-                <h3 class="paper-title"><a href="https://doi.org/10.3390/smartcities7030044" target="_blank">Smart Cities for All? Bridging Digital Divides for Socially Sustainable and Inclusive Cities</a></h3>
-                <div class="paper-meta">
-                    <span class="paper-year">2024</span>
-                    <span class="paper-venue">Smart Cities</span>
-                    <span class="paper-cite">cited: 42</span>
-                    <span class="paper-cat">Smart Cities</span>
+            </section>
+
+            <!-- All Papers Section -->
+            <section class="section" id="all-papers">
+                <div class="section-header">
+                    <div class="section-title">
+                        <h2>📚 All Papers</h2>
+                        <span class="section-badge" id="papers-count">0</span>
+                    </div>
                 </div>
-            </div>
-            <div class="paper-authors">Johan Colding · Caroline Nilsson · Stefan Sjöberg</div>
-            <p class="paper-abstract">This paper aims to emphasize the need for enhancing inclusivity and accessibility within smart-city societies. It represents the first attempt to apply Amartya Sen’s capability approach by exploring the implications of digital divides for promoting inclusive and climate-friendly cities that prioritize well-being, equity, and societal participation....</p>
-            <div class="paper-actions">
-                <a href="https://doi.org/10.3390/smartcities7030044" target="_blank">Paper</a>
-                <a href="https://www.mdpi.com/2624-6511/7/3/44/pdf?version=1714723381" target="_blank">PDF</a>
-            </div>
-        </div>
-        <div class="paper-card">
-            <div class="paper-header">
-                <h3 class="paper-title"><a href="https://doi.org/10.3390/educsci13040407" target="_blank">Critical Issues and Trends in Innovation and Entrepreneurship Education in Higher Education in the Post-COVID-19 Era in China and Spain</a></h3>
-                <div class="paper-meta">
-                    <span class="paper-year">2023</span>
-                    <span class="paper-venue">Education Sciences</span>
-                    <span class="paper-cite">cited: 37</span>
-                    <span class="paper-cat">Education Sciences</span>
+                <div class="card-grid" id="papers-container">
+                    <!-- Dynamic Content -->
                 </div>
-            </div>
-            <div class="paper-authors">Yinglong Qiu · Adela García-Aracil · Rosa Isusi-Fagoaga</div>
-            <p class="paper-abstract">In the post-COVID-19 era, where innovation and entrepreneurship as an engine for economic development is a top priority for each country, acquiring various skills through innovation and entrepreneurship education is a trend for higher education students. We focus our analysis on two public universities in China and Spain with some similarities in t...</p>
-            <div class="paper-actions">
-                <a href="https://doi.org/10.3390/educsci13040407" target="_blank">Paper</a>
-                <a href="https://www.mdpi.com/2227-7102/13/4/407/pdf?version=1681728587" target="_blank">PDF</a>
-            </div>
-        </div>
-        <div class="paper-card">
-            <div class="paper-header">
-                <h3 class="paper-title"><a href="https://doi.org/10.3389/fevo.2024.1438057" target="_blank">Which microbiome are we talking about? Contrasted diversity patterns and eco-evolutionary processes between gill and intestinal microbiomes of Antarctic fairy shrimps</a></h3>
-                <div class="paper-meta">
-                    <span class="paper-year">2024</span>
-                    <span class="paper-venue">Frontiers in Ecology and Evolution</span>
-                    <span class="paper-cite">cited: 6</span>
-                    <span class="paper-cat">Frontiers in Ecology and Evolution</span>
+            </section>
+
+            <!-- Archives Section -->
+            <section class="section" id="archives">
+                <div class="section-header">
+                    <div class="section-title">
+                        <h2>📁 Daily Archives</h2>
+                        <span class="section-badge" id="archives-count">0</span>
+                    </div>
                 </div>
-            </div>
-            <div class="paper-authors">Guillaume Schwob · Léa Cabrol · Paula M. Vidal · Yasna Tapia · Fernando Moya</div>
-            <p class="paper-abstract">Metazoans comprise multiple physical niches (“microenvironments”), each colonized by unique microbiomes that contribute to their hosts’ evolutionary dynamics, influencing their health, physiology, and adaptation to changing environments. Most wildlife microbiome studies focus on higher metazoans and multiple host microenvironments, while studies of...</p>
-            <div class="paper-actions">
-                <a href="https://doi.org/10.3389/fevo.2024.1438057" target="_blank">Paper</a>
-                <a href="https://www.frontiersin.org/journals/ecology-and-evolution/articles/10.3389/fevo.2024.1438057/pdf" target="_blank">PDF</a>
-            </div>
-        </div>
-        <div class="paper-card">
-            <div class="paper-header">
-                <h3 class="paper-title"><a href="https://doi.org/10.21203/rs.3.rs-3378268/v1" target="_blank">A Repertoire of Ethanol-Producing Human Microbes</a></h3>
-                <div class="paper-meta">
-                    <span class="paper-year">2023</span>
-                    <span class="paper-venue">Research Square</span>
-                    <span class="paper-cite">cited: 1</span>
-                    <span class="paper-cat">Research Square</span>
+                <div class="archive-grid" id="archives-container">
+                    <!-- Dynamic Content -->
                 </div>
-            </div>
-            <div class="paper-authors">Babacar Mbaye · Reham Magdy Wasfy · Maryam Tidjani Alou · Patrick BORENTAIN · René Gerolami</div>
-            <p class="paper-abstract"><title>Abstract</title> Background Studies of the relationship between the human microbiota and the host, particularly in the maintenance of health and the onset of disease, is still a topical issue. The microbiota is home to a number of microorganisms, including bacteria, yeasts, viruses and archaea, which play a crucial role in the body's proper ...</p>
-            <div class="paper-actions">
-                <a href="https://doi.org/10.21203/rs.3.rs-3378268/v1" target="_blank">Paper</a>
-                <a href="https://www.researchsquare.com/article/rs-3378268/latest.pdf" target="_blank">PDF</a>
-            </div>
+            </section>
         </div>
-        <div class="paper-card">
-            <div class="paper-header">
-                <h3 class="paper-title"><a href="https://doi.org/10.1017/ash.2025.10158" target="_blank">Antimicrobial perceptions and stewardship practices among community pharmacy dispensers in Nepal</a></h3>
-                <div class="paper-meta">
-                    <span class="paper-year">2025</span>
-                    <span class="paper-venue">Antimicrobial Stewardship & Healthcare Epidemiology</span>
-                    
-                    <span class="paper-cat">Antimicrobial Stewardship & Healthcare Epidemiology</span>
-                </div>
-            </div>
-            <div class="paper-authors">Bikalpa Shrestha · Sweta Shrestha · Upasana Acharya</div>
-            <p class="paper-abstract">Abstract Objective: This study assessed the perception and practice regarding Antimicrobial Stewardship (AMS) and knowledge about antibiotics among Community Pharmacy Dispensers (CPD) in selected municipalities of Kavrepalanchowk district, Nepal. Design: A cross-sectional study was conducted among CPD of the community pharmacies of Banepa, Dhulikhe...</p>
-            <div class="paper-actions">
-                <a href="https://doi.org/10.1017/ash.2025.10158" target="_blank">Paper</a>
-                <a href="https://www.cambridge.org/core/services/aop-cambridge-core/content/view/F0E53E9728B382D2422A4C46B3ED761E/S2732494X25101587a.pdf/div-class-title-antimicrobial-perceptions-and-stewardship-practices-among-community-pharmacy-dispensers-in-nepal-div.pdf" target="_blank">PDF</a>
-            </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>
+                🤖 Auto-generated by <a href="https://qclaw.io" target="_blank">QClaw</a> · 
+                Data from <a href="https://arxiv.org" target="_blank">arXiv</a> · 
+                Maintained by <a href="https://github.com/miclover0" target="_blank">@miclover0</a>
+            </p>
         </div>
-        </div>
-    </div>
-    <div class="group-section">
-        <div class="group-header">
-            <h2 class="group-title">B组</h2>
-            <span class="group-desc">端云协同强相关</span>
-        </div>
-        <div class="paper-list">
-        <div class="paper-card">
-            <div class="paper-header">
-                <h3 class="paper-title"><a href="https://doi.org/10.3390/jimaging8080205" target="_blank">Brain Tumor Diagnosis Using Machine Learning, Convolutional Neural Networks, Capsule Neural Networks and Vision Transformers, Applied to MRI: A Survey</a></h3>
-                <div class="paper-meta">
-                    <span class="paper-year">2022</span>
-                    <span class="paper-venue">Journal of Imaging</span>
-                    <span class="paper-cite">cited: 143</span>
-                    <span class="paper-cat">Journal of Imaging</span>
-                </div>
-            </div>
-            <div class="paper-authors">Andronicus A. Akinyelu · Fulvio Zaccagna · James T. Grist · Mauro Castelli · Leonardo Rundo</div>
-            <p class="paper-abstract">Management of brain tumors is based on clinical and radiological information with presumed grade dictating treatment. Hence, a non-invasive assessment of tumor grade is of paramount importance to choose the best treatment plan. Convolutional Neural Networks (CNNs) represent one of the effective Deep Learning (DL)-based techniques that have been use...</p>
-            <div class="paper-actions">
-                <a href="https://doi.org/10.3390/jimaging8080205" target="_blank">Paper</a>
-                <a href="https://www.mdpi.com/2313-433X/8/8/205/pdf?version=1658731086" target="_blank">PDF</a>
-            </div>
-        </div>
-        <div class="paper-card">
-            <div class="paper-header">
-                <h3 class="paper-title"><a href="https://doi.org/10.1016/j.comcom.2023.09.030" target="_blank">Untargeted white-box adversarial attack with heuristic defence methods in real-time deep learning based network intrusion detection system</a></h3>
-                <div class="paper-meta">
-                    <span class="paper-year">2023</span>
-                    <span class="paper-venue">Computer Communications</span>
-                    <span class="paper-cite">cited: 63</span>
-                    <span class="paper-cat">Computer Communications</span>
-                </div>
-            </div>
-            <div class="paper-authors">Khushnaseeb Roshan · Aasim Zafar · Shiekh Burhan Ul Haque</div>
-            <p class="paper-abstract">Untargeted white-box adversarial attack with heuristic defence methods in real-time deep learning based network intrusion detection system</p>
-            <div class="paper-actions">
-                <a href="https://doi.org/10.1016/j.comcom.2023.09.030" target="_blank">Paper</a>
-                <a href="https://arxiv.org/pdf/2310.03334" target="_blank">PDF</a>
-            </div>
-        </div>
-        <div class="paper-card">
-            <div class="paper-header">
-                <h3 class="paper-title"><a href="https://doi.org/10.3390/nano14010111" target="_blank">Review of Gold Nanoparticles in Surface Plasmon-Coupled Emission Technology: Effect of Shape, Hollow Nanostructures, Nano-Assembly, Metal–Dielectric and Heterometallic Nanohybrids</a></h3>
-                <div class="paper-meta">
-                    <span class="paper-year">2024</span>
-                    <span class="paper-venue">Nanomaterials</span>
-                    <span class="paper-cite">cited: 43</span>
-                    <span class="paper-cat">Nanomaterials</span>
-                </div>
-            </div>
-            <div class="paper-authors">Kalathur Mohan Ganesh · Seemesh Bhaskar · Vijay Sai Krishna Cheerala · Prajwal Battampara · Roopa Reddy</div>
-            <p class="paper-abstract">Point-of-care (POC) diagnostic platforms are globally employed in modern smart technologies to detect events or changes in the analyte concentration and provide qualitative and quantitative information in biosensing. Surface plasmon-coupled emission (SPCE) technology has emerged as an effective POC diagnostic tool for developing robust biosensing f...</p>
-            <div class="paper-actions">
-                <a href="https://doi.org/10.3390/nano14010111" target="_blank">Paper</a>
-                <a href="https://www.mdpi.com/2079-4991/14/1/111/pdf?version=1704187440" target="_blank">PDF</a>
-            </div>
-        </div>
-        <div class="paper-card">
-            <div class="paper-header">
-                <h3 class="paper-title"><a href="https://doi.org/10.3390/smartcities7030044" target="_blank">Smart Cities for All? Bridging Digital Divides for Socially Sustainable and Inclusive Cities</a></h3>
-                <div class="paper-meta">
-                    <span class="paper-year">2024</span>
-                    <span class="paper-venue">Smart Cities</span>
-                    <span class="paper-cite">cited: 42</span>
-                    <span class="paper-cat">Smart Cities</span>
-                </div>
-            </div>
-            <div class="paper-authors">Johan Colding · Caroline Nilsson · Stefan Sjöberg</div>
-            <p class="paper-abstract">This paper aims to emphasize the need for enhancing inclusivity and accessibility within smart-city societies. It represents the first attempt to apply Amartya Sen’s capability approach by exploring the implications of digital divides for promoting inclusive and climate-friendly cities that prioritize well-being, equity, and societal participation....</p>
-            <div class="paper-actions">
-                <a href="https://doi.org/10.3390/smartcities7030044" target="_blank">Paper</a>
-                <a href="https://www.mdpi.com/2624-6511/7/3/44/pdf?version=1714723381" target="_blank">PDF</a>
-            </div>
-        </div>
-        <div class="paper-card">
-            <div class="paper-header">
-                <h3 class="paper-title"><a href="https://doi.org/10.1016/j.iot.2023.101030" target="_blank">Spatio-temporal semantic data management systems for IoT in agriculture 5.0: Challenges and future directions</a></h3>
-                <div class="paper-meta">
-                    <span class="paper-year">2023</span>
-                    <span class="paper-venue">Internet of Things</span>
-                    <span class="paper-cite">cited: 38</span>
-                    <span class="paper-cat">Internet of Things</span>
-                </div>
-            </div>
-            <div class="paper-authors">Mario San Emeterio de la Parte · José-Fernán Martí­nez-Ortega · Pedro Castillejo · Néstor Lucas Martínez</div>
-            <p class="paper-abstract">The Agri-Food sector is in a stressful situation due to the high demand for food from the growing population around the world. The agricultural sector is facing a challenging situation; it must increase production and reduce its impact on the environment by appropriately allocating resources, adapting to climate change, and avoiding food waste. Agr...</p>
-            <div class="paper-actions">
-                <a href="https://doi.org/10.1016/j.iot.2023.101030" target="_blank">Paper</a>
-                <a href="" target="_blank">PDF</a>
-            </div>
-        </div>
-        <div class="paper-card">
-            <div class="paper-header">
-                <h3 class="paper-title"><a href="https://doi.org/10.1016/j.heliyon.2024.e29916" target="_blank">A comprehensive review on internet of things task offloading in multi-access edge computing</a></h3>
-                <div class="paper-meta">
-                    <span class="paper-year">2024</span>
-                    <span class="paper-venue">Heliyon</span>
-                    <span class="paper-cite">cited: 25</span>
-                    <span class="paper-cat">Heliyon</span>
-                </div>
-            </div>
-            <div class="paper-authors">Wang Dayong · Kamalrulnizam Bin Abu Bakar · Babangida Isyaku · Taiseer Abdalla Elfadil Eisa · Abdelzahir Abdelmaboud</div>
-            <p class="paper-abstract">With the rapid development of Internet of Things (IoT) technology, Terminal Devices (TDs) are more inclined to offload computing tasks to higher-performance computing servers, thereby solving the problems of insufficient computing capacity and rapid battery consumption of TD. The emergence of Multi-access Edge Computing (MEC) technology provides ne...</p>
-            <div class="paper-actions">
-                <a href="https://doi.org/10.1016/j.heliyon.2024.e29916" target="_blank">Paper</a>
-                <a href="" target="_blank">PDF</a>
-            </div>
-        </div>
-        <div class="paper-card">
-            <div class="paper-header">
-                <h3 class="paper-title"><a href="https://doi.org/10.3390/smartcities8010023" target="_blank">Integrating Social Dimensions into Urban Digital Twins: A Review and Proposed Framework for Social Digital Twins</a></h3>
-                <div class="paper-meta">
-                    <span class="paper-year">2025</span>
-                    <span class="paper-venue">Smart Cities</span>
-                    <span class="paper-cite">cited: 23</span>
-                    <span class="paper-cat">Smart Cities</span>
-                </div>
-            </div>
-            <div class="paper-authors">Saleh Qanazi · Éric Leclerc · Pauline Bosredon</div>
-            <p class="paper-abstract">The rapid evolution of smart city technologies has expanded digital twin (DT) applications from industrial to urban contexts. However, current urban digital twins (UDTs) remain predominantly focused on the physical aspects of urban environments (“spaces”), often overlooking the interwoven social dimensions that shape the concept of “place”. This li...</p>
-            <div class="paper-actions">
-                <a href="https://doi.org/10.3390/smartcities8010023" target="_blank">Paper</a>
-                <a href="https://www.mdpi.com/2624-6511/8/1/23/pdf" target="_blank">PDF</a>
-            </div>
-        </div>
-        <div class="paper-card">
-            <div class="paper-header">
-                <h3 class="paper-title"><a href="https://doi.org/10.32628/ijsrst2302542" target="_blank">Exploring SAFe Framework Adoption for Autism-Centered Remote Engineering with Secure CI/CD and Containerized Microservices Deployment</a></h3>
-                <div class="paper-meta">
-                    <span class="paper-year">2023</span>
-                    <span class="paper-venue">International Journal of Scientific Research in Science and Technology</span>
-                    <span class="paper-cite">cited: 11</span>
-                    <span class="paper-cat">International Journal of Scientific Research in Science and Technology</span>
-                </div>
-            </div>
-            <div class="paper-authors">Martina Ononiwu · Tony Isioma Azonuche · Paul Okugo Imoh · Joy Onma Enyejo</div>
-            <p class="paper-abstract">This review paper investigates the adoption of the Scaled Agile Framework (SAFe) in developing autism-centered remote engineering environments, emphasizing the integration of secure continuous integration/continuous delivery (CI/CD) pipelines and containerized microservices. As neurodiverse teams gain visibility in distributed software development,...</p>
-            <div class="paper-actions">
-                <a href="https://doi.org/10.32628/ijsrst2302542" target="_blank">Paper</a>
-                <a href="https://ijsrst.com/paper/13929.pdf" target="_blank">PDF</a>
-            </div>
-        </div>
-        </div>
-    </div>
-    <div class="group-section">
-        <div class="group-header">
-            <h2 class="group-title">C组</h2>
-            <span class="group-desc">其他 AI 相关</span>
-        </div>
-        <div class="paper-list">
-        <div class="paper-card">
-            <div class="paper-header">
-                <h3 class="paper-title"><a href="https://doi.org/10.3389/fnins.2021.642251" target="_blank">Decoding Covert Speech From EEG-A Comprehensive Review</a></h3>
-                <div class="paper-meta">
-                    <span class="paper-year">2021</span>
-                    <span class="paper-venue">Frontiers in Neuroscience</span>
-                    <span class="paper-cite">cited: 147</span>
-                    <span class="paper-cat">Frontiers in Neuroscience</span>
-                </div>
-            </div>
-            <div class="paper-authors">Jerrin Thomas Panachakel · Angarai Ganesan Ramakrishnan</div>
-            <p class="paper-abstract">Over the past decade, many researchers have come up with different implementations of systems for decoding covert or imagined speech from EEG (electroencephalogram). They differ from each other in several aspects, from data acquisition to machine learning algorithms, due to which, a comparison between different implementations is often difficult. T...</p>
-            <div class="paper-actions">
-                <a href="https://doi.org/10.3389/fnins.2021.642251" target="_blank">Paper</a>
-                <a href="https://www.frontiersin.org/articles/10.3389/fnins.2021.642251/pdf" target="_blank">PDF</a>
-            </div>
-        </div>
-        <div class="paper-card">
-            <div class="paper-header">
-                <h3 class="paper-title"><a href="https://doi.org/10.3390/jimaging8080205" target="_blank">Brain Tumor Diagnosis Using Machine Learning, Convolutional Neural Networks, Capsule Neural Networks and Vision Transformers, Applied to MRI: A Survey</a></h3>
-                <div class="paper-meta">
-                    <span class="paper-year">2022</span>
-                    <span class="paper-venue">Journal of Imaging</span>
-                    <span class="paper-cite">cited: 143</span>
-                    <span class="paper-cat">Journal of Imaging</span>
-                </div>
-            </div>
-            <div class="paper-authors">Andronicus A. Akinyelu · Fulvio Zaccagna · James T. Grist · Mauro Castelli · Leonardo Rundo</div>
-            <p class="paper-abstract">Management of brain tumors is based on clinical and radiological information with presumed grade dictating treatment. Hence, a non-invasive assessment of tumor grade is of paramount importance to choose the best treatment plan. Convolutional Neural Networks (CNNs) represent one of the effective Deep Learning (DL)-based techniques that have been use...</p>
-            <div class="paper-actions">
-                <a href="https://doi.org/10.3390/jimaging8080205" target="_blank">Paper</a>
-                <a href="https://www.mdpi.com/2313-433X/8/8/205/pdf?version=1658731086" target="_blank">PDF</a>
-            </div>
-        </div>
-        <div class="paper-card">
-            <div class="paper-header">
-                <h3 class="paper-title"><a href="https://doi.org/10.1007/s10668-023-03361-3" target="_blank">Green finance in circular economy: a literature review</a></h3>
-                <div class="paper-meta">
-                    <span class="paper-year">2023</span>
-                    <span class="paper-venue">Environment Development and Sustainability</span>
-                    <span class="paper-cite">cited: 130</span>
-                    <span class="paper-cat">Environment Development and Sustainability</span>
-                </div>
-            </div>
-            <div class="paper-authors">Bhavesh Kumar · Love Kumar · Avinash Kumar · Ramna Kumari · Uroosa Tagar</div>
-            <p class="paper-abstract">Green finance in circular economy: a literature review</p>
-            <div class="paper-actions">
-                <a href="https://doi.org/10.1007/s10668-023-03361-3" target="_blank">Paper</a>
-                <a href="https://link.springer.com/content/pdf/10.1007/s10668-023-03361-3.pdf" target="_blank">PDF</a>
-            </div>
-        </div>
-        <div class="paper-card">
-            <div class="paper-header">
-                <h3 class="paper-title"><a href="https://doi.org/10.3390/su151310462" target="_blank">The Role of BIM in Integrating Digital Twin in Building Construction: A Literature Review</a></h3>
-                <div class="paper-meta">
-                    <span class="paper-year">2023</span>
-                    <span class="paper-venue">Sustainability</span>
-                    <span class="paper-cite">cited: 91</span>
-                    <span class="paper-cat">Sustainability</span>
-                </div>
-            </div>
-            <div class="paper-authors">Tran Duong Nguyen · Sanjeev Adhikari</div>
-            <p class="paper-abstract">Today, construction is essential to every economy since it employs many workers and significantly contributes to GDP. The construction industry’s efficiency has lagged behind other industries for decades due to low productivity, a lack of research, and poor adoption of advancements. Fortunately, the successful development of digital technologies su...</p>
-            <div class="paper-actions">
-                <a href="https://doi.org/10.3390/su151310462" target="_blank">Paper</a>
-                <a href="https://www.mdpi.com/2071-1050/15/13/10462/pdf?version=1688376590" target="_blank">PDF</a>
-            </div>
-        </div>
-        <div class="paper-card">
-            <div class="paper-header">
-                <h3 class="paper-title"><a href="https://doi.org/10.1038/s41598-024-69316-4" target="_blank">Development of machine learning models for forecasting the strength of resilient modulus of subgrade soil: genetic and artificial neural network approaches</a></h3>
-                <div class="paper-meta">
-                    <span class="paper-year">2024</span>
-                    <span class="paper-venue">Scientific Reports</span>
-                    <span class="paper-cite">cited: 29</span>
-                    <span class="paper-cat">Scientific Reports</span>
-                </div>
-            </div>
-            <div class="paper-authors">Laiba Khawaja · Usama Asif · Kennedy C. Onyelowe · Abdullah F. Al Asmari · Daud Khan</div>
-            <p class="paper-abstract">Accurately predicting the Modulus of Resilience (MR) of subgrade soils, which exhibit non-linear stress–strain behaviors, is crucial for effective soil assessment. Traditional laboratory techniques for determining MR are often costly and time-consuming. This study explores the efficacy of Genetic Programming (GEP), Multi-Expression Programming (MEP...</p>
-            <div class="paper-actions">
-                <a href="https://doi.org/10.1038/s41598-024-69316-4" target="_blank">Paper</a>
-                <a href="https://www.nature.com/articles/s41598-024-69316-4.pdf" target="_blank">PDF</a>
-            </div>
-        </div>
-        <div class="paper-card">
-            <div class="paper-header">
-                <h3 class="paper-title"><a href="https://doi.org/10.3390/s25092952" target="_blank">Research Progress on Data-Driven Industrial Fault Diagnosis Methods</a></h3>
-                <div class="paper-meta">
-                    <span class="paper-year">2025</span>
-                    <span class="paper-venue">Sensors</span>
-                    <span class="paper-cite">cited: 11</span>
-                    <span class="paper-cat">Sensors</span>
-                </div>
-            </div>
-            <div class="paper-authors">Liang Lei · Weibin Li · Shiwei Zhang · Changyuan Wu · Hongxiang Yu</div>
-            <p class="paper-abstract">With the advent of Industry 5.0, fault diagnosis is playing an increasingly important role in routine equipment maintenance and condition monitoring. From the perspective of industrial big data, this paper systematically reviews the current mainstream industrial fault diagnosis methods. The content covers the main sources of industrial big data, co...</p>
-            <div class="paper-actions">
-                <a href="https://doi.org/10.3390/s25092952" target="_blank">Paper</a>
-                <a href="https://www.mdpi.com/1424-8220/25/9/2952/pdf?version=1746682756" target="_blank">PDF</a>
-            </div>
-        </div>
-        <div class="paper-card">
-            <div class="paper-header">
-                <h3 class="paper-title"><a href="https://doi.org/10.3390/app132413345" target="_blank">Study on Imagery Modeling of Electric Recliner Chair: Based on Combined GRA and Kansei Engineering</a></h3>
-                <div class="paper-meta">
-                    <span class="paper-year">2023</span>
-                    <span class="paper-venue">Applied Sciences</span>
-                    <span class="paper-cite">cited: 10</span>
-                    <span class="paper-cat">Applied Sciences</span>
-                </div>
-            </div>
-            <div class="paper-authors">Chengmin Zhou · Lansong Jiang · Jake Kaner</div>
-            <p class="paper-abstract">This study aims to integrate data-driven methodologies with user perception to establish a robust design paradigm. The study consists of five steps: (1) theoretical research—a review of the subject background and applications of Kansei engineering and gray relational analysis (GRA); (2) algorithmic framework research—the discussion delves into the ...</p>
-            <div class="paper-actions">
-                <a href="https://doi.org/10.3390/app132413345" target="_blank">Paper</a>
-                <a href="https://www.mdpi.com/2076-3417/13/24/13345/pdf?version=1702904534" target="_blank">PDF</a>
-            </div>
-        </div>
-        <div class="paper-card">
-            <div class="paper-header">
-                <h3 class="paper-title"><a href="https://doi.org/10.4236/ce.2024.153028" target="_blank">Designing the Future: A Case Study on Human-AI Co-Innovation</a></h3>
-                <div class="paper-meta">
-                    <span class="paper-year">2024</span>
-                    <span class="paper-venue">Creative Education</span>
-                    <span class="paper-cite">cited: 9</span>
-                    <span class="paper-cat">Creative Education</span>
-                </div>
-            </div>
-            <div class="paper-authors">Jen-Feng Chen · Chien-Chih Ni · Po-Hsien Lin · Rungtai Lin</div>
-            <p class="paper-abstract">Artificial intelligence (AI) has sparked widespread discussion across various sectors globally while triggering a transformation in the design industry. In recent years, the evolution of AI has started to reshape how people work and live. As such, the human-robot collaboration model is gradually emerging as a pivotal force driving innovation and bo...</p>
-            <div class="paper-actions">
-                <a href="https://doi.org/10.4236/ce.2024.153028" target="_blank">Paper</a>
-                <a href="http://www.scirp.org/journal/PaperDownload.aspx?paperID=132283" target="_blank">PDF</a>
-            </div>
-        </div>
-        </div>
-    </div>
-        </div>
-        <footer>
-            QClaw 自动生成 & 推送 · 数据来源: <a href="https://openalex.org" target="_blank">OpenAlex</a><br>
-            <a href="https://github.com/miclover0/paper-daily" target="_blank">miclover0/paper-daily</a>
-        </footer>
-    </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // ========== Theme Toggle ==========
+        const THEME_KEY = 'vid-archive-theme';
+        
+        function toggleTheme() {
+            const body = document.body;
+            const icon = document.getElementById('theme-icon');
+            
+            if (body.getAttribute('data-theme') === 'light') {
+                body.removeAttribute('data-theme');
+                icon.textContent = '🌙';
+                localStorage.setItem(THEME_KEY, 'dark');
+            } else {
+                body.setAttribute('data-theme', 'light');
+                icon.textContent = '☀️';
+                localStorage.setItem(THEME_KEY, 'light');
+            }
+        }
+
+        // Initialize theme
+        if (localStorage.getItem(THEME_KEY) === 'light') {
+            document.body.setAttribute('data-theme', 'light');
+            document.getElementById('theme-icon').textContent = '☀️';
+        }
+
+        // ========== Utility Functions ==========
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        function getTagStyle(tag, config) {
+            const tagConfig = config.tagColors[tag] || config.tagColors['default'];
+            return `background: ${tagConfig.bg}; color: ${tagConfig.text};`;
+        }
+
+        function getGroupStyle(group, config) {
+            const groupConfig = config.groupColors[group];
+            return `background: ${groupConfig.bg}; color: ${groupConfig.text};`;
+        }
+
+        // ========== Render Featured Papers ==========
+        function renderFeaturedPapers(config) {
+            const container = document.getElementById('featured-container');
+            const allFeatured = [];
+
+            config.dailyReports.forEach(day => {
+                day.featuredPapers.forEach(paper => {
+                    allFeatured.push({
+                        ...paper,
+                        date: day.date,
+                        dateDisplay: day.dateDisplay,
+                        filename: day.filename
+                    });
+                });
+            });
+
+            container.innerHTML = allFeatured.map((paper, index) => `
+                <a href="daily_reports/${paper.filename}" class="paper-card featured-card animate-in animate-delay-${index + 1}">
+                    <div class="card-header">
+                        <div class="card-date">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg>
+                            ${paper.date}
+                        </div>
+                        <span class="card-group">⭐ Featured</span>
+                    </div>
+                    <h3 class="card-title">${escapeHtml(paper.title)}</h3>
+                    <div class="card-tags">
+                        ${paper.tags.map(tag => `<span class="card-tag" style="${getTagStyle(tag, config)}">${escapeHtml(tag)}</span>`).join('')}
+                    </div>
+                    <p class="card-summary">${escapeHtml(paper.summary)}</p>
+                    <div class="card-highlights">
+                        ${paper.highlights.slice(0, 2).map(h => `<div class="card-highlight">${escapeHtml(h)}</div>`).join('')}
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-authors">${escapeHtml(paper.authors)} · ${paper.venue}</span>
+                        <div class="card-arrow">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                </a>
+            `).join('');
+        }
+
+        // ========== Render All Papers ==========
+        function renderAllPapers(config) {
+            const container = document.getElementById('papers-container');
+            const allPapers = [];
+
+            config.dailyReports.forEach(day => {
+                day.papers.forEach(paper => {
+                    allPapers.push({
+                        ...paper,
+                        date: day.date,
+                        dateDisplay: day.dateDisplay,
+                        filename: day.filename
+                    });
+                });
+            });
+
+            document.getElementById('papers-count').textContent = `${allPapers.length} papers`;
+
+            container.innerHTML = allPapers.map((paper, index) => `
+                <a href="daily_reports/${paper.filename}" class="paper-card animate-in" style="animation-delay: ${index * 50}ms">
+                    <div class="card-header">
+                        <div class="card-date">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg>
+                            ${paper.date}
+                        </div>
+                        <span class="card-group" style="${getGroupStyle(paper.group, config)}">${paper.group}</span>
+                    </div>
+                    <h3 class="card-title">${escapeHtml(paper.title)}</h3>
+                    <div class="card-tags">
+                        ${paper.tags.map(tag => `<span class="card-tag" style="${getTagStyle(tag, config)}">${escapeHtml(tag)}</span>`).join('')}
+                    </div>
+                    <p class="card-summary">${escapeHtml(paper.summary)}</p>
+                    <div class="card-highlights">
+                        ${paper.highlights.slice(0, 2).map(h => `<div class="card-highlight">${escapeHtml(h)}</div>`).join('')}
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-authors">${escapeHtml(paper.authors.slice(0, 2).join(', '))}</span>
+                        <div class="card-arrow">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                </a>
+            `).join('');
+        }
+
+        // ========== Render Archives ==========
+        function renderArchives(config) {
+            const container = document.getElementById('archives-container');
+            document.getElementById('archives-count').textContent = `${config.dailyReports.length} archives`;
+
+            container.innerHTML = config.dailyReports.map((day, index) => `
+                <a href="daily_reports/${day.filename}" class="archive-item animate-in" style="animation-delay: ${index * 100}ms">
+                    <div class="archive-date">${day.date}</div>
+                    <div class="archive-info">
+                        <div class="archive-day">${day.weekday} · ${day.dateDisplay}</div>
+                    </div>
+                    <span class="archive-count">${day.paperCount} papers</span>
+                </a>
+            `).join('');
+        }
+
+        // ========== Initialize ==========
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof PAPER_ARCHIVE_CONFIG !== 'undefined') {
+                const config = PAPER_ARCHIVE_CONFIG;
+                
+                // Update stats
+                document.getElementById('stat-papers').textContent = config.meta.totalPapers;
+                document.getElementById('stat-days').textContent = config.meta.totalDays;
+                document.getElementById('stat-updated').textContent = config.meta.lastUpdated.split('-').slice(1).join('/');
+
+                // Render sections
+                renderFeaturedPapers(config);
+                renderAllPapers(config);
+                renderArchives(config);
+
+                console.log('📚 Vision Intelligence Daily Archive loaded successfully');
+            } else {
+                console.error('❌ Failed to load config.js');
+            }
+        });
+    </script>
 </body>
 </html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>论文日报 2026-05-30</title>
+<style>
+:root{--bg:#fff;--bg2:#f8fafc;--card:#fff;--t1:#1e293b;--t2:#64748b;--tm:#94a3b8;--bd:#e2e8f0;--ac:#2563eb;--acl:#dbeafe;--sh:0 1px 3px rgba(0,0,0,.1);--sh2:0 4px 12px rgba(0,0,0,.08)}
+[data-theme="dark"]{--bg:#0f172a;--bg2:#1e293b;--card:#1e293b;--t1:#f1f5f9;--t2:#94a3b8;--tm:#64748b;--bd:#334155;--acl:#1e3a5f;--sh:0 1px 3px rgba(0,0,0,.3);--sh2:0 4px 12px rgba(0,0,0,.3)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--t1);line-height:1.6;max-width:860px;margin:0 auto;padding:20px}
+.header{display:flex;align-items:center;justify-content:space-between;padding:20px 0;border-bottom:1px solid var(--bd);margin-bottom:32px;position:sticky;top:0;background:var(--bg);z-index:10}
+.logo{font-size:22px;font-weight:700}.logo span{color:var(--ac)}
+.date-badge{background:var(--acl);color:var(--ac);padding:4px 14px;border-radius:20px;font-size:13px;font-weight:500}
+.theme-btn{background:var(--bg2);border:1px solid var(--bd);border-radius:8px;padding:6px 12px;cursor:pointer;color:var(--t2);font-size:13px}
+.stats{display:flex;gap:12px;margin-bottom:24px;font-size:13px;flex-wrap:wrap}
+.stats span{padding:4px 12px;border-radius:8px;font-weight:500}
+.stats .sa{background:#dbeafe;color:#1d4ed8}.stats .sb{background:#dcfce7;color:#15803d}.stats .sc{background:#e0e7ff;color:#4338ca}
+[data-theme="dark"] .stats .sa{background:#1e3a5f;color:#93c5fd}[data-theme="dark"] .stats .sb{background:#14532d;color:#86efac}[data-theme="dark"] .stats .sc{background:#312e81;color:#a5b4fc}
+.section{margin-bottom:40px}
+.section-title{font-size:18px;font-weight:600;padding:12px 16px;border-radius:10px;margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.section-title.A{background:#dbeafe;color:#1d4ed8}.section-title.B{background:#dcfce7;color:#15803d}.section-title.C{background:#e0e7ff;color:#4338ca}
+[data-theme="dark"] .section-title.A{background:#1e3a5f;color:#93c5fd}[data-theme="dark"] .section-title.B{background:#14532d;color:#86efac}[data-theme="dark"] .section-title.C{background:#312e81;color:#a5b4fc}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:20px;margin-bottom:16px;transition:box-shadow .2s}
+.card:hover{box-shadow:var(--sh2);border-color:var(--ac)}
+.card-head{display:flex;align-items:flex-start;gap:10px;margin-bottom:12px}
+.card-label{padding:3px 8px;border-radius:6px;font-size:12px;font-weight:600;flex-shrink:0}
+.card-label.A{background:#dbeafe;color:#1d4ed8}.card-label.B{background:#dcfce7;color:#15803d}.card-label.C{background:#e0e7ff;color:#4338ca}
+[data-theme="dark"] .card-label.A{background:#1e3a5f;color:#93c5fd}[data-theme="dark"] .card-label.B{background:#14532d;color:#86efac}[data-theme="dark"] .card-label.C{background:#312e81;color:#a5b4fc}
+.card-title{font-size:15px;font-weight:600;line-height:1.4}
+.card-meta{display:flex;flex-wrap:wrap;gap:12px;font-size:12px;color:var(--t2);margin-bottom:12px}
+.card-body{background:var(--bg2);border-radius:8px;padding:14px;margin-bottom:12px}
+.card-body-title{font-size:11px;font-weight:600;color:var(--tm);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
+.card-summary{font-size:14px;color:var(--t2);line-height:1.7}
+ul.innov{list-style:none}ul.innov li{font-size:13px;color:var(--t2);padding:4px 0 4px 16px;position:relative}ul.innov li::before{content:"";position:absolute;left:0;top:12px;width:5px;height:5px;border-radius:50%;background:var(--ac)}
+.card-footer{display:flex;justify-content:flex-end}
+.card-link{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;background:var(--ac);color:#fff;text-decoration:none;border-radius:8px;font-size:12px;font-weight:500}.card-link:hover{opacity:.9}
+.footer{text-align:center;padding:32px 0;color:var(--tm);font-size:12px;border-top:1px solid var(--bd);margin-top:32px}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="logo">论文<span>日报</span></div>
+  <div style="display:flex;align-items:center;gap:12px">
+    <span class="date-badge">2026-05-30</span>
+    <button class="theme-btn" onclick="toggleTheme()" id="themeBtn">&#127769;</button>
+  </div>
+</div>
+<div class="stats">
+  <span class="sa">A组 · 目标检测强相关 (5篇)</span>
+  <span class="sb">B组 · 端云协同 (5篇)</span>
+  <span class="sc">C组 · 其他AI相关 (5篇)</span>
+</div>
+<p style="font-size:13px;color:var(--t2);margin-bottom:24px">共收集 158 篇 arXiv 论文，精选 15 篇</p>
+<section class="section"><div class="section-title A">A组 · 目标检测强相关</div>
+
+<div class="card">
+  <div class="card-head"><span class="card-label A">A1</span><h3 class="card-title">Ultra-Light Test-Time Adaptation for Vision--Language Models</h3></div>
+  <div class="card-meta"><span>&#128197; 2025-11-12</span><span>&#128101; Byunghyun Kim</span><span>&#127991;&#65039; CoTTA, VLM, domain adaptation</span></div>
+  <div class="card-body"><div class="card-body-title">&#128221; 中文摘要</div><p class="card-summary">本文提出UL-TTA，一种完全无需训练和反向传播的VLM测试时自适应框架。该方法冻结backbone，仅在线调整logit层参数（类别原型、类别先验和温度），通过选择性样本过滤、贝叶斯闭式更新和解耦温度校准实现域偏移下的鲁棒适应。在726K测试样本的大规模基准上，top-1准确率平均提升4.7%，ECE降低20-30%，延迟开销不到8%。</p></div>
+  <div class="card-body"><div class="card-body-title">&#128161; 创新点</div><ul class="innov"><li>提出完全无需反向传播的logit级贝叶斯测试时自适应方法</li><li>通过EM风格在线更新类别原型和先验，配合选择性样本过滤防止漂移</li><li>在200K长流数据上无崩溃，推理延迟仅增加8%</li></ul></div>
+  <div class="card-footer"><a class="card-link" href="https://arxiv.org/pdf/2511.09101v1" target="_blank">&#128196; PDF</a></div>
+</div>
+<div class="card">
+  <div class="card-head"><span class="card-label A">A2</span><h3 class="card-title">Test-Time Distillation for Continual Model Adaptation (CoDiRe)</h3></div>
+  <div class="card-meta"><span>&#128197; 2025-06-03</span><span>&#128101; Xiao Chen, Jiazhen Huang, Zhiming Liu</span><span>&#127991;&#65039; CoTTA, VLM, test-time adaptation</span></div>
+  <div class="card-body"><div class="card-body-title">&#128221; 中文摘要</div><p class="card-summary">本文将测试时自适应重新定义为蒸馏过程，以冻结的VLM作为外部监督信号，解决自监督TTA方法中的自指反馈循环和模型漂移问题。提出CoDiRe框架，通过MSP置信度加权动态融合VLM和目标模型预测，并利用最优传输对齐实现持续稳定适应。在ImageNet-C上超越CoTTA 10.55%，时间成本仅为其48%。</p></div>
+  <div class="card-body"><div class="card-body-title">&#128161; 创新点</div><ul class="innov"><li>提出以VLM为教师模型的测试时蒸馏范式，避免自监督漂移</li><li>通过MSP置信度加权解决异构模型的校准差异（Entropy Bias）</li><li>最优传输对齐实现持续蒸馏修正，性能超越CoTTA同时耗时减半</li></ul></div>
+  <div class="card-footer"><a class="card-link" href="https://arxiv.org/pdf/2506.02671v3" target="_blank">&#128196; PDF</a></div>
+</div>
+<div class="card">
+  <div class="card-head"><span class="card-label A">A3</span><h3 class="card-title">Grounded 3D-Aware Spatial Vision-Language Modeling (GR3D)</h3></div>
+  <div class="card-meta"><span>&#128197; 2026-05-28</span><span>&#128101; An-Chieh Cheng, Yang Fu, Yatai Ji</span><span>&#127991;&#65039; VLM, 3D grounding, spatial understanding</span></div>
+  <div class="card-body"><div class="card-body-title">&#128221; 中文摘要</div><p class="card-summary">本文提出GR3D，一个统一三种定位能力的空间视觉语言模型：显式2D定位、隐式2D定位和单目3D定位。核心创新在于隐式定位机制，在生成过程中自动识别实体提及并插入区域token，使模型能边推理边引用视觉证据。配合区域提示的单目3D定位设计，实现从2D感知到3D推理的分层空间理解。</p></div>
+  <div class="card-body"><div class="card-body-title">&#128161; 创新点</div><ul class="innov"><li>统一显式/隐式2D定位和单目3D定位于单一VLM框架</li><li>隐式定位机制允许模型在生成时动态引用视觉区域token</li><li>通过2D感知+3D推理的分层策略增强空间理解，跨基准一致性提升</li></ul></div>
+  <div class="card-footer"><a class="card-link" href="https://arxiv.org/pdf/2605.30307v1" target="_blank">&#128196; PDF</a></div>
+</div>
+<div class="card">
+  <div class="card-head"><span class="card-label A">A4</span><h3 class="card-title">YoCausal: How Far is Video Generation from World Model? A Causality Perspective</h3></div>
+  <div class="card-meta"><span>&#128197; 2026-05-28</span><span>&#128101; You-Zhe Xie, Yu-Hsuan Li, Jie-Ying Lee</span><span>&#127991;&#65039; world model, video generation, causality</span></div>
+  <div class="card-body"><div class="card-body-title">&#128221; 中文摘要</div><p class="card-summary">本文从因果推理视角评估视频扩散模型（VDM）是否真正理解因果关系。提出YoCausal双层基准：Level 1通过时间反转视频作为零成本反事实样本，用RSI指标量化时间箭头感知；Level 2借助VLM将数据集分为因果/非因果子集，用CCI指标解耦真实因果推理与时间偏见。对13个SOTA VDM的评估发现感知时间方向不等同于理解因果。</p></div>
+  <div class="card-body"><div class="card-body-title">&#128161; 创新点</div><ul class="innov"><li>利用视频时间反转作为零成本自然反事实样本的创新评估协议</li><li>提出RSI和CCI双层级指标，解耦时间感知与因果推理能力</li><li>揭示VDM在因果认知上与人类水平仍存在显著差距</li></ul></div>
+  <div class="card-footer"><a class="card-link" href="https://arxiv.org/pdf/2605.30346v1" target="_blank">&#128196; PDF</a></div>
+</div>
+<div class="card">
+  <div class="card-head"><span class="card-label A">A5</span><h3 class="card-title">World Models in Words: Auditing Physical State-Transition Commitments in VLMs</h3></div>
+  <div class="card-meta"><span>&#128197; 2026-05-28</span><span>&#128101; Emmanuelle Bourigault</span><span>&#127991;&#65039; VLM, world model, physical reasoning</span></div>
+  <div class="card-body"><div class="card-body-title">&#128221; 中文摘要</div><p class="card-summary">本文提出一个评估框架，审计VLM在物理场景问答中表达的语言级物理承诺。不同于仅评分最终答案的评测，该方法要求模型输出结构化追踪(I,q→(s₀,Δs,s₁,a))：初始状态、状态转移、结果状态和答案，再由混合验证器检查模式有效性、状态锚定、转移一致性和答案兼容性。发现中层模型35%的正确答案实际上基于物理无效的推理过程。</p></div>
+  <div class="card-body"><div class="card-body-title">&#128161; 创新点</div><ul class="innov"><li>提出结构化物理承诺追踪评测协议，超越纯答案准确率评估</li><li>混合验证器提供多维度错误标签（对象/关系/力/转移/时间等）</li><li>验证器引导重排序可恢复7%的追踪有效性，偏好调优减少41%隐藏不一致</li></ul></div>
+  <div class="card-footer"><a class="card-link" href="https://arxiv.org/pdf/2605.29585v1" target="_blank">&#128196; PDF</a></div>
+</div></section>
+<section class="section"><div class="section-title B">B组 · 端云协同</div>
+
+<div class="card">
+  <div class="card-head"><span class="card-label B">B1</span><h3 class="card-title">ESAM++: Efficient Online 3D Perception on the Edge</h3></div>
+  <div class="card-meta"><span>&#128197; 2026-05-28</span><span>&#128101; Qin Liu, Lavisha Aggarwal, Saptarashmi Bandyopadhyay</span><span>&#127991;&#65039; edge computing, 3D perception, efficient</span></div>
+  <div class="card-body"><div class="card-body-title">&#128221; 中文摘要</div><p class="card-summary">本文提出ESAM++，面向边缘设备的高效在线3D感知系统。通过轻量化网络架构和推理优化，在资源受限的边缘硬件上实现实时3D场景理解，包含目标检测、场景分割等任务。该方法将3D感知的计算复杂度大幅降低，使边缘端实时3D应用成为可能。</p></div>
+  <div class="card-body"><div class="card-body-title">&#128161; 创新点</div><ul class="innov"><li>针对边缘设备优化的高效3D感知架构</li><li>在资源受限条件下实现实时在线3D推理</li><li>支持端侧部署的多任务3D感知系统</li></ul></div>
+  <div class="card-footer"><a class="card-link" href="https://arxiv.org/pdf/2605.29505v1" target="_blank">&#128196; PDF</a></div>
+</div>
+<div class="card">
+  <div class="card-head"><span class="card-label B">B2</span><h3 class="card-title">FedSmoothLoRA: Toward Smoother and Faster Convergence in Federated Low-Rank Adaptation</h3></div>
+  <div class="card-meta"><span>&#128197; 2026-05-28</span><span>&#128101; Zehao Wang</span><span>&#127991;&#65039; federated learning, LoRA, distributed inference</span></div>
+  <div class="card-body"><div class="card-body-title">&#128221; 中文摘要</div><p class="card-summary">本文提出FedSmoothLoRA联邦微调框架，解决FedAvg+LoRA组合中的三大问题：有限更新空间、跨轮状态不匹配和客户端无关起始状态。通过Round-Matching矩阵保持跨轮局部状态连续性，Gradient-Aligned矩阵从本地数据梯度信号中提取客户端特定优化指导，共同实现更平滑更快的收敛。在图像分类和自然语言生成任务上一致超越现有联邦LoRA方法。</p></div>
+  <div class="card-body"><div class="card-body-title">&#128161; 创新点</div><ul class="innov"><li>提出Round-Matching和Gradient-Aligned双矩阵初始化策略</li><li>同时解决联邦LoRA的更新空间限制、状态不匹配和冷启动问题</li><li>在多任务基准上一致超越现有联邦LoRA微调方法</li></ul></div>
+  <div class="card-footer"><a class="card-link" href="https://arxiv.org/pdf/2605.29460v1" target="_blank">&#128196; PDF</a></div>
+</div>
+<div class="card">
+  <div class="card-head"><span class="card-label B">B3</span><h3 class="card-title">Fairness-Aware Federated Learning with Trajectory Shapley Value</h3></div>
+  <div class="card-meta"><span>&#128197; 2026-05-28</span><span>&#128101; Daniel Kuznetsov, Ziqi Wang</span><span>&#127991;&#65039; federated learning, fairness, aggregation</span></div>
+  <div class="card-body"><div class="card-body-title">&#128221; 中文摘要</div><p class="card-summary">本文提出轨迹Shapley值（TSV），一种评估联邦学习中各客户端贡献的新指标。TSV通过基于验证的时序一致效用函数，量化每个客户端对全局模型优化轨迹的影响。基于TSV设计FedTSV自适应聚合方法，将每轮评估转化为动态客户端权重，使服务器能实时响应异构和对抗性参与。实验表明FedTSV加速收敛、提高鲁棒性并实现更公平的贡献评估。</p></div>
+  <div class="card-body"><div class="card-body-title">&#128161; 创新点</div><ul class="innov"><li>提出基于优化轨迹的Shapley值贡献度量化方法TSV</li><li>动态权重聚合适应异构和对抗性客户端参与</li><li>为公平感知的联邦优化提供理论依据</li></ul></div>
+  <div class="card-footer"><a class="card-link" href="https://arxiv.org/pdf/2605.30336v1" target="_blank">&#128196; PDF</a></div>
+</div>
+<div class="card">
+  <div class="card-head"><span class="card-label B">B4</span><h3 class="card-title">Federated Learning over Human-Body Communication for On-Body Edge Intelligence</h3></div>
+  <div class="card-meta"><span>&#128197; 2026-05-22</span><span>&#128101; Koffka Khan</span><span>&#127991;&#65039; federated learning, edge intelligence, body communication</span></div>
+  <div class="card-body"><div class="card-body-title">&#128221; 中文摘要</div><p class="card-summary">本文系统综述了基于人体通信（HBC）的联邦学习在体表边缘智能中的应用。提出分类体系和BODYFED-HBC调度框架，探讨如何利用人体通信的低功耗、近距离特性，在可穿戴设备间实现高效的联邦模型训练。该框架面向健康监测、运动分析等边缘智能场景，为体域网中的协作学习提供新思路。</p></div>
+  <div class="card-body"><div class="card-body-title">&#128161; 创新点</div><ul class="innov"><li>首次系统综述HBC+联邦学习在体表边缘智能中的结合</li><li>提出BODYFED-HBC调度框架优化可穿戴设备间的协作训练</li><li>探索低功耗人体通信与隐私保护联邦学习的融合方案</li></ul></div>
+  <div class="card-footer"><a class="card-link" href="https://arxiv.org/pdf/2605.24062v1" target="_blank">&#128196; PDF</a></div>
+</div>
+<div class="card">
+  <div class="card-head"><span class="card-label B">B5</span><h3 class="card-title">OccamToken: Efficient VLM Inference with Training-Free and Budget-Adaptive Token Reduction</h3></div>
+  <div class="card-meta"><span>&#128197; 2026-05-28</span><span>&#128101; Weiming Huang, Yuqi Cheng, Yuhang Li</span><span>&#127991;&#65039; VLM, token pruning, efficient inference, edge</span></div>
+  <div class="card-body"><div class="card-body-title">&#128221; 中文摘要</div><p class="card-summary">本文提出OccamToken，一种无需训练的VLM推理加速方法。基于奥卡姆剃刀原则——简单输入不需要复杂处理——该方法通过预算自适应的token减少策略，在保持推理质量的前提下大幅降低VLM的计算开销。无需任何微调或额外训练即可适配不同部署预算，特别适合资源受限的边缘推理场景。</p></div>
+  <div class="card-body"><div class="card-body-title">&#128161; 创新点</div><ul class="innov"><li>提出基于奥卡姆剃刀原则的无需训练token减少方法</li><li>预算自适应机制适配不同计算资源约束的部署场景</li><li>在多个VLM上验证有效性，无需微调即可显著降低推理成本</li></ul></div>
+  <div class="card-footer"><a class="card-link" href="https://arxiv.org/pdf/2605.29657v1" target="_blank">&#128196; PDF</a></div>
+</div></section>
+<section class="section"><div class="section-title C">C组 · 其他AI相关</div>
+
+<div class="card">
+  <div class="card-head"><span class="card-label C">C1</span><h3 class="card-title">NeuROK: Generative 4D Neural Object Kinematics</h3></div>
+  <div class="card-meta"><span>&#128197; 2026-05-28</span><span>&#128101; Chen Geng, Guangzhao He, Yue Gao</span><span>&#127991;&#65039; generative, neural network, 4D</span></div>
+  <div class="card-body"><div class="card-body-title">&#128221; 中文摘要</div><p class="card-summary">本文提出NeuROK，一种基于生成模型的4D神经物体运动学表示方法。通过学习物体在4D时空中的运动先验，实现对刚体和非刚体物体动态的建模和生成。该方法将神经表示与物理运动学相结合，在4D物体重建和运动预测任务上展现了强大的泛化能力。</p></div>
+  <div class="card-body"><div class="card-body-title">&#128161; 创新点</div><ul class="innov"><li>提出4D时空中的生成式神经物体运动学表示</li><li>统一刚体/非刚体动态建模的框架</li><li>在4D物体重建和运动预测上展现强泛化能力</li></ul></div>
+  <div class="card-footer"><a class="card-link" href="https://arxiv.org/pdf/2605.30347v1" target="_blank">&#128196; PDF</a></div>
+</div>
+<div class="card">
+  <div class="card-head"><span class="card-label C">C2</span><h3 class="card-title">Veda: Scalable Video Diffusion via Distilled Sparse Attention</h3></div>
+  <div class="card-meta"><span>&#128197; 2026-05-28</span><span>&#128101; </span><span>&#127991;&#65039; diffusion, distillation, transformer</span></div>
+  <div class="card-body"><div class="card-body-title">&#128221; 中文摘要</div><p class="card-summary">本文提出Veda，一种通过蒸馏稀疏注意力实现可扩展视频扩散的方法。通过将密集注意力计算蒸馏为稀疏模式，大幅降低视频扩散模型的计算开销，使高质量长视频生成成为可能。该方法在保持生成质量的同时实现了显著的计算效率提升。</p></div>
+  <div class="card-body"><div class="card-body-title">&#128161; 创新点</div><ul class="innov"><li>通过蒸馏将密集注意力转化为稀疏模式，降低计算复杂度</li><li>使高质量长视频生成的推理成本大幅降低</li><li>稀疏注意力蒸馏方法可迁移到不同视频扩散架构</li></ul></div>
+  <div class="card-footer"><a class="card-link" href="https://arxiv.org/pdf/2605.30325v1" target="_blank">&#128196; PDF</a></div>
+</div>
+<div class="card">
+  <div class="card-head"><span class="card-label C">C3</span><h3 class="card-title">minWM: A Full-Stack Open-Source Framework for Real-Time Interactive Video World Models</h3></div>
+  <div class="card-meta"><span>&#128197; 2026-05-28</span><span>&#128101; </span><span>&#127991;&#65039; world model, distillation, interactive</span></div>
+  <div class="card-body"><div class="card-body-title">&#128221; 中文摘要</div><p class="card-summary">本文提出minWM，一个全栈开源的实时交互式视频世界模型框架。该框架集成了模型压缩、推理优化和交互机制，使世界模型能够实时响应交互输入并生成对应的视频预测。支持多种部署环境和交互模式，降低了世界模型的研究和应用门槛。</p></div>
+  <div class="card-body"><div class="card-body-title">&#128161; 创新点</div><ul class="innov"><li>全栈开源世界模型框架，集成压缩、优化和交互全流程</li><li>支持实时交互式视频生成预测</li><li>降低世界模型研究门槛，多环境可部署</li></ul></div>
+  <div class="card-footer"><a class="card-link" href="https://arxiv.org/pdf/2605.30263v1" target="_blank">&#128196; PDF</a></div>
+</div>
+<div class="card">
+  <div class="card-head"><span class="card-label C">C4</span><h3 class="card-title">Improving CLIP Adaptation by Breaking Tail Alignment for Source-Free Cross-Domain Generalization</h3></div>
+  <div class="card-meta"><span>&#128197; 2026-05-28</span><span>&#128101; </span><span>&#127991;&#65039; CLIP, domain adaptation, cross-domain</span></div>
+  <div class="card-body"><div class="card-body-title">&#128221; 中文摘要</div><p class="card-summary">本文研究了CLIP模型在跨域泛化中的尾部对齐问题。发现源无关自适应中标准对齐策略会过度偏向长尾类别，提出通过打破尾部对齐来改善模型在目标域上的泛化性能。该方法无需源域数据，仅利用目标域无标签数据即可实现有效的CLIP自适应。</p></div>
+  <div class="card-body"><div class="card-body-title">&#128161; 创新点</div><ul class="innov"><li>揭示CLIP跨域泛化中尾部类别过度对齐的问题</li><li>提出打破尾部对齐的源无关自适应策略</li><li>仅利用无标签目标域数据即可实现有效域泛化</li></ul></div>
+  <div class="card-footer"><a class="card-link" href="https://arxiv.org/pdf/2605.29776v1" target="_blank">&#128196; PDF</a></div>
+</div>
+<div class="card">
+  <div class="card-head"><span class="card-label C">C5</span><h3 class="card-title">Colored Noise Diffusion Sampling</h3></div>
+  <div class="card-meta"><span>&#128197; 2026-05-28</span><span>&#128101; </span><span>&#127991;&#65039; diffusion, neural network, sampling</span></div>
+  <div class="card-body"><div class="card-body-title">&#128221; 中文摘要</div><p class="card-summary">本文提出有色噪声扩散采样方法，通过将标准白噪声前向过程推广为有色噪声，改善扩散模型的采样效率和质量。该方法在理论上分析了有色噪声对反向扩散过程的影响，并在图像生成基准上验证了采样步数减少和质量提升的效果。</p></div>
+  <div class="card-body"><div class="card-body-title">&#128161; 创新点</div><ul class="innov"><li>将白噪声扩散推广为有色噪声前向过程</li><li>理论上分析有色噪声对采样效率的影响</li><li>在更少采样步数下实现更好的生成质量</li></ul></div>
+  <div class="card-footer"><a class="card-link" href="https://arxiv.org/pdf/2605.30332v1" target="_blank">&#128196; PDF</a></div>
+</div></section>
+
+<footer class="footer">
+  <p>由 QClaw 论文日报管道自动生成</p>
+  <p>2026-05-30 | 收集 158 篇 → 精选 15 篇</p>
+</footer>
+<script>
+function toggleTheme(){const b=document.body,btn=document.getElementById('themeBtn');if(b.getAttribute('data-theme')==='dark'){b.removeAttribute('data-theme');btn.innerHTML='&#127769;';localStorage.setItem('theme','light')}else{b.setAttribute('data-theme','dark');btn.innerHTML='&#9728;&#65039;';localStorage.setItem('theme','dark')}}
+if(localStorage.getItem('theme')==='dark'){document.body.setAttribute('data-theme','dark');document.getElementById('themeBtn').innerHTML='&#9728;&#65039;'}
+</script></body></html>

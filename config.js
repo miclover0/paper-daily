@@ -5,7 +5,7 @@
  * index.html 会动态读取并渲染这些数据
  * 
  * @author QClaw Auto-Generated
- * @lastModified 2026-05-30
+ * @lastModified 2026-06-01
  */
 
 const PAPER_ARCHIVE_CONFIG = {
@@ -14,9 +14,9 @@ const PAPER_ARCHIVE_CONFIG = {
         title: "Vision Intelligence Daily Archive",
         subtitle: "Daily Research Paper Digest",
         description: "An automated collection of cutting-edge research papers in Computer Vision, UAV, FTTA, and Domain Adaptation.",
-        totalPapers: 15,
-        totalDays: 2,
-        lastUpdated: "2026-05-30",
+        totalPapers: 29,
+        totalDays: 3,
+        lastUpdated: "2026-06-01",
         author: "@miclover0",
         repository: "https://github.com/miclover0/paper-daily"
     },
@@ -24,6 +24,356 @@ const PAPER_ARCHIVE_CONFIG = {
     // 每日报告数据数组
     // 按日期倒序排列（最新的在前）
     dailyReports: [
+        {
+            "id": "2026-06-01",
+            "date": "2026-06-01",
+            "dateDisplay": "June 01, 2026",
+            "weekday": "Monday",
+            "filename": "daily_reports/2026-06-01-arXiv.html",
+            "paperCount": 14,
+            "featuredPapers": [
+                        {
+                                    "title": "YoCausal: How Far is Video Generation from World Model? A Causality Perspective",
+                                    "authors": "You-Zhe Xie, Yu-Hsuan Li, Jie-Ying Lee",
+                                    "venue": "arXiv 2026",
+                                    "arxivId": "arXiv:2605.30346v1",
+                                    "tags": [
+                                                "VLM",
+                                                "World Model"
+                                    ],
+                                    "summary": "这篇论文聚焦世界模型构建，让智能体能够预测环境变化并进行长时规划。",
+                                    "highlights": [
+                                                "构建环境的可预测模型，支持长时规划与策略优化",
+                                                "将高维感知输入压缩到低维隐空间进行高效推演"
+                                    ],
+                                    "pdfUrl": "https://arxiv.org/pdf/2605.30346v1",
+                                    "doi": "https://arxiv.org/abs/2605.30346v1"
+                        }
+            ],
+            "papers": [
+                        {
+                                    "id": "A1",
+                                    "group": "A",
+                                    "groupName": "目标检测强相关",
+                                    "title": "YoCausal: How Far is Video Generation from World Model? A Causality Perspective",
+                                    "authors": [
+                                                "You-Zhe Xie",
+                                                "Yu-Hsuan Li",
+                                                "Jie-Ying Lee"
+                                    ],
+                                    "venue": "arXiv 2026",
+                                    "arxivId": "arXiv:2605.30346v1",
+                                    "tags": [
+                                                "VLM",
+                                                "AI"
+                                    ],
+                                    "summary": "这篇论文聚焦世界模型构建，让智能体能够预测环境变化并进行长时规划。",
+                                    "highlights": [
+                                                "构建环境的可预测模型，支持长时规划与策略优化",
+                                                "将高维感知输入压缩到低维隐空间进行高效推演"
+                                    ],
+                                    "pdfUrl": "https://arxiv.org/pdf/2605.30346v1"
+                        },
+                        {
+                                    "id": "A2",
+                                    "group": "A",
+                                    "groupName": "目标检测强相关",
+                                    "title": "Grounded 3D-Aware Spatial Vision-Language Modeling",
+                                    "authors": [
+                                                "An-Chieh Cheng",
+                                                "Yang Fu",
+                                                "Yatai Ji"
+                                    ],
+                                    "venue": "arXiv 2026",
+                                    "arxivId": "arXiv:2605.30307v1",
+                                    "tags": [
+                                                "VLM",
+                                                "AI"
+                                    ],
+                                    "summary": "这篇论文提出了视觉-语言模型（VLM）相关方法，将视觉感知与语言理解结合。",
+                                    "highlights": [
+                                                "提出了相对现有工作更结构化的方法设计",
+                                                "关注当前领域的关键瓶颈并给出可行解决方案"
+                                    ],
+                                    "pdfUrl": "https://arxiv.org/pdf/2605.30307v1"
+                        },
+                        {
+                                    "id": "A3",
+                                    "group": "A",
+                                    "groupName": "目标检测强相关",
+                                    "title": "Stable-Layers: Fine-Tuning Image Layer Decomposition Models with VLM-Scored Reinforcement Learning",
+                                    "authors": [
+                                                "Ciara Rowles",
+                                                "Reshinth Adithyan",
+                                                "Nikhil Pinnaparaju"
+                                    ],
+                                    "venue": "arXiv 2026",
+                                    "arxivId": "arXiv:2605.30257v1",
+                                    "tags": [
+                                                "VLM",
+                                                "AI"
+                                    ],
+                                    "summary": "这篇论文提出了视觉-语言模型（VLM）相关方法，将视觉感知与语言理解结合。",
+                                    "highlights": [
+                                                "将视觉编码器与语言模型结合，突破纯视觉任务的语义理解瓶颈",
+                                                "支持开放式视觉问答、图像描述等多模态任务"
+                                    ],
+                                    "pdfUrl": "https://arxiv.org/pdf/2605.30257v1"
+                        },
+                        {
+                                    "id": "A4",
+                                    "group": "A",
+                                    "groupName": "目标检测强相关",
+                                    "title": "OccamToken: Efficient VLM Inference with Training-Free and Budget-Adaptive Token Pruning",
+                                    "authors": [
+                                                "Geng Li",
+                                                "Guohao Chen",
+                                                "Ting Chen"
+                                    ],
+                                    "venue": "arXiv 2026",
+                                    "arxivId": "arXiv:2605.29657v1",
+                                    "tags": [
+                                                "VLM",
+                                                "AI"
+                                    ],
+                                    "summary": "这篇论文提出了视觉-语言模型（VLM）相关方法，将视觉感知与语言理解结合。",
+                                    "highlights": [
+                                                "将视觉编码器与语言模型结合，突破纯视觉任务的语义理解瓶颈",
+                                                "支持开放式视觉问答、图像描述等多模态任务"
+                                    ],
+                                    "pdfUrl": "https://arxiv.org/pdf/2605.29657v1"
+                        },
+                        {
+                                    "id": "A5",
+                                    "group": "A",
+                                    "groupName": "目标检测强相关",
+                                    "title": "DiffSpot: Can VLMs Spot Fine-Grained Visual Differences in Web Interfaces?",
+                                    "authors": [
+                                                "Linhao Zhang",
+                                                "Aiwei Liu",
+                                                "Yuan Liu"
+                                    ],
+                                    "venue": "arXiv 2026",
+                                    "arxivId": "arXiv:2605.29615v1",
+                                    "tags": [
+                                                "VLM",
+                                                "AI"
+                                    ],
+                                    "summary": "这篇论文提出了视觉-语言模型（VLM）相关方法，将视觉感知与语言理解结合。",
+                                    "highlights": [
+                                                "将视觉编码器与语言模型结合，突破纯视觉任务的语义理解瓶颈",
+                                                "支持开放式视觉问答、图像描述等多模态任务"
+                                    ],
+                                    "pdfUrl": "https://arxiv.org/pdf/2605.29615v1"
+                        },
+                        {
+                                    "id": "B1",
+                                    "group": "B",
+                                    "groupName": "端云协同",
+                                    "title": "Fairness-Aware Federated Learning with Trajectory Shapley Value",
+                                    "authors": [
+                                                "Daniel Kuznetsov",
+                                                "Ziqi Wang"
+                                    ],
+                                    "venue": "arXiv 2026",
+                                    "arxivId": "arXiv:2605.30336v1",
+                                    "tags": [
+                                                "VLM",
+                                                "AI"
+                                    ],
+                                    "summary": "这篇论文提出联邦学习方法，在保护数据隐私的前提下实现分布式模型训练。",
+                                    "highlights": [
+                                                "提出了相对现有工作更结构化的方法设计",
+                                                "关注当前领域的关键瓶颈并给出可行解决方案"
+                                    ],
+                                    "pdfUrl": "https://arxiv.org/pdf/2605.30336v1"
+                        },
+                        {
+                                    "id": "B2",
+                                    "group": "B",
+                                    "groupName": "端云协同",
+                                    "title": "mcp-proto-okn: Natural-language access to open scientific knowledge graphs through the Model Context Protocol",
+                                    "authors": [
+                                                "Peter W. Rose",
+                                                "Benjamin M. Good",
+                                                "Amanda M. Saravia-Butler"
+                                    ],
+                                    "venue": "arXiv 2026",
+                                    "arxivId": "arXiv:2605.30283v1",
+                                    "tags": [
+                                                "VLM",
+                                                "AI"
+                                    ],
+                                    "summary": "这篇论文研究端云协同或边缘计算方法，优化端侧推理效率。",
+                                    "highlights": [
+                                                "在端侧资源受限条件下实现高效推理",
+                                                "通过模型分割、量化或知识蒸馏降低计算量"
+                                    ],
+                                    "pdfUrl": "https://arxiv.org/pdf/2605.30283v1"
+                        },
+                        {
+                                    "id": "B3",
+                                    "group": "B",
+                                    "groupName": "端云协同",
+                                    "title": "GRASP: Plan-Guided Graph Retrieval with Adaptive Fusion and Reranking on Semi-Structured Knowledge Bases",
+                                    "authors": [
+                                                "Yicheng Tao",
+                                                "Yiqun Wang",
+                                                "Xiangchen Song"
+                                    ],
+                                    "venue": "arXiv 2026",
+                                    "arxivId": "arXiv:2605.30237v1",
+                                    "tags": [
+                                                "VLM",
+                                                "AI"
+                                    ],
+                                    "summary": "这篇论文研究端云协同或边缘计算方法，优化端侧推理效率。",
+                                    "highlights": [
+                                                "在端侧资源受限条件下实现高效推理",
+                                                "通过模型分割、量化或知识蒸馏降低计算量"
+                                    ],
+                                    "pdfUrl": "https://arxiv.org/pdf/2605.30237v1"
+                        },
+                        {
+                                    "id": "B4",
+                                    "group": "B",
+                                    "groupName": "端云协同",
+                                    "title": "Double-Edged Sword or Sharp Tool? Designing and Evaluating Triadic LLM-Teacher Collaboration for K-12 Writing at Scale",
+                                    "authors": [
+                                                "Canran Wang",
+                                                "Yuwen Yang",
+                                                "Zhen Wang"
+                                    ],
+                                    "venue": "arXiv 2026",
+                                    "arxivId": "arXiv:2605.30200v1",
+                                    "tags": [
+                                                "VLM",
+                                                "AI"
+                                    ],
+                                    "summary": "这篇论文研究端云协同或边缘计算方法，优化端侧推理效率。",
+                                    "highlights": [
+                                                "在端侧资源受限条件下实现高效推理",
+                                                "通过模型分割、量化或知识蒸馏降低计算量"
+                                    ],
+                                    "pdfUrl": "https://arxiv.org/pdf/2605.30200v1"
+                        },
+                        {
+                                    "id": "C1",
+                                    "group": "C",
+                                    "groupName": "其他AI相关",
+                                    "title": "Tiny but Trusted: Efficient Vision-Language Reasoning for Time-Series Anomaly Detection",
+                                    "authors": [
+                                                "Xiaona Zhou",
+                                                "Muntasir Wahed",
+                                                "Tianjiao Yu"
+                                    ],
+                                    "venue": "arXiv 2026",
+                                    "arxivId": "arXiv:2605.30344v1",
+                                    "tags": [
+                                                "VLM",
+                                                "AI"
+                                    ],
+                                    "summary": "这篇论文提出了视觉-语言模型（VLM）相关方法，将视觉感知与语言理解结合。",
+                                    "highlights": [
+                                                "提出了相对现有工作更结构化的方法设计",
+                                                "关注当前领域的关键瓶颈并给出可行解决方案"
+                                    ],
+                                    "pdfUrl": "https://arxiv.org/pdf/2605.30344v1"
+                        },
+                        {
+                                    "id": "C2",
+                                    "group": "C",
+                                    "groupName": "其他AI相关",
+                                    "title": "LoMo: Local Modality Substitution for Deeper Vision-Language Fusion",
+                                    "authors": [
+                                                "Feng Han",
+                                                "Zhixiong Zhang",
+                                                "Zheming Liang"
+                                    ],
+                                    "venue": "arXiv 2026",
+                                    "arxivId": "arXiv:2605.30265v1",
+                                    "tags": [
+                                                "VLM",
+                                                "AI"
+                                    ],
+                                    "summary": "这篇论文提出了视觉-语言模型（VLM）相关方法，将视觉感知与语言理解结合。",
+                                    "highlights": [
+                                                "提出了相对现有工作更结构化的方法设计",
+                                                "关注当前领域的关键瓶颈并给出可行解决方案"
+                                    ],
+                                    "pdfUrl": "https://arxiv.org/pdf/2605.30265v1"
+                        },
+                        {
+                                    "id": "C3",
+                                    "group": "C",
+                                    "groupName": "其他AI相关",
+                                    "title": "Beyond 3D VQAs: Injecting 3D Spatial Priors into Vision-Language Models for Enhanced Geometric Reasoning",
+                                    "authors": [
+                                                "Chun-Hsiao Yeh",
+                                                "Shengyi Qian",
+                                                "Manchen Wang"
+                                    ],
+                                    "venue": "arXiv 2026",
+                                    "arxivId": "arXiv:2605.30231v1",
+                                    "tags": [
+                                                "VLM",
+                                                "AI"
+                                    ],
+                                    "summary": "这篇论文提出了视觉-语言模型（VLM）相关方法，将视觉感知与语言理解结合。",
+                                    "highlights": [
+                                                "提出了相对现有工作更结构化的方法设计",
+                                                "关注当前领域的关键瓶颈并给出可行解决方案"
+                                    ],
+                                    "pdfUrl": "https://arxiv.org/pdf/2605.30231v1"
+                        },
+                        {
+                                    "id": "C4",
+                                    "group": "C",
+                                    "groupName": "其他AI相关",
+                                    "title": "BORA: Bridging Offline Reinforcement Learning and Online Residual Adaptation for Real-World Dexterous VLA Models",
+                                    "authors": [
+                                                "Zhongxi Chen",
+                                                "Yifan Han",
+                                                "Yanming Shao"
+                                    ],
+                                    "venue": "arXiv 2026",
+                                    "arxivId": "arXiv:2605.30226v1",
+                                    "tags": [
+                                                "VLM",
+                                                "AI"
+                                    ],
+                                    "summary": "这篇论文围绕人工智能与机器学习提出了一套完整方法，关注模型的泛化能力、效率或实际应用价值。",
+                                    "highlights": [
+                                                "提出了相对现有工作更结构化的方法设计",
+                                                "关注当前领域的关键瓶颈并给出可行解决方案"
+                                    ],
+                                    "pdfUrl": "https://arxiv.org/pdf/2605.30226v1"
+                        },
+                        {
+                                    "id": "C5",
+                                    "group": "C",
+                                    "groupName": "其他AI相关",
+                                    "title": "Unveiling the Visual Counting Bottleneck in Vision-Language Models",
+                                    "authors": [
+                                                "Xingzhou Pang",
+                                                "Yifan Hou",
+                                                "Junling Wang"
+                                    ],
+                                    "venue": "arXiv 2026",
+                                    "arxivId": "arXiv:2605.30170v1",
+                                    "tags": [
+                                                "VLM",
+                                                "AI"
+                                    ],
+                                    "summary": "这篇论文提出了视觉-语言模型（VLM）相关方法，将视觉感知与语言理解结合。",
+                                    "highlights": [
+                                                "提出了相对现有工作更结构化的方法设计",
+                                                "关注当前领域的关键瓶颈并给出可行解决方案"
+                                    ],
+                                    "pdfUrl": "https://arxiv.org/pdf/2605.30170v1"
+                        }
+            ]
+},
         {
             id: "2026-05-30",
             date: "2026-05-30",

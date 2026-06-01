@@ -26,11 +26,13 @@
             --border-color: rgba(255, 255, 255, 0.08);
             --accent-color: #007aff;
             --accent-glow: rgba(0, 122, 255, 0.3);
-            --glass-blur: blur(20px);
+            --glass-blur: blur(20px) saturate(180%);
             
             /* Spacing */
             --column-width: 260px;
-            --column-gap: 1px;
+            --column-min-width: 180px;
+            --column-max-width: 500px;
+            --divider-width: 5px;
             --item-height: 36px;
             --padding-md: 12px;
             --padding-lg: 16px;
@@ -82,8 +84,9 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(ellipse at top left, rgba(0, 122, 255, 0.15) 0%, transparent 50%),
-                        radial-gradient(ellipse at bottom right, rgba(175, 82, 222, 0.15) 0%, transparent 50%);
+            background: 
+                radial-gradient(ellipse at top left, rgba(0, 122, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at bottom right, rgba(175, 82, 222, 0.15) 0%, transparent 50%);
             z-index: -1;
         }
 
@@ -105,6 +108,7 @@
             backdrop-filter: var(--glass-blur);
             -webkit-backdrop-filter: var(--glass-blur);
             z-index: 100;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
         }
 
         .header-left {
@@ -122,6 +126,7 @@
             align-items: center;
             justify-content: center;
             font-size: 18px;
+            box-shadow: 0 2px 8px rgba(0, 122, 255, 0.3);
         }
 
         .header-title {
@@ -143,6 +148,7 @@
             background: var(--bg-item);
             border-radius: 12px;
             font-weight: 500;
+            border: 1px solid var(--border-color);
         }
 
         .theme-btn {
@@ -156,11 +162,12 @@
             align-items: center;
             justify-content: center;
             font-size: 16px;
-            transition: all 0.2s ease;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .theme-btn:hover {
             background: var(--bg-item-hover);
+            transform: scale(1.05);
         }
 
         /* ========== Breadcrumb ========== */
@@ -175,6 +182,8 @@
             gap: 4px;
             overflow-x: auto;
             white-space: nowrap;
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
         }
 
         .breadcrumb-item {
@@ -183,7 +192,7 @@
             padding: 4px 8px;
             border-radius: 6px;
             cursor: pointer;
-            transition: all 0.15s ease;
+            transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .breadcrumb-item:hover {
@@ -219,7 +228,8 @@
         /* ========== Column ========== */
         .column {
             width: var(--column-width);
-            min-width: var(--column-width);
+            min-width: var(--column-min-width);
+            max-width: var(--column-max-width);
             height: 100%;
             background: var(--bg-column);
             border-right: 1px solid var(--border-color);
@@ -228,6 +238,7 @@
             backdrop-filter: var(--glass-blur);
             -webkit-backdrop-filter: var(--glass-blur);
             animation: slideIn 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
         }
 
         @keyframes slideIn {
@@ -277,6 +288,33 @@
             background: rgba(255, 255, 255, 0.25);
         }
 
+        /* ========== Divider (Resizable) ========== */
+        .divider {
+            width: var(--divider-width);
+            cursor: col-resize;
+            background: transparent;
+            transition: background 0.2s ease;
+            position: relative;
+            z-index: 10;
+        }
+
+        .divider:hover,
+        .divider.dragging {
+            background: var(--accent-color);
+            opacity: 0.5;
+        }
+
+        .divider::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1px;
+            height: 100%;
+            background: var(--border-color);
+        }
+
         /* ========== Item ========== */
         .item {
             padding: 0 var(--padding-lg);
@@ -285,18 +323,39 @@
             align-items: center;
             justify-content: space-between;
             cursor: pointer;
-            transition: all 0.15s ease;
+            transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             font-size: 13px;
+        }
+
+        .item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: transparent;
+            transition: background 0.15s ease;
         }
 
         .item:hover {
             background: var(--bg-item-hover);
         }
 
+        .item:hover::before {
+            background: var(--accent-color);
+            opacity: 0.5;
+        }
+
         .item.active {
             background: var(--bg-item-active);
             color: var(--text-active);
+        }
+
+        .item.active::before {
+            background: white;
+            opacity: 1;
         }
 
         .item.active .item-icon {
@@ -380,6 +439,7 @@
             font-size: 11px;
             font-weight: 600;
             margin-bottom: 12px;
+            box-shadow: 0 2px 8px rgba(0, 122, 255, 0.3);
         }
 
         .detail-title {
@@ -448,7 +508,7 @@
         }
 
         .detail-highlights li::before {
-            content: "→";
+            content: '→';
             color: var(--accent-color);
             font-weight: 600;
         }
@@ -485,16 +545,18 @@
             font-size: 13px;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
+            box-shadow: 0 2px 8px rgba(0, 122, 255, 0.3);
         }
 
         .btn-primary:hover {
             background: #0051d5;
             transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 122, 255, 0.4);
         }
 
         .btn-secondary {
@@ -506,7 +568,7 @@
             font-size: 13px;
             font-weight: 500;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .btn-secondary:hover {
@@ -612,7 +674,8 @@
             selectedYearMonth: null,
             selectedDate: null,
             selectedPaper: null,
-            data: null
+            data: null,
+            columnWidths: {}  // Store column widths
         };
 
         // ========== Data Processing ==========
@@ -650,7 +713,7 @@
             const items = Object.entries(state.data).sort((a, b) => b[0].localeCompare(a[0]));
             
             let html = `
-                <div class="column" id="column-1">
+                <div class="column" id="column-1" style="width: ${state.columnWidths['column-1'] || 'var(--column-width)'};">
                     <div class="column-header">年/月</div>
                     <div class="column-content">
             `;
@@ -675,7 +738,14 @@
             });
             
             html += `</div></div>`;
+            
+            // Add divider
+            html += `<div class="divider" data-column="column-1"></div>`;
+            
             container.innerHTML = html;
+            
+            // Initialize divider drag
+            initDividerDrag();
         }
 
         function renderColumn2() {
@@ -688,7 +758,7 @@
             const dates = Object.entries(yearMonthData.dates).sort((a, b) => b[0].localeCompare(a[0]));
             
             let html = `
-                <div class="column" id="column-2">
+                <div class="column" id="column-2" style="width: ${state.columnWidths['column-2'] || 'var(--column-width)'};">
                     <div class="column-header">日期</div>
                     <div class="column-content">
             `;
@@ -712,13 +782,23 @@
             
             html += `</div></div>`;
             
+            // Add divider
+            html += `<div class="divider" data-column="column-2"></div>`;
+            
             // Remove old column 2 and detail panel
             const oldColumn2 = document.getElementById('column-2');
             const oldDetail = document.querySelector('.detail-panel');
             if (oldColumn2) oldColumn2.remove();
             if (oldDetail) oldDetail.remove();
             
+            // Remove old divider
+            const oldDivider = document.querySelector('.divider');
+            if (oldDivider) oldDivider.remove();
+            
             column1.insertAdjacentHTML('afterend', html);
+            
+            // Re-initialize divider drag
+            initDividerDrag();
         }
 
         function renderColumn3() {
@@ -731,7 +811,7 @@
             const dateData = yearMonthData.dates[state.selectedDate];
             
             let html = `
-                <div class="column" id="column-3">
+                <div class="column" id="column-3" style="width: ${state.columnWidths['column-3'] || 'var(--column-width)'};">
                     <div class="column-header">论文标题</div>
                     <div class="column-content">
             `;
@@ -756,13 +836,23 @@
             
             html += `</div></div>`;
             
+            // Add divider
+            html += `<div class="divider" data-column="column-3"></div>`;
+            
             // Remove old column 3 and detail panel
             const oldColumn3 = document.getElementById('column-3');
             const oldDetail = document.querySelector('.detail-panel');
             if (oldColumn3) oldColumn3.remove();
             if (oldDetail) oldDetail.remove();
             
+            // Remove old divider
+            const oldDivider = document.querySelector('.divider[data-column="column-2"]');
+            if (oldDivider) oldDivider.remove();
+            
             column2.insertAdjacentHTML('afterend', html);
+            
+            // Re-initialize divider drag
+            initDividerDrag();
         }
 
         function renderDetailPanel() {
@@ -833,6 +923,10 @@
             const oldDetail = document.querySelector('.detail-panel');
             if (oldDetail) oldDetail.remove();
             
+            // Remove old divider
+            const oldDivider = document.querySelector('.divider[data-column="column-3"]');
+            if (oldDivider) oldDivider.remove();
+            
             column3.insertAdjacentHTML('afterend', html);
         }
 
@@ -846,6 +940,62 @@
                     </div>
                 </div>
             `;
+        }
+
+        // ========== Divider Drag Logic ==========
+        function initDividerDrag() {
+            const dividers = document.querySelectorAll('.divider');
+            
+            dividers.forEach(divider => {
+                divider.addEventListener('mousedown', startDrag);
+            });
+        }
+
+        let isDragging = false;
+        let currentDivider = null;
+        let startX = 0;
+        let startWidth = 0;
+
+        function startDrag(e) {
+            isDragging = true;
+            currentDivider = e.target;
+            startX = e.clientX;
+            
+            const columnId = currentDivider.getAttribute('data-column');
+            const column = document.getElementById(columnId);
+            startWidth = column.offsetWidth;
+            
+            currentDivider.classList.add('dragging');
+            
+            document.addEventListener('mousemove', onDrag);
+            document.addEventListener('mouseup', stopDrag);
+            
+            e.preventDefault();
+        }
+
+        function onDrag(e) {
+            if (!isDragging) return;
+            
+            const columnId = currentDivider.getAttribute('data-column');
+            const column = document.getElementById(columnId);
+            const delta = e.clientX - startX;
+            const newWidth = Math.max(180, Math.min(500, startWidth + delta));
+            
+            column.style.width = `${newWidth}px`;
+            
+            // Store width
+            state.columnWidths[columnId] = `${newWidth}px`;
+        }
+
+        function stopDrag() {
+            isDragging = false;
+            
+            if (currentDivider) {
+                currentDivider.classList.remove('dragging');
+            }
+            
+            document.removeEventListener('mousemove', onDrag);
+            document.removeEventListener('mouseup', stopDrag);
         }
 
         // ========== Selection Handlers ==========

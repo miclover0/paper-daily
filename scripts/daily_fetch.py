@@ -1156,7 +1156,7 @@ def generate_daily_html(papers, target_date, groups):
     body{{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;line-height:1.75;color:#172033;background:#f6f8fb}}
     .layout{{display:flex;min-height:100vh}}
     
-    .toc{{width:280px;min-width:280px;background:#fff;border-right:1px solid #e2e8f0;padding:16px 0;overflow-y:auto;position:sticky;top:0;height:100vh}}
+    .toc{{width:280px;min-width:260px;max-width:320px;background:#fff;border-right:1px solid #e2e8f0;padding:16px 0;overflow-y:auto;position:sticky;top:0;height:100vh;flex-shrink:0}}
     .toc h2{{font-size:15px;padding:0 18px 10px;color:#1a1a2e;border-bottom:1px solid #e2e8f0;margin-bottom:6px}}
     .toc ul{{list-style:none;padding:0}}
     .toc li{{margin:0}}
@@ -1166,12 +1166,12 @@ def generate_daily_html(papers, target_date, groups):
     .toc .toc-link.worth-reading{{font-weight:500}}
     .toc .toc-link.worth-reading::after{{content:' ⭐';font-size:10px}}
     
-    .content{{flex:1;padding:20px 30px;max-width:860px;overflow-y:auto}}
-    .header{{margin-bottom:20px;text-align:center}}
+    .content{{flex:1;padding:24px 48px;min-width:0;overflow-y:auto}}
+    .header{{margin-bottom:20px;text-align:center;max-width:1100px;margin-left:auto;margin-right:auto}}
     .meta{{color:#566074;font-size:14px}}
-    .section-header{{margin:32px 0 16px;font-size:20px;color:#2563eb;border-bottom:2px solid #2563eb;padding-bottom:8px}}
-    .card{{border:1px solid #dbe2ea;border-radius:16px;padding:20px;margin:20px 0;background:#fff;box-shadow:0 4px 14px rgba(15,23,42,.04);position:relative;scroll-margin-top:20px}}
-    .card.worth-reading{{border-left:4px solid #f59e0b;background:linear-gradient(135deg,#fffbeb 0%,#fff 100%)}}
+    .section-header{{margin:32px 0 16px;font-size:20px;color:#2563eb;border-bottom:2px solid #2563eb;padding-bottom:8px;max-width:1100px;margin-left:auto;margin-right:auto}}
+    .card{{border:1px solid #dbe2ea;border-radius:16px;padding:20px;margin:20px 0;background:#fff;box-shadow:0 4px 14px rgba(15,23,42,.04);position:relative;scroll-margin-top:20px;max-width:1100px;margin-left:auto;margin-right:auto;width:auto}}
+    .card.worth-reading{{border-left:4px solid #f59e0b;background:linear-gradient(135deg,#fffbeb 0%,#fff 100%);max-width:1100px;margin-left:auto;margin-right:auto;width:auto}}
     .worth-badge{{position:absolute;top:14px;right:14px;background:linear-gradient(135deg,#f59e0b,#d97706);color:#fff;padding:4px 14px;border-radius:999px;font-size:12px;font-weight:600}}
     h1{{font-size:28px;margin:0 0 8px;color:#1a1a2e}}
     h3{{margin:0 0 10px;font-size:17px;color:#1e293b;padding-right:90px}}
@@ -1192,10 +1192,10 @@ def generate_daily_html(papers, target_date, groups):
     .badge-c{{background:#fef3c7;color:#b45309}}
     .badge-source{{background:#f1f5f9;color:#475569}}
     .tag{{display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;margin-right:4px}}
-    .nav-back{{text-align:center;margin:20px 0}}
+    .nav-back{{text-align:center;margin:20px 0;max-width:1100px;margin-left:auto;margin-right:auto}}
     .nav-back a{{color:#64748b;text-decoration:none;font-size:14px}}
     .nav-back a:hover{{color:#2563eb}}
-    .footer{{text-align:center;margin-top:40px;padding:20px;color:#94a3b8;font-size:13px;border-top:1px solid #e2e8f0}}
+    .footer{{text-align:center;margin-top:40px;padding:20px;color:#94a3b8;font-size:13px;border-top:1px solid #e2e8f0;max-width:1100px;margin-left:auto;margin-right:auto}}
     @media (max-width:768px){{
         .layout{{flex-direction:column}}
         .toc{{width:100%;min-width:100%;height:auto;max-height:40vh;position:relative;border-right:none;border-bottom:2px solid #e2e8f0}}

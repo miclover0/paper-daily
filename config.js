@@ -14,8 +14,8 @@ const PAPER_ARCHIVE_CONFIG = {
         title: "Vision Intelligence Daily Archive",
         subtitle: "Daily Research Paper Digest",
         description: "An automated collection of cutting-edge research papers in Computer Vision, UAV, FTTA, and Domain Adaptation.",
-        totalPapers: 44,
-        totalDays: 4,
+        totalPapers: 59,
+        totalDays: 5,
         lastUpdated: "2026-06-04",
         author: "@miclover0",
         repository: "https://github.com/miclover0/paper-daily"
@@ -25,28 +25,141 @@ const PAPER_ARCHIVE_CONFIG = {
     // 按日期倒序排列（最新的在前）
     dailyReports: [
         {
-            "id": "2026-06-04",
-            "date": "2026-06-04",
-            "dateDisplay": "June 04, 2026",
-            "weekday": "Thursday",
-            "filename": "daily_reports/2026-06-04.html",
-            "paperCount": 15,
-            "featuredPapers": [
+        "id": "2026-06-04",
+        "date": "2026-06-04",
+        "dateDisplay": "June 04, 2026",
+        "totalPapers": 15,
+        "groups": {
+                "A": 5,
+                "B": 5,
+                "C": 5
+        },
+        "reportFile": "daily_reports/paper_report_readable_2026-06-04.html",
+        "papers": [
                 {
-                    "title": "UniCanvas: A Diffusion-base Unified Model for Text-in-Image Joint Generation",
-                    "authors": [],
-                    "venue": "arXiv 2026",
-                    "arxivId": "arXiv:",
-                    "tags": [],
-                    "summary": "这篇论文聚焦世界模型构建，让智能体能够预测环境变化并进行长时规划，为机器人操作、自动驾驶等场景提供可预测的未来模拟能力。",
-                    "highlights": [
-                        "构建环境的可预测模型，支持长时规划与策略优化",
-                        "将高维感知输入压缩到低维隐空间进行高效推演",
-                        "支持 sim-to-real 迁移，减少真实环境训练数据需求",
-                    ],
-                    "pdfUrl": "https://arxiv.org/pdf/2606.04264",
-                    "doi": "https://arxiv.org/abs/2606.04264",
+                        "title": "UniCanvas: A Diffusion-base Unified Model for Text-in-Image Joint Generation",
+                        "arxivId": "",
+                        "group": "A",
+                        "tags": [],
+                        "summary": "",
+                        "score": 0
                 },
+                {
+                        "title": "A 3D Isovist World Model -- Revealing a City's Unseen Geometry and Its Emergent Cross-City Signature",
+                        "arxivId": "",
+                        "group": "A",
+                        "tags": [],
+                        "summary": "",
+                        "score": 0
+                },
+                {
+                        "title": "Dive into the Scene: Breaking the Perceptual Bottleneck in Vision-Language Decision Making via Focus Plan Generation",
+                        "arxivId": "",
+                        "group": "A",
+                        "tags": [],
+                        "summary": "",
+                        "score": 0
+                },
+                {
+                        "title": "Geometry-Preserving Unsupervised Alignment for Heterogeneous Foundation Models",
+                        "arxivId": "",
+                        "group": "A",
+                        "tags": [],
+                        "summary": "",
+                        "score": 0
+                },
+                {
+                        "title": "3DThinkVLA: Endowing Vision-Language-Action Models with Latent 3D Priors via 3D-Thinking-Guided Co-training",
+                        "arxivId": "",
+                        "group": "A",
+                        "tags": [],
+                        "summary": "",
+                        "score": 0
+                },
+                {
+                        "title": "Tiny Collaborative Inference for Occlusion-Robust Object Detection",
+                        "arxivId": "",
+                        "group": "B",
+                        "tags": [],
+                        "summary": "",
+                        "score": 0
+                },
+                {
+                        "title": "Federated Learning for Multi-Center Sepsis Early Prediction with Privacy-Preserving",
+                        "arxivId": "",
+                        "group": "B",
+                        "tags": [],
+                        "summary": "",
+                        "score": 0
+                },
+                {
+                        "title": "TITAN-FedAnil+: Trust-Based Adaptive Blockchain Federated Learning for Resource-Constrained Intelligent Enterprises",
+                        "arxivId": "",
+                        "group": "B",
+                        "tags": [],
+                        "summary": "",
+                        "score": 0
+                },
+                {
+                        "title": "SFMambaNet: Spectral-Frequency Enhanced Selective State Space Model for Correspondence Pruning",
+                        "arxivId": "",
+                        "group": "B",
+                        "tags": [],
+                        "summary": "",
+                        "score": 0
+                },
+                {
+                        "title": "Scaling Datasets for Multi-Sensor, Multi-Agent, and Multi-Domain Learning in Autonomous Systems",
+                        "arxivId": "",
+                        "group": "B",
+                        "tags": [],
+                        "summary": "",
+                        "score": 0
+                },
+                {
+                        "title": "Vision Transformers and Convolutional Neural Networks for Land Use Scene Classification",
+                        "arxivId": "",
+                        "group": "C",
+                        "tags": [],
+                        "summary": "",
+                        "score": 0
+                },
+                {
+                        "title": "Measuring Model Robustness via Fisher Information: Spectral Bounds, Theoretical Guarantees, and Practical Algorithms",
+                        "arxivId": "",
+                        "group": "C",
+                        "tags": [],
+                        "summary": "",
+                        "score": 0
+                },
+                {
+                        "title": "Achieving Rotation-Invariant Convolution via Non-Learnable Orientation Alignment Operators",
+                        "arxivId": "",
+                        "group": "C",
+                        "tags": [],
+                        "summary": "",
+                        "score": 0
+                },
+                {
+                        "title": "Label-Efficient 3D Forest Mapping: Self-Supervised and Transfer Learning for Instance Segmentation, Semantic Segmentation, and Species Classification",
+                        "arxivId": "",
+                        "group": "C",
+                        "tags": [],
+                        "summary": "",
+                        "score": 0
+                },
+                {
+                        "title": "Action Motifs: Self-Supervised Hierarchical Representation of Human Body Movements",
+                        "arxivId": "",
+                        "group": "C",
+                        "tags": [],
+                        "summary": "",
+                        "score": 0
+                }
+        ]
+}
+    
+        
             ],
             "papers": [
                 {

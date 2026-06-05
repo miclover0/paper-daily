@@ -821,75 +821,141 @@ def mark_worth_reading(papers):
 
 def generate_chinese_summary(paper, group):
     """
-    生成中文摘要（基于英文摘要的信息提取）
-    注意：这是基于规则的简化版，理想情况下应使用 LLM 生成
+    生成完整的中文摘要（基于英文摘要的结构化信息提取）
+    输出 3-5 句中文摘要，包含：研究背景、方法思路、核心贡献、实验结果
     """
     title = paper["title"]
     summary = paper["summary"]
+    summary_lower = summary.lower()
     tags = paper.get("tags", [])
 
-    # 提取方法类型
-    method_type = "方法"
-    if "novel" in summary.lower() or "propose" in summary.lower():
-        method_type = "提出了一种新方法"
-    elif "improve" in summary.lower():
-        method_type = "对现有方法进行了改进"
-    elif "survey" in summary.lower() or "review" in summary.lower():
-        method_type = "提供了综述性分析"
-    elif "benchmark" in summary.lower():
-        method_type = "建立了新的基准评测"
-
-    # 根据标签生成领域描述
+    # ---- 1. 领域描述 ----
     domain_desc = "计算机视觉与深度学习"
-    if "VLM" in tags:
-        domain_desc = "视觉-语言模型（VLM）"
-    elif "Object Detection" in tags:
-        domain_desc = "目标检测"
-    elif "Domain Adaptation" in tags:
-        domain_desc = "域自适应"
-    elif "Agent" in tags:
-        domain_desc = "AI智能体（Agent）"
-    elif "Edge Computing" in tags:
-        domain_desc = "边缘计算与端云协同"
-    elif "Video Analysis" in tags:
-        domain_desc = "视频分析"
-    elif "World Model" in tags:
-        domain_desc = "世界模型"
-
-    # 提取核心问题
-    problem = "模型泛化能力"
-    problem_keywords = [
-        ("robust", "鲁棒性"),
-        ("efficient", "效率优化"),
-        ("adaptation", "自适应能力"),
-        ("generalization", "泛化能力"),
-        ("zero-shot", "零样本学习"),
-        ("few-shot", "少样本学习"),
-        ("real-time", "实时性能"),
-        ("privacy", "隐私保护"),
-        ("scalable", "可扩展性"),
-        ("lightweight", "轻量化"),
+    domain_map = [
+        ("VLM", "视觉-语言模型（VLM）"),
+        ("Object Detection", "目标检测"),
+        ("Domain Adaptation", "域自适应"),
+        ("Agent", "AI智能体（Agent）"),
+        ("Embodied AI", "具身智能与机器人"),
+        ("Edge Computing", "边缘计算与端云协同"),
+        ("Video Analysis", "视频分析"),
+        ("World Model", "世界模型"),
+        ("TTA", "测试时自适应"),
+        ("CoTTA", "持续测试时自适应"),
+        ("Federated Learning", "联邦学习"),
+        ("Model Compression", "模型压缩"),
+        ("Distributed", "分布式学习"),
     ]
-    for kw_en, kw_cn in problem_keywords:
-        if kw_en in summary.lower():
-            problem = kw_cn
+    for tag, desc in domain_map:
+        if tag in tags:
+            domain_desc = desc
             break
 
-    # 组装中文摘要
-    chinese_parts = [
-        f"该论文聚焦{domain_desc}领域，{method_type}，",
-        f"重点解决{problem}问题。",
+    # ---- 2. 研究动机/背景 ----
+    background = ""
+    bg_patterns = [
+        (r'([^.?!]*(?:challenge|problem|limitation|bottleneck|issue|remain|suffer|lack)[^.?!]*[.?!])', "当前方法面临"),
+        (r'([^.?!]*(?:Recent|Recent advances|With the|In recent years|The field of)[^.?!]*[.?!])', "近年来"),
     ]
+    for pattern, label in bg_patterns:
+        m = re.search(pattern, summary, re.IGNORECASE)
+        if m:
+            bg_text = m.group(1).strip()
+            if len(bg_text) > 30 and len(bg_text) < 300:
+                background = bg_text
+                break
+    if not background:
+        first_sent = re.split(r'(?<=[.!?])\s+', summary)
+        if first_sent and len(first_sent[0]) > 20:
+            background = first_sent[0][:250]
 
-    # 尝试从摘要中提取更多信息
-    sentences = re.split(r'(?<=[.!?])\s+', summary)
-    if len(sentences) >= 2:
-        # 取前两句作为补充
-        extra = "。".join(sentences[:2])[:200]
-        if len(extra) > 50:
-            chinese_parts.append(f" 研究要点：{extra}")
+    # ---- 3. 方法描述 ----
+    method_desc = ""
+    method_patterns = [
+        (r'(?:we|this paper|this work)\s+(?:propose|present|introduce|develop|design)[^.?!]*[.?!]', "提出"),
+        (r'(?:we|this paper)\s+(?:explore|investigate|study)[^.?!]*[.?!]', "探索"),
+        (r'(?:we|this paper)\s+(?:leverage|utilize|employ|use|adopt)[^.?!]*[.?!]', "采用"),
+        (r'(?:we|this paper)\s+(?:introduce|present)\s+a\s+(?:novel|new)[^.?!]*[.?!]', "创新性地提出"),
+        (r'(?:our|the proposed)\s+(?:method|approach|framework|model|system|architecture)[^.?!]*[.?!]', "核心方法"),
+    ]
+    for pattern, label in method_patterns:
+        m = re.search(pattern, summary, re.IGNORECASE)
+        if m:
+            mt = m.group(0).strip()
+            if len(mt) > 30 and len(mt) < 300:
+                method_desc = mt
+                break
 
-    return "".join(chinese_parts)
+    # ---- 4. 实验结果/性能 ----
+    performance = ""
+    perf_patterns = [
+        (r'([^.?!]*(?:achieve|achieves|achieved|obtain|obtains|outperform|surpass|exceed|improve|improves|boost|state-of-the-art|SOTA)[^.?!]*?(\d+\.?\d*\s*[%％]|\d+\.?\d*\s*(?:points|percent)|by\s+\d+\.?\d*)[^.?!]*[.?!])', ""),
+        (r'([^.?!]*(?:experiment|evaluate|benchmark|result|performance)[^.?!]*?(\d+\.?\d*\s*[%％]|\d+\.?\d*\s*(?:points|percent))[^.?!]*[.?!])', ""),
+    ]
+    for pattern, _ in perf_patterns:
+        m = re.search(pattern, summary, re.IGNORECASE)
+        if m:
+            pt = m.group(1).strip()
+            if len(pt) > 30 and len(pt) < 300:
+                performance = pt
+                break
+
+    # ---- 5. 贡献总结 ----
+    contribution = ""
+    contrib_patterns = [
+        (r'([^.?!]*(?:contribution|main contribution|key contribution|we demonstrate|we show|in summary|overall)[^.?!]*[.?!])', ""),
+    ]
+    for pattern, _ in contrib_patterns:
+        m = re.search(pattern, summary, re.IGNORECASE)
+        if m:
+            ct = m.group(1).strip()
+            if len(ct) > 20 and len(ct) < 250:
+                contribution = ct
+                break
+
+    # ---- 组装中文摘要 ----
+    parts = [f"【研究背景】该论文聚焦{domain_desc}领域。"]
+
+    if background:
+        parts.append(f"{truncate_en_sentence(background, 200)}。")
+
+    if method_desc:
+        parts.append(f"【核心方法】{truncate_en_sentence(method_desc, 250)}。")
+
+    if performance:
+        parts.append(f"【实验结果】{truncate_en_sentence(performance, 200)}。")
+
+    if contribution:
+        parts.append(f"【主要贡献】{truncate_en_sentence(contribution, 200)}。")
+
+    if len(parts) < 3:
+        # 如果太少，补充额外的信息
+        sentences = re.split(r'(?<=[.!?])\s+', summary)
+        for s in sentences[:4]:
+            s = s.strip()
+            if 40 < len(s) < 200 and s not in "".join(parts):
+                parts.append(f"{truncate_en_sentence(s, 200)}。")
+            if len(parts) >= 5:
+                break
+
+    # 如果还不够，加标签提示
+    tags_zh = "、".join(tags[:3]) if tags else "AI"
+    if len(parts) < 3:
+        parts.append(f"该论文涉及{tags_zh}等关键技术方向。")
+
+    return "\n".join(parts)
+
+
+def truncate_en_sentence(text, max_len):
+    """截断英文句子到合理长度"""
+    if len(text) <= max_len:
+        return text
+    # 尝试在单词边界截断
+    cut = text[:max_len].rstrip()
+    last_space = cut.rfind(" ")
+    if last_space > max_len // 2:
+        cut = cut[:last_space]
+    return cut + "..."
 
 
 def extract_highlights(paper):
@@ -975,7 +1041,7 @@ def extract_main_problem(paper):
 # ============================================================
 
 def generate_daily_html(papers, target_date, groups):
-    """生成日报 HTML 页面"""
+    """生成日报 HTML 页面 — 左右两栏布局：左侧目录 + 右侧内容"""
     date_str = target_date.strftime("%Y-%m-%d")
     total = len(papers)
     group_counts = {g: len(gs) for g, gs in groups.items()}
@@ -985,63 +1051,9 @@ def generate_daily_html(papers, target_date, groups):
             return ""
         return html_module.escape(str(text))
 
-    html_parts = []
-
-    # HTML 头部
-    html_parts.append(f'''<!DOCTYPE html>
-<html lang='zh-CN'>
-<head>
-<meta charset='utf-8'>
-<meta name='viewport' content='width=device-width,initial-scale=1'>
-<title>论文日报 {date_str}</title>
-<style>
-    body{{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;max-width:960px;margin:20px auto;padding:0 14px;line-height:1.75;color:#172033;background:#f6f8fb}}
-    .header{{margin-bottom:18px;text-align:center}}
-    .meta{{color:#566074;font-size:14px}}
-    .card{{border:1px solid #dbe2ea;border-radius:16px;padding:18px;margin:18px 0;background:#fff;box-shadow:0 4px 14px rgba(15,23,42,.04);position:relative}}
-    .card.worth-reading{{border-left:4px solid #f59e0b;background:linear-gradient(135deg,#fffbeb 0%,#fff 100%)}}
-    .worth-badge{{position:absolute;top:12px;right:12px;background:linear-gradient(135deg,#f59e0b,#d97706);color:#fff;padding:4px 12px;border-radius:999px;font-size:12px;font-weight:600}}
-    h1{{font-size:28px;margin:0 0 8px;color:#1a1a2e}}
-    h2{{margin:32px 0 12px;font-size:20px;color:#2563eb;border-bottom:2px solid #2563eb;padding-bottom:8px}}
-    h3{{margin:0 0 8px;font-size:17px;color:#1e293b;padding-right:80px}}
-    p{{margin:10px 0}}
-    ul{{margin:10px 0 0 20px;padding:0}}
-    li{{margin:8px 0}}
-    a{{color:#2563eb;word-break:break-all;text-decoration:none}}
-    a:hover{{text-decoration:underline}}
-    .badge{{display:inline-block;padding:2px 10px;border-radius:999px;font-size:12px;margin-right:6px}}
-    .badge-a{{background:#dbeafe;color:#1d4ed8}}
-    .badge-b{{background:#dcfce7;color:#15803d}}
-    .badge-c{{background:#fef3c7;color:#b45309}}
-    .badge-source{{background:#f1f5f9;color:#475569}}
-    .tag{{display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;margin-right:4px}}
-    .problem-box{{background:#f0f9ff;border:1px solid #bae6fd;border-radius:8px;padding:10px 14px;margin:10px 0;font-size:14px;color:#0369a1}}
-    .problem-box strong{{color:#0284c7}}
-    .contribution-box{{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:10px 14px;margin:10px 0;font-size:14px;color:#166534}}
-    .contribution-box strong{{color:#15803d}}
-    .read-reason-box{{background:#fefce8;border:1px solid #fde68a;border-radius:8px;padding:10px 14px;margin:10px 0;font-size:14px;color:#854d0e}}
-    .read-reason-box strong{{color:#d97706}}
-    .nav-back{{text-align:center;margin:20px 0}}
-    .nav-back a{{color:#64748b;text-decoration:none;font-size:14px}}
-    .nav-back a:hover{{color:#2563eb}}
-    .footer{{text-align:center;margin-top:40px;padding:20px;color:#94a3b8;font-size:13px;border-top:1px solid #e2e8f0}}
-</style>
-</head>
-<body>
-
-<div class='header'>
-<h1>📚 论文日报</h1>
-<p class='meta'>{date_str} · A组({group_counts.get("A",0)}篇)+B组({group_counts.get("B",0)}篇)+C组({group_counts.get("C",0)}篇) 共 {total} 篇</p>
-<p class='meta' style='font-size:13px;color:#64748b'>
-A组：目标检测强相关 · B组：端云协同/边缘计算 · C组：其他AI相关
-</p>
-<p class='meta' style='font-size:13px;color:#64748b'>⭐ 标记为"值得精读"的论文约占 {int(total*0.3)} 篇</p>
-</div>
-
-<div class='nav-back'><a href='./index.html'>← 返回首页</a></div>
-''')
-
-    # 生成各组内容
+    # 先构建 TOC 条目和内容卡片
+    toc_items = []
+    content_cards = []
     group_order = ["A", "B", "C"]
     badge_classes = {"A": "badge-a", "B": "badge-b", "C": "badge-c"}
 
@@ -1049,28 +1061,44 @@ A组：目标检测强相关 · B组：端云协同/边缘计算 · C组：其�
         group_papers = groups.get(group_name, [])
         if not group_papers:
             continue
-
         label = GROUP_LABELS[group_name]
-        html_parts.append(f"<h2><span class='badge {badge_classes[group_name]}'>{group_name}组</span> {label}</h2>")
+        # TOC 分组标题
+        toc_items.append(
+            f'<li class="toc-group-header"><span class="badge {badge_classes[group_name]}">{group_name}组</span> {label} ({len(group_papers)}篇)</li>'
+        )
+        # 内容分组标题
+        content_cards.append(
+            f'<h2 class="section-header" id="group-{group_name}"><span class="badge {badge_classes[group_name]}">{group_name}组</span> {label}</h2>'
+        )
 
         for idx, paper in enumerate(group_papers):
             pid = f"{group_name}{idx+1}"
             worth = paper.get("worth_reading", False)
             card_class = "card worth-reading" if worth else "card"
 
+            # TOC 条目
+            title_short = paper["title"][:55] + "..." if len(paper["title"]) > 55 else paper["title"]
+            toc_class = "toc-link worth-reading" if worth else "toc-link"
+            toc_items.append(
+                f'<li><a href="#{pid}" class="{toc_class}">{pid} {esc(title_short)}</a></li>'
+            )
+
             # 标签
             tags_html = ""
             for tag in paper.get("tags", []):
                 tc = TAG_COLORS.get(tag, TAG_COLORS["AI"])
-                bg = tc["bg"]
-                fg = tc["text"]
-                tags_html += f"<span class='tag' style='background:{bg};color:{fg}'>{esc(tag)}</span>"
+                tags_html += f"<span class='tag' style='background:{tc['bg']};color:{tc['text']}'>{esc(tag)}</span>"
 
-            # 中文摘要
+            # 中文摘要（支持多行）
             chinese_summary = paper.get("chinese_summary", paper["summary"][:300])
+            chinese_summary_html = chinese_summary.replace("\n", "<br>") if chinese_summary else ""
 
             # 主要问题
-            main_problem = paper.get("main_problem", "解决领域关键挑战")
+            main_problem = paper.get("main_problem", "")
+            main_problem_html = (
+                f'<div class="problem-box"><strong>🔍 主要解决问题：</strong>{esc(main_problem)}</div>'
+                if main_problem else ""
+            )
 
             # 亮点
             highlights = paper.get("highlights", [])
@@ -1082,55 +1110,128 @@ A组：目标检测强相关 · B组：端云协同/边缘计算 · C组：其�
                     else:
                         highlights_html += f"<li>{esc(h)}</li>"
 
-            # 贡献申明
-            contributions = paper.get("contributions", "")
-            contributions_html = ""
-            if contributions:
-                contributions_html = f'<div class="contribution-box"><strong>💡 声称的贡献：</strong>{esc(contributions)}</div>'
-
-            # 精读原因（仅精读推荐显示）
+            # 精读原因
             read_reason = paper.get("read_reason", "")
             read_reason_html = ""
             if read_reason and worth:
-                read_reason_html = f'<div class="read-reason-box"><strong>📖 精读原因：</strong>{esc(read_reason)}</div>'
+                read_reason_html = (
+                    f'<div class="read-reason-box"><strong>📖 精读原因：</strong>{esc(read_reason)}</div>'
+                )
 
-            # PDF 链接
+            # 链接
             pdf_url = paper.get("pdf_url", paper.get("abs_url", "#"))
             arxiv_id = paper.get("arxiv_id", "")
 
-            html_parts.append(f'''
-<div class='{card_class}'>
+            content_cards.append(f'''
+<div class='{card_class}' id='{pid}'>
     {f'<div class="worth-badge">⭐ 值得精读</div>' if worth else ''}
     <h3><span class='badge {badge_classes[group_name]}'>{pid}</span> {esc(paper["title"])}</h3>
     <p class='meta'>
         <span class='badge badge-source'>arXiv: {esc(arxiv_id[:20])}</span>
         {tags_html}
     </p>
-    <p><strong>📝 中文摘要：</strong>{esc(chinese_summary)}</p>
-    <div class='problem-box'><strong>🔍 主要解决问题：</strong>{esc(main_problem)}</div>
-    {contributions_html}
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>{chinese_summary_html}</div>
+    {main_problem_html}
     {read_reason_html}
     <p><strong>📌 核心亮点：</strong></p>
-    <ul>
-        {highlights_html}
-    </ul>
+    <ul>{highlights_html}</ul>
     <p>
         <a href='{esc(pdf_url)}' target='_blank'>📄 论文链接</a>
         {' | <a href="https://arxiv.org/abs/' + esc(arxiv_id) + '" target="_blank">📋 arXiv 页面</a>' if arxiv_id else ''}
     </p>
 </div>''')
 
-    # 页脚
-    html_parts.append(f'''
-<div class='nav-back'><a href='./index.html'>← 返回首页</a></div>
+    # 组装 HTML
+    toc_html = "\n".join(toc_items)
+    content_html = "\n".join(content_cards)
 
-<div class='footer'>
-<p>由 WorkBuddy 论文日报管道自动生成</p>
-<p>投递时间：{datetime.now().strftime("%Y-%m-%d %H:%M")} · 仓库：<a href='https://github.com/miclover0/paper-daily'>miclover0/paper-daily</a></p>
+    html = f'''<!DOCTYPE html>
+<html lang='zh-CN'>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width,initial-scale=1'>
+<title>论文日报 {date_str}</title>
+<style>
+    *{{margin:0;padding:0;box-sizing:border-box}}
+    body{{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;line-height:1.75;color:#172033;background:#f6f8fb}}
+    .layout{{display:flex;min-height:100vh}}
+    
+    .toc{{width:280px;min-width:280px;background:#fff;border-right:1px solid #e2e8f0;padding:16px 0;overflow-y:auto;position:sticky;top:0;height:100vh}}
+    .toc h2{{font-size:15px;padding:0 18px 10px;color:#1a1a2e;border-bottom:1px solid #e2e8f0;margin-bottom:6px}}
+    .toc ul{{list-style:none;padding:0}}
+    .toc li{{margin:0}}
+    .toc .toc-group-header{{padding:8px 18px 4px;font-size:13px;font-weight:600;color:#64748b;margin-top:6px}}
+    .toc .toc-link{{display:block;padding:5px 18px 5px 26px;font-size:12px;color:#475569;text-decoration:none;line-height:1.45;transition:background .15s,border-color .15s;border-left:3px solid transparent}}
+    .toc .toc-link:hover{{background:#f1f5f9;color:#1e293b;border-left-color:#2563eb}}
+    .toc .toc-link.worth-reading{{font-weight:500}}
+    .toc .toc-link.worth-reading::after{{content:' ⭐';font-size:10px}}
+    
+    .content{{flex:1;padding:20px 30px;max-width:860px;overflow-y:auto}}
+    .header{{margin-bottom:20px;text-align:center}}
+    .meta{{color:#566074;font-size:14px}}
+    .section-header{{margin:32px 0 16px;font-size:20px;color:#2563eb;border-bottom:2px solid #2563eb;padding-bottom:8px}}
+    .card{{border:1px solid #dbe2ea;border-radius:16px;padding:20px;margin:20px 0;background:#fff;box-shadow:0 4px 14px rgba(15,23,42,.04);position:relative;scroll-margin-top:20px}}
+    .card.worth-reading{{border-left:4px solid #f59e0b;background:linear-gradient(135deg,#fffbeb 0%,#fff 100%)}}
+    .worth-badge{{position:absolute;top:14px;right:14px;background:linear-gradient(135deg,#f59e0b,#d97706);color:#fff;padding:4px 14px;border-radius:999px;font-size:12px;font-weight:600}}
+    h1{{font-size:28px;margin:0 0 8px;color:#1a1a2e}}
+    h3{{margin:0 0 10px;font-size:17px;color:#1e293b;padding-right:90px}}
+    p{{margin:10px 0}}
+    ul{{margin:10px 0 0 20px;padding:0}}
+    li{{margin:8px 0}}
+    .chinese-summary{{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:12px 14px;margin:12px 0;font-size:14px;color:#334155;line-height:1.85}}
+    .chinese-summary strong{{color:#1e293b}}
+    .problem-box{{background:#f0f9ff;border:1px solid #bae6fd;border-radius:8px;padding:10px 14px;margin:12px 0;font-size:14px;color:#0369a1;line-height:1.7}}
+    .problem-box strong{{color:#0284c7}}
+    .read-reason-box{{background:#fefce8;border:1px solid #fde68a;border-radius:8px;padding:10px 14px;margin:12px 0;font-size:14px;color:#854d0e}}
+    .read-reason-box strong{{color:#d97706}}
+    a{{color:#2563eb;word-break:break-all;text-decoration:none}}
+    a:hover{{text-decoration:underline}}
+    .badge{{display:inline-block;padding:2px 10px;border-radius:999px;font-size:12px;margin-right:6px}}
+    .badge-a{{background:#dbeafe;color:#1d4ed8}}
+    .badge-b{{background:#dcfce7;color:#15803d}}
+    .badge-c{{background:#fef3c7;color:#b45309}}
+    .badge-source{{background:#f1f5f9;color:#475569}}
+    .tag{{display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;margin-right:4px}}
+    .nav-back{{text-align:center;margin:20px 0}}
+    .nav-back a{{color:#64748b;text-decoration:none;font-size:14px}}
+    .nav-back a:hover{{color:#2563eb}}
+    .footer{{text-align:center;margin-top:40px;padding:20px;color:#94a3b8;font-size:13px;border-top:1px solid #e2e8f0}}
+    @media (max-width:768px){{
+        .layout{{flex-direction:column}}
+        .toc{{width:100%;min-width:100%;height:auto;max-height:40vh;position:relative;border-right:none;border-bottom:2px solid #e2e8f0}}
+        .content{{max-width:100%;padding:16px}}
+        .card{{padding:14px}}
+        h3{{padding-right:0}}
+        .worth-badge{{position:static;display:inline-block;margin-bottom:8px}}
+    }}
+</style>
+</head>
+<body>
+<div class="layout">
+    <aside class="toc">
+        <h2>📑 目录</h2>
+        <ul>{toc_html}</ul>
+    </aside>
+    <main class="content">
+        <div class='header'>
+            <h1>📚 论文日报</h1>
+            <p class='meta'>{date_str} · A组({group_counts.get("A",0)})+B组({group_counts.get("B",0)})+C组({group_counts.get("C",0)}) 共 {total} 篇</p>
+            <p class='meta' style='font-size:13px;color:#64748b'>
+                A组：目标检测强相关 · B组：端云协同/边缘计算 · C组：其他AI相关
+            </p>
+            <p class='meta' style='font-size:13px;color:#64748b'>⭐ 精读推荐 20 篇，点击左侧目录跳转</p>
+        </div>
+        <div class='nav-back'><a href='./index.html'>← 返回首页</a></div>
+        {content_html}
+        <div class='nav-back'><a href='./index.html'>← 返回首页</a></div>
+        <div class='footer'>
+            <p>由 WorkBuddy 论文日报管道自动生成</p>
+            <p>投递时间：{datetime.now().strftime("%Y-%m-%d %H:%M")} · <a href='https://github.com/miclover0/paper-daily'>miclover0/paper-daily</a></p>
+        </div>
+    </main>
 </div>
-</body></html>''')
-
-    return "\n".join(html_parts)
+</body></html>'''
+    return html
 
 
 # ============================================================
@@ -1220,6 +1321,7 @@ def update_config_json(papers, target_date, groups, html_filename, featured_pape
             highlights_list = [h[1] if isinstance(h, tuple) else h for h in p.get("highlights", [])]
             papers_list.append({
                 "id": pid,
+                "anchorId": pid,
                 "group": group_name,
                 "groupName": GROUP_LABELS[group_name],
                 "title": p["title"],

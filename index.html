@@ -645,7 +645,8 @@
         // Actions
         html += `<div class="detail-actions">`;
         if (reportFile) {
-            html += `<button class="btn-primary" onclick="window.location.href='./${esc(reportFile).replace(/^daily_reports\//, 'daily_reports/')}'">📋 查看完整日报 HTML</button>`;
+            const anchor = (p.anchorId || p.id) ? `#${p.anchorId || p.id}` : '';
+            html += `<button class="btn-primary" onclick="window.location.href='./${esc(reportFile).replace(/^daily_reports\//, 'daily_reports/')}${anchor}'">📋 查看完整日报 HTML</button>`;
         }
         if (p.pdfUrl) {
             html += `<a class="btn-secondary" href="${esc(p.pdfUrl)}" target="_blank">📥 PDF</a>`;

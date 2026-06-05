@@ -4,1126 +4,711 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vision Intelligence Daily Archive</title>
-    
-    <!-- SF Pro Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
     <style>
-        /* ========== CSS Variables ========== */
         :root {
-            /* Dark Theme (Default) */
-            --bg-primary: #1a1a1e;
-            --bg-secondary: #0d0d0f;
-            --bg-column: rgba(30, 30, 35, 0.85);
-            --bg-item: rgba(255, 255, 255, 0.04);
-            --bg-item-hover: rgba(0, 122, 255, 0.15);
-            --bg-item-active: rgba(0, 122, 255, 0.95);
-            --text-primary: #f5f5f7;
-            --text-secondary: #98989d;
-            --text-active: #ffffff;
-            --border-color: rgba(255, 255, 255, 0.08);
-            --accent-color: #007aff;
-            --accent-glow: rgba(0, 122, 255, 0.3);
-            --glass-blur: blur(20px) saturate(180%);
-            
-            /* Spacing */
-            --column-width: 260px;
-            --column-min-width: 180px;
-            --column-max-width: 500px;
-            --divider-width: 5px;
-            --item-height: 36px;
-            --padding-md: 12px;
-            --padding-lg: 16px;
-            
-            /* Typography */
-            --font-sans: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Inter', sans-serif;
-            --font-mono: 'SF Mono', 'Menlo', monospace;
-        }
-
-        /* Light Theme */
-        [data-theme="light"] {
             --bg-primary: #f5f5f7;
-            --bg-secondary: #ffffff;
-            --bg-column: rgba(255, 255, 255, 0.85);
-            --bg-item: rgba(0, 0, 0, 0.02);
-            --bg-item-hover: rgba(0, 122, 255, 0.08);
-            --bg-item-active: rgba(0, 122, 255, 0.95);
+            --bg-secondary: rgba(255, 255, 255, 0.72);
+            --bg-tertiary: rgba(255, 255, 255, 0.48);
+            --glass-border: rgba(0, 0, 0, 0.08);
             --text-primary: #1d1d1f;
             --text-secondary: #86868b;
-            --text-active: #ffffff;
-            --border-color: rgba(0, 0, 0, 0.08);
+            --text-tertiary: #aeaeb2;
+            --accent: #007AFF;
+            --accent-light: rgba(0, 122, 255, 0.12);
+            --accent-bg: #007AFF;
+            --separator: rgba(0, 0, 0, 0.06);
+            --shadow-sm: 0 0 0 0.5px rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 1px 3px rgba(0, 0, 0, 0.08);
+            --tag-A: rgba(52, 199, 89, 0.15);
+            --tag-A-text: #1b873b;
+            --tag-B: rgba(255, 149, 0, 0.15);
+            --tag-B-text: #c76d00;
+            --tag-C: rgba(142, 142, 147, 0.15);
+            --tag-C-text: #636366;
+            --radius: 11px;
+            --transition: 220ms cubic-bezier(0.22, 1, 0.36, 1);
         }
 
-        /* ========== Reset & Base ========== */
-        *, *::before, *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-primary: #1c1c1e;
+                --bg-secondary: rgba(44, 44, 46, 0.85);
+                --bg-tertiary: rgba(44, 44, 46, 0.55);
+                --glass-border: rgba(255, 255, 255, 0.1);
+                --text-primary: #f5f5f7;
+                --text-secondary: #98989d;
+                --text-tertiary: #636366;
+                --accent: #0A84FF;
+                --accent-light: rgba(10, 132, 255, 0.15);
+                --separator: rgba(255, 255, 255, 0.08);
+                --shadow-sm: 0 0 0 0.5px rgba(255, 255, 255, 0.06);
+                --shadow-md: 0 1px 3px rgba(0, 0, 0, 0.4);
+                --tag-A: rgba(52, 199, 89, 0.2);
+                --tag-A-text: #30d158;
+                --tag-B: rgba(255, 159, 10, 0.2);
+                --tag-B-text: #ff9f0a;
+                --tag-C: rgba(142, 142, 147, 0.2);
+                --tag-C-text: #8e8e93;
+            }
         }
 
-        html, body {
-            height: 100%;
-            overflow: hidden;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: var(--font-sans);
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", sans-serif;
             background: var(--bg-primary);
             color: var(--text-primary);
-            line-height: 1.4;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        /* ========== Background ========== */
-        .bg-gradient {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(ellipse at top left, rgba(0, 122, 255, 0.15) 0%, transparent 50%),
-                radial-gradient(ellipse at bottom right, rgba(175, 82, 222, 0.15) 0%, transparent 50%);
-            z-index: -1;
-        }
-
-        /* ========== Layout ========== */
-        .app-container {
-            display: flex;
-            flex-direction: column;
             height: 100vh;
+            overflow: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* ========== Header ========== */
+        /* ---- Header ---- */
         .header {
+            height: 52px;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
             background: var(--bg-secondary);
-            border-bottom: 1px solid var(--border-color);
-            padding: var(--padding-md) var(--padding-lg);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            backdrop-filter: var(--glass-blur);
-            -webkit-backdrop-filter: var(--glass-blur);
+            backdrop-filter: blur(24px) saturate(180%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
+            border-bottom: 1px solid var(--glass-border);
             z-index: 100;
-            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
-        }
-
-        .header-left {
-            display: flex;
-            align-items: center;
-            gap: var(--padding-md);
-        }
-
-        .header-icon {
-            width: 32px;
-            height: 32px;
-            background: linear-gradient(135deg, #007aff 0%, #5856d6 100%);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            box-shadow: 0 2px 8px rgba(0, 122, 255, 0.3);
+            position: relative;
         }
 
         .header-title {
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 600;
             letter-spacing: -0.01em;
+            color: var(--text-primary);
         }
 
-        .header-right {
-            display: flex;
-            align-items: center;
-            gap: var(--padding-md);
-        }
-
-        .header-stat {
+        .header-meta {
+            margin-left: auto;
             font-size: 12px;
             color: var(--text-secondary);
-            padding: 4px 10px;
-            background: var(--bg-item);
-            border-radius: 12px;
-            font-weight: 500;
-            border: 1px solid var(--border-color);
         }
 
-        .theme-btn {
-            width: 32px;
-            height: 32px;
-            background: var(--bg-item);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 16px;
-            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .theme-btn:hover {
-            background: var(--bg-item-hover);
-            transform: scale(1.05);
-        }
-
-        /* ========== Breadcrumb ========== */
+        /* ---- Breadcrumb ---- */
         .breadcrumb {
-            background: var(--bg-secondary);
-            border-bottom: 1px solid var(--border-color);
-            padding: 8px var(--padding-lg);
-            font-size: 12px;
-            color: var(--text-secondary);
             display: flex;
             align-items: center;
             gap: 4px;
-            overflow-x: auto;
-            white-space: nowrap;
-            backdrop-filter: var(--glass-blur);
-            -webkit-backdrop-filter: var(--glass-blur);
+            padding: 10px 20px;
+            font-size: 12px;
+            color: var(--text-tertiary);
+            user-select: none;
+            flex-shrink: 0;
+            min-height: 36px;
+            background: var(--bg-tertiary);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--separator);
         }
 
-        .breadcrumb-item {
-            color: var(--text-secondary);
-            text-decoration: none;
-            padding: 4px 8px;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+        .breadcrumb span { cursor: pointer; transition: color var(--transition); }
+        .breadcrumb span:hover { color: var(--accent); }
+        .breadcrumb .sep { color: var(--text-tertiary); cursor: default; pointer-events: none; }
+        .breadcrumb .current { color: var(--text-primary); font-weight: 500; cursor: default; pointer-events: none; }
 
-        .breadcrumb-item:hover {
-            background: var(--bg-item-hover);
-            color: var(--text-primary);
-        }
-
-        .breadcrumb-item.active {
-            color: var(--accent-color);
-            font-weight: 500;
-        }
-
-        .breadcrumb-separator {
-            color: var(--text-secondary);
-            opacity: 0.4;
-        }
-
-        /* ========== Columns Container ========== */
-        .columns-wrapper {
-            flex: 1;
+        /* ---- Column Container ---- */
+        .columns {
+            display: flex;
+            height: calc(100vh - 88px);
             overflow-x: auto;
             overflow-y: hidden;
-            display: flex;
-            background: var(--bg-secondary);
+            scroll-behavior: smooth;
         }
 
-        .columns-container {
-            display: flex;
-            height: 100%;
-            min-width: max-content;
-        }
-
-        /* ========== Column ========== */
         .column {
-            width: var(--column-width);
-            min-width: var(--column-min-width);
-            max-width: var(--column-max-width);
-            height: 100%;
-            background: var(--bg-column);
-            border-right: 1px solid var(--border-color);
-            display: flex;
-            flex-direction: column;
-            backdrop-filter: var(--glass-blur);
-            -webkit-backdrop-filter: var(--glass-blur);
-            animation: slideIn 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
+            flex: 0 0 280px;
+            width: 280px;
+            border-right: 1px solid var(--separator);
+            overflow-y: auto;
+            overflow-x: hidden;
+            padding: 6px 0;
         }
 
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateX(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
+        .column:last-child { flex: 0 0 420px; width: 420px; border-right: none; }
 
-        .column-header {
-            padding: var(--padding-md) var(--padding-lg);
+        .col-header {
+            padding: 10px 16px 6px;
             font-size: 11px;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--text-secondary);
-            border-bottom: 1px solid var(--border-color);
-            background: rgba(0, 0, 0, 0.1);
-        }
-
-        .column-content {
-            flex: 1;
-            overflow-y: auto;
-            overflow-x: hidden;
-            padding: 4px 0;
-        }
-
-        /* Scrollbar */
-        .column-content::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        .column-content::-webkit-scrollbar-track {
-            background: transparent;
-        }
-
-        .column-content::-webkit-scrollbar-thumb {
-            background: rgba(255, 255, 255, 0.15);
-            border-radius: 3px;
-        }
-
-        .column-content::-webkit-scrollbar-thumb:hover {
-            background: rgba(255, 255, 255, 0.25);
-        }
-
-        /* ========== Divider (Resizable) ========== */
-        .divider {
-            width: var(--divider-width);
-            cursor: col-resize;
-            background: transparent;
-            transition: background 0.2s ease;
-            position: relative;
-            z-index: 10;
-        }
-
-        .divider:hover,
-        .divider.dragging {
-            background: var(--accent-color);
-            opacity: 0.5;
-        }
-
-        .divider::after {
-            content: '';
-            position: absolute;
+            letter-spacing: 0.06em;
+            color: var(--text-tertiary);
+            position: sticky;
             top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 1px;
-            height: 100%;
-            background: var(--border-color);
+            background: inherit;
+            z-index: 2;
         }
 
-        /* ========== Item ========== */
-        .item {
-            padding: 0 var(--padding-lg);
-            height: var(--item-height);
+        /* ---- Cell ---- */
+        .cell {
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            padding: 7px 16px;
+            margin: 1px 8px;
+            border-radius: 7px;
             cursor: pointer;
-            transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
+            transition: background var(--transition), color var(--transition);
+            user-select: none;
             font-size: 13px;
+            line-height: 1.4;
+            gap: 8px;
+            position: relative;
         }
 
-        .item::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 3px;
-            background: transparent;
-            transition: background 0.15s ease;
+        .cell:hover { background: var(--accent-light); }
+        .cell.selected {
+            background: var(--accent-bg);
+            color: #fff;
         }
+        .cell.selected .cell-sub { color: rgba(255,255,255,0.7); }
+        .cell.selected .cell-count { background: rgba(255,255,255,0.2); color: #fff; }
+        .cell.selected .cell-chevron { opacity: 1; color: #fff; }
 
-        .item:hover {
-            background: var(--bg-item-hover);
-        }
-
-        .item:hover::before {
-            background: var(--accent-color);
-            opacity: 0.5;
-        }
-
-        .item.active {
-            background: var(--bg-item-active);
-            color: var(--text-active);
-        }
-
-        .item.active::before {
-            background: white;
-            opacity: 1;
-        }
-
-        .item.active .item-icon {
-            color: var(--text-active);
-        }
-
-        .item-icon {
-            width: 16px;
-            height: 16px;
-            margin-right: 8px;
-            color: var(--text-secondary);
+        .cell-icon { font-size: 16px; width: 22px; text-align: center; flex-shrink: 0; }
+        .cell-body { flex: 1; min-width: 0; }
+        .cell-title { font-weight: 450; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .cell-sub { font-size: 11px; color: var(--text-tertiary); margin-top: 1px; }
+        .cell-count {
+            font-size: 11px;
+            font-weight: 500;
+            background: var(--accent-light);
+            color: var(--accent);
+            padding: 2px 7px;
+            border-radius: 10px;
             flex-shrink: 0;
         }
-
-        .item-text {
-            flex: 1;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
+        .cell-chevron {
+            font-size: 12px;
+            color: var(--text-tertiary);
+            flex-shrink: 0;
+            opacity: 0.5;
         }
 
-        .item-count {
-            font-size: 11px;
-            color: var(--text-secondary);
-            background: var(--bg-item);
-            padding: 2px 6px;
-            border-radius: 10px;
-            margin-left: 8px;
+        /* Paper tags */
+        .paper-tags { display: flex; gap: 3px; flex-shrink: 0; }
+        .paper-tag {
+            font-size: 9px;
+            font-weight: 600;
+            padding: 1px 5px;
+            border-radius: 3px;
+            letter-spacing: 0.02em;
         }
+        .paper-tag.tag-A { background: var(--tag-A); color: var(--tag-A-text); }
+        .paper-tag.tag-B { background: var(--tag-B); color: var(--tag-B-text); }
+        .paper-tag.tag-C { background: var(--tag-C); color: var(--tag-C-text); }
+        .paper-tag.tag-star { background: rgba(255, 215, 0, 0.2); color: #b8860b; }
 
-        .item.active .item-count {
-            background: rgba(255, 255, 255, 0.2);
-            color: var(--text-active);
-        }
-
-        .item-arrow {
-            width: 14px;
-            height: 14px;
-            color: var(--text-secondary);
-            opacity: 0;
-            transition: opacity 0.15s ease;
-        }
-
-        .item:hover .item-arrow {
-            opacity: 1;
-        }
-
-        .item.active .item-arrow {
-            color: var(--text-active);
-            opacity: 1;
-        }
-
-        /* ========== Detail Panel ========== */
+        /* ---- Detail Panel ---- */
         .detail-panel {
-            width: 100%;
-            min-width: 400px;
-            flex: 1;
-            background: var(--bg-column);
-            backdrop-filter: var(--glass-blur);
-            -webkit-backdrop-filter: var(--glass-blur);
-            border-left: 1px solid var(--border-color);
+            padding: 20px 24px;
             display: flex;
             flex-direction: column;
-            animation: slideIn 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            gap: 18px;
         }
 
-        .detail-header {
-            padding: var(--padding-lg);
-            border-bottom: 1px solid var(--border-color);
-            background: rgba(0, 0, 0, 0.1);
-        }
-
-        .detail-badge {
-            display: inline-flex;
+        .detail-empty {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 6px;
-            padding: 4px 10px;
-            background: var(--accent-color);
-            color: white;
-            border-radius: 12px;
-            font-size: 11px;
-            font-weight: 600;
-            margin-bottom: 12px;
-            box-shadow: 0 2px 8px rgba(0, 122, 255, 0.3);
+            justify-content: center;
+            color: var(--text-tertiary);
+            gap: 12px;
         }
+        .detail-empty-icon { font-size: 48px; opacity: 0.3; }
+        .detail-empty-text { font-size: 14px; max-width: 240px; text-align: center; line-height: 1.6; }
 
+        .detail-group { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent); }
         .detail-title {
             font-size: 18px;
             font-weight: 600;
-            line-height: 1.3;
-            margin-bottom: 8px;
+            line-height: 1.35;
+            letter-spacing: -0.01em;
         }
-
-        .detail-meta {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 12px;
-            color: var(--text-secondary);
-        }
-
-        .detail-content {
-            flex: 1;
-            overflow-y: auto;
-            padding: var(--padding-lg);
-        }
-
-        .detail-section {
-            margin-bottom: var(--padding-lg);
-        }
-
-        .detail-section-title {
-            font-size: 11px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--text-secondary);
-            margin-bottom: 10px;
-        }
-
         .detail-authors {
             font-size: 13px;
-            color: var(--text-primary);
-            line-height: 1.6;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+        .detail-meta {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .detail-meta-chip {
+            font-size: 11px;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-weight: 500;
         }
 
+        .detail-section { border-top: 1px solid var(--separator); padding-top: 14px; }
+        .detail-section-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
         .detail-summary {
             font-size: 13px;
-            color: var(--text-secondary);
             line-height: 1.7;
-            padding: 12px;
-            background: var(--bg-item);
-            border-radius: 8px;
-            border-left: 3px solid var(--accent-color);
+            color: var(--text-secondary);
         }
-
         .detail-highlights {
-            list-style: none;
-        }
-
-        .detail-highlights li {
-            padding: 8px 12px;
-            margin-bottom: 6px;
-            background: var(--bg-item);
-            border-radius: 6px;
-            font-size: 13px;
-            display: flex;
-            align-items: flex-start;
-            gap: 8px;
-        }
-
-        .detail-highlights li::before {
-            content: '→';
-            color: var(--accent-color);
-            font-weight: 600;
-        }
-
-        .detail-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-        }
-
-        .detail-tag {
-            padding: 4px 10px;
-            background: rgba(0, 122, 255, 0.15);
-            color: var(--accent-color);
-            border-radius: 12px;
-            font-size: 11px;
-            font-weight: 500;
-        }
-
-        .detail-footer {
-            padding: var(--padding-lg);
-            border-top: 1px solid var(--border-color);
-            display: flex;
-            gap: 10px;
-        }
-
-        .btn-primary {
-            flex: 1;
-            padding: 12px 20px;
-            background: var(--accent-color);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 13px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            box-shadow: 0 2px 8px rgba(0, 122, 255, 0.3);
-        }
-
-        .btn-primary:hover {
-            background: #0051d5;
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(0, 122, 255, 0.4);
-        }
-
-        .btn-secondary {
-            padding: 12px 20px;
-            background: var(--bg-item);
-            color: var(--text-primary);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            font-size: 13px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .btn-secondary:hover {
-            background: var(--bg-item-hover);
-        }
-
-        /* ========== Empty State ========== */
-        .empty-state {
             display: flex;
             flex-direction: column;
+            gap: 6px;
+        }
+        .detail-hl {
+            font-size: 13px;
+            padding: 6px 12px;
+            background: var(--accent-light);
+            border-radius: 6px;
+            line-height: 1.5;
+        }
+
+        .detail-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 4px;
+        }
+        .btn-primary {
+            display: inline-flex;
             align-items: center;
-            justify-content: center;
-            height: 100%;
-            color: var(--text-secondary);
-            text-align: center;
-            padding: var(--padding-lg);
+            gap: 6px;
+            padding: 8px 18px;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: opacity var(--transition);
+            text-decoration: none;
         }
-
-        .empty-icon {
-            font-size: 48px;
-            margin-bottom: 16px;
-            opacity: 0.3;
+        .btn-primary:hover { opacity: 0.88; }
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 18px;
+            background: var(--accent-light);
+            color: var(--accent);
+            border: none;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: opacity var(--transition);
+            text-decoration: none;
         }
+        .btn-secondary:hover { opacity: 0.75; }
 
-        .empty-text {
-            font-size: 14px;
+        /* ---- Stats Bar ---- */
+        .stats-bar {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
         }
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .stat-value { font-size: 20px; font-weight: 600; letter-spacing: -0.01em; }
+        .stat-label { font-size: 11px; color: var(--text-tertiary); }
 
-        /* ========== Responsive ========== */
-        @media (max-width: 768px) {
-            :root {
-                --column-width: 240px;
+        /* ---- Responsive ---- */
+        @media (max-width: 960px) {
+            .columns {
+                flex-direction: column;
+                overflow-y: auto;
+                overflow-x: hidden;
             }
-            
-            .header-stat {
-                display: none;
+            .column {
+                flex: 0 0 auto;
+                width: 100%;
+                max-height: 50vh;
+                border-right: none;
+                border-bottom: 1px solid var(--separator);
             }
+            .column:last-child { width: 100%; flex: 1; max-height: none; }
         }
     </style>
 </head>
 <body>
-    <div class="bg-gradient"></div>
-    
-    <div class="app-container">
-        <!-- Header -->
-        <header class="header">
-            <div class="header-left">
-                <div class="header-icon">📚</div>
-                <div class="header-title">Vision Intelligence Daily Archive</div>
-            </div>
-            <div class="header-right">
-                <div class="header-stat" id="stat-papers">-- Papers</div>
-                <div class="header-stat" id="stat-days">-- Days</div>
-                <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
-                    <span id="theme-icon">🌙</span>
-                </button>
-            </div>
-        </header>
 
-        <!-- Breadcrumb -->
-        <nav class="breadcrumb" id="breadcrumb">
-            <span class="breadcrumb-item active">Archive</span>
-        </nav>
+<div class="header">
+    <div class="header-title">📚 Vision Intelligence Daily Archive</div>
+    <div class="header-meta" id="headerMeta"></div>
+</div>
 
-        <!-- Columns -->
-        <div class="columns-wrapper">
-            <div class="columns-container" id="columns-container">
-                <!-- Dynamic Content -->
-            </div>
-        </div>
-    </div>
+<div class="breadcrumb" id="breadcrumb"></div>
 
-    <!-- Config -->
-    <script src="config.js"></script>
-    
-    <script>
-        // ========== Theme Toggle ==========
-        const THEME_KEY = 'vid-archive-theme';
-        
-        function toggleTheme() {
-            const body = document.body;
-            const icon = document.getElementById('theme-icon');
-            
-            if (body.getAttribute('data-theme') === 'light') {
-                body.removeAttribute('data-theme');
-                icon.textContent = '🌙';
-                localStorage.setItem(THEME_KEY, 'dark');
-            } else {
-                body.setAttribute('data-theme', 'light');
-                icon.textContent = '☀️';
-                localStorage.setItem(THEME_KEY, 'light');
-            }
-        }
+<div class="columns" id="columns">
+    <div class="column" id="col0"></div>
+    <div class="column" id="col1"></div>
+    <div class="column" id="col2"></div>
+    <div class="column" id="col3"><div class="detail-empty"><div class="detail-empty-icon">📖</div><div class="detail-empty-text">选择一篇论文查看详细预览</div></div></div>
+</div>
 
-        // Initialize theme
-        if (localStorage.getItem(THEME_KEY) === 'light') {
-            document.body.setAttribute('data-theme', 'light');
-            document.getElementById('theme-icon').textContent = '☀️';
-        }
+<script src="config.js"></script>
+<script>
+(function() {
+    // Tree structure: years -> months -> dates -> papers
+    const data = PAPER_ARCHIVE_CONFIG;
+    const reports = data.dailyReports || [];
 
-        // ========== State Management ==========
-        const state = {
-            selectedYearMonth: null,
-            selectedDate: null,
-            selectedPaper: null,
-            data: null,
-            columnWidths: {}  // Store column widths
-        };
+    // Build tree
+    const tree = {}; // { "2026": { "06": { "2026-06-04": { report, papers } } } }
+    reports.forEach(r => {
+        const d = r.date || r.id;
+        if (!d) return;
+        const [y, m] = d.split('-');
+        if (!tree[y]) tree[y] = {};
+        if (!tree[y][m]) tree[y][m] = {};
+        tree[y][m][d] = r;
+    });
 
-        // ========== Data Processing ==========
-        function processData(config) {
-            const data = {};
-            
-            config.dailyReports.forEach(day => {
-                const [year, month, date] = day.date.split('-');
-                const key = `${year}-${month}`;
-                
-                if (!data[key]) {
-                    data[key] = {
-                        label: `${year}年${month}月`,
-                        year: year,
-                        month: month,
-                        dates: {}
-                    };
-                }
-                
-                data[key].dates[day.date] = {
-                    label: `${month}-${date}`,
-                    weekday: day.weekday,
-                    paperCount: day.paperCount,
-                    filename: day.filename,
-                    papers: day.papers
-                };
+    // State
+    let state = { year: null, month: null, date: null, paperIdx: null };
+
+    // DOM refs
+    const cols = [
+        document.getElementById('col0'),
+        document.getElementById('col1'),
+        document.getElementById('col2'),
+        document.getElementById('col3')
+    ];
+    const breadcrumb = document.getElementById('breadcrumb');
+    const headerMeta = document.getElementById('headerMeta');
+
+    // Init header
+    headerMeta.textContent = `${data.meta.totalPapers || 0} papers · ${data.meta.totalDays || 0} days · @${data.meta.author || 'miclover0'}`;
+
+    // ========== Helpers ==========
+    function esc(s) {
+        if (!s) return '';
+        return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+
+    const MONTH_NAMES = ['01月', '02月', '03月', '04月', '05月', '06月',
+                         '07月', '08月', '09月', '10月', '11月', '12月'];
+    const MONTH_ICONS = ['❄️','❄️','🌱','🌱','🌸','🌸','☀️','☀️','🍂','🍂','🍂','❄️'];
+
+    function formatAuthors(authors) {
+        if (!authors || !authors.length) return '';
+        if (Array.isArray(authors)) return authors.slice(0, 5).map(esc).join(', ') + (authors.length > 5 ? ' et al.' : '');
+        return esc(String(authors));
+    }
+
+    function getReportFile(r) {
+        return r.filename || r.reportFile || '';
+    }
+
+    // ========== Render ==========
+    function renderCol0() {
+        const years = Object.keys(tree).sort().reverse();
+        let html = '<div class="col-header">年份 / 月份</div>';
+        years.forEach(y => {
+            const months = Object.keys(tree[y]).sort().reverse();
+            let yearPapers = 0;
+            months.forEach(m => {
+                Object.keys(tree[y][m]).forEach(d => {
+                    yearPapers += (tree[y][m][d].totalPapers || tree[y][m][d].papers?.length || 0);
+                });
             });
-            
-            return data;
-        }
-
-        // ========== Render Functions ==========
-        function renderColumn1() {
-            const container = document.getElementById('columns-container');
-            const items = Object.entries(state.data).sort((a, b) => b[0].localeCompare(a[0]));
-            
-            let html = `
-                <div class="column" id="column-1" style="width: ${state.columnWidths['column-1'] || 'var(--column-width)'};">
-                    <div class="column-header">年/月</div>
-                    <div class="column-content">
-            `;
-            
-            items.forEach(([key, value]) => {
-                const isActive = state.selectedYearMonth === key;
-                html += `
-                    <div class="item ${isActive ? 'active' : ''}" onclick="selectYearMonth('${key}')">
-                        <svg class="item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                            <line x1="16" y1="2" x2="16" y2="6"></line>
-                            <line x1="8" y1="2" x2="8" y2="6"></line>
-                            <line x1="3" y1="10" x2="21" y2="10"></line>
-                        </svg>
-                        <span class="item-text">${value.label}</span>
-                        <span class="item-count">${Object.keys(value.dates).length}</span>
-                        <svg class="item-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="9 18 15 12 9 6"></polyline>
-                        </svg>
-                    </div>
-                `;
-            });
-            
-            html += `</div></div>`;
-            
-            // Add divider
-            html += `<div class="divider" data-column="column-1"></div>`;
-            
-            container.innerHTML = html;
-            
-            // Initialize divider drag
-            initDividerDrag();
-        }
-
-        function renderColumn2() {
-            if (!state.selectedYearMonth) return;
-            
-            const container = document.getElementById('columns-container');
-            const column1 = document.getElementById('column-1');
-            
-            const yearMonthData = state.data[state.selectedYearMonth];
-            const dates = Object.entries(yearMonthData.dates).sort((a, b) => b[0].localeCompare(a[0]));
-            
-            let html = `
-                <div class="column" id="column-2" style="width: ${state.columnWidths['column-2'] || 'var(--column-width)'};">
-                    <div class="column-header">日期</div>
-                    <div class="column-content">
-            `;
-            
-            dates.forEach(([dateKey, value]) => {
-                const isActive = state.selectedDate === dateKey;
-                html += `
-                    <div class="item ${isActive ? 'active' : ''}" onclick="selectDate('${dateKey}')">
-                        <svg class="item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                            <polyline points="14 2 14 8 20 8"></polyline>
-                        </svg>
-                        <span class="item-text">${value.label} (${value.weekday.slice(0, 3)})</span>
-                        <span class="item-count">${value.paperCount}</span>
-                        <svg class="item-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="9 18 15 12 9 6"></polyline>
-                        </svg>
-                    </div>
-                `;
-            });
-            
-            html += `</div></div>`;
-            
-            // Add divider
-            html += `<div class="divider" data-column="column-2"></div>`;
-            
-            // Remove old column 2 and detail panel
-            const oldColumn2 = document.getElementById('column-2');
-            const oldDetail = document.querySelector('.detail-panel');
-            if (oldColumn2) oldColumn2.remove();
-            if (oldDetail) oldDetail.remove();
-            
-            // Remove old divider
-            const oldDivider = document.querySelector('.divider');
-            if (oldDivider) oldDivider.remove();
-            
-            column1.insertAdjacentHTML('afterend', html);
-            
-            // Re-initialize divider drag
-            initDividerDrag();
-        }
-
-        function renderColumn3() {
-            if (!state.selectedDate) return;
-            
-            const container = document.getElementById('columns-container');
-            const column2 = document.getElementById('column-2');
-            
-            const yearMonthData = state.data[state.selectedYearMonth];
-            const dateData = yearMonthData.dates[state.selectedDate];
-            
-            let html = `
-                <div class="column" id="column-3" style="width: ${state.columnWidths['column-3'] || 'var(--column-width)'};">
-                    <div class="column-header">论文标题</div>
-                    <div class="column-content">
-            `;
-            
-            dateData.papers.forEach((paper, index) => {
-                const isActive = state.selectedPaper === index;
-                html += `
-                    <div class="item ${isActive ? 'active' : ''}" onclick="selectPaper(${index})">
-                        <svg class="item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                            <polyline points="14 2 14 8 20 8"></polyline>
-                            <line x1="16" y1="13" x2="8" y2="13"></line>
-                            <line x1="16" y1="17" x2="8" y2="17"></line>
-                        </svg>
-                        <span class="item-text">${paper.title.length > 40 ? paper.title.substring(0, 40) + '...' : paper.title}</span>
-                        <svg class="item-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="9 18 15 12 9 6"></polyline>
-                        </svg>
-                    </div>
-                `;
-            });
-            
-            html += `</div></div>`;
-            
-            // Add divider
-            html += `<div class="divider" data-column="column-3"></div>`;
-            
-            // Remove old column 3 and detail panel
-            const oldColumn3 = document.getElementById('column-3');
-            const oldDetail = document.querySelector('.detail-panel');
-            if (oldColumn3) oldColumn3.remove();
-            if (oldDetail) oldDetail.remove();
-            
-            // Remove old divider
-            const oldDivider = document.querySelector('.divider[data-column="column-2"]');
-            if (oldDivider) oldDivider.remove();
-            
-            column2.insertAdjacentHTML('afterend', html);
-            
-            // Re-initialize divider drag
-            initDividerDrag();
-        }
-
-        function renderDetailPanel() {
-            if (state.selectedPaper === null) return;
-            
-            const container = document.getElementById('columns-container');
-            const column3 = document.getElementById('column-3');
-            
-            const yearMonthData = state.data[state.selectedYearMonth];
-            const dateData = yearMonthData.dates[state.selectedDate];
-            const paper = dateData.papers[state.selectedPaper];
-            
-            const html = `
-                <div class="detail-panel">
-                    <div class="detail-header">
-                        <div class="detail-badge">
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                            </svg>
-                            ${paper.group} · ${paper.id}
-                        </div>
-                        <div class="detail-title">${escapeHtml(paper.title)}</div>
-                        <div class="detail-meta">
-                            <span>📅 ${dateData.label}</span>
-                            <span>👥 ${paper.authors.slice(0, 3).join(', ')}</span>
-                            <span>📍 ${paper.venue}</span>
-                        </div>
-                    </div>
-                    <div class="detail-content">
-                        <div class="detail-section">
-                            <div class="detail-section-title">标签</div>
-                            <div class="detail-tags">
-                                ${paper.tags.map(tag => `<span class="detail-tag">${escapeHtml(tag)}</span>`).join('')}
-                            </div>
-                        </div>
-                        <div class="detail-section">
-                            <div class="detail-section-title">作者</div>
-                            <div class="detail-authors">${paper.authors.join(', ')}</div>
-                        </div>
-                        <div class="detail-section">
-                            <div class="detail-section-title">摘要</div>
-                            <div class="detail-summary">${escapeHtml(paper.summary)}</div>
-                        </div>
-                        <div class="detail-section">
-                            <div class="detail-section-title">核心亮点</div>
-                            <ul class="detail-highlights">
-                                ${paper.highlights.map(h => `<li>${escapeHtml(h)}</li>`).join('')}
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="detail-footer">
-                        <button class="btn-primary" onclick="openFullReport('${dateData.filename}')">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                                <polyline points="15 3 21 3 21 9"></polyline>
-                                <line x1="10" y1="14" x2="21" y2="3"></line>
-                            </svg>
-                            查看完整日报 HTML
-                        </button>
-                        <button class="btn-secondary" onclick="openPdf('${paper.pdfUrl}')">
-                            PDF
-                        </button>
-                    </div>
+            html += `<div class="cell${state.year === y ? ' selected' : ''}" data-year="${y}">
+                <div class="cell-icon">📁</div>
+                <div class="cell-body">
+                    <div class="cell-title">${y} 年</div>
+                    <div class="cell-sub">${months.length} 个月</div>
                 </div>
-            `;
-            
-            // Remove old detail panel
-            const oldDetail = document.querySelector('.detail-panel');
-            if (oldDetail) oldDetail.remove();
-            
-            // Remove old divider
-            const oldDivider = document.querySelector('.divider[data-column="column-3"]');
-            if (oldDivider) oldDivider.remove();
-            
-            column3.insertAdjacentHTML('afterend', html);
-        }
+                <div class="cell-count">${yearPapers}</div>
+            </div>`;
 
-        function renderEmptyState() {
-            const container = document.getElementById('columns-container');
-            container.innerHTML = `
-                <div class="column" style="flex: 1;">
-                    <div class="empty-state">
-                        <div class="empty-icon">📚</div>
-                        <div class="empty-text">选择左侧年/月开始浏览</div>
-                    </div>
-                </div>
-            `;
-        }
-
-        // ========== Divider Drag Logic ==========
-        function initDividerDrag() {
-            const dividers = document.querySelectorAll('.divider');
-            
-            dividers.forEach(divider => {
-                divider.addEventListener('mousedown', startDrag);
-            });
-        }
-
-        let isDragging = false;
-        let currentDivider = null;
-        let startX = 0;
-        let startWidth = 0;
-
-        function startDrag(e) {
-            isDragging = true;
-            currentDivider = e.target;
-            startX = e.clientX;
-            
-            const columnId = currentDivider.getAttribute('data-column');
-            const column = document.getElementById(columnId);
-            startWidth = column.offsetWidth;
-            
-            currentDivider.classList.add('dragging');
-            
-            document.addEventListener('mousemove', onDrag);
-            document.addEventListener('mouseup', stopDrag);
-            
-            e.preventDefault();
-        }
-
-        function onDrag(e) {
-            if (!isDragging) return;
-            
-            const columnId = currentDivider.getAttribute('data-column');
-            const column = document.getElementById(columnId);
-            const delta = e.clientX - startX;
-            const newWidth = Math.max(180, Math.min(500, startWidth + delta));
-            
-            column.style.width = `${newWidth}px`;
-            
-            // Store width
-            state.columnWidths[columnId] = `${newWidth}px`;
-        }
-
-        function stopDrag() {
-            isDragging = false;
-            
-            if (currentDivider) {
-                currentDivider.classList.remove('dragging');
-            }
-            
-            document.removeEventListener('mousemove', onDrag);
-            document.removeEventListener('mouseup', stopDrag);
-        }
-
-        // ========== Selection Handlers ==========
-        function selectYearMonth(key) {
-            state.selectedYearMonth = key;
-            state.selectedDate = null;
-            state.selectedPaper = null;
-            
-            renderColumn1();
-            renderColumn2();
-            updateBreadcrumb();
-            
-            // Remove column 3 and detail panel
-            const column3 = document.getElementById('column-3');
-            const detail = document.querySelector('.detail-panel');
-            if (column3) column3.remove();
-            if (detail) detail.remove();
-        }
-
-        function selectDate(dateKey) {
-            state.selectedDate = dateKey;
-            state.selectedPaper = null;
-            
-            renderColumn2();
-            renderColumn3();
-            updateBreadcrumb();
-            
-            // Remove detail panel
-            const detail = document.querySelector('.detail-panel');
-            if (detail) detail.remove();
-        }
-
-        function selectPaper(index) {
-            state.selectedPaper = index;
-            
-            renderColumn3();
-            renderDetailPanel();
-            updateBreadcrumb();
-        }
-
-        // ========== Breadcrumb ==========
-        function updateBreadcrumb() {
-            const breadcrumb = document.getElementById('breadcrumb');
-            let html = `<span class="breadcrumb-item" onclick="resetToRoot()">Archive</span>`;
-            
-            if (state.selectedYearMonth) {
-                const yearMonthData = state.data[state.selectedYearMonth];
-                html += `
-                    <span class="breadcrumb-separator">›</span>
-                    <span class="breadcrumb-item ${state.selectedDate ? '' : 'active'}" onclick="selectYearMonth('${state.selectedYearMonth}')">${yearMonthData.label}</span>
-                `;
-            }
-            
-            if (state.selectedDate) {
-                const yearMonthData = state.data[state.selectedYearMonth];
-                const dateData = yearMonthData.dates[state.selectedDate];
-                html += `
-                    <span class="breadcrumb-separator">›</span>
-                    <span class="breadcrumb-item ${state.selectedPaper !== null ? '' : 'active'}" onclick="selectDate('${state.selectedDate}')">${dateData.label}</span>
-                `;
-            }
-            
-            if (state.selectedPaper !== null) {
-                const yearMonthData = state.data[state.selectedYearMonth];
-                const dateData = yearMonthData.dates[state.selectedDate];
-                const paper = dateData.papers[state.selectedPaper];
-                const shortTitle = paper.title.length > 30 ? paper.title.substring(0, 30) + '...' : paper.title;
-                html += `
-                    <span class="breadcrumb-separator">›</span>
-                    <span class="breadcrumb-item active">${shortTitle}</span>
-                `;
-            }
-            
-            breadcrumb.innerHTML = html;
-        }
-
-        function resetToRoot() {
-            state.selectedYearMonth = null;
-            state.selectedDate = null;
-            state.selectedPaper = null;
-            
-            renderColumn1();
-            updateBreadcrumb();
-            
-            // Remove other columns
-            const column2 = document.getElementById('column-2');
-            const column3 = document.getElementById('column-3');
-            const detail = document.querySelector('.detail-panel');
-            if (column2) column2.remove();
-            if (column3) column3.remove();
-            if (detail) detail.remove();
-        }
-
-        // ========== Utility Functions ==========
-        function escapeHtml(text) {
-            const div = document.createElement('div');
-            div.textContent = text;
-            return div.innerHTML;
-        }
-
-        function openFullReport(filename) {
-            window.location.href = `./daily_reports/${filename.replace('daily_reports/', '')}`;
-        }
-
-        function openPdf(url) {
-            window.open(url, '_blank');
-        }
-
-        // ========== Initialize ==========
-        document.addEventListener('DOMContentLoaded', () => {
-            if (typeof PAPER_ARCHIVE_CONFIG !== 'undefined') {
-                const config = PAPER_ARCHIVE_CONFIG;
-                
-                // Update stats
-                document.getElementById('stat-papers').textContent = `${config.meta.totalPapers} Papers`;
-                document.getElementById('stat-days').textContent = `${config.meta.totalDays} Days`;
-                
-                // Process data
-                state.data = processData(config);
-                
-                // Render first column
-                renderColumn1();
-                
-                console.log('📚 Vision Intelligence Daily Archive loaded successfully');
-            } else {
-                console.error('❌ Failed to load config.js');
+            // Show months if year is selected
+            if (state.year === y) {
+                months.forEach(m => {
+                    let monthPapers = 0;
+                    Object.keys(tree[y][m]).forEach(d => {
+                        monthPapers += (tree[y][m][d].totalPapers || tree[y][m][d].papers?.length || 0);
+                    });
+                    const sel = (state.year === y && state.month === m);
+                    html += `<div class="cell month-cell${sel ? ' selected' : ''}" data-year="${y}" data-month="${m}">
+                        <div class="cell-icon">${MONTH_ICONS[parseInt(m)-1]}</div>
+                        <div class="cell-body">
+                            <div class="cell-title">${MONTH_NAMES[parseInt(m)-1]}</div>
+                            <div class="cell-sub">${Object.keys(tree[y][m]).length} 天</div>
+                        </div>
+                        <div class="cell-count">${monthPapers}</div>
+                    </div>`;
+                });
             }
         });
-    </script>
+
+        if (!years.length) {
+            html += '<div style="padding:24px;text-align:center;color:var(--text-tertiary)">暂无数据</div>';
+        }
+
+        cols[0].innerHTML = html;
+
+        // Events
+        cols[0].querySelectorAll('.cell[data-year]').forEach(el => {
+            el.addEventListener('click', () => {
+                const y = el.dataset.year;
+                const m = el.dataset.month;
+                if (m) {
+                    // Clicked a month cell
+                    state.year = y;
+                    state.month = m;
+                    state.date = null;
+                    state.paperIdx = null;
+                } else {
+                    // Clicked a year cell - toggle
+                    if (state.year === y && !el.dataset.month) {
+                        // If clicking same year and no month selected, collapse
+                        // But we need months shown. Toggle behavior:
+                        state.year = (state.year === y) ? null : y;
+                        state.month = null;
+                        state.date = null;
+                        state.paperIdx = null;
+                    } else {
+                        state.year = y;
+                        state.month = null;
+                        state.date = null;
+                        state.paperIdx = null;
+                    }
+                }
+                refresh();
+            });
+        });
+    }
+
+    function renderCol1() {
+        if (!state.year || !state.month || !tree[state.year] || !tree[state.year][state.month]) {
+            cols[1].innerHTML = '<div class="col-header">日期</div><div style="padding:24px;text-align:center;color:var(--text-tertiary);font-size:13px;">← 选择月份</div>';
+            return;
+        }
+
+        const monthData = tree[state.year][state.month];
+        const dates = Object.keys(monthData).sort().reverse();
+
+        let html = `<div class="col-header">${state.year}年${MONTH_NAMES[parseInt(state.month)-1]}</div>`;
+        dates.forEach(d => {
+            const r = monthData[d];
+            const count = r.totalPapers || (r.papers ? r.papers.length : 0);
+            const sel = state.date === d;
+            const dayNum = d.split('-')[2];
+            const days = ['周日','周一','周二','周三','周四','周五','周六'];
+            const dow = days[new Date(d).getDay()] || '';
+
+            html += `<div class="cell${sel ? ' selected' : ''}" data-date="${d}">
+                <div class="cell-icon">📄</div>
+                <div class="cell-body">
+                    <div class="cell-title">${dayNum} 日</div>
+                    <div class="cell-sub">${dow} · ${r.dateDisplay || d}</div>
+                </div>
+                <div class="cell-count">${count} 篇</div>
+                <div class="cell-chevron">›</div>
+            </div>`;
+        });
+
+        cols[1].innerHTML = html;
+        cols[1].querySelectorAll('.cell[data-date]').forEach(el => {
+            el.addEventListener('click', () => {
+                state.date = el.dataset.date;
+                state.paperIdx = null;
+                refresh();
+            });
+        });
+    }
+
+    function renderCol2() {
+        if (!state.date) {
+            cols[2].innerHTML = '<div class="col-header">论文列表</div><div style="padding:24px;text-align:center;color:var(--text-tertiary);font-size:13px;">← 选择日期</div>';
+            return;
+        }
+
+        // Find report for this date
+        const report = reports.find(r => (r.date || r.id) === state.date);
+        if (!report) {
+            cols[2].innerHTML = '<div class="col-header">论文列表</div><div style="padding:24px;text-align:center;color:var(--text-tertiary)">无数据</div>';
+            return;
+        }
+
+        const papers = report.papers || [];
+        const groups = report.groups || {};
+
+        let html = `<div class="col-header">${state.date} · ${papers.length} 篇</div>`;
+
+        papers.forEach((p, i) => {
+            const g = p.group || '';
+            const sel = state.paperIdx === i;
+            const title = esc(p.title || 'Untitled');
+            const arxivId = p.arxivId || '';
+            const worth = p.worthReading;
+            const tags = [];
+            if (g) tags.push(`<span class="paper-tag tag-${g}">${g}组</span>`);
+            if (worth) tags.push(`<span class="paper-tag tag-star">⭐精读</span>`);
+
+            html += `<div class="cell${sel ? ' selected' : ''}" data-idx="${i}">
+                <div class="cell-body">
+                    <div class="cell-title">${title}</div>
+                    <div class="cell-sub">${arxivId ? esc(arxivId) : ''}</div>
+                </div>
+                <div class="paper-tags">${tags.join('')}</div>
+            </div>`;
+        });
+
+        cols[2].innerHTML = html;
+        cols[2].querySelectorAll('.cell[data-idx]').forEach(el => {
+            el.addEventListener('click', () => {
+                state.paperIdx = parseInt(el.dataset.idx);
+                refresh();
+            });
+        });
+    }
+
+    function renderCol3() {
+        if (state.paperIdx === null || !state.date) {
+            cols[3].innerHTML = `<div class="detail-empty">
+                <div class="detail-empty-icon">📖</div>
+                <div class="detail-empty-text">选择一篇论文查看详细预览</div>
+            </div>`;
+            return;
+        }
+
+        const report = reports.find(r => (r.date || r.id) === state.date);
+        if (!report) { cols[3].innerHTML = ''; return; }
+
+        const p = (report.papers || [])[state.paperIdx];
+        if (!p) { cols[3].innerHTML = ''; return; }
+
+        const g = p.group || '';
+        const groupLabels = { A: '目标检测强相关', B: '端云协同 / 边缘计算', C: '其他 AI 相关' };
+        const groupName = p.groupName || groupLabels[g] || g;
+
+        const authors = p.authors || [];
+        const highlights = p.highlights || [];
+        const summary = p.summary || '';
+        const score = p.score !== undefined ? p.score : null;
+        const worth = p.worthReading;
+
+        const tagsHtml = (p.tags || []).map(t => `<span class="paper-tag tag-${g}">${esc(t)}</span>`).join('');
+        const arxivLink = p.arxivId ? `https://arxiv.org/abs/${esc(p.arxivId)}` : '';
+
+        const reportFile = getReportFile(report);
+
+        let html = `<div class="detail-panel">
+            <div class="detail-group">${esc(groupName)}${worth ? ' · ⭐ 值得精读' : ''}</div>
+            <div class="detail-title">${esc(p.title || 'Untitled')}</div>`;
+
+        if (authors.length > 0) {
+            html += `<div class="detail-authors">${formatAuthors(authors)}</div>`;
+        }
+
+        html += `<div class="detail-meta">`;
+        if (g) html += `<span class="detail-meta-chip paper-tag tag-${g} style='background:var(--tag-${g});color:var(--tag-${g}-text)'>${g}组 · ${groupName}</span>`;
+        if (arxivLink) html += `<a class="detail-meta-chip btn-secondary" href="${arxivLink}" target="_blank" style="font-size:11px;">📄 arXiv</a>`;
+        if (score !== null) html += `<span class="detail-meta-chip" style="background:var(--accent-light);color:var(--accent);">评分: ${Math.round(score * 100)}</span>`;
+        html += `</div>`;
+
+        // Summary
+        if (summary) {
+            html += `<div class="detail-section">
+                <div class="detail-section-label">📝 摘要</div>
+                <div class="detail-summary">${esc(summary).substring(0, 800)}</div>
+            </div>`;
+        }
+
+        // Highlights
+        if (highlights.length > 0) {
+            html += `<div class="detail-section">
+                <div class="detail-section-label">✨ 亮点</div>
+                <div class="detail-highlights">`;
+            highlights.forEach(h => {
+                html += `<div class="detail-hl">${esc(typeof h === 'string' ? h : (h[1] || h))}</div>`;
+            });
+            html += `</div></div>`;
+        }
+
+        // Actions
+        html += `<div class="detail-actions">`;
+        if (reportFile) {
+            html += `<button class="btn-primary" onclick="window.location.href='./${esc(reportFile).replace(/^daily_reports\//, 'daily_reports/')}'">📋 查看完整日报 HTML</button>`;
+        }
+        if (p.pdfUrl) {
+            html += `<a class="btn-secondary" href="${esc(p.pdfUrl)}" target="_blank">📥 PDF</a>`;
+        }
+        html += `</div></div>`;
+
+        cols[3].innerHTML = html;
+    }
+
+    function renderBreadcrumb() {
+        let parts = ['<span onclick="clickCrumb(0)">Archive</span>'];
+
+        if (state.year) {
+            parts.push(`<span class="sep">›</span>`);
+            if (state.month) {
+                parts.push(`<span onclick="clickCrumb(1)">${state.year}-${state.month}</span>`);
+            } else {
+                parts.push(`<span class="current">${state.year}</span>`);
+            }
+        }
+
+        if (state.month && state.date) {
+            parts.push(`<span class="sep">›</span>`);
+            const dayNum = state.date.split('-')[2];
+            parts.push(`<span onclick="clickCrumb(2)">${state.date}</span>`);
+        } else if (state.month) {
+            parts.push(`<span class="sep">›</span>`);
+            parts.push(`<span class="current">${MONTH_NAMES[parseInt(state.month)-1]}</span>`);
+        }
+
+        if (state.paperIdx !== null) {
+            parts.push(`<span class="sep">›</span>`);
+            const report = reports.find(r => (r.date || r.id) === state.date);
+            if (report && report.papers) {
+                const p = report.papers[state.paperIdx];
+                const title = (p && p.title) ? p.title.substring(0, 40) + (p.title.length > 40 ? '...' : '') : 'Paper';
+                parts.push(`<span class="current">${esc(title)}</span>`);
+            }
+        }
+
+        breadcrumb.innerHTML = parts.join(' ');
+    }
+
+    function refresh() {
+        renderCol0();
+        renderCol1();
+        renderCol2();
+        renderCol3();
+        renderBreadcrumb();
+    }
+
+    // Crumb click handler
+    window.clickCrumb = function(level) {
+        if (level === 0) { state.year = null; state.month = null; state.date = null; state.paperIdx = null; }
+        if (level === 1) { state.month = null; state.date = null; state.paperIdx = null; }
+        if (level === 2) { state.date = null; state.paperIdx = null; }
+        refresh();
+    };
+
+    // Init
+    refresh();
+})();
+</script>
+
 </body>
 </html>

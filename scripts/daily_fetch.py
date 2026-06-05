@@ -921,142 +921,118 @@ A组：目标检测强相关 · B组：端云协同/边缘计算 · C组：其�
 # config.js 更新
 # ============================================================
 
-def update_config_js(papers, target_date, groups, html_filename):
-    """更新 config.js 数据文件 —— 生成合法 JS 对象字面量"""
-    config_path = os.path.join(REPO_ROOT, "config.js")
-
-    if not os.path.exists(config_path):
-        log(f"  config.js 不存在: {config_path}")
-        return False
-
-    with open(config_path, "r", encoding="utf-8") as f:
-        content = f.read()
+def update_config_json(papers, target_date, groups, html_filename):
+    """更新 config.json + config.js —— 纯 JSON 数据源 + JS 脚本自动生成，保证绝对合法"""
+    config_json_path = os.path.join(REPO_ROOT, "config.json")
+    config_js_path = os.path.join(REPO_ROOT, "config.js")
 
     date_str = target_date.strftime("%Y-%m-%d")
     total = len(papers)
 
-    # 构建新的 dailyReport 条目
+    # 从 config.json 加载已有数据
+    data = None
+    if os.path.exists(config_json_path):
+        try:
+            with open(config_json_path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+        except Exception:
+            pass
+
+    if not data or "dailyReports" not in data:
+        data = {
+            "meta": {
+                "title": "Vision Intelligence Daily Archive",
+                "subtitle": "Daily Research Paper Digest",
+                "description": "Automated collection of cutting-edge research papers in Computer Vision, UAV, FTTA, and Domain Adaptation.",
+                "totalPapers": 0,
+                "totalDays": 0,
+                "lastUpdated": date_str,
+                "author": "@miclover0",
+                "repository": "https://github.com/miclover0/paper-daily"
+            },
+            "dailyReports": []
+        }
+
+    # 构建日期显示
     weekday_names = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
     weekday = weekday_names[target_date.weekday()]
     months = ["January", "February", "March", "April", "May", "June",
               "July", "August", "September", "October", "November", "December"]
     date_display = f"{months[target_date.month-1]} {target_date.day:02d}, {target_date.year}"
 
-    # 构建 featuredPapers 数组（取 A 组第一篇，若无则 B，再否则 C）
-    featured_parts = []
+    # 构建 featuredPapers
+    featured = []
     for g in ["A", "B", "C"]:
         if groups.get(g):
             fp = groups[g][0]
-            tags_json = json.dumps(fp.get("tags", []), ensure_ascii=False)
-            authors_str = ", ".join(fp.get("authors", [])[:3])
             highlights_list = [h[1] if isinstance(h, tuple) else h for h in fp.get("highlights", [])]
-            highlights_json = json.dumps(highlights_list, ensure_ascii=False)
-            featured_parts.append("                    {\n"
-                f"                        title: {json.dumps(fp['title'], ensure_ascii=False)},\n"
-                f"                        authors: {json.dumps(authors_str, ensure_ascii=False)},\n"
-                f'                        venue: "arXiv {target_date.year}",\n'
-                f'                        arxivId: "arXiv:{fp.get("arxiv_id", "")}",\n'
-                f"                        tags: {tags_json},\n"
-                f"                        summary: {json.dumps(fp.get('chinese_summary', fp['summary'][:200]), ensure_ascii=False)},\n"
-                f"                        highlights: {highlights_json},\n"
-                f"                        pdfUrl: {json.dumps(fp.get('pdf_url', ''), ensure_ascii=False)}\n"
-                "                    }")
+            featured.append({
+                "title": fp["title"],
+                "authors": ", ".join(fp.get("authors", [])[:3]),
+                "venue": f"arXiv {target_date.year}",
+                "arxivId": f"arXiv:{fp.get('arxiv_id', '')}",
+                "tags": fp.get("tags", []),
+                "summary": fp.get("chinese_summary", fp.get("summary", "")[:200]),
+                "highlights": highlights_list,
+                "pdfUrl": fp.get("pdf_url", "")
+            })
             break
-    featured_block = ""
-    if featured_parts:
-        featured_block = "            featuredPapers: [\n" + "\n".join(featured_parts) + "\n            ],\n"
 
     # 构建 papers 数组
-    papers_entries = []
+    papers_list = []
     for group_name in ["A", "B", "C"]:
         group_papers = groups.get(group_name, [])
         for idx, p in enumerate(group_papers):
             pid = f"{group_name}{idx+1}"
-            authors_json = json.dumps(p.get("authors", []), ensure_ascii=False)
-            tags_json = json.dumps(p.get("tags", []), ensure_ascii=False)
             highlights_list = [h[1] if isinstance(h, tuple) else h for h in p.get("highlights", [])]
-            highlights_json = json.dumps(highlights_list, ensure_ascii=False)
-            worth = "true" if p.get("worth_reading", False) else "false"
-            entry = (
-                "                    {\n"
-                f'                        id: "{pid}",\n'
-                f'                        group: "{group_name}",\n'
-                f"                        groupName: {json.dumps(GROUP_LABELS[group_name], ensure_ascii=False)},\n"
-                f"                        title: {json.dumps(p['title'], ensure_ascii=False)},\n"
-                f"                        authors: {authors_json},\n"
-                f'                        venue: "arXiv {target_date.year}",\n'
-                f'                        arxivId: "arXiv:{p.get("arxiv_id", "")}",\n'
-                f"                        tags: {tags_json},\n"
-                f"                        summary: {json.dumps(p.get('chinese_summary', p['summary'][:200]), ensure_ascii=False)},\n"
-                f"                        highlights: {highlights_json},\n"
-                f"                        pdfUrl: {json.dumps(p.get('pdf_url', ''), ensure_ascii=False)},\n"
-                f"                        worthReading: {worth}\n"
-                "                    }"
-            )
-            papers_entries.append(entry)
+            papers_list.append({
+                "id": pid,
+                "group": group_name,
+                "groupName": GROUP_LABELS[group_name],
+                "title": p["title"],
+                "authors": p.get("authors", []),
+                "venue": f"arXiv {target_date.year}",
+                "arxivId": f"arXiv:{p.get('arxiv_id', '')}",
+                "tags": p.get("tags", []),
+                "summary": p.get("chinese_summary", p.get("summary", "")[:200]),
+                "highlights": highlights_list,
+                "pdfUrl": p.get("pdf_url", ""),
+                "worthReading": p.get("worth_reading", False)
+            })
 
-    group_counts_json = json.dumps({g: len(gs) for g, gs in groups.items()}, ensure_ascii=False)
+    # 构建新条目
+    new_entry = {
+        "id": date_str,
+        "date": date_str,
+        "dateDisplay": date_display,
+        "weekday": weekday,
+        "filename": html_filename,
+        "paperCount": total,
+        "groups": {g: len(gs) for g, gs in groups.items()},
+        "featuredPapers": featured,
+        "papers": papers_list
+    }
 
-    new_report = (
-        "        {\n"
-        f'            id: "{date_str}",\n'
-        f'            date: "{date_str}",\n'
-        f'            dateDisplay: "{date_display}",\n'
-        f'            weekday: "{weekday}",\n'
-        f'            filename: "{html_filename}",\n'
-        f"            paperCount: {total},\n"
-        f"            groups: {group_counts_json},\n"
-        f"{featured_block}"
-        "            papers: [\n"
-        ",\n".join(papers_entries) + "\n"
-        "            ]\n"
-        "        },\n"
-    )
+    # 插入到 dailyReports 最前面
+    data["dailyReports"] = [r for r in data["dailyReports"] if r.get("id") != date_str]
+    data["dailyReports"].insert(0, new_entry)
 
-    # 找到 dailyReports 数组的起始位置并插入
-    # 在第一个 dailyReport 条目之前插入
-    insert_pos = content.find("dailyReports: [")
-    if insert_pos == -1:
-        log("  无法找到 dailyReports 数组")
-        return False
+    # 更新 meta
+    data["meta"]["totalPapers"] = sum(r.get("paperCount", 0) for r in data["dailyReports"])
+    data["meta"]["totalDays"] = len(data["dailyReports"])
+    data["meta"]["lastUpdated"] = date_str
 
-    insert_pos = content.find("{", insert_pos)  # 找到第一个 {
-    if insert_pos == -1:
-        log("  无法找到第一个 dailyReport 条目")
-        return False
+    # 写入 config.json（数据源）和 config.js（供 index.html 加载）
+    json_str = json.dumps(data, ensure_ascii=False, indent=2)
 
-    # 获取缩进
-    line_start = content.rfind("\n", 0, insert_pos) + 1
-    indent = content[line_start:insert_pos]
+    with open(config_json_path, "w", encoding="utf-8") as f:
+        f.write(json_str)
 
-    # 插入新条目
-    new_content = content[:line_start] + new_report + "\n" + content[line_start:]
+    js_content = f"const PAPER_ARCHIVE_CONFIG = {json_str};\n"
+    with open(config_js_path, "w", encoding="utf-8") as f:
+        f.write(js_content)
 
-    # 更新 meta 信息
-    # totalPapers
-    new_content = re.sub(
-        r'(totalPapers:\s*)\d+',
-        lambda m: f'{m.group(1)}{total + int(re.search(r"totalPapers:\s*(\d+)", content).group(1))}',
-        new_content
-    )
-    # totalDays
-    new_content = re.sub(
-        r'(totalDays:\s*)\d+',
-        lambda m: f'{m.group(1)}{1 + int(re.search(r"totalDays:\s*(\d+)", content).group(1))}',
-        new_content
-    )
-    # lastUpdated
-    new_content = re.sub(
-        r'(lastUpdated:\s*)".*?"',
-        f'\\1"{date_str}"',
-        new_content
-    )
-
-    # 写回文件
-    with open(config_path, "w", encoding="utf-8") as f:
-        f.write(new_content)
-
-    log(f"  config.js 已更新: +{total} 篇论文, date={date_str}")
+    log(f"  config.json/config.js 已更新: +{total} 篇, 累计 {data['meta']['totalPapers']}篇/{data['meta']['totalDays']}天")
     return True
 
 
@@ -1140,7 +1116,7 @@ def main():
 
     # Step 6: 更新 config.js
     log("Step 6: 更新 config.js...")
-    success = update_config_js(papers, target_date, groups, html_filename)
+    success = update_config_json(papers, target_date, groups, html_filename)
     if success:
         log("  config.js 更新成功")
     else:

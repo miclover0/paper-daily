@@ -922,7 +922,7 @@ A组：目标检测强相关 · B组：端云协同/边缘计算 · C组：其�
 # ============================================================
 
 def update_config_js(papers, target_date, groups, html_filename):
-    """更新 config.js 数据文件"""
+    """更新 config.js 数据文件 —— 生成合法 JS 对象字面量"""
     config_path = os.path.join(REPO_ROOT, "config.js")
 
     if not os.path.exists(config_path):
@@ -942,31 +942,29 @@ def update_config_js(papers, target_date, groups, html_filename):
               "July", "August", "September", "October", "November", "December"]
     date_display = f"{months[target_date.month-1]} {target_date.day:02d}, {target_date.year}"
 
-    # 构建 featured paper（取第一组的第一篇）
-    featured = ""
+    # 构建 featuredPapers 数组（取 A 组第一篇，若无则 B，再否则 C）
+    featured_parts = []
     for g in ["A", "B", "C"]:
         if groups.get(g):
             fp = groups[g][0]
             tags_json = json.dumps(fp.get("tags", []), ensure_ascii=False)
             authors_str = ", ".join(fp.get("authors", [])[:3])
-            highlights_json = json.dumps(
-                [h[1] if isinstance(h, tuple) else h for h in fp.get("highlights", [])],
-                ensure_ascii=False
-            )
-            featured = f'''
-            featuredPapers: [
-                {{
-                    title: {json.dumps(fp["title"], ensure_ascii=False)},
-                    authors: {json.dumps(authors_str, ensure_ascii=False)},
-                    venue: "arXiv {target_date.year}",
-                    arxivId: "arXiv:{fp.get("arxiv_id", "")}",
-                    tags: {tags_json},
-                    summary: {json.dumps(fp.get("chinese_summary", fp["summary"][:200]), ensure_ascii=False)},
-                    highlights: {highlights_json},
-                    pdfUrl: {json.dumps(fp.get("pdf_url", ""), ensure_ascii=False)}
-                }}
-            ],'''
+            highlights_list = [h[1] if isinstance(h, tuple) else h for h in fp.get("highlights", [])]
+            highlights_json = json.dumps(highlights_list, ensure_ascii=False)
+            featured_parts.append("                    {\n"
+                f"                        title: {json.dumps(fp['title'], ensure_ascii=False)},\n"
+                f"                        authors: {json.dumps(authors_str, ensure_ascii=False)},\n"
+                f'                        venue: "arXiv {target_date.year}",\n'
+                f'                        arxivId: "arXiv:{fp.get("arxiv_id", "")}",\n'
+                f"                        tags: {tags_json},\n"
+                f"                        summary: {json.dumps(fp.get('chinese_summary', fp['summary'][:200]), ensure_ascii=False)},\n"
+                f"                        highlights: {highlights_json},\n"
+                f"                        pdfUrl: {json.dumps(fp.get('pdf_url', ''), ensure_ascii=False)}\n"
+                "                    }")
             break
+    featured_block = ""
+    if featured_parts:
+        featured_block = "            featuredPapers: [\n" + "\n".join(featured_parts) + "\n            ],\n"
 
     # 构建 papers 数组
     papers_entries = []
@@ -978,39 +976,42 @@ def update_config_js(papers, target_date, groups, html_filename):
             tags_json = json.dumps(p.get("tags", []), ensure_ascii=False)
             highlights_list = [h[1] if isinstance(h, tuple) else h for h in p.get("highlights", [])]
             highlights_json = json.dumps(highlights_list, ensure_ascii=False)
-            entry = f'''                {{
-                    id: "{pid}",
-                    group: "{group_name}",
-                    groupName: {json.dumps(GROUP_LABELS[group_name], ensure_ascii=False)},
-                    title: {json.dumps(p["title"], ensure_ascii=False)},
-                    authors: {authors_json},
-                    venue: "arXiv {target_date.year}",
-                    arxivId: "arXiv:{p.get("arxiv_id", "")}",
-                    tags: {tags_json},
-                    summary: {json.dumps(p.get("chinese_summary", p["summary"][:200]), ensure_ascii=False)},
-                    highlights: {highlights_json},
-                    pdfUrl: {json.dumps(p.get("pdf_url", ""), ensure_ascii=False)},
-                    worthReading: {"true" if p.get("worth_reading", False) else "false"}
-                }}'''
+            worth = "true" if p.get("worth_reading", False) else "false"
+            entry = (
+                "                    {\n"
+                f'                        id: "{pid}",\n'
+                f'                        group: "{group_name}",\n'
+                f"                        groupName: {json.dumps(GROUP_LABELS[group_name], ensure_ascii=False)},\n"
+                f"                        title: {json.dumps(p['title'], ensure_ascii=False)},\n"
+                f"                        authors: {authors_json},\n"
+                f'                        venue: "arXiv {target_date.year}",\n'
+                f'                        arxivId: "arXiv:{p.get("arxiv_id", "")}",\n'
+                f"                        tags: {tags_json},\n"
+                f"                        summary: {json.dumps(p.get('chinese_summary', p['summary'][:200]), ensure_ascii=False)},\n"
+                f"                        highlights: {highlights_json},\n"
+                f"                        pdfUrl: {json.dumps(p.get('pdf_url', ''), ensure_ascii=False)},\n"
+                f"                        worthReading: {worth}\n"
+                "                    }"
+            )
             papers_entries.append(entry)
 
-    # 构建新的 dailyReport
-    group_counts_json = json.dumps({
-        g: len(gs) for g, gs in groups.items()
-    })
+    group_counts_json = json.dumps({g: len(gs) for g, gs in groups.items()}, ensure_ascii=False)
 
-    new_report = f'''        {{
-            id: "{date_str}",
-            date: "{date_str}",
-            dateDisplay: "{date_display}",
-            weekday: "{weekday}",
-            filename: "{html_filename}",
-            paperCount: {total},
-            groups: {group_counts_json},{featured}
-            papers: [
-{",".join(papers_entries)}
-            ]
-        }},'''
+    new_report = (
+        "        {\n"
+        f'            id: "{date_str}",\n'
+        f'            date: "{date_str}",\n'
+        f'            dateDisplay: "{date_display}",\n'
+        f'            weekday: "{weekday}",\n'
+        f'            filename: "{html_filename}",\n'
+        f"            paperCount: {total},\n"
+        f"            groups: {group_counts_json},\n"
+        f"{featured_block}"
+        "            papers: [\n"
+        ",\n".join(papers_entries) + "\n"
+        "            ]\n"
+        "        },\n"
+    )
 
     # 找到 dailyReports 数组的起始位置并插入
     # 在第一个 dailyReport 条目之前插入

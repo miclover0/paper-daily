@@ -540,6 +540,213 @@ def extract_tags(paper):
 # 论文评分 & 是否值得精读
 # ============================================================
 
+def compute_relevance_score(title, summary, categories):
+    """
+    计算论文与 AI/CV/Agent/边缘计算等方向的「相关度分数」（0-100）
+    用于从每天 ~200 篇论文中筛选「强相关」的 50 篇。
+    评分因素：
+    - ArXiv 类别（cs.AI/cs.LG/cs.CV/cs.RO 权重最高）
+    - 标题/摘要核心关键词匹配
+    - 负面关键词减分（medical/biology/finance 等非核心方向）
+    - 标题/摘要质量加分
+    """
+    score = 0.0
+    title_lower = title.lower()
+    summary_lower = summary.lower()
+    combined = title_lower + " " + summary_lower
+
+    # 1. 类别权重（0-40分）
+    cat_score = 0
+    for cat in categories:
+        if cat == "cs.AI":
+            cat_score = max(cat_score, 40)
+        elif cat == "cs.LG":
+            cat_score = max(cat_score, 38)
+        elif cat == "cs.CV":
+            cat_score = max(cat_score, 35)
+        elif cat == "cs.RO":
+            cat_score = max(cat_score, 32)
+        elif cat.startswith("cs."):
+            cat_score = max(cat_score, 20)
+    score += cat_score
+
+    # 2. 核心关键词匹配（累计，最高40分）
+    core_keywords = [
+        ("vision language model", 15), ("vlm", 15), ("visual language", 12),
+        ("object detection", 15), ("detector", 10), ("detection", 8),
+        ("test time adaptation", 15), ("tta", 15), ("test-time adaptation", 15),
+        ("continual test time", 15), ("cotta", 15),
+        ("domain adaptation", 12), ("domain generalization", 12), ("cross domain", 10),
+        ("open world", 12), ("open vocabulary", 12), ("open set", 10), ("zero-shot", 10),
+        ("ai agent", 12), ("multi-agent", 12), ("agentic", 10), ("embodied", 10),
+        ("video understanding", 10), ("video analysis", 10), ("temporal", 8),
+        ("edge computing", 12), ("edge intelligence", 12), ("edge device", 10),
+        ("federated learning", 10), ("distributed inference", 10),
+        ("model compression", 10), ("knowledge distillation", 10), ("pruning", 8), ("quantization", 8),
+        ("diffusion model", 10), ("diffusion", 8),
+        ("transformer", 8), ("attention", 6),
+        ("benchmark", 5), ("survey", -20), ("review", -10),
+    ]
+    for kw, pts in core_keywords:
+        if kw in combined:
+            score += pts
+
+    # 3. 负面关键词减分
+    negative_keywords = [
+        "medical", "healthcare", "clinical", "drug", "medicine",
+        "biology", "genomic", "protein", "chemical", "molecule",
+        "finance", "stock", "trading", "crypto",
+        "music", "art", "poetry", "painting",
+        "hardware", "circuit", "fpga", "asic",
+    ]
+    for kw in negative_keywords:
+        if kw in combined:
+            score -= 18
+
+    # 4. 标题质量加分（5分）
+    if 30 <= len(title) <= 150:
+        score += 5
+
+    # 5. 摘要质量加分（5分）
+    if len(summary) > 500:
+        score += 5
+
+    # 6. 是否有具体数值结果（5分）
+    if re.search(r'\d+\.?\d*\s*%', summary):
+        score += 5
+
+    # 截断到 0-100
+    return max(0.0, min(100.0, score))
+
+
+def select_top_papers(papers, top_n=50):
+    """
+    从所有论文中筛选「强相关」的前 N 篇（默认50篇）
+    返回筛选后的论文列表，并为每篇论文添加 relevance_score 字段
+    """
+    if not papers:
+        return []
+
+    log(f"  计算相关度分数（共 {len(papers)} 篇）...")
+    for p in papers:
+        p["relevance_score"] = compute_relevance_score(
+            p["title"], p["summary"], p.get("categories", [])
+        )
+
+    # 按相关度分数降序排序
+    sorted_papers = sorted(papers, key=lambda p: p.get("relevance_score", 0), reverse=True)
+
+    # 如果筛选后太少，放宽到分数 >= 30
+    if len(sorted_papers) > top_n:
+        threshold = sorted_papers[top_n - 1].get("relevance_score", 0)
+        # 如果第50名的分数 >= 30，则严格取前50；否则放宽到所有 >= 30 分的
+        if threshold >= 30:
+            selected = sorted_papers[:top_n]
+        else:
+            selected = [p for p in sorted_papers if p.get("relevance_score", 0) >= 30]
+            log(f"  相关度分数较低，放宽筛选：取所有分数>=30的论文（共 {len(selected)} 篇）")
+            selected = selected[:top_n]  # 最多取 top_n
+    else:
+        selected = sorted_papers
+
+    log(f"  筛选出 {len(selected)} 篇强相关论文（相关度分数 >= {selected[-1].get('relevance_score', 0):.1f}）")
+    return selected
+
+
+def generate_read_reason(paper):
+    """
+    生成「精读原因」（中文，1-2句话）
+    基于论文的标签、分组、评分等信息生成
+    """
+    tags = paper.get("tags", [])
+    group = paper.get("group", "C")
+    title = paper["title"]
+    summary = paper["summary"]
+    combined = (title + " " + summary).lower()
+
+    reasons = []
+
+    # 根据标签生成原因
+    tag_reason_map = [
+        ("VLM", "本文探索视觉-语言模型（VLM）的前沿进展，对多模态理解有重要参考价值"),
+        ("CoTTA", "持续测试时自适应（CoTTA）在实际部署中至关重要，本文提出了有价值的改进思路"),
+        ("TTA", "测试时自适应（TTA）是提升模型泛化能力的关键技术，本文值得深入研究"),
+        ("Open World", "开放世界识别是计算机视觉的核心挑战，本文可能带来新的解决思路"),
+        ("Open Vocabulary", "开放词汇检测是连接视觉与语言的重要方向，本文具有一定的创新价值"),
+        ("Domain Adaptation", "域自适应技术对于跨场景泛化至关重要，本文值得深入理解"),
+        ("Cross Domain", "跨域泛化是实际部署中的核心挑战，本文提供了有价值的技术方案"),
+        ("Agent", "AI Agent 是当前研究热点，本文可能包含创新性的设计思路"),
+        ("Embodied AI", "具身智能是通向通用 AI 的重要路径，本文值得关注"),
+        ("Video Analysis", "视频理解是计算机视觉的重要方向，本文可能推动该领域的进展"),
+        ("Object Detection", "目标检测是基础且重要的研究方向，本文可能带来性能或效率的显著提升"),
+        ("Edge Computing", "边缘计算与端云协同是实际系统的核心挑战，本文提供了实用的解决方案"),
+        ("Federated Learning", "联邦学习对于隐私保护场景至关重要，本文值得深入研究"),
+        ("Model Compression", "模型压缩对于边缘部署至关重要，本文可能带来新的压缩技术"),
+        ("World Model", "世界模型是提升模型泛化能力的前沿方向，本文具有一定的探索价值"),
+        ("Distributed", "分布式训练/推理是大规模系统的核心技术，本文提供了有价值的优化思路"),
+    ]
+    for tag, reason in tag_reason_map:
+        if tag in tags:
+            reasons.append(reason)
+            if len(reasons) >= 2:
+                break
+
+    # 根据分组补充原因
+    if not reasons:
+        if group == "A":
+            reasons.append("本文与目标检测高度相关，可能包含可借鉴的技术思路")
+        elif group == "B":
+            reasons.append("本文涉及端云协同/边缘计算，对系统优化有实际价值")
+        else:
+            reasons.append("本文与当前 AI 研究前沿相关，值得关注其技术思路")
+
+    # 根据摘要内容补充原因
+    if "novel" in summary.lower() or "propose" in summary.lower():
+        reasons.append("论文提出了新的方法/框架，具有创新性")
+    if "state-of-the-art" in summary.lower() or "sota" in summary.lower():
+        reasons.append("论文在多个基准上达到 SOTA 性能，值得深入研究其技术细节")
+    if "benchmark" in summary.lower():
+        reasons.append("论文建立了新的基准评测，对后续研究有参考价值")
+
+    # 如果原因太多，取前2条合并
+    if len(reasons) > 2:
+        reasons = reasons[:2]
+
+    return "；".join(reasons)
+
+
+def select_featured_papers(papers, top_n=20):
+    """
+    从强相关论文中挑选「精读推荐」（默认20篇）
+    综合考量：相关度分数(50%) + 质量评分(50%)
+    为每篇生成 read_reason（精读原因）
+    """
+    if not papers:
+        return []
+
+    log(f"  从 {len(papers)} 篇强相关论文中挑选精读推荐...")
+
+    # 综合评分 = 相关度分数 * 0.5 + 质量评分 * 0.5
+    for p in papers:
+        relevance = p.get("relevance_score", 0)
+        quality = p.get("score", 0)
+        # 归一化：relevance 0-100, quality 0-10
+        p["combined_score"] = relevance * 0.5 + quality * 5.0 * 0.5
+
+    # 按综合评分降序排序
+    sorted_papers = sorted(papers, key=lambda p: p.get("combined_score", 0), reverse=True)
+
+    # 取前 N 篇
+    featured = sorted_papers[:top_n]
+
+    # 为每篇生成精读原因
+    for p in featured:
+        p["read_reason"] = generate_read_reason(p)
+
+    log(f"  精读推荐 {len(featured)} 篇")
+    return featured
+
+
 def score_paper(paper, group):
     """
     对论文进行质量评分（用于判断是否值得精读）
@@ -812,6 +1019,8 @@ def generate_daily_html(papers, target_date, groups):
     .problem-box strong{{color:#0284c7}}
     .contribution-box{{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:10px 14px;margin:10px 0;font-size:14px;color:#166534}}
     .contribution-box strong{{color:#15803d}}
+    .read-reason-box{{background:#fefce8;border:1px solid #fde68a;border-radius:8px;padding:10px 14px;margin:10px 0;font-size:14px;color:#854d0e}}
+    .read-reason-box strong{{color:#d97706}}
     .nav-back{{text-align:center;margin:20px 0}}
     .nav-back a{{color:#64748b;text-decoration:none;font-size:14px}}
     .nav-back a:hover{{color:#2563eb}}
@@ -879,6 +1088,12 @@ A组：目标检测强相关 · B组：端云协同/边缘计算 · C组：其�
             if contributions:
                 contributions_html = f'<div class="contribution-box"><strong>💡 声称的贡献：</strong>{esc(contributions)}</div>'
 
+            # 精读原因（仅精读推荐显示）
+            read_reason = paper.get("read_reason", "")
+            read_reason_html = ""
+            if read_reason and worth:
+                read_reason_html = f'<div class="read-reason-box"><strong>📖 精读原因：</strong>{esc(read_reason)}</div>'
+
             # PDF 链接
             pdf_url = paper.get("pdf_url", paper.get("abs_url", "#"))
             arxiv_id = paper.get("arxiv_id", "")
@@ -894,6 +1109,7 @@ A组：目标检测强相关 · B组：端云协同/边缘计算 · C组：其�
     <p><strong>📝 中文摘要：</strong>{esc(chinese_summary)}</p>
     <div class='problem-box'><strong>🔍 主要解决问题：</strong>{esc(main_problem)}</div>
     {contributions_html}
+    {read_reason_html}
     <p><strong>📌 核心亮点：</strong></p>
     <ul>
         {highlights_html}
@@ -921,7 +1137,7 @@ A组：目标检测强相关 · B组：端云协同/边缘计算 · C组：其�
 # config.js 更新
 # ============================================================
 
-def update_config_json(papers, target_date, groups, html_filename):
+def update_config_json(papers, target_date, groups, html_filename, featured_papers=None):
     """更新 config.json + config.js —— 纯 JSON 数据源 + JS 脚本自动生成，保证绝对合法"""
     config_json_path = os.path.join(REPO_ROOT, "config.json")
     config_js_path = os.path.join(REPO_ROOT, "config.js")
@@ -960,23 +1176,40 @@ def update_config_json(papers, target_date, groups, html_filename):
               "July", "August", "September", "October", "November", "December"]
     date_display = f"{months[target_date.month-1]} {target_date.day:02d}, {target_date.year}"
 
-    # 构建 featuredPapers
+    # 构建 featuredPapers（精读推荐，含 readReason）
     featured = []
-    for g in ["A", "B", "C"]:
-        if groups.get(g):
-            fp = groups[g][0]
-            highlights_list = [h[1] if isinstance(h, tuple) else h for h in fp.get("highlights", [])]
+    if featured_papers:
+        for p in featured_papers:
+            highlights_list = [h[1] if isinstance(h, tuple) else h for h in p.get("highlights", [])]
             featured.append({
-                "title": fp["title"],
-                "authors": ", ".join(fp.get("authors", [])[:3]),
+                "title": p["title"],
+                "authors": ", ".join(p.get("authors", [])[:3]),
                 "venue": f"arXiv {target_date.year}",
-                "arxivId": f"arXiv:{fp.get('arxiv_id', '')}",
-                "tags": fp.get("tags", []),
-                "summary": fp.get("chinese_summary", fp.get("summary", "")[:200]),
+                "arxivId": f"arXiv:{p.get('arxiv_id', '')}",
+                "tags": p.get("tags", []),
+                "summary": p.get("chinese_summary", p.get("summary", "")[:200]),
                 "highlights": highlights_list,
-                "pdfUrl": fp.get("pdf_url", "")
+                "pdfUrl": p.get("pdf_url", ""),
+                "readReason": p.get("read_reason", "")  # 精读原因
             })
-            break
+    else:
+        # 兼容旧逻辑：从 groups 取第一篇作为 featured
+        for g in ["A", "B", "C"]:
+            if groups.get(g):
+                fp = groups[g][0]
+                highlights_list = [h[1] if isinstance(h, tuple) else h for h in fp.get("highlights", [])]
+                featured.append({
+                    "title": fp["title"],
+                    "authors": ", ".join(fp.get("authors", [])[:3]),
+                    "venue": f"arXiv {target_date.year}",
+                    "arxivId": f"arXiv:{fp.get('arxiv_id', '')}",
+                    "tags": fp.get("tags", []),
+                    "summary": fp.get("chinese_summary", fp.get("summary", "")[:200]),
+                    "highlights": highlights_list,
+                    "pdfUrl": fp.get("pdf_url", ""),
+                    "readReason": fp.get("read_reason", "")
+                })
+                break
 
     # 构建 papers 数组
     papers_list = []
@@ -1083,18 +1316,38 @@ def main():
         log(f"  B组(端云协同): {len(groups['B'])} 篇")
         log(f"  C组(其他): {len(groups['C'])} 篇")
 
+        # Step 2.5: 筛选强相关论文（从全部论文中筛选前50篇）
+        log("Step 2.5: 筛选强相关论文...")
+        top_papers = select_top_papers(papers, top_n=50)
+        log(f"  从 {len(papers)} 篇中筛选出 {len(top_papers)} 篇强相关论文")
+
+        # 重新分组（只保留筛选后的论文）
+        groups = {"A": [], "B": [], "C": []}
+        for p in top_papers:
+            groups[p["group"]].append(p)
+
+        log(f"  筛选后分组: A组={len(groups['A'])}, B组={len(groups['B'])}, C组={len(groups['C'])}")
+
+        # Step 2.6: 挑选精读推荐（从强相关论文中选前20篇）
+        log("Step 2.6: 挑选精读推荐...")
+        featured_papers = select_featured_papers(top_papers, top_n=20)
+
+        # 标记精读推荐
+        featured_ids = set(p["arxiv_id"] for p in featured_papers)
+        for p in top_papers:
+            p["worth_reading"] = p["arxiv_id"] in featured_ids
+
         # Step 3: 评分 & 标记值得精读
         log("Step 3: 论文评分...")
-        for p in papers:
+        for p in top_papers:
             p["score"] = score_paper(p, p["group"])
 
-        mark_worth_reading(papers)
-        worth_count = sum(1 for p in papers if p.get("worth_reading"))
-        log(f"  标记 {worth_count}/{len(papers)} 篇为值得精读 (~{int(100*worth_count/len(papers))}%)")
+        worth_count = sum(1 for p in top_papers if p.get("worth_reading"))
+        log(f"  标记 {worth_count}/{len(top_papers)} 篇为值得精读")
 
         # Step 4: 生成中文摘要 & 提取信息
         log("Step 4: 生成中文摘要和亮点...")
-        for p in papers:
+        for p in top_papers:
             p["chinese_summary"] = generate_chinese_summary(p, p["group"])
             p["main_problem"] = extract_main_problem(p)
             p["highlights"] = extract_highlights(p)
@@ -1106,8 +1359,12 @@ def main():
     reports_dir = os.path.join(REPO_ROOT, "daily_reports")
     os.makedirs(reports_dir, exist_ok=True)
     html_filename = f"daily_reports/{date_str}-arXiv.html"
+
+    # 使用筛选后的论文生成 HTML
+    html_papers = top_papers if 'top_papers' in locals() else papers
+    html_groups = groups
     html_path = os.path.join(REPO_ROOT, html_filename)
-    html_content = generate_daily_html(papers, target_date, groups)
+    html_content = generate_daily_html(html_papers, target_date, html_groups)
 
     with open(html_path, "w", encoding="utf-8") as f:
         f.write(html_content)
@@ -1116,7 +1373,10 @@ def main():
 
     # Step 6: 更新 config.js
     log("Step 6: 更新 config.js...")
-    success = update_config_json(papers, target_date, groups, html_filename)
+    success = update_config_json(
+        html_papers, target_date, html_groups, html_filename,
+        featured_papers=featured_papers if 'featured_papers' in locals() else None
+    )
     if success:
         log("  config.js 更新成功")
     else:

@@ -1,5 +1,13 @@
 # ArXiv 论文日报自动追踪 — 执行历史
 
+## 2026-06-07 执行记录
+- **状态**: ✅ 成功
+- **论文总数**: 0 篇（周日 ArXiv 不更新）
+- **HTML**: daily_reports/2026-06-07-arXiv.html
+- **Git**: 提交成功 (56c7a74)，push 成功
+- **GitHub Pages**: 已更新 https://miclover0.github.io/paper-daily/
+- **数据源**: ArXiv RSS + API 均无新论文
+
 ## 2026-06-06 执行记录
 - **状态**: ⚠️ 部分成功（本地完成，push 失败）
 - **论文总数**: 89 篇 (从 418 篇 RSS 论文中关键词过滤，仅 cs.AI 有更新)

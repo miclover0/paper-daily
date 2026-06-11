@@ -52,3 +52,15 @@
 - **Git**: 提交成功 (3189a31)，push 失败 — GitHub 不可达 (Connection refused / port 443)
 - **GitHub Pages**: 未更新（push 失败）
 - **注意**: GITHUB_TOKEN 未设置，且当前网络无法连接 github.com。需在网络恢复后手动 `git push origin main`
+
+## 2026-06-10 执行记录
+- **状态**: ⚠️ 部分成功（本地完成，push 失败）
+- **论文总数**: 120 篇（从 802 篇 RSS 论文中关键词过滤）
+- **强相关筛选后**: 50 篇（相关度分数 >= 67）
+- **分组**: A组(检测强相关) 24篇 / B组(端云协同) 6篇 / C组(其他) 20篇
+- **值得精读**: 20 篇 (40%)
+- **数据源**: ArXiv RSS Feed (cs.CV: 176, cs.LG: 396, cs.AI: 407, cs.RO: 95)
+- **HTML**: daily_reports/2026-06-10-arXiv.html (100KB)
+- **Git**: 提交成功 (b4012b8)，push 失败 — GitHub 不可达 (Connection refused / port 443)
+- **GitHub Pages**: 未更新（push 失败）
+- **注意**: 网络问题持续。需在网络恢复后手动 `git push origin main`

@@ -64,3 +64,15 @@
 - **Git**: 提交成功 (b4012b8)，push 失败 — GitHub 不可达 (Connection refused / port 443)
 - **GitHub Pages**: 未更新（push 失败）
 - **注意**: 网络问题持续。需在网络恢复后手动 `git push origin main`
+
+## 2026-06-11 执行记录
+- **状态**: ⚠️ 部分成功（本地完成，push 失败）
+- **论文总数**: 143 篇（从 705 篇 RSS 论文中关键词过滤）
+- **强相关筛选后**: 50 篇（相关度分数 >= 70）
+- **分组**: A组(检测强相关) 28篇 / B组(端云协同) 5篇 / C组(其他) 17篇
+- **值得精读**: 20 篇 (40%)
+- **数据源**: ArXiv RSS Feed (cs.CV: 179, cs.LG: 339, cs.AI: 332, cs.RO: 86)
+- **HTML**: daily_reports/2026-06-11-arXiv.html
+- **Git**: 提交成功 (e37dac9)，push 失败 — GitHub 不可达 (Connection refused / port 443)
+- **GitHub Pages**: 未更新（push 失败）
+- **注意**: 网络问题持续。需在网络恢复后手动 `git push origin main`

@@ -3,13 +3,1797 @@ const PAPER_ARCHIVE_CONFIG = {
     "title": "Vision Intelligence Daily Archive",
     "subtitle": "Daily Research Paper Digest",
     "description": "An automated collection of cutting-edge research papers in Computer Vision, UAV, FTTA, and Domain Adaptation.",
-    "totalPapers": 315,
-    "totalDays": 8,
-    "lastUpdated": "2026-06-11",
+    "totalPapers": 365,
+    "totalDays": 9,
+    "lastUpdated": "2026-06-12",
     "author": "@miclover0",
     "repository": "https://github.com/miclover0/paper-daily"
   },
   "dailyReports": [
+    {
+      "id": "2026-06-12",
+      "date": "2026-06-12",
+      "dateDisplay": "June 12, 2026",
+      "weekday": "Friday",
+      "filename": "daily_reports/2026-06-12-arXiv.html",
+      "paperCount": 50,
+      "groups": {
+        "A": 30,
+        "B": 6,
+        "C": 14
+      },
+      "featuredPapers": [
+        {
+          "title": "Multi-Label Test-Time Adaptation with Bayesian Conditional Priors",
+          "authors": "Qiru Li, Ao Zhou, Zhiwei Jiang",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2606.12925",
+          "tags": [
+            "VLM",
+            "TTA"
+          ],
+          "summary": "【研究背景】该论文聚焦视觉-语言模型（VLM）领域。\nMulti-label recognition with frozen Vision-Language Models (VLMs) is brittle under distribution shift: standard zero-shot inference scores labels independently, ignoring co-occurrence structure and...。\n【核心方法】We introduce Bayesian Conditional Priors (BCP) Estimation, a gradient-free test-time adaptation method that injects label dependency without tuning the backbone.。",
+          "highlights": [
+            "outperforms strong TTA baselines",
+            "without target annotations by estimating anchor-conditioned priors online from the unlabel",
+            "For each test image, it selects a high-confidence anchor label and applies an anchor-conditioned Bayesian refinement."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2606.12925",
+          "readReason": "本文探索视觉-语言模型（VLM）的前沿进展，对多模态理解有重要参考价值；测试时自适应（TTA）是提升模型泛化能力的关键技术，本文值得深入研究"
+        },
+        {
+          "title": "Diffusion Transformer World-Action Model for AV Scene Prediction",
+          "authors": "Ruslan Sharifullin, Benjamin Jiang, Kai Xi Chew",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2606.12987",
+          "tags": [
+            "Video Analysis",
+            "World Model"
+          ],
+          "summary": "【研究背景】该论文聚焦视频分析领域。\nAction-conditioned world models let an autonomous vehicle predict future camera scenes from its own planned controls, enabling planning and simulation without real-world rollouts, but at compact,...。\n【实验结果】We first benchmark where to predict: across six frozen encoders spanning four representation families, V-JEPA2 with temporal context reduces steering RMSE by 40% over the best single-frame encoder.。",
+          "highlights": [
+            "first benchmark where to predict: across six frozen encoders spanning four representation families",
+            "Diffusion Transformer World",
+            "隶属于 cs.CV, cs.AI"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2606.12987",
+          "readReason": "视频理解是计算机视觉的重要方向，本文可能推动该领域的进展；世界模型是提升模型泛化能力的前沿方向，本文具有一定的探索价值"
+        },
+        {
+          "title": "Adv-TGD: Adversarial Text-Guided Diffusion for Face Recognition Impersonation Attacks",
+          "authors": "Omid Ahmadieh, Nima Karimian",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2606.11615",
+          "tags": [
+            "Embodied AI"
+          ],
+          "summary": "【研究背景】该论文聚焦具身智能与机器人领域。\nTo address this challenge, we propose Adv-TGD, a generative adversarial attack framework that synthesizes photorealistic faces capable of impersonating target identities and deceiving face...。\n【核心方法】we propose Adv-TGD, a generative adversarial attack framework that synthesizes photorealistic faces capable of impersonating target identities and deceiving face recognition systems.。\n【实验结果】90% across IR152, IRSE50, MobileFace, and FaceNet, surpassing the semantic SOTA baseline Adv-CPG by +6.25 points, diffusion-based makeup method DiffAIM by +3 points, and noise-based P3-Mask by +16...。\n【主要贡献】Furthermore, we demonstrate the flexibility of our framework by successfully extending it to in-the-wild datasets (LADN), general object classification (ImageNet), and transformer-based diffusion...。",
+          "highlights": [
+            "surpassing the semantic SOTA baseline Adv-CPG by +6",
+            "Adv",
+            "隶属于 cs.CV, cs.CR"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2606.11615",
+          "readReason": "具身智能是通向通用 AI 的重要路径，本文值得关注；论文提出了新的方法/框架，具有创新性"
+        },
+        {
+          "title": "Density Ridge Selective Prediction for LLM and VLM Hallucination Detection under Calibration Label Scarcity",
+          "authors": "Nina I. Shamsi",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2606.10198",
+          "tags": [
+            "VLM",
+            "Object Detection"
+          ],
+          "summary": "【研究背景】该论文聚焦视觉-语言模型（VLM）领域。\nHallucination detection in large language and vision-language models is increasingly framed as selective prediction, where a detector assigns a confidence score and abstains when confidence is low.。\nWe recover the response manifold of an LLM as the density ridge of a kernel density estimate built on a six-dimensional kinematic feature map of hidden state generation trajectories.。",
+          "highlights": [
+            "隶属于 cs.LG, cs.AI",
+            "Our ridge-based score beats on AUROC with 5-20 points gain, while demonstrating tempered degradation under calibration-l"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2606.10198",
+          "readReason": "本文探索视觉-语言模型（VLM）的前沿进展，对多模态理解有重要参考价值；目标检测是基础且重要的研究方向，本文可能带来性能或效率的显著提升"
+        },
+        {
+          "title": "Efficient, Robust, and Anti-Collusion Fingerprinting of Image Diffusion Models",
+          "authors": "Jianwei Fei, Yunshu Dai, Zhihua Xia",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2606.12977",
+          "tags": [
+            "AI"
+          ],
+          "summary": "【研究背景】该论文聚焦计算机视觉与深度学习领域。\nIn this work, we reveal a previously unexplored systematic vulnerability in existing generative model fingerprinting methods: they lack robustness against collusion attacks, where multiple attackers...。\n【核心方法】we introduce an anti-collusion mechanism based on lossless function-invariant parameter transformations.。\n【实验结果】Our experiments demonstrate that the proposed method achieves high fidelity and robustness across multiple T2I image generation and editing tasks, with fingerprint extraction accuracy exceeding 99.5%.。",
+          "highlights": [
+            "introduce a worst-case optimization strategy to improve robustness against model",
+            "exceeding 99",
+            "without the need for retraining"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2606.12977",
+          "readReason": "本文与当前 AI 研究前沿相关，值得关注其技术思路；论文提出了新的方法/框架，具有创新性"
+        },
+        {
+          "title": "Where, What, Why, and Importance: Structured Defect Grounding for Text-to-Image Feedback",
+          "authors": "Huaisong Zhang, Hao Yu, Yuxuan Zhang",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2606.06113",
+          "tags": [
+            "VLM",
+            "Object Detection"
+          ],
+          "summary": "【研究背景】该论文聚焦视觉-语言模型（VLM）领域。\nTo address this representation bottleneck, we propose Structured Defect Grounding (SDG), which casts T2I diagnosis as structured set prediction by modeling each defect as a (location, type, reason,...。\n【核心方法】we propose Structured Defect Grounding (SDG), which casts T2I diagnosis as structured set prediction by modeling each defect as a (location, type, reason, importance) tuple.。\n【主要贡献】Diagnosing these failures requires instance-level feedback that answers where a defect occurs, what type it is, why it is defective, and its importance to overall image quality.。",
+          "highlights": [
+            "present a diagnosis-to-alignment framework",
+            "outperforms leading proprietary VLMs on structured defect grounding",
+            "Despite generating increasingly photorealistic images, text-to-image (T2I) models still exhibit localized, subtle, and s"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2606.06113",
+          "readReason": "本文探索视觉-语言模型（VLM）的前沿进展，对多模态理解有重要参考价值；目标检测是基础且重要的研究方向，本文可能带来性能或效率的显著提升"
+        },
+        {
+          "title": "Agentic Large Language Models for Automated Structural Analysis of 3D Frame Systems",
+          "authors": "Ziheng Geng, Ian Franklin, Santiago Martinez",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2606.06525",
+          "tags": [
+            "Cross Domain",
+            "Agent"
+          ],
+          "summary": "【研究背景】该论文聚焦AI智能体（Agent）领域。\nHowever, their extension to 3D frames remains underexplored due to challenges in irregular geometric representation, topological consistency, and long-horizon reasoning.。\n【核心方法】This paper proposes an agentic LLM framework for automated structural analysis of 3D frames from natural language inputs.。\n【实验结果】Evaluated on ten representative 3D frames, the proposed framework achieves an average accuracy of 90% across repeated trials, demonstrating consistent and reliable performance.。",
+          "highlights": [
+            "隶属于 cs.GR, cs.AI",
+            "Large language models (LLMs) have emerged as powerful foundation models with strong reasoning capabilities across domain",
+            "Beyond reactive text generation, agentic LLMs enable autonomous workflow execution through modular task decomposition an"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2606.06525",
+          "readReason": "跨域泛化是实际部署中的核心挑战，本文提供了有价值的技术方案；AI Agent 是当前研究热点，本文可能包含创新性的设计思路"
+        },
+        {
+          "title": "Grammar of the Wave: Towards Explainable Multivariate Time Series Event Detection via Neuro-Symbolic VLM Agents",
+          "authors": "Sky Chenwei Wan, Yifei Y. Wang, Tianjun Hou",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2603.11479",
+          "tags": [
+            "VLM",
+            "Agent",
+            "Video Analysis"
+          ],
+          "summary": "【研究背景】该论文聚焦视觉-语言模型（VLM）领域。\nTo address this problem, we propose Event Logic Tree (ELT), a knowledge representation framework that converts linguistic descriptions into structured temporal logic over signal primitives.。\n【核心方法】We introduce Language-guided TSED, a setting where a model is given textual event descriptions and must ground them to intervals in multivariate signals with little or no labeled data.。",
+          "highlights": [
+            "Grammar of the Wave",
+            "隶属于 cs.LG, cs.AI",
+            "However, in real-world settings, dense event annotations are expensive to obtain, making purely supervised learning diff"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2603.11479",
+          "readReason": "本文探索视觉-语言模型（VLM）的前沿进展，对多模态理解有重要参考价值；AI Agent 是当前研究热点，本文可能包含创新性的设计思路"
+        },
+        {
+          "title": "SpatialClaw: Rethinking Action Interface for Agentic Spatial Reasoning",
+          "authors": "Seokju Cho, Ryo Hachiuma, Abhishek Badki",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2606.13673",
+          "tags": [
+            "VLM",
+            "Agent"
+          ],
+          "summary": "【研究背景】该论文聚焦视觉-语言模型（VLM）领域。\nSpatial reasoning, the ability to determine where objects are, how they relate, and how they move in 3D, remains a fundamental challenge for vision-language models (VLMs).。\n【核心方法】we study how the design of this interface shapes the agent's capacity for open-ended spatial reasoning.。\n【实验结果】Evaluated across 20 spatial reasoning benchmarks spanning a broad range of static and dynamic 3D/4D spatial reasoning tasks, SpatialClaw achieves 59.9% average accuracy, outperforming the recent...。",
+          "highlights": [
+            "outperforming the recent spatial agent by +11",
+            "SpatialClaw",
+            "隶属于 cs.CV, cs.AI"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2606.13673",
+          "readReason": "本文探索视觉-语言模型（VLM）的前沿进展，对多模态理解有重要参考价值；AI Agent 是当前研究热点，本文可能包含创新性的设计思路"
+        },
+        {
+          "title": "NightFeats @ MMU-RAGent NeurIPS 2025: A Context-Optimized Multi-Agent RAG System for the Text-to-Text Track",
+          "authors": "Quentin Fever, Naziha Aslam",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2606.11199",
+          "tags": [
+            "Agent",
+            "Video Analysis"
+          ],
+          "summary": "【研究背景】该论文聚焦AI智能体（Agent）领域。\nWe present NightFeats, a structured multi-agent retrieval-augmented generation (RAG) system submitted to the MMU-RAGent competition at NeurIPS 2025, where it was awarded Best Dynamic Evaluation in...。\n【核心方法】We present NightFeats, a structured multi-agent retrieval-augmented generation (RAG) system submitted to the MMU-RAGent competition at NeurIPS 2025, where it was awarded Best Dynamic Evaluation in the text-to-text track.。",
+          "highlights": [
+            "surpasses proprietary baselines including Claude-SonnetV2 and Nova-Pro on LLM-as-a-Judge and Human Likert evaluations",
+            "NightFeats @ MMU",
+            "隶属于 cs.CL, cs.AI"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2606.11199",
+          "readReason": "AI Agent 是当前研究热点，本文可能包含创新性的设计思路；视频理解是计算机视觉的重要方向，本文可能推动该领域的进展"
+        },
+        {
+          "title": "Beyond Runtime Enforcement: Shield Synthesis as Defensibility Analysis for Adversarial Networks",
+          "authors": "Achraf Hsain, Sultan Almuhammadi",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2606.13621",
+          "tags": [
+            "Agent",
+            "Video Analysis"
+          ],
+          "summary": "【研究背景】该论文聚焦AI智能体（Agent）领域。\nSolving the game yields a defensibility verdict -- a formal certificate that a topology-specification pair is or is not defensible -- with the associated winning region and shield.。\nShielded reinforcement learning is typically presented as a runtime safety mechanism that compiles temporal-logic specifications into automata restricting an agent's actions.。\nWe instantiate this through a constrained two-player safety game for network defense.。",
+          "highlights": [
+            "Beyond Runtime Enforcement",
+            "隶属于 cs.AI, cs.CR",
+            "We argue this is the wrong product."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2606.13621",
+          "readReason": "AI Agent 是当前研究热点，本文可能包含创新性的设计思路；视频理解是计算机视觉的重要方向，本文可能推动该领域的进展"
+        },
+        {
+          "title": "YOLO-AMC: An Improved YOLO Architecture with Attention Mechanisms for Building Crack Detection",
+          "authors": "Ching-Yu Tsai, Chia-Min Lin, Chih-Hsiang Yang",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2606.12958",
+          "tags": [
+            "Object Detection",
+            "Edge Computing"
+          ],
+          "summary": "【研究背景】该论文聚焦目标检测领域。\nHowever, cracks typically appear as thin, low-contrast structures and are easily affected by background noise, posing challenges for existing object detection models.。\n【核心方法】the proposed model achieves 110.。",
+          "highlights": [
+            "outperforms baseline models YOLOv11n and YOLOv8n across multiple evaluation metrics",
+            "YOLO",
+            "隶属于 cs.CV"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2606.12958",
+          "readReason": "目标检测是基础且重要的研究方向，本文可能带来性能或效率的显著提升；边缘计算与端云协同是实际系统的核心挑战，本文提供了实用的解决方案"
+        },
+        {
+          "title": "Online Shift Detection and Conformal Adaptation for Deployed Safety Classifiers",
+          "authors": "Jun Wen Leong",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2606.11949",
+          "tags": [
+            "Video Analysis",
+            "Object Detection"
+          ],
+          "summary": "【研究背景】该论文聚焦目标检测领域。\nWe present an online monitoring system for distributional shift in deployed safety classifiers, using calibrated sequential statistics to detect when a classifier has moved out of distribution.。\n【核心方法】We present an online monitoring system for distributional shift in deployed safety classifiers, using calibrated sequential statistics to detect when a classifier has moved out of distribution.。\n【实验结果】In a pre-registered factorial evaluation (4 classifiers x 5 shift conditions x 20 seeds x 2 window sizes, 800 cells), the system achieves 86.6% valid detection (693/800, 95% CI [84.。",
+          "highlights": [
+            "隶属于 cs.LG, cs.CR",
+            "Upon detection, a conformal abstention layer adapts decision thresholds to recover a target error rate epsilon=0.1.",
+            "Detection holds across three ground-truth regimes: synthetic onset (86.6%), real temporal jailbreaks (85%, 17/20), and G"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2606.11949",
+          "readReason": "视频理解是计算机视觉的重要方向，本文可能推动该领域的进展；目标检测是基础且重要的研究方向，本文可能带来性能或效率的显著提升"
+        },
+        {
+          "title": "SoftMatcha 2: A Fast and Soft Pattern Matcher for Trillion-Scale Corpora",
+          "authors": "Masataka Yoneda, Yusuke Matsushita, Go Kamoda",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2602.10908",
+          "tags": [
+            "Object Detection",
+            "Model Compression"
+          ],
+          "summary": "【研究背景】该论文聚焦目标检测领域。\nWe present SoftMatcha 2, an ultra-fast and flexible search algorithm that enables search over trillion-scale natural language corpora in under 0.3 seconds while allowing semantic variations in the...。\n【核心方法】We present SoftMatcha 2, an ultra-fast and flexible search algorithm that enables search over trillion-scale natural language corpora in under 0.。",
+          "highlights": [
+            "SoftMatcha 2",
+            "隶属于 cs.CL, cs.LG",
+            "We theoretically analyze the efficiency of the proposed method, indicating that it can mitigate exponential growth in th"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2602.10908",
+          "readReason": "目标检测是基础且重要的研究方向，本文可能带来性能或效率的显著提升；模型压缩对于边缘部署至关重要，本文可能带来新的压缩技术"
+        },
+        {
+          "title": "Individual Control Barrier Functions-Guided Diffusion Model for Safe Offline Multi-Agent Reinforcement Learning",
+          "authors": "Qingyun Guo, Junyi Shi, Jianuo Huang",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2606.12640",
+          "tags": [
+            "Agent"
+          ],
+          "summary": "【研究背景】该论文聚焦AI智能体（Agent）领域。\nHowever, existing approaches primarily focus on single-agent settings, leaving the safety challenges in multi-agent environments largely unexplored.。\n【核心方法】we propose a safe offline multi-agent reinforcement learning algorithm that embeds neural individual control barrier functions into the diffusion model to enhance safety during trajectory generation, with control policies recovered through inverse...。",
+          "highlights": [
+            "propose a safe offline multi-agent reinforcement learning algorithm",
+            "Individual Control Barrier Functions",
+            "隶属于 cs.LG, cs.RO"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2606.12640",
+          "readReason": "AI Agent 是当前研究热点，本文可能包含创新性的设计思路；论文提出了新的方法/框架，具有创新性"
+        },
+        {
+          "title": "HYDRA-X: Native Unified Multimodal Models with Holistic Visual Tokenizers",
+          "authors": "Guozhen Zhang, Xuerui Qiu, Yutao Cui",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2606.13289",
+          "tags": [
+            "Video Analysis"
+          ],
+          "summary": "【研究背景】该论文聚焦视频分析领域。\nOur design is driven by two core challenges: efficiently injecting spatiotemporal reconstruction capability into a native ViT, and embedding image- and video-level semantic awareness into the latent...。\n【核心方法】we present HYDRA-X, the first UMM that unifies image and video tokenization within a single Vision Transformer (ViT).。",
+          "highlights": [
+            "outperforms single-step alternatives",
+            "first UMM that unifies image and video tokenization within a single Vision Transformer (ViT)",
+            "Holistic visual tokenizers are fundamental to unified multimodal models (UMMs) as they map diverse visual inputs into a "
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2606.13289",
+          "readReason": "视频理解是计算机视觉的重要方向，本文可能推动该领域的进展；论文提出了新的方法/框架，具有创新性"
+        },
+        {
+          "title": "FENCE: A Financial and Multimodal Jailbreak Detection Dataset",
+          "authors": "Mirae Kim, Seonghun Jeong, Youngjun Kwak",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2602.18154",
+          "tags": [
+            "VLM",
+            "Object Detection"
+          ],
+          "summary": "【研究背景】该论文聚焦视觉-语言模型（VLM）领域。\nJailbreaking poses a significant risk to the deployment of Large Language Models (LLMs) and Vision Language Models (VLMs).。\n【核心方法】we present FENCE, a bilingual (Korean-English) multimodal dataset for training and evaluating jailbreak detectors in financial applications.。\n【实验结果】A baseline detector trained on FENCE achieves 99 percent in-distribution accuracy and maintains strong performance on external benchmarks, underscoring the dataset's robustness for training reliable...。",
+          "highlights": [
+            "FENCE",
+            "隶属于 cs.CL, cs.AI",
+            "Jailbreaking poses a significant risk to the deployment of Large Language Models (LLMs) and Vision Language Models (VLMs"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2602.18154",
+          "readReason": "本文探索视觉-语言模型（VLM）的前沿进展，对多模态理解有重要参考价值；目标检测是基础且重要的研究方向，本文可能带来性能或效率的显著提升"
+        },
+        {
+          "title": "PI-Hunter: Automated Red-Teaming for Exposing and Localizing Prompt Injections",
+          "authors": "Pengfei He, Lesly Miculicich, Vishesh Sharma",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2606.12737",
+          "tags": [
+            "Agent"
+          ],
+          "summary": "【研究背景】该论文聚焦AI智能体（Agent）领域。\nLarge Language Models (LLMs) are rapidly evolving into agentic systems that interact with external tools and environments, introducing new security risks such as indirect prompt injection attacks...。\n【核心方法】We propose PI-Hunter, an automated agentic auditing framework for proactive vulnerability exposure in LLM agents.。",
+          "highlights": [
+            "PI",
+            "隶属于 cs.CR, cs.AI",
+            "Existing defenses mainly focus on blocking malicious content at inference time, and current red-teaming methods primaril"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2606.12737",
+          "readReason": "AI Agent 是当前研究热点，本文可能包含创新性的设计思路；论文提出了新的方法/框架，具有创新性"
+        },
+        {
+          "title": "RoboProcessBench: Benchmarking Process-Aware Understanding in Vision-Language Robotic Manipulation",
+          "authors": "Dayu Xia, Yue Shi, Yao Mu",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2606.13040",
+          "tags": [
+            "VLM",
+            "Embodied AI",
+            "Video Analysis"
+          ],
+          "summary": "【研究背景】该论文聚焦视觉-语言模型（VLM）领域。\nExtensive evaluation of various VLMs on ProcessData-Eval reveals broad limitations across 12 diagnostic task families, suggesting current models still lack robust process-aware understanding of...。\n【核心方法】we present RoboProcessBench, a benchmark for process-aware understanding in vision-language robotic manipulation.。",
+          "highlights": [
+            "RoboProcessBench",
+            "隶属于 cs.RO",
+            "Vision-language models (VLMs) are increasingly explored as visual critics, reward generators, and failure detectors in r"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2606.13040",
+          "readReason": "本文探索视觉-语言模型（VLM）的前沿进展，对多模态理解有重要参考价值；具身智能是通向通用 AI 的重要路径，本文值得关注"
+        },
+        {
+          "title": "Camera and LiDAR BEV Fusion for Cooperative 3D Object Detection on TUMTraf V2X",
+          "authors": "Muhammad Shahbaz, Shaurya Agarwal",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2606.12981",
+          "tags": [
+            "Object Detection"
+          ],
+          "summary": "【研究背景】该论文聚焦目标检测领域。\nWe describe a Camera and LiDAR fusion detector developed for the TUMTraf V2X cooperative 3D object detection track of the DriveX 2026 challenge.。\nTrained on the provided train and validation splits, the model reaches a 3D mAP of 0.85 on the public Codabench test split.。\nWhile iterating on the system, we observed that 44 of the 50 test frames are also present in the released train (40) and validation (4) splits with their labels.。",
+          "highlights": [
+            "隶属于 cs.CV",
+            "We describe a Camera and LiDAR fusion detector developed for the TUMTraf V2X cooperative 3D object detection track of th",
+            "Trained on the provided train and validation splits, the model reaches a 3D mAP of 0.85 on the public Codabench test spl"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2606.12981",
+          "readReason": "目标检测是基础且重要的研究方向，本文可能带来性能或效率的显著提升"
+        }
+      ],
+      "papers": [
+        {
+          "id": "A1",
+          "anchorId": "A1",
+          "group": "A",
+          "groupName": "目标检测强相关",
+          "title": "Diffusion Transformer World-Action Model for AV Scene Prediction",
+          "authors": [
+            "Ruslan Sharifullin",
+            "Benjamin Jiang",
+            "Kai Xi Chew"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2606.12987",
+          "tags": [
+            "Video Analysis",
+            "World Model"
+          ],
+          "summary": "【研究背景】该论文聚焦视频分析领域。\nAction-conditioned world models let an autonomous vehicle predict future camera scenes from its own planned controls, enabling planning and simulation without real-world rollouts, but at compact,...。\n【实验结果】We first benchmark where to predict: across six frozen encoders spanning four representation families, V-JEPA2 with temporal context reduces steering RMSE by 40% over the best single-frame encoder.。",
+          "highlights": [
+            "first benchmark where to predict: across six frozen encoders spanning four representation families",
+            "Diffusion Transformer World",
+            "隶属于 cs.CV, cs.AI"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2606.12987",
+          "worthReading": true
+        },
+        {
+          "id": "A2",
+          "anchorId": "A2",
+          "group": "A",
+          "groupName": "目标检测强相关",
+          "title": "Adv-TGD: Adversarial Text-Guided Diffusion for Face Recognition Impersonation Attacks",
+          "authors": [
+            "Omid Ahmadieh",
+            "Nima Karimian"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2606.11615",
+          "tags": [
+            "Embodied AI"
+          ],
+          "summary": "【研究背景】该论文聚焦具身智能与机器人领域。\nTo address this challenge, we propose Adv-TGD, a generative adversarial attack framework that synthesizes photorealistic faces capable of impersonating target identities and deceiving face...。\n【核心方法】we propose Adv-TGD, a generative adversarial attack framework that synthesizes photorealistic faces capable of impersonating target identities and deceiving face recognition systems.。\n【实验结果】90% across IR152, IRSE50, MobileFace, and FaceNet, surpassing the semantic SOTA baseline Adv-CPG by +6.25 points, diffusion-based makeup method DiffAIM by +3 points, and noise-based P3-Mask by +16...。\n【主要贡献】Furthermore, we demonstrate the flexibility of our framework by successfully extending it to in-the-wild datasets (LADN), general object classification (ImageNet), and transformer-based diffusion...。",
+          "highlights": [
+            "surpassing the semantic SOTA baseline Adv-CPG by +6",
+            "Adv",
+            "隶属于 cs.CV, cs.CR"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2606.11615",
+          "worthReading": true
+        },
+        {
+          "id": "A3",
+          "anchorId": "A3",
+          "group": "A",
+          "groupName": "目标检测强相关",
+          "title": "Density Ridge Selective Prediction for LLM and VLM Hallucination Detection under Calibration Label Scarcity",
+          "authors": [
+            "Nina I. Shamsi"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2606.10198",
+          "tags": [
+            "VLM",
+            "Object Detection"
+          ],
+          "summary": "【研究背景】该论文聚焦视觉-语言模型（VLM）领域。\nHallucination detection in large language and vision-language models is increasingly framed as selective prediction, where a detector assigns a confidence score and abstains when confidence is low.。\nWe recover the response manifold of an LLM as the density ridge of a kernel density estimate built on a six-dimensional kinematic feature map of hidden state generation trajectories.。",
+          "highlights": [
+            "隶属于 cs.LG, cs.AI",
+            "Our ridge-based score beats on AUROC with 5-20 points gain, while demonstrating tempered degradation under calibration-l"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2606.10198",
+          "worthReading": true
+        },
+        {
+          "id": "A4",
+          "anchorId": "A4",
+          "group": "A",
+          "groupName": "目标检测强相关",
+          "title": "Where, What, Why, and Importance: Structured Defect Grounding for Text-to-Image Feedback",
+          "authors": [
+            "Huaisong Zhang",
+            "Hao Yu",
+            "Yuxuan Zhang",
+            "Jiahe Wang",
+            "Xinrui Chen",
+            "Haoxiang Cao",
+            "Feng Lu",
+            "Wendong Zhang",
+            "Changqian Yu",
+            "Chun Yuan"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2606.06113",
+          "tags": [
+            "VLM",
+            "Object Detection"
+          ],
+          "summary": "【研究背景】该论文聚焦视觉-语言模型（VLM）领域。\nTo address this representation bottleneck, we propose Structured Defect Grounding (SDG), which casts T2I diagnosis as structured set prediction by modeling each defect as a (location, type, reason,...。\n【核心方法】we propose Structured Defect Grounding (SDG), which casts T2I diagnosis as structured set prediction by modeling each defect as a (location, type, reason, importance) tuple.。\n【主要贡献】Diagnosing these failures requires instance-level feedback that answers where a defect occurs, what type it is, why it is defective, and its importance to overall image quality.。",
+          "highlights": [
+            "present a diagnosis-to-alignment framework",
+            "outperforms leading proprietary VLMs on structured defect grounding",
+            "Despite generating increasingly photorealistic images, text-to-image (T2I) models still exhibit localized, subtle, and s"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2606.06113",
+          "worthReading": true
+        },
+        {
+          "id": "A5",
+          "anchorId": "A5",
+          "group": "A",
+          "groupName": "目标检测强相关",
+          "title": "Grammar of the Wave: Towards Explainable Multivariate Time Series Event Detection via Neuro-Symbolic VLM Agents",
+          "authors": [
+            "Sky Chenwei Wan",
+            "Yifei Y. Wang",
+            "Tianjun Hou",
+            "Xiqing Chang",
+            "Aymeric Jan"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2603.11479",
+          "tags": [
+            "VLM",
+            "Agent",
+            "Video Analysis"
+          ],
+          "summary": "【研究背景】该论文聚焦视觉-语言模型（VLM）领域。\nTo address this problem, we propose Event Logic Tree (ELT), a knowledge representation framework that converts linguistic descriptions into structured temporal logic over signal primitives.。\n【核心方法】We introduce Language-guided TSED, a setting where a model is given textual event descriptions and must ground them to intervals in multivariate signals with little or no labeled data.。",
+          "highlights": [
+            "Grammar of the Wave",
+            "隶属于 cs.LG, cs.AI",
+            "However, in real-world settings, dense event annotations are expensive to obtain, making purely supervised learning diff"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2603.11479",
+          "worthReading": true
+        },
+        {
+          "id": "A6",
+          "anchorId": "A6",
+          "group": "A",
+          "groupName": "目标检测强相关",
+          "title": "NightFeats @ MMU-RAGent NeurIPS 2025: A Context-Optimized Multi-Agent RAG System for the Text-to-Text Track",
+          "authors": [
+            "Quentin Fever",
+            "Naziha Aslam"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2606.11199",
+          "tags": [
+            "Agent",
+            "Video Analysis"
+          ],
+          "summary": "【研究背景】该论文聚焦AI智能体（Agent）领域。\nWe present NightFeats, a structured multi-agent retrieval-augmented generation (RAG) system submitted to the MMU-RAGent competition at NeurIPS 2025, where it was awarded Best Dynamic Evaluation in...。\n【核心方法】We present NightFeats, a structured multi-agent retrieval-augmented generation (RAG) system submitted to the MMU-RAGent competition at NeurIPS 2025, where it was awarded Best Dynamic Evaluation in the text-to-text track.。",
+          "highlights": [
+            "surpasses proprietary baselines including Claude-SonnetV2 and Nova-Pro on LLM-as-a-Judge and Human Likert evaluations",
+            "NightFeats @ MMU",
+            "隶属于 cs.CL, cs.AI"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2606.11199",
+          "worthReading": true
+        },
+        {
+          "id": "A7",
+          "anchorId": "A7",
+          "group": "A",
+          "groupName": "目标检测强相关",
+          "title": "Beyond Runtime Enforcement: Shield Synthesis as Defensibility Analysis for Adversarial Networks",
+          "authors": [
+            "Achraf Hsain",
+            "Sultan Almuhammadi"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2606.13621",
+          "tags": [
+            "Agent",
+            "Video Analysis"
+          ],
+          "summary": "【研究背景】该论文聚焦AI智能体（Agent）领域。\nSolving the game yields a defensibility verdict -- a formal certificate that a topology-specification pair is or is not defensible -- with the associated winning region and shield.。\nShielded reinforcement learning is typically presented as a runtime safety mechanism that compiles temporal-logic specifications into automata restricting an agent's actions.。\nWe instantiate this through a constrained two-player safety game for network defense.。",
+          "highlights": [
+            "Beyond Runtime Enforcement",
+            "隶属于 cs.AI, cs.CR",
+            "We argue this is the wrong product."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2606.13621",
+          "worthReading": true
+        },
+        {
+          "id": "A8",
+          "anchorId": "A8",
+          "group": "A",
+          "groupName": "目标检测强相关",
+          "title": "Online Shift Detection and Conformal Adaptation for Deployed Safety Classifiers",
+          "authors": [
+            "Jun Wen Leong"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2606.11949",
+          "tags": [
+            "Video Analysis",
+            "Object Detection"
+          ],
+          "summary": "【研究背景】该论文聚焦目标检测领域。\nWe present an online monitoring system for distributional shift in deployed safety classifiers, using calibrated sequential statistics to detect when a classifier has moved out of distribution.。\n【核心方法】We present an online monitoring system for distributional shift in deployed safety classifiers, using calibrated sequential statistics to detect when a classifier has moved out of distribution.。\n【实验结果】In a pre-registered factorial evaluation (4 classifiers x 5 shift conditions x 20 seeds x 2 window sizes, 800 cells), the system achieves 86.6% valid detection (693/800, 95% CI [84.。",
+          "highlights": [
+            "隶属于 cs.LG, cs.CR",
+            "Upon detection, a conformal abstention layer adapts decision thresholds to recover a target error rate epsilon=0.1.",
+            "Detection holds across three ground-truth regimes: synthetic onset (86.6%), real temporal jailbreaks (85%, 17/20), and G"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2606.11949",
+          "worthReading": true
+        },
+        {
+          "id": "A9",
+          "anchorId": "A9",
+          "group": "A",
+          "groupName": "目标检测强相关",
+          "title": "SoftMatcha 2: A Fast and Soft Pattern Matcher for Trillion-Scale Corpora",
+          "authors": [
+            "Masataka Yoneda",
+            "Yusuke Matsushita",
+            "Go Kamoda",
+            "Kohei Suenaga",
+            "Takuya Akiba",
+            "Masaki Waga",
+            "Sho Yokoi"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2602.10908",
+          "tags": [
+            "Object Detection",
+            "Model Compression"
+          ],
+          "summary": "【研究背景】该论文聚焦目标检测领域。\nWe present SoftMatcha 2, an ultra-fast and flexible search algorithm that enables search over trillion-scale natural language corpora in under 0.3 seconds while allowing semantic variations in the...。\n【核心方法】We present SoftMatcha 2, an ultra-fast and flexible search algorithm that enables search over trillion-scale natural language corpora in under 0.。",
+          "highlights": [
+            "SoftMatcha 2",
+            "隶属于 cs.CL, cs.LG",
+            "We theoretically analyze the efficiency of the proposed method, indicating that it can mitigate exponential growth in th"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2602.10908",
+          "worthReading": true
+        },
+        {
+          "id": "A10",
+          "anchorId": "A10",
+          "group": "A",
+          "groupName": "目标检测强相关",
+          "title": "HYDRA-X: Native Unified Multimodal Models with Holistic Visual Tokenizers",
+          "authors": [
+            "Guozhen Zhang",
+            "Xuerui Qiu",
+            "Yutao Cui",
+            "Tianhui Song",
+            "Changlin Li",
+            "Junzhe Li",
+            "Tao Huang",
+            "Xiao Zhang",
+            "Yang Li",
+            "Jianbing Wu",
+            "Miles Yang",
+            "Zhao Zhong",
+            "Liefeng Bo",
+            "Limin Wang"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2606.13289",
+          "tags": [
+            "Video Analysis"
+          ],
+          "summary": "【研究背景】该论文聚焦视频分析领域。\nOur design is driven by two core challenges: efficiently injecting spatiotemporal reconstruction capability into a native ViT, and embedding image- and video-level semantic awareness into the latent...。\n【核心方法】we present HYDRA-X, the first UMM that unifies image and video tokenization within a single Vision Transformer (ViT).。",
+          "highlights": [
+            "outperforms single-step alternatives",
+            "first UMM that unifies image and video tokenization within a single Vision Transformer (ViT)",
+            "Holistic visual tokenizers are fundamental to unified multimodal models (UMMs) as they map diverse visual inputs into a "
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2606.13289",
+          "worthReading": true
+        },
+        {
+          "id": "A11",
+          "anchorId": "A11",
+          "group": "A",
+          "groupName": "目标检测强相关",
+          "title": "FENCE: A Financial and Multimodal Jailbreak Detection Dataset",
+          "authors": [
+            "Mirae Kim",
+            "Seonghun Jeong",
+            "Youngjun Kwak"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2602.18154",
+          "tags": [
+            "VLM",
+            "Object Detection"
+          ],
+          "summary": "【研究背景】该论文聚焦视觉-语言模型（VLM）领域。\nJailbreaking poses a significant risk to the deployment of Large Language Models (LLMs) and Vision Language Models (VLMs).。\n【核心方法】we present FENCE, a bilingual (Korean-English) multimodal dataset for training and evaluating jailbreak detectors in financial applications.。\n【实验结果】A baseline detector trained on FENCE achieves 99 percent in-distribution accuracy and maintains strong performance on external benchmarks, underscoring the dataset's robustness for training reliable...。",
+          "highlights": [
+            "FENCE",
+            "隶属于 cs.CL, cs.AI",
+            "Jailbreaking poses a significant risk to the deployment of Large Language Models (LLMs) and Vision Language Models (VLMs"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2602.18154",
+          "worthReading": true
+        },
+        {
+          "id": "A12",
+          "anchorId": "A12",
+          "group": "A",
+          "groupName": "目标检测强相关",
+          "title": "RoboProcessBench: Benchmarking Process-Aware Understanding in Vision-Language Robotic Manipulation",
+          "authors": [
+            "Dayu Xia",
+            "Yue Shi",
+            "Yao Mu",
+            "Huiting Ji",
+            "Chaofan Ma",
+            "Yingjie Zhou",
+            "Hua Chen",
+            "Yang Liu",
+            "Jiezhang Cao",
+            "Guangtao Zhai"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2606.13040",
+          "tags": [
+            "VLM",
+            "Embodied AI",
+            "Video Analysis"
+          ],
+          "summary": "【研究背景】该论文聚焦视觉-语言模型（VLM）领域。\nExtensive evaluation of various VLMs on ProcessData-Eval reveals broad limitations across 12 diagnostic task families, suggesting current models still lack robust process-aware understanding of...。\n【核心方法】we present RoboProcessBench, a benchmark for process-aware understanding in vision-language robotic manipulation.。",
+          "highlights": [
+            "RoboProcessBench",
+            "隶属于 cs.RO",
+            "Vision-language models (VLMs) are increasingly explored as visual critics, reward generators, and failure detectors in r"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2606.13040",
+          "worthReading": true
+        },
+        {
+          "id": "A13",
+          "anchorId": "A13",
+          "group": "A",
+          "groupName": "目标检测强相关",
+          "title": "Camera and LiDAR BEV Fusion for Cooperative 3D Object Detection on TUMTraf V2X",
+          "authors": [
+            "Muhammad Shahbaz",
+            "Shaurya Agarwal"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2606.12981",
+          "tags": [
+            "Object Detection"
+          ],
+          "summary": "【研究背景】该论文聚焦目标检测领域。\nWe describe a Camera and LiDAR fusion detector developed for the TUMTraf V2X cooperative 3D object detection track of the DriveX 2026 challenge.。\nTrained on the provided train and validation splits, the model reaches a 3D mAP of 0.85 on the public Codabench test split.。\nWhile iterating on the system, we observed that 44 of the 50 test frames are also present in the released train (40) and validation (4) splits with their labels.。",
+          "highlights": [
+            "隶属于 cs.CV",
+            "We describe a Camera and LiDAR fusion detector developed for the TUMTraf V2X cooperative 3D object detection track of th",
+            "Trained on the provided train and validation splits, the model reaches a 3D mAP of 0.85 on the public Codabench test spl"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2606.12981",
+          "worthReading": true
+        },
+        {
+          "id": "A14",
+          "anchorId": "A14",
+          "group": "A",
+          "groupName": "目标检测强相关",
+          "title": "PP-OCRv6: From 1.5M to 34.5M Parameters, Surpassing Billion-Scale VLMs on OCR Tasks",
+          "authors": [
+            "Yubo Zhang",
+            "Xueqing Wang",
+            "Manhui Lin",
+            "Yue Zhang",
+            "Penglongyi Deng",
+            "Ting Sun",
+            "Tingquan Gao",
+            "Zelun Zhang",
+            "Jiaxuan Liu",
+            "Changda Zhou",
+            "Hongen Liu",
+            "Suyin Liang",
+            "Cheng Cui",
+            "Yi Liu",
+            "Dianhai Yu",
+            "Yanjun Ma"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2606.13108",
+          "tags": [
+            "VLM",
+            "Object Detection"
+          ],
+          "summary": "【研究背景】该论文聚焦视觉-语言模型（VLM）领域。\nVision-Language Models (VLMs) have achieved impressive results on general vision-language tasks, yet they suffer from hallucination, imprecise localization, and prohibitive computational cost when...。\n【核心方法】This paper presents PP-OCRv6, a lightweight OCR system that combines architectural innovation with data-centric optimization.。\n【实验结果】On our in-house benchmarks, PP-OCRv6_medium achieves 83.2% recognition accuracy and 86.。",
+          "highlights": [
+            "outperforming PP-OCRv5_server by +5",
+            "PP",
+            "隶属于 cs.CV"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2606.13108",
+          "worthReading": false
+        },
+        {
+          "id": "A15",
+          "anchorId": "A15",
+          "group": "A",
+          "groupName": "目标检测强相关",
+          "title": "SAIGuard: Communication-State Simulation for Proactive Defense of LLM Multi-Agent Systems",
+          "authors": [
+            "Ruxue Shi",
+            "Yili Wang",
+            "Mengnan Du",
+            "Qinggang Zhang",
+            "Rui Miao",
+            "Yixin Liu",
+            "Xin Wang"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2606.12474",
+          "tags": [
+            "Agent"
+          ],
+          "summary": "【研究背景】该论文聚焦AI智能体（Agent）领域。\nLLM-based multi-agent systems (MAS) solve complex tasks through inter-agent collaboration, but their communication-driven nature also allows security risks to spread across agents and trigger...。\n【核心方法】we propose a proactive defense framework for MAS security, namely a Simulation-aware Interception Guard (SAIGuard).。",
+          "highlights": [
+            "propose a proactive defense framework",
+            "outperforming reactive defenses",
+            "To address this, we propose a proactive defense framework for MAS security, namely a Simulation-aware Interception Guard"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2606.12474",
+          "worthReading": false
+        },
+        {
+          "id": "A16",
+          "anchorId": "A16",
+          "group": "A",
+          "groupName": "目标检测强相关",
+          "title": "A Lightweight Multi-Agent Framework for Automated Concrete Barrier Design",
+          "authors": [
+            "Wanting Wang",
+            "Xiye Ma",
+            "Yuyang He",
+            "Minghui Cheng",
+            "Ran Cao"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2606.12040",
+          "tags": [
+            "Agent"
+          ],
+          "summary": "【研究背景】该论文聚焦AI智能体（Agent）领域。\nAlthough Large Language Models (LLMs) demonstrate strong generative capabilities, their direct application to structural engineering remains limited by hallucination risks and insufficient physical...。\n【实验结果】Experimental results demonstrate that the proposed agentic framework achieves over 98% design accuracy, significantly outperforming standalone general-purpose LLMs.。",
+          "highlights": [
+            "outperforming standalone general-purpose LLMs",
+            "A Lightweight Multi",
+            "隶属于 cs.AI, cs.GR"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2606.12040",
+          "worthReading": false
+        },
+        {
+          "id": "A17",
+          "anchorId": "A17",
+          "group": "A",
+          "groupName": "目标检测强相关",
+          "title": "GEASS: Gated Evidence-Adaptive Selective Caption Trust for Vision-Language Models",
+          "authors": [
+            "Zeshang Li",
+            "Shuoyang Zhang"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2605.01733",
+          "tags": [
+            "VLM"
+          ],
+          "summary": "【研究背景】该论文聚焦视觉-语言模型（VLM）领域。\nVision-Language Models (VLMs) hallucinate objects that are not present, and a growing line of work tries to curb this by feeding the model its own generated caption as auxiliary evidence -- assuming...。\n【主要贡献】We show this fails: naively appending a caption can lower accuracy rather than raise it, dropping Qwen2.。",
+          "highlights": [
+            "GEASS",
+            "隶属于 cs.CV, cs.AI",
+            "Crucially, this regime is readable from quantities the decoder already emits, with no attention access or grounding."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2605.01733",
+          "worthReading": false
+        },
+        {
+          "id": "A18",
+          "anchorId": "A18",
+          "group": "A",
+          "groupName": "目标检测强相关",
+          "title": "Iterative Visual Thinking: Teaching Vision-Language Models Spatial Self-Correction through Visual Feedback",
+          "authors": [
+            "Animesh Tripathy",
+            "Aswanth Krishnan"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2606.13156",
+          "tags": [
+            "VLM"
+          ],
+          "summary": "【研究背景】该论文聚焦视觉-语言模型（VLM）领域。\nVision-language models (VLMs) achieve strong singleshot spatial grounding, yet lack any mechanism to observe and correct their own predictions.。\n【核心方法】We propose Iterative Visual Thinking (IVT), a closed-loop framework in which the model predicts a bounding box, observes the prediction rendered on the image, and iteratively refines through visual feedback.。",
+          "highlights": [
+            "surpasses the single-shot base model on every metric: Acc@0",
+            "without human annotation",
+            "Vision-language models (VLMs) achieve strong singleshot spatial grounding, yet lack any mechanism to observe and correct"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2606.13156",
+          "worthReading": false
+        },
+        {
+          "id": "A19",
+          "anchorId": "A19",
+          "group": "A",
+          "groupName": "目标检测强相关",
+          "title": "The Containment Gap: How Deployed Agentic AI Frameworks Fail Public-Facing Safety Requirements",
+          "authors": [
+            "Md Jafrin Hossain",
+            "Mohammad Arif Hossain",
+            "Weiqi Liu",
+            "Nirwan Ansari"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2606.12797",
+          "tags": [
+            "Agent"
+          ],
+          "summary": "【研究背景】该论文聚焦AI智能体（Agent）领域。\nAgentic large language model systems that autonomously invoke tools, maintain persistent memory, and execute multi-step plans are increasingly deployed in public-facing domains, including government...。\nWe ask whether the frameworks used to build these systems provide architectural-level structural safety guarantees.。\nMemory integrity, a defense against one of the most prevalent vulnerability classes, is not observed in any of the three evaluated frameworks.。",
+          "highlights": [
+            "The Containment Gap",
+            "隶属于 cs.AI",
+            "We ask whether the frameworks used to build these systems provide architectural-level structural safety guarantees."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2606.12797",
+          "worthReading": false
+        },
+        {
+          "id": "A20",
+          "anchorId": "A20",
+          "group": "A",
+          "groupName": "目标检测强相关",
+          "title": "SDQM: Synthetic Data Quality Metric for Object Detection Dataset Evaluation",
+          "authors": [
+            "Ayush Zenith",
+            "Arnold Zumbrun",
+            "Neel Raut",
+            "Jing Lin"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2510.06596",
+          "tags": [
+            "Object Detection"
+          ],
+          "summary": "【研究背景】该论文聚焦目标检测领域。\nThe scarcity of large-scale, well-annotated datasets poses significant challenges in creating robust models.。\n【核心方法】We introduce the Synthetic Dataset Quality Metric (SDQM) to assess data quality for object detection tasks without requiring model training to converge.。",
+          "highlights": [
+            "introduce the Synthetic Dataset Quality Metric (SDQM) to assess data quality for object detection tasks without requirin",
+            "without requiring model training",
+            "The performance of machine learning models depends heavily on training data."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2510.06596",
+          "worthReading": false
+        },
+        {
+          "id": "A21",
+          "anchorId": "A21",
+          "group": "A",
+          "groupName": "目标检测强相关",
+          "title": "(Human) Attention Is (Still) All You Need: Human oversight makes AI-assisted social science reliable",
+          "authors": [
+            "Chen Zhu",
+            "Xiaolu Wang",
+            "Weilong Zhang"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2606.12848",
+          "tags": [
+            "Agent",
+            "Distributed"
+          ],
+          "summary": "【研究背景】该论文聚焦AI智能体（Agent）领域。\nWe study this problem through Human-in-the-Loop Economic Research (HLER), a decision architecture based on pre-commitment, decision sequencing, accountability, and attention allocation.。\n【核心方法】We study this problem through Human-in-the-Loop Economic Research (HLER), a decision architecture based on pre-commitment, decision sequencing, accountability, and attention allocation.。\n【实验结果】In a pre-specified 2*4 factorial experiment with 280 complete research runs across four datasets, an unconstrained multi-agent baseline produced critical failures in 72% of runs.。",
+          "highlights": [
+            "(Human) Attention Is (Still) All You Need",
+            "隶属于 cs.AI, econ.GN",
+            "Fisher's exact test rejects equality of failure rates at p<0.001."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2606.12848",
+          "worthReading": false
+        },
+        {
+          "id": "A22",
+          "anchorId": "A22",
+          "group": "A",
+          "groupName": "目标检测强相关",
+          "title": "Embodied-R1.5: Evolving Physical Intelligence via Embodied Foundation Models",
+          "authors": [
+            "Yifu Yuan",
+            "Yaoting Huang",
+            "Xianze Yao",
+            "Yutong Li",
+            "Shuoheng Zhang",
+            "Linqi Han",
+            "Pengyi Li",
+            "Jiangeng Sun",
+            "Wenting Jia",
+            "Zhao Zhang",
+            "Yuhao Liu",
+            "Ruihao Liao",
+            "Yucheng Hu",
+            "Qiyu Wu",
+            "Yuxiao Li",
+            "Zibin Dong",
+            "Fei Ni",
+            "Yan Zheng",
+            "Shuyang Gu",
+            "Yi Ma",
+            "Hongyao Tang",
+            "Han Hu",
+            "Jianye Hao"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2606.11324",
+          "tags": [
+            "VLM",
+            "Embodied AI"
+          ],
+          "summary": "【研究背景】该论文聚焦视觉-语言模型（VLM）领域。\nWe introduce Embodied-R1.5, a unified Embodied Foundation Model (EFM) that integrates comprehensive embodied reasoning capabilities, spanning embodied cognition, task planning, correction, and...。\nWe further introduce a Planner-Grounder-Corrector (PGC) closed-loop framework that enables a single model to autonomously execute and self-correct over long-horizon tasks.。\nWith only 8B parameters, Embodied-R1.5 achieves SOTA on 16 out of 24 embodied VLM benchmarks, surpassing leading models like Gemini-Robotics-ER-1.5 and GPT-5.4.。",
+          "highlights": [
+            "introduce a Planner-Grounder-Corrector (PGC) closed-loop framework",
+            "surpassing leading models like Gemini-Robotics-ER-1"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2606.11324",
+          "worthReading": false
+        },
+        {
+          "id": "A23",
+          "anchorId": "A23",
+          "group": "A",
+          "groupName": "目标检测强相关",
+          "title": "Evaluating and Combating the Impact of Concept Drift on the Performance of Machine Learning-Based Phishing Detection Systems",
+          "authors": [
+            "Warren Fernando",
+            "Nikos Komninos"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2606.11471",
+          "tags": [
+            "Object Detection"
+          ],
+          "summary": "【研究背景】该论文聚焦目标检测领域。\nSpam emails, a form of unsolicited correspondence often bearing malicious intent towards recipients, have been an ongoing challenge for email users since the inception of email technology, and this...。\nThe expansion of the digital domain has resulted in a substantial increase in digital communication, with email emerging as one of the most prominent channels.。\nThe proliferation of email communication is apparent in both professional and personal contexts, thereby creating numerous vulnerabilities for malicious actors to exploit.。\nEmail spam filters are integral components of email clients, engineered to identify potentially harmful messages and alert users to their malicious content.。",
+          "highlights": [
+            "Evaluating and Combating the Impact of Concept Drift on the Performance of Machine Learning",
+            "隶属于 cs.CR, cs.LG",
+            "Phishing, frequently the initial phase of malware-based attacks, is evolving rapidly, with malware becoming increasingly"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2606.11471",
+          "worthReading": false
+        },
+        {
+          "id": "A24",
+          "anchorId": "A24",
+          "group": "A",
+          "groupName": "目标检测强相关",
+          "title": "Categorical Robustness Assessment for Machine Learning based Network Intrusion Detection Systems",
+          "authors": [
+            "Mayank Raj",
+            "Nathaniel D. Bastian",
+            "Lance Fiondella",
+            "Gokhan Kul"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2606.12075",
+          "tags": [
+            "Object Detection"
+          ],
+          "summary": "【研究背景】该论文聚焦目标检测领域。\nNetwork Intrusion Detection Systems (NIDS) heavily utlize Machine Learning (ML) but ML models can be manipulated via adversarial attacks.。\nThese attacks add carefully crafted perturbations to network traffic data that leads to misclassifications.。\nThis paper asks a simple question: what type of classifier architectures actually hold up when attackers try to manipulate the systems?。",
+          "highlights": [
+            "first sign of adversarial pressure",
+            "隶属于 cs.CR, cs.LG",
+            "Network Intrusion Detection Systems (NIDS) heavily utlize Machine Learning (ML) but ML models can be manipulated via adv"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2606.12075",
+          "worthReading": false
+        },
+        {
+          "id": "A25",
+          "anchorId": "A25",
+          "group": "A",
+          "groupName": "目标检测强相关",
+          "title": "Bounding Boxes as Goals: Language-Conditioned Grasping via Neuro-Symbolic Planning",
+          "authors": [
+            "Allison Andreyev",
+            "Landon Eum",
+            "Nestor Tiglao",
+            "Romel Gomez"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2606.12910",
+          "tags": [
+            "VLM",
+            "Open Vocabulary",
+            "Embodied AI"
+          ],
+          "summary": "【研究背景】该论文聚焦视觉-语言模型（VLM）领域。\nAlthough Vision-Language Models (VLMs) have enabled zero-shot generalization in robot task and motion planning (TAMP), current state-of-the-art approaches often remain computationally \"heavyweight\"...。\n【核心方法】We present GRASP (Grounded Reasoning and Symbolic Planning), a framework designed as a step toward open-vocabulary tabletop manipulation.。\n【实验结果】We achieve 73.3% overall success across 90 real-robot trials at three difficulty levels, requiring no task-specific training.。\n【主要贡献】3% overall success across 90 real-robot trials at three difficulty levels, requiring no task-specific training.。",
+          "highlights": [
+            "Bounding Boxes as Goals",
+            "隶属于 cs.RO, cs.AI",
+            "For robotics to be effectively integrated into household or industrial environments, machines must adapt to natural-lang"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2606.12910",
+          "worthReading": false
+        },
+        {
+          "id": "A26",
+          "anchorId": "A26",
+          "group": "A",
+          "groupName": "目标检测强相关",
+          "title": "Iterative Tool Usage Exploration for Multimodal Agents via Step-wise Preference Tuning",
+          "authors": [
+            "Pengxiang Li",
+            "Zhi Gao",
+            "Bofei Zhang",
+            "Yapeng Mi",
+            "Xiaojian Ma",
+            "Chenrui Shi",
+            "Tao Yuan",
+            "Yuwei Wu",
+            "Yunde Jia",
+            "Song-Chun Zhu",
+            "Qing Li"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2504.21561",
+          "tags": [
+            "VLM",
+            "Agent"
+          ],
+          "summary": "【研究背景】该论文聚焦视觉-语言模型（VLM）领域。\nOur method enables multimodal agents to autonomously discover effective tool usage strategies through self-exploration and optimization, eliminating the bottleneck of human annotation.。\n【核心方法】we propose an iterative tool usage exploration method for multimodal agents without any pre-collected data, namely SPORT, via step-wise preference optimization to refine the trajectories of tool usage.。\n【实验结果】Evaluation in the GTA and GAIA benchmarks shows that the SPORT agent achieves 6.41% and 3.。",
+          "highlights": [
+            "propose an iterative tool usage exploration method",
+            "first synthesize multimodal tasks using language models",
+            "However, for complex multimodal tasks, such annotations are prohibitively expensive or impractical to obtain."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2504.21561",
+          "worthReading": false
+        },
+        {
+          "id": "A27",
+          "anchorId": "A27",
+          "group": "A",
+          "groupName": "目标检测强相关",
+          "title": "GeoWorld-VLM: Geometry from World Models for Vision-Language Models",
+          "authors": [
+            "Renjie Gu",
+            "Kaichen Zhou",
+            "Yan Luo",
+            "Mengyu Wang"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2605.16713",
+          "tags": [
+            "VLM",
+            "Video Analysis",
+            "World Model"
+          ],
+          "summary": "【研究背景】该论文聚焦视觉-语言模型（VLM）领域。\nModern Vision-Language Models (VLMs) achieve strong semantic recognition, yet remain brittle on elementary spatial relations such as left of, on, behind, and between.。\n【核心方法】We introduce GeoWorld-VLM, a VLM-side distillation framework that transfers geometric structure from frozen camera-conditioned video world models into VLMs.。\n【实验结果】GeoWorld-VLM improves performance by approximately 4 percent on both the What'sUp and VSR benchmarks, suggesting that world-model-guided visual alignment generalizes across model structures and...。",
+          "highlights": [
+            "GeoWorld",
+            "隶属于 cs.CV, cs.AI",
+            "Training combines spatial answer supervision, teacher-student feature alignment, and a preservation anchor to the origin"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2605.16713",
+          "worthReading": false
+        },
+        {
+          "id": "A28",
+          "anchorId": "A28",
+          "group": "A",
+          "groupName": "目标检测强相关",
+          "title": "Robust Privacy: Inference-Stage Privacy through Certified Robustness",
+          "authors": [
+            "Jiankai Jin",
+            "Xiangzheng Zhang",
+            "Zhao Liu",
+            "Wenzhuo Xu",
+            "Dongdong Yang",
+            "Deyue Zhang",
+            "Quanchen Zou"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2601.17360",
+          "tags": [
+            "Model Compression"
+          ],
+          "summary": "【研究背景】该论文聚焦模型压缩领域。\nBuilding on RP, we formalize Robust Attribute Privacy (RAP), an attribute-level privacy notion that characterizes the set of sensitive-attribute values that remain compatible with a released...。\nAn adversary observing a model's released prediction can infer sensitive attributes of the queried input, or even reconstruct representatives of the model's training data.。\nThe inference interface thus acts as a side channel for privacy leakage.。",
+          "highlights": [
+            "Robust Privacy",
+            "隶属于 cs.LG, cs.AI",
+            "The inference interface thus acts as a side channel for privacy leakage."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2601.17360",
+          "worthReading": false
+        },
+        {
+          "id": "A29",
+          "anchorId": "A29",
+          "group": "A",
+          "groupName": "目标检测强相关",
+          "title": "Point-Identification of a Robust Predictor Under Latent Shift with Imperfect Proxies",
+          "authors": [
+            "Zahra Rahiminasab",
+            "Reza Soumi",
+            "Arto Klami",
+            "Samuel Kaski"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2603.15158",
+          "tags": [
+            "Domain Adaptation",
+            "Cross Domain"
+          ],
+          "summary": "【研究背景】该论文聚焦域自适应领域。\nAddressing the domain adaptation problem becomes more challenging when distribution shifts across domains stem from latent confounders that affect both covariates and outcomes.。\n【核心方法】we introduce latent equivalent classes (LECs).。\n【主要贡献】We show that point-identification for the robust predictor remains achievable as long as multiple domains differ sufficiently in how they mix proxy-induced LECs to form the robust predictor.。",
+          "highlights": [
+            "introduce the Proximal Quasi-Bayesian Active learning (PQAL) framework",
+            "outperforms previous methods on synthetic data and semi-synthetic dSprites",
+            "Completeness requires that proxies have sufficient information about variations in latent confounders."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2603.15158",
+          "worthReading": false
+        },
+        {
+          "id": "A30",
+          "anchorId": "A30",
+          "group": "A",
+          "groupName": "目标检测强相关",
+          "title": "ARMOR-MAD: Adaptive Routing for Heterogeneous Multi-Agent Debate in Large Language Model Reasoning",
+          "authors": [
+            "Fuqiang Niu",
+            "Bowen Zhang"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2606.13197",
+          "tags": [
+            "Agent",
+            "Object Detection"
+          ],
+          "summary": "【研究背景】该论文聚焦目标检测领域。\nAcross MATH Level 5, GSM8K, MMLU, and MMLU-Pro, ARMOR-MAD consistently improves over fixed-round heterogeneous debate with the same model pool, reaching 65.。\n【核心方法】We propose ARMOR-MAD, a training-free heterogeneous MAD framework that treats debate as conditional computation.。",
+          "highlights": [
+            "ARMOR",
+            "隶属于 cs.AI",
+            "We propose ARMOR-MAD, a training-free heterogeneous MAD framework that treats debate as conditional computation."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2606.13197",
+          "worthReading": false
+        },
+        {
+          "id": "B1",
+          "anchorId": "B1",
+          "group": "B",
+          "groupName": "端云协同/边缘计算",
+          "title": "Multi-Label Test-Time Adaptation with Bayesian Conditional Priors",
+          "authors": [
+            "Qiru Li",
+            "Ao Zhou",
+            "Zhiwei Jiang",
+            "Zifeng Cheng",
+            "Cong Wang",
+            "Yafeng Yin",
+            "Qing Gu"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2606.12925",
+          "tags": [
+            "VLM",
+            "TTA"
+          ],
+          "summary": "【研究背景】该论文聚焦视觉-语言模型（VLM）领域。\nMulti-label recognition with frozen Vision-Language Models (VLMs) is brittle under distribution shift: standard zero-shot inference scores labels independently, ignoring co-occurrence structure and...。\n【核心方法】We introduce Bayesian Conditional Priors (BCP) Estimation, a gradient-free test-time adaptation method that injects label dependency without tuning the backbone.。",
+          "highlights": [
+            "outperforms strong TTA baselines",
+            "without target annotations by estimating anchor-conditioned priors online from the unlabel",
+            "For each test image, it selects a high-confidence anchor label and applies an anchor-conditioned Bayesian refinement."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2606.12925",
+          "worthReading": true
+        },
+        {
+          "id": "B2",
+          "anchorId": "B2",
+          "group": "B",
+          "groupName": "端云协同/边缘计算",
+          "title": "YOLO-AMC: An Improved YOLO Architecture with Attention Mechanisms for Building Crack Detection",
+          "authors": [
+            "Ching-Yu Tsai",
+            "Chia-Min Lin",
+            "Chih-Hsiang Yang",
+            "Yung-Che Wang",
+            "Jen-Shiun Chiang"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2606.12958",
+          "tags": [
+            "Object Detection",
+            "Edge Computing"
+          ],
+          "summary": "【研究背景】该论文聚焦目标检测领域。\nHowever, cracks typically appear as thin, low-contrast structures and are easily affected by background noise, posing challenges for existing object detection models.。\n【核心方法】the proposed model achieves 110.。",
+          "highlights": [
+            "outperforms baseline models YOLOv11n and YOLOv8n across multiple evaluation metrics",
+            "YOLO",
+            "隶属于 cs.CV"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2606.12958",
+          "worthReading": true
+        },
+        {
+          "id": "B3",
+          "anchorId": "B3",
+          "group": "B",
+          "groupName": "端云协同/边缘计算",
+          "title": "Measurement Plasticity: Sensor-Level Adaptation for Vision-Language Models",
+          "authors": [
+            "Boyeong Im",
+            "Wooseok Lee",
+            "Yoojin Kwon",
+            "Hyung-Sin Kim"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2512.12571",
+          "tags": [
+            "VLM",
+            "TTA"
+          ],
+          "summary": "【研究背景】该论文聚焦视觉-语言模型（VLM）领域。\nMVP remains effective under reduced parameter candidates that lower capture latency, demonstrating its practicality.。\n【核心方法】We propose Multi-View Physical-prompt (MVP) for Test-Time Adaptation (TTA), a forward-only framework that moves TTA from tokens to photons by treating the camera exposure triangle (i.。",
+          "highlights": [
+            "outperforms digital-only TTA on both Auto-Exposure and a combination with conventional sensor control",
+            "Measurement Plasticity",
+            "隶属于 cs.CV"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2512.12571",
+          "worthReading": false
+        },
+        {
+          "id": "B4",
+          "anchorId": "B4",
+          "group": "B",
+          "groupName": "端云协同/边缘计算",
+          "title": "Functional Cache Grafting: Robust and Rapid Code-Policy Synthesis for Embodied Agents",
+          "authors": [
+            "Saehun Chun",
+            "Wonje Choi",
+            "Sera Choi",
+            "Sanghyun Ahn",
+            "Honguk Woo"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2606.13097",
+          "tags": [
+            "Agent",
+            "Embodied AI"
+          ],
+          "summary": "【研究背景】该论文聚焦AI智能体（Agent）领域。\nCode-writing large language models (CodeLLMs) generate executable code policies for embodied agents by translating natural language goals and environmental constraints into structured control...。\n【核心方法】we present FCGraft, a Functional Cache Grafting framework.。\n【实验结果】By eliminating redundant prefill computation, this approach reduces generation latency, while reusing validated control structures improves robustness over prompt-level caching methods RAGCache,...。",
+          "highlights": [
+            "Functional Cache Grafting",
+            "隶属于 cs.PL, cs.AI",
+            "To address these limitations, we present FCGraft, a Functional Cache Grafting framework."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2606.13097",
+          "worthReading": false
+        },
+        {
+          "id": "B5",
+          "anchorId": "B5",
+          "group": "B",
+          "groupName": "端云协同/边缘计算",
+          "title": "Risk Under Pressure: Compute-Aware Evaluation of Adversarial Robustness in Language Models",
+          "authors": [
+            "Malikeh Ehghaghi",
+            "Bogl\\'arka Ecsedi",
+            "Marsha Chechik",
+            "Colin Raffel"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2606.11409",
+          "tags": [
+            "AI"
+          ],
+          "summary": "【研究背景】该论文聚焦计算机视觉与深度学习领域。\nAdversarial robustness evaluations of large language models (LLMs) typically report attack success rate (ASR) under fixed query budgets, implicitly treating all attacks as equally costly.。\n【核心方法】We propose a compute-aware evaluation framework based on computational pressure, measured in cumulative floating-point operations (FLOPs), as a proxy for adversarial effort.。",
+          "highlights": [
+            "propose a compute-aware evaluation framework",
+            "Risk Under Pressure",
+            "隶属于 cs.LG, cs.AI"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2606.11409",
+          "worthReading": false
+        },
+        {
+          "id": "B6",
+          "anchorId": "B6",
+          "group": "B",
+          "groupName": "端云协同/边缘计算",
+          "title": "Energy-Efficient On-Device RAG on a Mobile NPU: System Design and Benchmark on Snapdragon X Elite",
+          "authors": [
+            "Zhiyuan Cheng",
+            "Longying Lai"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2606.11257",
+          "tags": [
+            "Edge Computing"
+          ],
+          "summary": "【研究背景】该论文聚焦边缘计算与端云协同领域。\nRetrieval-Augmented Generation (RAG) pipelines are compute-intensive, combining embedding, retrieval, reranking, and large language model (LLM) generation.。\n【核心方法】We present what is, to our knowledge, the first end-to-end RAG pipeline that runs all neural stages -- embedding, reranking, and LLM generation -- on the Qualcomm Hexagon NPU of the Snapdragon X Elite.。",
+          "highlights": [
+            "first end-to-end RAG pipeline that runs all neural stages -- embedding",
+            "Energy",
+            "隶属于 cs.CL, cs.LG"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2606.11257",
+          "worthReading": false
+        },
+        {
+          "id": "C1",
+          "anchorId": "C1",
+          "group": "C",
+          "groupName": "其他AI相关",
+          "title": "Efficient, Robust, and Anti-Collusion Fingerprinting of Image Diffusion Models",
+          "authors": [
+            "Jianwei Fei",
+            "Yunshu Dai",
+            "Zhihua Xia",
+            "Xiaochun Cao",
+            "Jiantao Zhou",
+            "Alessandro Piva",
+            "Benedetta Tondi"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2606.12977",
+          "tags": [
+            "AI"
+          ],
+          "summary": "【研究背景】该论文聚焦计算机视觉与深度学习领域。\nIn this work, we reveal a previously unexplored systematic vulnerability in existing generative model fingerprinting methods: they lack robustness against collusion attacks, where multiple attackers...。\n【核心方法】we introduce an anti-collusion mechanism based on lossless function-invariant parameter transformations.。\n【实验结果】Our experiments demonstrate that the proposed method achieves high fidelity and robustness across multiple T2I image generation and editing tasks, with fingerprint extraction accuracy exceeding 99.5%.。",
+          "highlights": [
+            "introduce a worst-case optimization strategy to improve robustness against model",
+            "exceeding 99",
+            "without the need for retraining"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2606.12977",
+          "worthReading": true
+        },
+        {
+          "id": "C2",
+          "anchorId": "C2",
+          "group": "C",
+          "groupName": "其他AI相关",
+          "title": "Agentic Large Language Models for Automated Structural Analysis of 3D Frame Systems",
+          "authors": [
+            "Ziheng Geng",
+            "Ian Franklin",
+            "Santiago Martinez",
+            "Jiachen Liu",
+            "Yunhe Zhao",
+            "Minghui Cheng"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2606.06525",
+          "tags": [
+            "Cross Domain",
+            "Agent"
+          ],
+          "summary": "【研究背景】该论文聚焦AI智能体（Agent）领域。\nHowever, their extension to 3D frames remains underexplored due to challenges in irregular geometric representation, topological consistency, and long-horizon reasoning.。\n【核心方法】This paper proposes an agentic LLM framework for automated structural analysis of 3D frames from natural language inputs.。\n【实验结果】Evaluated on ten representative 3D frames, the proposed framework achieves an average accuracy of 90% across repeated trials, demonstrating consistent and reliable performance.。",
+          "highlights": [
+            "隶属于 cs.GR, cs.AI",
+            "Large language models (LLMs) have emerged as powerful foundation models with strong reasoning capabilities across domain",
+            "Beyond reactive text generation, agentic LLMs enable autonomous workflow execution through modular task decomposition an"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2606.06525",
+          "worthReading": true
+        },
+        {
+          "id": "C3",
+          "anchorId": "C3",
+          "group": "C",
+          "groupName": "其他AI相关",
+          "title": "SpatialClaw: Rethinking Action Interface for Agentic Spatial Reasoning",
+          "authors": [
+            "Seokju Cho",
+            "Ryo Hachiuma",
+            "Abhishek Badki",
+            "Hang Su",
+            "Byung-Kwan Lee",
+            "Chan Hee Song",
+            "Sifei Liu",
+            "Subhashree Radhakrishnan",
+            "Seungryong Kim",
+            "Yu-Chiang Frank Wang",
+            "Min-Hung Chen"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2606.13673",
+          "tags": [
+            "VLM",
+            "Agent"
+          ],
+          "summary": "【研究背景】该论文聚焦视觉-语言模型（VLM）领域。\nSpatial reasoning, the ability to determine where objects are, how they relate, and how they move in 3D, remains a fundamental challenge for vision-language models (VLMs).。\n【核心方法】we study how the design of this interface shapes the agent's capacity for open-ended spatial reasoning.。\n【实验结果】Evaluated across 20 spatial reasoning benchmarks spanning a broad range of static and dynamic 3D/4D spatial reasoning tasks, SpatialClaw achieves 59.9% average accuracy, outperforming the recent...。",
+          "highlights": [
+            "outperforming the recent spatial agent by +11",
+            "SpatialClaw",
+            "隶属于 cs.CV, cs.AI"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2606.13673",
+          "worthReading": true
+        },
+        {
+          "id": "C4",
+          "anchorId": "C4",
+          "group": "C",
+          "groupName": "其他AI相关",
+          "title": "Individual Control Barrier Functions-Guided Diffusion Model for Safe Offline Multi-Agent Reinforcement Learning",
+          "authors": [
+            "Qingyun Guo",
+            "Junyi Shi",
+            "Jianuo Huang",
+            "Tianyu Shi"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2606.12640",
+          "tags": [
+            "Agent"
+          ],
+          "summary": "【研究背景】该论文聚焦AI智能体（Agent）领域。\nHowever, existing approaches primarily focus on single-agent settings, leaving the safety challenges in multi-agent environments largely unexplored.。\n【核心方法】we propose a safe offline multi-agent reinforcement learning algorithm that embeds neural individual control barrier functions into the diffusion model to enhance safety during trajectory generation, with control policies recovered through inverse...。",
+          "highlights": [
+            "propose a safe offline multi-agent reinforcement learning algorithm",
+            "Individual Control Barrier Functions",
+            "隶属于 cs.LG, cs.RO"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2606.12640",
+          "worthReading": true
+        },
+        {
+          "id": "C5",
+          "anchorId": "C5",
+          "group": "C",
+          "groupName": "其他AI相关",
+          "title": "PI-Hunter: Automated Red-Teaming for Exposing and Localizing Prompt Injections",
+          "authors": [
+            "Pengfei He",
+            "Lesly Miculicich",
+            "Vishesh Sharma",
+            "Ash Fox",
+            "George Lee",
+            "Jiliang Tang",
+            "Tomas Pfister",
+            "Long T. Le"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2606.12737",
+          "tags": [
+            "Agent"
+          ],
+          "summary": "【研究背景】该论文聚焦AI智能体（Agent）领域。\nLarge Language Models (LLMs) are rapidly evolving into agentic systems that interact with external tools and environments, introducing new security risks such as indirect prompt injection attacks...。\n【核心方法】We propose PI-Hunter, an automated agentic auditing framework for proactive vulnerability exposure in LLM agents.。",
+          "highlights": [
+            "PI",
+            "隶属于 cs.CR, cs.AI",
+            "Existing defenses mainly focus on blocking malicious content at inference time, and current red-teaming methods primaril"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2606.12737",
+          "worthReading": true
+        },
+        {
+          "id": "C6",
+          "anchorId": "C6",
+          "group": "C",
+          "groupName": "其他AI相关",
+          "title": "Rethinking RAG in Long Videos: What to Retrieve and How to Use It?",
+          "authors": [
+            "Yuho Lee",
+            "Jisu Shin",
+            "Nicole Hee-Yeon Kim",
+            "Jihwan Bang",
+            "Juntae Lee",
+            "Kyuwoong Hwang",
+            "Fatih Porikli",
+            "Hwanjun Song"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2606.13141",
+          "tags": [
+            "Video Analysis"
+          ],
+          "summary": "【研究背景】该论文聚焦视频分析领域。\nCARVE outperforms eight recent VideoRAG baselines, with the chunks supplied to the generator interleaving multiple configurations rather than sharing a single one, a behavior unattainable by...。\nRetrieval-augmented generation is moving beyond text into long, egocentric video, where systems must select query-relevant chunks across multiple modalities and temporal granularities.。\nEach chunk then enters the generator under its winning configuration selected during retrieval, yielding an interleaved evidence form where the chunk-level decision propagates across both stages.。",
+          "highlights": [
+            "outperforms eight recent VideoRAG baselines",
+            "Rethinking RAG in Long Videos",
+            "隶属于 cs.AI"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2606.13141",
+          "worthReading": false
+        },
+        {
+          "id": "C7",
+          "anchorId": "C7",
+          "group": "C",
+          "groupName": "其他AI相关",
+          "title": "Skill-3D: Evolving Scene-Aware Skills for Agentic 3D Spatial Reasoning",
+          "authors": [
+            "Haoyuan Li",
+            "Zhengdong Hu",
+            "Jun Wang",
+            "Hehe Fan",
+            "Yi Yang"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2606.07436",
+          "tags": [
+            "Agent"
+          ],
+          "summary": "【研究背景】该论文聚焦AI智能体（Agent）领域。\nThis paper explores agentic 3D spatial understanding, i.e., MLLM agents performing 3D reasoning through tool use.。\n【核心方法】we propose Skill-3D, a framework that learns self-evolving scene-aware skills.。\n【实验结果】Experiments show that Skill-3D substantially improves tool utilization in 3D spatial reasoning (from 39% to 78% on VSI-Bench), driving the agent toward correct and sufficient tool use.。",
+          "highlights": [
+            "Skill",
+            "隶属于 cs.CV",
+            "This paper explores agentic 3D spatial understanding, i.e., MLLM agents performing 3D reasoning through tool use."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2606.07436",
+          "worthReading": false
+        },
+        {
+          "id": "C8",
+          "anchorId": "C8",
+          "group": "C",
+          "groupName": "其他AI相关",
+          "title": "ISE: An Execution-Grounded Recipe for Multi-Turn OS-Agent Trajectories",
+          "authors": [
+            "Siyuan Luo",
+            "Nairong Zheng",
+            "Lin Zhou",
+            "Tiankuo Yao",
+            "Shengyou Yuan",
+            "Haojia Yu",
+            "Cong Pang",
+            "Jiapeng Luo",
+            "Lewei Lu"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2606.11520",
+          "tags": [
+            "Agent"
+          ],
+          "summary": "【研究背景】该论文聚焦AI智能体（Agent）领域。\nTraining capable OS agents requires data that simultaneously captures structured user intents, multi-turn task delegation, and grounded tool execution--properties absent from existing datasets.。\n【核心方法】We propose ISE (Intent -> Simulate -> Execute), a three-stage synthesis paradigm that addresses these gaps jointly.。",
+          "highlights": [
+            "outperforms zero-shot GPT-4o and the larger Qwen3-32B base model which is four times bigger",
+            "ISE",
+            "隶属于 cs.CL, cs.AI"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2606.11520",
+          "worthReading": false
+        },
+        {
+          "id": "C9",
+          "anchorId": "C9",
+          "group": "C",
+          "groupName": "其他AI相关",
+          "title": "Unsafer in Many Turns: Benchmarking and Defending Multi-Turn Safety Risks in Tool-Using Agents",
+          "authors": [
+            "Xu Li",
+            "Simon Yu",
+            "Minzhou Pan",
+            "Yiyou Sun",
+            "Bo Li",
+            "Dawn Song",
+            "Xue Lin",
+            "Weiyan Shi"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2602.13379",
+          "tags": [
+            "Agent"
+          ],
+          "summary": "【研究背景】该论文聚焦AI智能体（Agent）领域。\nLLM-based agents are becoming increasingly capable, yet their safety lags behind.。\n【核心方法】we propose a principled taxonomy that transforms single-turn harmful tasks into multi-turn attack sequences.。\n【实验结果】Our experiments reveal substantial safety degradation: the Attack Success Rate (ASR) increases by 16% on average across open and closed models in multi-turn settings.。",
+          "highlights": [
+            "first benchmark to evaluate multi-turn tool-using agent safety",
+            "Unsafer in Many Turns",
+            "隶属于 cs.CR, cs.AI"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2602.13379",
+          "worthReading": false
+        },
+        {
+          "id": "C10",
+          "anchorId": "C10",
+          "group": "C",
+          "groupName": "其他AI相关",
+          "title": "ReFoCUS: Reinforcement-guided Frame Optimization for Contextual Understanding",
+          "authors": [
+            "Hosu Lee",
+            "Junho Kim",
+            "Hyunjun Kim",
+            "Yong Man Ro"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2506.01274",
+          "tags": [
+            "VLM",
+            "Video Analysis"
+          ],
+          "summary": "【研究背景】该论文聚焦视觉-语言模型（VLM）领域。\nRecent progress in Large Multi-modal Models (LMMs) has enabled effective vision-language reasoning, yet the ability to video understanding remains constrained by suboptimal frame selection...。\n【核心方法】we introduce ReFoCUS (Reinforcement-guided Frame Optimization for Contextual UnderStanding), the first framework to integrate online policy-gradient reinforcement learning into frame-level optimization for video-LLMs.。",
+          "highlights": [
+            "first framework to integrate online policy-gradient reinforcement learning into frame-level optimization for video-LLMs",
+            "ReFoCUS",
+            "隶属于 cs.CV, cs.AI"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2506.01274",
+          "worthReading": false
+        },
+        {
+          "id": "C11",
+          "anchorId": "C11",
+          "group": "C",
+          "groupName": "其他AI相关",
+          "title": "Improving Robotic Generalist Policies via Flow Reversal Steering",
+          "authors": [
+            "Andy Tang",
+            "William Chen",
+            "Andrew Wagenmaker",
+            "Chelsea Finn",
+            "Sergey Levine"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2606.13675",
+          "tags": [
+            "VLM",
+            "Embodied AI"
+          ],
+          "summary": "【研究背景】该论文聚焦视觉-语言模型（VLM）领域。\nGeneralist policies can learn a wide range of skills from diverse robot datasets.。\nWe evaluate FRS across many simulated and real-world manipulation settings.。",
+          "highlights": [
+            "propose Flow Reversal Steering (FRS): a method",
+            "隶属于 cs.RO",
+            "Generalist policies can learn a wide range of skills from diverse robot datasets."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2606.13675",
+          "worthReading": false
+        },
+        {
+          "id": "C12",
+          "anchorId": "C12",
+          "group": "C",
+          "groupName": "其他AI相关",
+          "title": "Magnifying What Matters: Attention-Guided Adaptive Rendering for Visual Text Comprehension",
+          "authors": [
+            "Shenglai Zeng",
+            "Qirui Wang",
+            "Kai Guo",
+            "Xinnan Dai",
+            "Xianxuan Long",
+            "Hui Liu"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2606.12898",
+          "tags": [
+            "VLM"
+          ],
+          "summary": "【研究背景】该论文聚焦视觉-语言模型（VLM）领域。\nVisual Text Comprehension (VTC) renders text into images for a vision-language model (VLM) to read, sidestepping LLM context-window limits and powering applications from long-page OCR to multi-page...。\nYet existing VTC pipelines treat rendering and layout as a fixed, content-agnostic preprocessing step and offer little mechanistic understanding of how VLMs internally process visualized text.。",
+          "highlights": [
+            "Magnifying What Matters",
+            "隶属于 cs.CV, cs.CL"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2606.12898",
+          "worthReading": false
+        },
+        {
+          "id": "C13",
+          "anchorId": "C13",
+          "group": "C",
+          "groupName": "其他AI相关",
+          "title": "Cross-Modal Masked Compositional Concept Modeling for Enhancing Visio-Linguistic Compositionality",
+          "authors": [
+            "Wei Li",
+            "Zhen Huang",
+            "Xinmei Tian"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2606.13288",
+          "tags": [
+            "VLM"
+          ],
+          "summary": "【研究背景】该论文聚焦视觉-语言模型（VLM）领域。\nContrastively trained vision-language models like CLIP, have made remarkable progress in learning joint image-text representations, but still face challenges in compositional understanding.。\n【核心方法】we propose MACCO (MAsked Compositional Concept MOdeling), a framework that masks compositional concepts in one modality and reconstructs them conditioned on the full contextual information from the other, enabling the model to capture and align...。",
+          "highlights": [
+            "propose MACCO (MAsked Compositional Concept MOdel",
+            "Cross",
+            "隶属于 cs.CV, cs.AI"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2606.13288",
+          "worthReading": false
+        },
+        {
+          "id": "C14",
+          "anchorId": "C14",
+          "group": "C",
+          "groupName": "其他AI相关",
+          "title": "Toward Trustworthy AI: Multi-Target Adversarial Attacks and Robust Defenses for Continuous Data Summarization",
+          "authors": [
+            "Yuefang Lian",
+            "Longkun Guo",
+            "Zhongrui Zhao",
+            "Zhigang Lu",
+            "Yanan Cai",
+            "Shuchao Pang",
+            "Dachuan Xu",
+            "Jason Xue"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2606.11804",
+          "tags": [
+            "AI"
+          ],
+          "summary": "【研究背景】该论文聚焦计算机视觉与深度学习领域。\nWe then formulate multi-target attack generation as a min-max problem, where one admissible perturbation of the similarity structure is optimized to degrade multiple target summarization models.。\n【核心方法】we develop approximation algorithms with theoretical guarantees.。\n【主要贡献】We show that a class of multi-resolution image summarization objectives can be formulated as multilinear extensions of non-negative submodular set functions and satisfy DR-submodularity with...。",
+          "highlights": [
+            "Toward Trustworthy AI",
+            "隶属于 cs.AI, cs.CR",
+            "Trustworthy AI requires reliable data-processing pipelines, not only robust downstream predictive models."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2606.11804",
+          "worthReading": false
+        }
+      ]
+    },
     {
       "id": "2026-06-11",
       "date": "2026-06-11",

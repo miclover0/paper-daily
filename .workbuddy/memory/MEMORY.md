@@ -16,3 +16,7 @@
 ## 自动化
 - 自动化任务 ID：automation-1780663365428
 - 每天自动运行 daily_fetch.py → git push → GitHub Pages 更新
+- **Git 推送认证**：已改为 SSH（`git@github.com:miclover0/paper-daily.git`）
+  - SSH key：`~/.ssh/id_ed25519`（ed25519，miclo-paper-daily-auto）
+  - SSH config 中设置了 `ProxyCommand none` 绕过 127.0.0.1:7897 代理
+  - **公钥必须添加到 GitHub** → Settings → SSH and GPG keys（否则仍会失败）

@@ -1,5 +1,21 @@
 # ArXiv 论文日报自动追踪 — 执行历史
 
+## 2026-06-13 — 🔧 SSH 推送修复
+- **修复内容**: 认证方式从 HTTPS+Token 改为 SSH Key，解决代理问题
+- **SSH Key**: ~/.ssh/id_ed25519（ed25519, miclo-paper-daily-auto）已添加到 GitHub
+- **SSH Config**: ProxyCommand none 绕过 127.0.0.1:7897 代理
+- **结果**: 4 个积压 commit (6/9~6/12) 全部成功推送，GitHub Pages 已更新
+- **后续**: 自动化任务直接 `git push origin main`，SSH 方式无需 Token
+
+## 2026-06-12 执行记录
+- **状态**: ✅ 成功（6/13 补推）
+- **论文总数**: 170 篇（从 829 篇 RSS 论文中关键词过滤）
+- **强相关筛选后**: 50 篇（相关度分数 >= 70）
+- **分组**: A组(检测强相关) 30篇 / B组(端云协同) 6篇 / C组(其他) 14篇
+- **值得精读**: 20 篇 (40%)
+- **HTML**: daily_reports/2026-06-12-arXiv.html
+- **Git**: 提交 55aee90，2026-06-13 通过 SSH 补推成功
+
 ## 2026-06-09 执行记录
 - **状态**: ✅ 成功
 - **论文总数**: 291 篇（从 1545 篇 RSS 论文中关键词过滤）
@@ -63,16 +79,14 @@
 - **HTML**: daily_reports/2026-06-10-arXiv.html (100KB)
 - **Git**: 提交成功 (b4012b8)，push 失败 — GitHub 不可达 (Connection refused / port 443)
 - **GitHub Pages**: 未更新（push 失败）
-- **注意**: 网络问题持续。需在网络恢复后手动 `git push origin main`
+- **注意**: 后于 6/13 通过 SSH 补推成功
 
 ## 2026-06-11 执行记录
-- **状态**: ⚠️ 部分成功（本地完成，push 失败）
+- **状态**: ✅ 成功（6/13 补推）
 - **论文总数**: 143 篇（从 705 篇 RSS 论文中关键词过滤）
 - **强相关筛选后**: 50 篇（相关度分数 >= 70）
 - **分组**: A组(检测强相关) 28篇 / B组(端云协同) 5篇 / C组(其他) 17篇
 - **值得精读**: 20 篇 (40%)
 - **数据源**: ArXiv RSS Feed (cs.CV: 179, cs.LG: 339, cs.AI: 332, cs.RO: 86)
 - **HTML**: daily_reports/2026-06-11-arXiv.html
-- **Git**: 提交成功 (e37dac9)，push 失败 — GitHub 不可达 (Connection refused / port 443)
-- **GitHub Pages**: 未更新（push 失败）
-- **注意**: 网络问题持续。需在网络恢复后手动 `git push origin main`
+- **Git**: 提交 e37dac9，6/13 SSH 补推成功

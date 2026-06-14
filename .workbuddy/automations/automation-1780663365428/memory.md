@@ -1,5 +1,12 @@
 # ArXiv 论文日报自动追踪 — 执行历史
 
+## 2026-06-13 执行记录
+- **状态**: ✅ 成功
+- **论文总数**: 0 篇（周六 ArXiv 不更新，RSS + API 均无新论文）
+- **HTML**: daily_reports/2026-06-13-arXiv.html（空日报）
+- **Git**: 提交 4bb1b7a，SSH push 成功
+- **GitHub Pages**: 已更新 https://miclover0.github.io/paper-daily/
+
 ## 2026-06-13 — 🔧 SSH 推送修复
 - **修复内容**: 认证方式从 HTTPS+Token 改为 SSH Key，解决代理问题
 - **SSH Key**: ~/.ssh/id_ed25519（ed25519, miclo-paper-daily-auto）已添加到 GitHub

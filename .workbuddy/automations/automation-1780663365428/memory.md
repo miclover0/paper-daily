@@ -1,5 +1,12 @@
 # ArXiv 论文日报自动追踪 — 执行历史
 
+## 2026-06-14 执行记录
+- **状态**: ✅ 成功
+- **论文总数**: 0 篇（周日 ArXiv 不更新，RSS + API 均无新论文）
+- **HTML**: daily_reports/2026-06-14-arXiv.html（空日报）
+- **Git**: 提交 22b53bc，SSH push 成功
+- **GitHub Pages**: 已更新 https://miclover0.github.io/paper-daily/
+
 ## 2026-06-13 执行记录
 - **状态**: ✅ 成功
 - **论文总数**: 0 篇（周六 ArXiv 不更新，RSS + API 均无新论文）

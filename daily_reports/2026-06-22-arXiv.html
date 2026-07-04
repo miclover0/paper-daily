@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width,initial-scale=1'>
+<title>论文日报 2026-06-22</title>
+<style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;line-height:1.75;color:#172033;background:#f6f8fb}
+    .layout{display:flex;min-height:100vh}
+    
+    .toc{width:280px;min-width:260px;max-width:320px;background:#fff;border-right:1px solid #e2e8f0;padding:16px 0;overflow-y:auto;position:sticky;top:0;height:100vh;flex-shrink:0}
+    .toc h2{font-size:15px;padding:0 18px 10px;color:#1a1a2e;border-bottom:1px solid #e2e8f0;margin-bottom:6px}
+    .toc ul{list-style:none;padding:0}
+    .toc li{margin:0}
+    .toc .toc-group-header{padding:8px 18px 4px;font-size:13px;font-weight:600;color:#64748b;margin-top:6px}
+    .toc .toc-link{display:block;padding:5px 18px 5px 26px;font-size:12px;color:#475569;text-decoration:none;line-height:1.45;transition:background .15s,border-color .15s;border-left:3px solid transparent}
+    .toc .toc-link:hover{background:#f1f5f9;color:#1e293b;border-left-color:#2563eb}
+    .toc .toc-link.worth-reading{font-weight:500}
+    .toc .toc-link.worth-reading::after{content:' ⭐';font-size:10px}
+    
+    .content{flex:1;padding:24px 48px;min-width:0;overflow-y:auto}
+    .header{margin-bottom:20px;text-align:center;max-width:1100px;margin-left:auto;margin-right:auto}
+    .meta{color:#566074;font-size:14px}
+    .section-header{margin:32px 0 16px;font-size:20px;color:#2563eb;border-bottom:2px solid #2563eb;padding-bottom:8px;max-width:1100px;margin-left:auto;margin-right:auto}
+    .card{border:1px solid #dbe2ea;border-radius:16px;padding:20px;margin:20px 0;background:#fff;box-shadow:0 4px 14px rgba(15,23,42,.04);position:relative;scroll-margin-top:20px;max-width:1100px;margin-left:auto;margin-right:auto;width:auto}
+    .card.worth-reading{border-left:4px solid #f59e0b;background:linear-gradient(135deg,#fffbeb 0%,#fff 100%);max-width:1100px;margin-left:auto;margin-right:auto;width:auto}
+    .worth-badge{position:absolute;top:14px;right:14px;background:linear-gradient(135deg,#f59e0b,#d97706);color:#fff;padding:4px 14px;border-radius:999px;font-size:12px;font-weight:600}
+    h1{font-size:28px;margin:0 0 8px;color:#1a1a2e}
+    h3{margin:0 0 10px;font-size:17px;color:#1e293b;padding-right:90px}
+    p{margin:10px 0}
+    ul{margin:10px 0 0 20px;padding:0}
+    li{margin:8px 0}
+    .chinese-summary{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:12px 14px;margin:12px 0;font-size:14px;color:#334155;line-height:1.85}
+    .chinese-summary strong{color:#1e293b}
+    .problem-box{background:#f0f9ff;border:1px solid #bae6fd;border-radius:8px;padding:10px 14px;margin:12px 0;font-size:14px;color:#0369a1;line-height:1.7}
+    .problem-box strong{color:#0284c7}
+    .read-reason-box{background:#fefce8;border:1px solid #fde68a;border-radius:8px;padding:10px 14px;margin:12px 0;font-size:14px;color:#854d0e}
+    .read-reason-box strong{color:#d97706}
+    a{color:#2563eb;word-break:break-all;text-decoration:none}
+    a:hover{text-decoration:underline}
+    .badge{display:inline-block;padding:2px 10px;border-radius:999px;font-size:12px;margin-right:6px}
+    .badge-a{background:#dbeafe;color:#1d4ed8}
+    .badge-b{background:#dcfce7;color:#15803d}
+    .badge-c{background:#fef3c7;color:#b45309}
+    .badge-source{background:#f1f5f9;color:#475569}
+    .tag{display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;margin-right:4px}
+    .nav-back{text-align:center;margin:20px 0;max-width:1100px;margin-left:auto;margin-right:auto}
+    .nav-back a{color:#64748b;text-decoration:none;font-size:14px}
+    .nav-back a:hover{color:#2563eb}
+    .footer{text-align:center;margin-top:40px;padding:20px;color:#94a3b8;font-size:13px;border-top:1px solid #e2e8f0;max-width:1100px;margin-left:auto;margin-right:auto}
+    @media (max-width:768px){
+        .layout{flex-direction:column}
+        .toc{width:100%;min-width:100%;height:auto;max-height:40vh;position:relative;border-right:none;border-bottom:2px solid #e2e8f0}
+        .content{max-width:100%;padding:16px}
+        .card{padding:14px}
+        h3{padding-right:0}
+        .worth-badge{position:static;display:inline-block;margin-bottom:8px}
+    }
+</style>
+</head>
+<body>
+<div class="layout">
+    <aside class="toc">
+        <h2>📑 目录</h2>
+        <ul><li class="toc-group-header"><span class="badge badge-a">A组</span> 目标检测强相关 (19篇)</li>
+<li><a href="#A1" class="toc-link worth-reading">A1 REALM: A Unified Red-Teaming Benchmark for Physical-Wor...</a></li>
+<li><a href="#A2" class="toc-link worth-reading">A2 T-VSS: Test-Time Visual Subspace Steering for Adversari...</a></li>
+<li><a href="#A3" class="toc-link worth-reading">A3 RoboGaze: Evaluating Robot World Models via Structured ...</a></li>
+<li><a href="#A4" class="toc-link worth-reading">A4 From Spatial to Spectral: An Efficient, Frequency-Guide...</a></li>
+<li><a href="#A5" class="toc-link worth-reading">A5 Semantic Browsing: Controllable Diversity for Image Gen...</a></li>
+<li><a href="#A6" class="toc-link worth-reading">A6 DE-FIVE: Detecting Malicious Image Prompts via Fourier ...</a></li>
+<li><a href="#A7" class="toc-link worth-reading">A7 TooBad: Backdoor Diffusion Models with Ultra-Low Poison...</a></li>
+<li><a href="#A8" class="toc-link worth-reading">A8 Attacking the Trusted Imagination: Oracle-Level Integri...</a></li>
+<li><a href="#A9" class="toc-link worth-reading">A9 Trustworthy Image Authentication using Forensic Knowled...</a></li>
+<li><a href="#A10" class="toc-link">A10 PhoneBuddy: Training Open Models for Agentic Phone Use</a></li>
+<li><a href="#A11" class="toc-link">A11 Detecting Malicious Agent Skills in the Wild using Atte...</a></li>
+<li><a href="#A12" class="toc-link">A12 Where Is My Physics Wrong? Localized and Identifiable D...</a></li>
+<li><a href="#A13" class="toc-link">A13 Bridging Semantics and Kinematics: A Modular Framework ...</a></li>
+<li><a href="#A14" class="toc-link">A14 Each Judge Its Own Yardstick: Discovering Per-VLM Taxon...</a></li>
+<li><a href="#A15" class="toc-link">A15 Sublinearly Structured Deep Neural Networks Achieve Fea...</a></li>
+<li><a href="#A16" class="toc-link">A16 Superhuman AI for Generals.io Using Self-Play Reinforce...</a></li>
+<li><a href="#A17" class="toc-link">A17 dVLA-RL: Reinforcement Learning over Denoising Trajecto...</a></li>
+<li><a href="#A18" class="toc-link">A18 On the Limits of Prompt-Conditioned Language Models as ...</a></li>
+<li><a href="#A19" class="toc-link">A19 GRADE: Graph Representation of LLM Agent Dependency and...</a></li>
+<li class="toc-group-header"><span class="badge badge-b">B组</span> 端云协同/边缘计算 (13篇)</li>
+<li><a href="#B1" class="toc-link worth-reading">B1 SteerVTE: Seamless Video Text Editing with Style and Gl...</a></li>
+<li><a href="#B2" class="toc-link worth-reading">B2 Learning the Koopman Operator using Attention Free Tran...</a></li>
+<li><a href="#B3" class="toc-link worth-reading">B3 The Hitchhiker&#x27;s Guide to Agentic AI: From Foundations ...</a></li>
+<li><a href="#B4" class="toc-link worth-reading">B4 Hybrid Compression: Integrating Pruning and Quantizatio...</a></li>
+<li><a href="#B5" class="toc-link worth-reading">B5 SpotAttention: Plug-In Block-Sparse Routing for Pretrai...</a></li>
+<li><a href="#B6" class="toc-link worth-reading">B6 ARIA: Adaptive Region-Based Importance Allocation for C...</a></li>
+<li><a href="#B7" class="toc-link worth-reading">B7 Towards Robust Personalized Federated Learning: Vulnera...</a></li>
+<li><a href="#B8" class="toc-link worth-reading">B8 FedOT: Ownership Verification and Leakage Tracing via W...</a></li>
+<li><a href="#B9" class="toc-link">B9 The Professor: Multi-Teacher Unsupervised Prompt Distil...</a></li>
+<li><a href="#B10" class="toc-link">B10 FlowTrain: Flow-Based Decoupled Training for Industrial...</a></li>
+<li><a href="#B11" class="toc-link">B11 PRIDE: Privileged Information-enhanced Distillation for...</a></li>
+<li><a href="#B12" class="toc-link">B12 CADRE: Stable, Parameter Efficient Adaptation of Medica...</a></li>
+<li><a href="#B13" class="toc-link">B13 Priority-Aware Learning-Unlearning Correction for Dynam...</a></li>
+<li class="toc-group-header"><span class="badge badge-c">C组</span> 其他AI相关 (18篇)</li>
+<li><a href="#C1" class="toc-link worth-reading">C1 VideoAgent: All-in-One Framework for Video Understandin...</a></li>
+<li><a href="#C2" class="toc-link worth-reading">C2 Neuro-Symbolic Drive: Rule-Grounded Faithful Reasoning ...</a></li>
+<li><a href="#C3" class="toc-link worth-reading">C3 RIFT-Bench: Dynamic Red-teaming For Agentic AI Systems</a></li>
+<li><a href="#C4" class="toc-link">C4 Dynamic multi-agent deep reinforcement learning-based p...</a></li>
+<li><a href="#C5" class="toc-link">C5 Temporal-Spectral Alignment with Frequency Adaptation f...</a></li>
+<li><a href="#C6" class="toc-link">C6 Decentralized Autonomous Traffic Management through Cor...</a></li>
+<li><a href="#C7" class="toc-link">C7 Listening makes Vision Clear for VLMs</a></li>
+<li><a href="#C8" class="toc-link">C8 LOLLA: Deep Reinforcement Learning for Closed-Loop Link...</a></li>
+<li><a href="#C9" class="toc-link">C9 Exposing the Illusion of Erasure in Knowledge Editing f...</a></li>
+<li><a href="#C10" class="toc-link">C10 Black-Box Continual Learning for Vision-Language Models</a></li>
+<li><a href="#C11" class="toc-link">C11 VideoLatent: Video-Language Learning via Latent Self-Fo...</a></li>
+<li><a href="#C12" class="toc-link">C12 CLIP-guided Diffusion Model for Backdoor Generation in ...</a></li>
+<li><a href="#C13" class="toc-link">C13 Safe and Generalizable Hierarchical Multi-Agent RL via ...</a></li>
+<li><a href="#C14" class="toc-link">C14 HANCLIP: A Family of Hyperbolic Angular Negation Vision...</a></li>
+<li><a href="#C15" class="toc-link">C15 From Task-Guided Conversational Graphs to Goal-Oriented...</a></li>
+<li><a href="#C16" class="toc-link">C16 Emergent Relational Order in LLM Agent Societies: From ...</a></li>
+<li><a href="#C17" class="toc-link">C17 Domain Adaptation Under Wireless Network Constraints: W...</a></li>
+<li><a href="#C18" class="toc-link">C18 Distilling Collaborative Dynamics into Latent Space for...</a></li></ul>
+    </aside>
+    <main class="content">
+        <div class='header'>
+            <h1>📚 论文日报</h1>
+            <p class='meta'>2026-06-22 · A组(19)+B组(13)+C组(18) 共 50 篇</p>
+            <p class='meta' style='font-size:13px;color:#64748b'>
+                A组：目标检测强相关 · B组：端云协同/边缘计算 · C组：其他AI相关
+            </p>
+            <p class='meta' style='font-size:13px;color:#64748b'>⭐ 精读推荐 20 篇，点击左侧目录跳转</p>
+        </div>
+        <div class='nav-back'><a href='./index.html'>← 返回首页</a></div>
+        <h2 class="section-header" id="group-A"><span class="badge badge-a">A组</span> 目标检测强相关</h2>
+
+<div class='card worth-reading' id='A1'>
+    <div class="worth-badge">⭐ 值得精读</div>
+    <h3><span class='badge badge-a'>A1</span> REALM: A Unified Red-Teaming Benchmark for Physical-World VLMs</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2606.23892v1</span>
+        <span class='tag' style='background:#7c3aed;color:#fff'>VLM</span><span class='tag' style='background:#2563eb;color:#fff'>Agent</span><span class='tag' style='background:#059669;color:#fff'>Embodied AI</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦视觉-语言模型（VLM）领域。<br>Vision-language models (VLMs) are increasingly used as perception-reasoning backbones for embodied intelligence in safety-critical physical systems, where perception or reasoning errors can lead to...。<br>【核心方法】We introduce REALM, to our knowledge the first unified red-teaming benchmark for physical-world VLMs.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>challenge of comparing diverse attack methods under a unified protocol while targeting the same scenario-specific failures</div>
+    <div class="read-reason-box"><strong>📖 精读原因：</strong>本文探索视觉-语言模型（VLM）的前沿进展，对多模态理解有重要参考价值；AI Agent 是当前研究热点，本文可能包含创新性的设计思路</div>
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>首次提出：</strong>first unified red-teaming benchmark for physical-world VLMs</li><li><strong>核心思路：</strong>REALM</li><li><strong>研究领域：</strong>隶属于 cs.CV</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2606.23892v1' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2606.23892v1" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card worth-reading' id='A2'>
+    <div class="worth-badge">⭐ 值得精读</div>
+    <h3><span class='badge badge-a'>A2</span> T-VSS: Test-Time Visual Subspace Steering for Adversarial Robustness of Vision-Language Models</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2606.23132v1</span>
+        <span class='tag' style='background:#7c3aed;color:#fff'>VLM</span><span class='tag' style='background:#dc2626;color:#fff'>TTA</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦视觉-语言模型（VLM）领域。<br>Vision-language models (VLMs) achieve strong zero-shot recognition, but they remain highly vulnerable to adversarial perturbations.。<br>【核心方法】We propose Test-time Visual Subspace Steering (T-VSS), a lightweight defense that performs test-time adaptation directly in the visual feature space.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 T 中的问题，VSS</div>
+    <div class="read-reason-box"><strong>📖 精读原因：</strong>本文探索视觉-语言模型（VLM）的前沿进展，对多模态理解有重要参考价值；测试时自适应（TTA）是提升模型泛化能力的关键技术，本文值得深入研究</div>
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>无需标注：</strong>without retraining</li><li><strong>首次提出：</strong>first builds a sample-specific low-rank subspace from multi-view feature residuals anchored at the attacked image</li><li><strong>研究要点：</strong>Vision-language models (VLMs) achieve strong zero-shot recognition, but they remain highly vulnerable to adversarial per</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2606.23132v1' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2606.23132v1" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card worth-reading' id='A3'>
+    <div class="worth-badge">⭐ 值得精读</div>
+    <h3><span class='badge badge-a'>A3</span> RoboGaze: Evaluating Robot World Models via Structured Vision-Language Analysis</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2606.28385v1</span>
+        <span class='tag' style='background:#7c3aed;color:#fff'>VLM</span><span class='tag' style='background:#2563eb;color:#fff'>Agent</span><span class='tag' style='background:#059669;color:#fff'>Embodied AI</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦视觉-语言模型（VLM）领域。<br>Recent advances in robot world models enable synthetic video generation for embodied prediction and planning.。<br>【核心方法】We present RoboGaze, a training-free, multi-agent VLM framework that provides structured, interpretable evaluation for generated robot-manipulation videos.。<br>【实验结果】Evaluating eight open-source and proprietary VLM backbones, RoboGaze dramatically outperforms zero-shot baselines, improving description-F1 by up to +43 points and temporal alignment (F1 x IoU) by...。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 RoboGaze 中的问题，Evaluating Robot World Models via Structured Vision</div>
+    <div class="read-reason-box"><strong>📖 精读原因：</strong>本文探索视觉-语言模型（VLM）的前沿进展，对多模态理解有重要参考价值；AI Agent 是当前研究热点，本文可能包含创新性的设计思路</div>
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>超越现有方法：</strong>outperforms zero-shot baselines</li><li><strong>核心思路：</strong>RoboGaze</li><li><strong>研究领域：</strong>隶属于 cs.RO, cs.AI</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2606.28385v1' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2606.28385v1" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card worth-reading' id='A4'>
+    <div class="worth-badge">⭐ 值得精读</div>
+    <h3><span class='badge badge-a'>A4</span> From Spatial to Spectral: An Efficient, Frequency-Guided Feature Representation Learner for Small Object Detection</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2606.23825v1</span>
+        <span class='tag' style='background:#1d4ed8;color:#fff'>Object Detection</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦目标检测领域。<br>Efficient small object detection is bottlenecked by the inherent feature scarcity of tiny targets, which is further aggravated by operations of spatial-domain detectors that indiscriminately discard...。<br>Recovering these fragile cues within the spatial domain is notoriously difficult, as it often requires computationally expensive architectural upscaling that inadvertently amplifies background noise.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 From Spatial to Spectral 中的问题，An Efficient, Frequency</div>
+    <div class="read-reason-box"><strong>📖 精读原因：</strong>目标检测是基础且重要的研究方向，本文可能带来性能或效率的显著提升；论文提出了新的方法/框架，具有创新性</div>
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>超越现有方法：</strong>outperforms YOLOv11 models under the same scale while requiring \textbf{only 1/6 of the parameters}</li><li><strong>核心思路：</strong>From Spatial to Spectral</li><li><strong>研究领域：</strong>隶属于 cs.CV, cs.AI</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2606.23825v1' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2606.23825v1" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card worth-reading' id='A5'>
+    <div class="worth-badge">⭐ 值得精读</div>
+    <h3><span class='badge badge-a'>A5</span> Semantic Browsing: Controllable Diversity for Image Generation</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2606.23679v1</span>
+        <span class='tag' style='background:#7c3aed;color:#fff'>VLM</span><span class='tag' style='background:#2563eb;color:#fff'>Agent</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦视觉-语言模型（VLM）领域。<br>We exploit the fact that recent text-to-image models are trained on elaborated captions, effectively decoupling semantic decision-making from pixel generation.。<br>【核心方法】We introduce a method for controlled diversity that enables Semantic Browsing, where users can navigate structured image galleries and experience creative exploration through a systematic traversal of meaningful, interpretable axes of variation.。<br>【主要贡献】We demonstrate that our method produces diverse and navigable design spaces where every variation corresponds to a specific, user-understandable semantic decision.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>Existing methods to improve diversity produce outputs driven by incidental variations rather than meaningful design choices</div>
+    <div class="read-reason-box"><strong>📖 精读原因：</strong>本文探索视觉-语言模型（VLM）的前沿进展，对多模态理解有重要参考价值；AI Agent 是当前研究热点，本文可能包含创新性的设计思路</div>
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>提出：</strong>introduce a method</li><li><strong>核心思路：</strong>Semantic Browsing</li><li><strong>研究领域：</strong>隶属于 cs.CV, cs.AI</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2606.23679v1' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2606.23679v1" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card worth-reading' id='A6'>
+    <div class="worth-badge">⭐ 值得精读</div>
+    <h3><span class='badge badge-a'>A6</span> DE-FIVE: Detecting Malicious Image Prompts via Fourier Features and Image Vector Embeddings</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2606.22779v1</span>
+        <span class='tag' style='background:#7c3aed;color:#fff'>VLM</span><span class='tag' style='background:#1d4ed8;color:#fff'>Object Detection</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦视觉-语言模型（VLM）领域。<br>Existing defense methods against malicious image prompts remain insufficient as they typically demand extensive datasets for retraining or the deployment of additional, complex classifiers.。<br>【核心方法】we introduce DE-FIVE, a novel training-free framework for detecting malicious image prompts by leveraging Fourier features and the hidden state representations of the visual encoder (image vector embeddings) across perturbations.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>lack of specialized defense mechanisms specifically targeting indirect prompt injections</div>
+    <div class="read-reason-box"><strong>📖 精读原因：</strong>本文探索视觉-语言模型（VLM）的前沿进展，对多模态理解有重要参考价值；目标检测是基础且重要的研究方向，本文可能带来性能或效率的显著提升</div>
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>超越现有方法：</strong>outperforms state-of-the-art baselines against malicious image prompts</li><li><strong>核心思路：</strong>DE</li><li><strong>研究领域：</strong>隶属于 cs.CR, cs.CV</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2606.22779v1' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2606.22779v1" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card worth-reading' id='A7'>
+    <div class="worth-badge">⭐ 值得精读</div>
+    <h3><span class='badge badge-a'>A7</span> TooBad: Backdoor Diffusion Models with Ultra-Low Poison Rate and Imperceptible Trigger</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2606.23362v1</span>
+        <span class='tag' style='background:#64748b;color:#fff'>AI</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦计算机视觉与深度学习领域。<br>Diffusion models (DMs), despite their impressive capabilities across a wide range of generative tasks, have been shown to be vulnerable to backdoor attacks.。<br>【核心方法】This paper proposes TooBad (trigger optimization for backdoor diffusion models), a backdoor framework which introduces a novel DM-tailored trigger optimization technique to dramatically enhance the performance of backdoor attacks on DMs.。<br>【实验结果】Experiments on representative benchmarks such as CIFAR-10 show that TooBad can achieve high ASRs ($> 85$%) at only 0.5% poison rate, significantly lower than the 10% typically required by prior work...。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>existing methods need at least 30-50 epochs at double the poison rate for comparable results</div>
+    <div class="read-reason-box"><strong>📖 精读原因：</strong>本文与目标检测高度相关，可能包含可借鉴的技术思路；论文提出了新的方法/框架，具有创新性</div>
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>核心思路：</strong>TooBad</li><li><strong>研究领域：</strong>隶属于 cs.CR, cs.CV</li><li><strong>研究要点：</strong>Despite its potency, TooBad easily evades SOTA defenses and maintains high utility.</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2606.23362v1' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2606.23362v1" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card worth-reading' id='A8'>
+    <div class="worth-badge">⭐ 值得精读</div>
+    <h3><span class='badge badge-a'>A8</span> Attacking the Trusted Imagination: Oracle-Level Integrity Attacks on Imagine-then-Act World Models</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2606.22966v1</span>
+        <span class='tag' style='background:#7c3aed;color:#fff'>VLM</span><span class='tag' style='background:#1d4ed8;color:#fff'>Object Detection</span><span class='tag' style='background:#d97706;color:#fff'>World Model</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦视觉-语言模型（VLM）领域。<br>Targeted control remains bounded.。<br>【核心方法】We adopt a capability-based threat model with an L-infinity-bounded observation perturbation.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 Attacking the Trusted Imagination 中的问题，Oracle</div>
+    <div class="read-reason-box"><strong>📖 精读原因：</strong>本文探索视觉-语言模型（VLM）的前沿进展，对多模态理解有重要参考价值；目标检测是基础且重要的研究方向，本文可能带来性能或效率的显著提升</div>
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>首次提出：</strong>first imagines a short future as a latent trajectory z~</li><li><strong>核心思路：</strong>Attacking the Trusted Imagination</li><li><strong>研究领域：</strong>隶属于 cs.LG, cs.AI</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2606.22966v1' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2606.22966v1" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card worth-reading' id='A9'>
+    <div class="worth-badge">⭐ 值得精读</div>
+    <h3><span class='badge badge-a'>A9</span> Trustworthy Image Authentication using Forensic Knowledge Graphs</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2606.23917v1</span>
+        <span class='tag' style='background:#7c3aed;color:#fff'>VLM</span><span class='tag' style='background:#1d4ed8;color:#fff'>Object Detection</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦视觉-语言模型（VLM）领域。<br>Existing forensic detectors can target certain forgery types but lack interpretability, while vision-language models (VLMs) provide explanations but cannot exploit forensic traces for reliable...。<br>【核心方法】We propose Forensic Knowledge Graphs (FKGs), a unified framework that integrates forensic evidence extraction, structured reasoning, and human-interpretable explanation.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>解决 VLM 领域的关键挑战</div>
+    <div class="read-reason-box"><strong>📖 精读原因：</strong>本文探索视觉-语言模型（VLM）的前沿进展，对多模态理解有重要参考价值；目标检测是基础且重要的研究方向，本文可能带来性能或效率的显著提升</div>
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>超越现有方法：</strong>outperforms both forensic detectors and VLMs in detection</li><li><strong>研究领域：</strong>隶属于 cs.CV</li><li><strong>研究要点：</strong>Advances in generative AI have made image falsification highly realistic, demanding trustworthy authentication systems.</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2606.23917v1' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2606.23917v1" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='A10'>
+    
+    <h3><span class='badge badge-a'>A10</span> PhoneBuddy: Training Open Models for Agentic Phone Use</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2606.23049v2</span>
+        <span class='tag' style='background:#2563eb;color:#fff'>Agent</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦AI智能体（Agent）领域。<br>Phones are becoming an important execution surface for general-purpose agents, but training open models for reliable phone use remains difficult because the environment that matters at deployment,...。<br>【核心方法】We present PhoneBuddy, a training recipe and open-model line for agentic phone use that combines a real-app environment with a mock-app environment, PhoneWorld, which reconstructs runnable mock apps from real GUI usage structure.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 PhoneBuddy 中的问题，Training Open Models for Agentic Phone Use</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>首次提出：</strong>first builds a shared supervised fine-tuning stage from trajectories collected in both environments</li><li><strong>核心思路：</strong>PhoneBuddy</li><li><strong>研究领域：</strong>隶属于 cs.CL, cs.AI</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2606.23049v2' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2606.23049v2" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='A11'>
+    
+    <h3><span class='badge badge-a'>A11</span> Detecting Malicious Agent Skills in the Wild using Attention</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2606.23416v1</span>
+        <span class='tag' style='background:#2563eb;color:#fff'>Agent</span><span class='tag' style='background:#1d4ed8;color:#fff'>Object Detection</span><span class='tag' style='background:#6366f1;color:#fff'>Distributed</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦目标检测领域。<br>LLM agents increasingly load skills, file-based packages of natural-language instructions written by third parties and distributed through marketplaces, that execute with the user's privileges.。<br>【核心方法】We present Locate-and-Judge, a two-stage detector designed for this regime.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>解决 Agent 领域的关键挑战</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>研究领域：</strong>隶属于 cs.CR, cs.AI</li><li><strong>研究要点：</strong>Prompt-injection defenses do not carry over to this setting.</li><li><strong>研究要点：</strong>We present Locate-and-Judge, a two-stage detector designed for this regime.</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2606.23416v1' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2606.23416v1" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='A12'>
+    
+    <h3><span class='badge badge-a'>A12</span> Where Is My Physics Wrong? Localized and Identifiable Discovery of Model Discrepancy</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2606.23215v1</span>
+        <span class='tag' style='background:#1d4ed8;color:#fff'>Object Detection</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦目标检测领域。<br>43 for global-discrepancy and black-box baselines, raises localization $F_1$ from 0.。<br>【核心方法】We introduce LISDD, Localized, Identifiable Sparse Discovery of Discrepancy, a framework that localizes model error to an operating regime, identifies a sparse symbolic form for the missing mechanism, and certifies the discovery with an exact...。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>解决 Object Detection 领域的关键挑战</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>研究领域：</strong>隶属于 physics.data-an, cs.AI</li><li><strong>研究要点：</strong>Hybrid models combine trusted physics with data-driven correction, but a physical model is rarely wrong everywhere or in</li><li><strong>研究要点：</strong>The key diagnostic question is local: where does the model fail, what missing mechanism explains the failure, and is the</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2606.23215v1' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2606.23215v1" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='A13'>
+    
+    <h3><span class='badge badge-a'>A13</span> Bridging Semantics and Kinematics: A Modular Framework for Zero-Shot Robotic Manipulation</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2606.23157v1</span>
+        <span class='tag' style='background:#7c3aed;color:#fff'>VLM</span><span class='tag' style='background:#0891b2;color:#fff'>Open World</span><span class='tag' style='background:#059669;color:#fff'>Embodied AI</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦视觉-语言模型（VLM）领域。<br>This paper presents a modular training-free framework for zero-shot, language-guided robotic manipulation in semi-structured environments.。<br>【核心方法】This paper presents a modular training-free framework for zero-shot, language-guided robotic manipulation in semi-structured environments.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>overcome the spatial ambiguity and semantic hallucinations inherent in standard Vision-Language Models (VLMs)</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>无需标注：</strong>without domain-specific training</li><li><strong>核心思路：</strong>Bridging Semantics and Kinematics</li><li><strong>研究领域：</strong>隶属于 cs.RO</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2606.23157v1' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2606.23157v1" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='A14'>
+    
+    <h3><span class='badge badge-a'>A14</span> Each Judge Its Own Yardstick: Discovering Per-VLM Taxonomies for Physical Video Evaluation</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2606.22918v1</span>
+        <span class='tag' style='background:#7c3aed;color:#fff'>VLM</span><span class='tag' style='background:#db2777;color:#fff'>Video Analysis</span><span class='tag' style='background:#d97706;color:#fff'>World Model</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦视觉-语言模型（VLM）领域。<br>Maintaining physical consistency in video generators and world models increasingly relies on vision-language models (VLMs) as automated judges that provide reward signals, ranking decisions, and...。<br>【核心方法】We propose JudgeFit, an iterative refinement procedure that discovers a per-VLM evaluation taxonomy.。<br>【实验结果】The refined taxonomy outperforms the global-schema baseline on held-out videos for every VLM tested, with a mean relative improvement of approximately 32%.。<br>【主要贡献】Beyond aggregate accuracy, the per-VLM profiles expose model-specific blind spots that overall rankings cannot anticipate, with reliability patterns differing markedly across model families.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 Each Judge Its Own Yardstick 中的问题，Discovering Per</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>超越现有方法：</strong>outperforms the global-schema baseline on held-out videos for every VLM tested</li><li><strong>核心思路：</strong>Each Judge Its Own Yardstick</li><li><strong>研究领域：</strong>隶属于 cs.CV, cs.GT</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2606.22918v1' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2606.22918v1" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='A15'>
+    
+    <h3><span class='badge badge-a'>A15</span> Sublinearly Structured Deep Neural Networks Achieve Feature Learning Consistency for Compositional Functions</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2606.23477v1</span>
+        <span class='tag' style='background:#64748b;color:#fff'>AI</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦计算机视觉与深度学习领域。<br>Over the past decade, deep neural networks (DNNs) have achieved remarkable success on complex machine-learning tasks, yet the theoretical foundations of their performance remain incomplete.。<br>From a statistical viewpoint, a natural question is: can DNNs attain feature-learning and prediction consistency comparable to that of classical models?。<br>While a full characterization is open, we provide positive results for a broad subclass.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>解决 AI 领域的关键挑战</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>超越现有方法：</strong>exceeds the number of training samples</li><li><strong>研究领域：</strong>隶属于 stat.ML, cs.LG</li><li><strong>研究要点：</strong>While a full characterization is open, we provide positive results for a broad subclass.</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2606.23477v1' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2606.23477v1" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='A16'>
+    
+    <h3><span class='badge badge-a'>A16</span> Superhuman AI for Generals.io Using Self-Play Reinforcement Learning</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2606.23348v1</span>
+        <span class='tag' style='background:#2563eb;color:#fff'>Agent</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦AI智能体（Agent）领域。<br>Taken together, our findings highlight what matters, and what does not, once a fast simulator removes the data bottleneck.。<br>【核心方法】We present a superhuman AI agent for Generals.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 Superhuman AI for Generals.io Using Self 中的问题，Play Reinforcement Learning</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>核心思路：</strong>Superhuman AI for Generals.io Using Self</li><li><strong>研究领域：</strong>隶属于 cs.LG</li><li><strong>研究要点：</strong>Taken together, our findings highlight what matters, and what does not, once a fast simulator removes the data bottlenec</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2606.23348v1' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2606.23348v1" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='A17'>
+    
+    <h3><span class='badge badge-a'>A17</span> dVLA-RL: Reinforcement Learning over Denoising Trajectories for Discrete Diffusion Vision-Language-Action Models</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2606.23623v1</span>
+        <span class='tag' style='background:#7c3aed;color:#fff'>VLM</span><span class='tag' style='background:#059669;color:#fff'>Embodied AI</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦视觉-语言模型（VLM）领域。<br>A fundamental challenge in RL for dVLAs is that the marginal probability of the final action generated by dVLAs remains intractable.。<br>【核心方法】we propose \textbf{dVLA-RL}, shifting the learning objective from the marginal action probability to the joint probability of the sampled generation path.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>challenge in RL for dVLAs is that the marginal probability of the final action generated by dVLAs remains intractable</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>提出：</strong>introduce a unified step scheduling approach</li><li><strong>核心思路：</strong>dVLA</li><li><strong>研究领域：</strong>隶属于 cs.RO</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2606.23623v1' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2606.23623v1" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='A18'>
+    
+    <h3><span class='badge badge-a'>A18</span> On the Limits of Prompt-Conditioned Language Models as General-Purpose Learners</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2606.23668v1</span>
+        <span class='tag' style='background:#64748b;color:#fff'>AI</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦计算机视觉与深度学习领域。<br>We introduce a conceptual decomposition separating task inference from execution and derive PAC-Bayes bounds that distinguish finite-sample estimation error from irreducible structural limitations.。<br>【核心方法】We introduce a conceptual decomposition separating task inference from execution and derive PAC-Bayes bounds that distinguish finite-sample estimation error from irreducible structural limitations.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 On the Limits of Prompt 中的问题，Conditioned Language Models as General</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>超越现有方法：</strong>exceeds the capacity of that channel</li><li><strong>首次提出：</strong>first main result establishes an \emph{expressivity floor}: language acts as a capacity-limited communication channel</li><li><strong>研究要点：</strong>Large Language Models (LLMs) are frequently portrayed as general-purpose solvers capable of solving arbitrary tasks.</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2606.23668v1' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2606.23668v1" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='A19'>
+    
+    <h3><span class='badge badge-a'>A19</span> GRADE: Graph Representation of LLM Agent Dependency and Execution</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2606.22741v1</span>
+        <span class='tag' style='background:#2563eb;color:#fff'>Agent</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦AI智能体（Agent）领域。<br>Can one graph represent every kind of LLM agent's run?。<br>A trace records what each step did, never what it relied on, the state it read, and the results it reused.。<br>One representation, and each layer earns its place.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 GRADE 中的问题，Graph Representation of LLM Agent Dependency and Execution</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>核心思路：</strong>GRADE</li><li><strong>研究领域：</strong>隶属于 cs.LG</li><li><strong>研究要点：</strong>Can one graph represent every kind of LLM agent&#x27;s run?</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2606.22741v1' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2606.22741v1" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+<h2 class="section-header" id="group-B"><span class="badge badge-b">B组</span> 端云协同/边缘计算</h2>
+
+<div class='card worth-reading' id='B1'>
+    <div class="worth-badge">⭐ 值得精读</div>
+    <h3><span class='badge badge-b'>B1</span> SteerVTE: Seamless Video Text Editing with Style and Glyph Control</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2606.23254v1</span>
+        <span class='tag' style='background:#db2777;color:#fff'>Video Analysis</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦视频分析领域。<br>Despite significant advances in the image domain, video text editing remains largely unexplored: it is a localized task demanding stroke-level precision within small text regions, which compounds...。<br>【核心方法】We introduce SteerVTE, a unified framework that \underline{\textbf{steer}}s a frozen video diffusion model to perform precise \underline{\textbf{V}}ideo \underline{\textbf{T}}ext \underline{\textbf{E}}diting through style and glyph control.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>overcome the inherently weak text rendering priors of video foundation models</div>
+    <div class="read-reason-box"><strong>📖 精读原因：</strong>视频理解是计算机视觉的重要方向，本文可能推动该领域的进展；论文提出了新的方法/框架，具有创新性</div>
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>超越现有方法：</strong>outperforms existing video editing baselines across text accuracy</li><li><strong>核心思路：</strong>SteerVTE</li><li><strong>研究领域：</strong>隶属于 cs.CV, cs.AI</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2606.23254v1' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2606.23254v1" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card worth-reading' id='B2'>
+    <div class="worth-badge">⭐ 值得精读</div>
+    <h3><span class='badge badge-b'>B2</span> Learning the Koopman Operator using Attention Free Transformers</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2606.23957v1</span>
+        <span class='tag' style='background:#db2777;color:#fff'>Video Analysis</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦视频分析领域。<br>Learning Koopman operators with autoencoders enables linear prediction in a latent space, but long-horizon rollouts often drift off the learned manifold, leading to phase and amplitude errors on...。<br>【核心方法】We introduce two complementary components that make Koopman predictors more robust.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>解决 Video Analysis 领域的关键挑战</div>
+    <div class="read-reason-box"><strong>📖 精读原因：</strong>视频理解是计算机视觉的重要方向，本文可能推动该领域的进展；论文提出了新的方法/框架，具有创新性</div>
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>研究领域：</strong>隶属于 cs.LG, eess.SY</li><li><strong>研究要点：</strong>We introduce two complementary components that make Koopman predictors more robust.</li><li><strong>研究要点：</strong>We report improvements over horizons up to 1000 steps, together with ablations over trigger policies.</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2606.23957v1' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2606.23957v1" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card worth-reading' id='B3'>
+    <div class="worth-badge">⭐ 值得精读</div>
+    <h3><span class='badge badge-b'>B3</span> The Hitchhiker&#x27;s Guide to Agentic AI: From Foundations to Systems</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2606.24937v1</span>
+        <span class='tag' style='background:#2563eb;color:#fff'>Agent</span><span class='tag' style='background:#16a34a;color:#fff'>Model Compression</span><span class='tag' style='background:#6366f1;color:#fff'>Distributed</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦AI智能体（Agent）领域。<br>The book opens with the LLM substrate -- transformer architecture, GPU systems, training and fine-tuning (SFT,LoRA, MoE), model compression, and inference optimization -- treated as essential...。<br>The Hitchhiker's Guide to Agentic AI is a comprehensive practitioner's reference for building autonomous AI systems.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 The Hitchhiker&#x27;s Guide to Agentic AI 中的问题，From Foundations to Systems</div>
+    <div class="read-reason-box"><strong>📖 精读原因：</strong>AI Agent 是当前研究热点，本文可能包含创新性的设计思路；模型压缩对于边缘部署至关重要，本文可能带来新的压缩技术</div>
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>首次提出：</strong>first principles to production deployment</li><li><strong>核心思路：</strong>The Hitchhiker&#x27;s Guide to Agentic AI</li><li><strong>研究领域：</strong>隶属于 cs.AI, cs.CL</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2606.24937v1' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2606.24937v1" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card worth-reading' id='B4'>
+    <div class="worth-badge">⭐ 值得精读</div>
+    <h3><span class='badge badge-b'>B4</span> Hybrid Compression: Integrating Pruning and Quantization for Optimized Neural Networks</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2606.22935v1</span>
+        <span class='tag' style='background:#0891b2;color:#fff'>Edge Computing</span><span class='tag' style='background:#16a34a;color:#fff'>Model Compression</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦边缘计算与端云协同领域。<br>However, alongside these developments, training and deployment of neural network models on embedding and edge devices face significant challenges due to limited memory and computational resources.。<br>【核心方法】we propose a novel method for model compression through two phases.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 Hybrid Compression 中的问题，Integrating Pruning and Quantization for Optimized Neural Ne</div>
+    <div class="read-reason-box"><strong>📖 精读原因：</strong>边缘计算与端云协同是实际系统的核心挑战，本文提供了实用的解决方案；模型压缩对于边缘部署至关重要，本文可能带来新的压缩技术</div>
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>提出：</strong>propose a novel method for model</li><li><strong>核心思路：</strong>Hybrid Compression</li><li><strong>研究领域：</strong>隶属于 cs.CV</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2606.22935v1' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2606.22935v1" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card worth-reading' id='B5'>
+    <div class="worth-badge">⭐ 值得精读</div>
+    <h3><span class='badge badge-b'>B5</span> SpotAttention: Plug-In Block-Sparse Routing for Pretrained Long-Context Transformers</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2606.22874v1</span>
+        <span class='tag' style='background:#16a34a;color:#fff'>Model Compression</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦模型压缩领域。<br>Long contexts have become standard in pretrained LLMs, yet they remain expensive to run: prefill compute grows quadratically with sequence length, and every decode step re-reads a key-value cache...。<br>【核心方法】We present SpotAttention, a lightweight selector that attaches to a frozen pretrained transformer and learns by KL distillation to estimate its attention distribution.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 SpotAttention 中的问题，Plug</div>
+    <div class="read-reason-box"><strong>📖 精读原因：</strong>模型压缩对于边缘部署至关重要，本文可能带来新的压缩技术</div>
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>核心思路：</strong>SpotAttention</li><li><strong>研究领域：</strong>隶属于 cs.LG, cs.AI</li><li><strong>研究要点：</strong>Sparse attention cuts these costs by attending only to a relevant subset of past tokens, but selecting that subset is it</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2606.22874v1' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2606.22874v1" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card worth-reading' id='B6'>
+    <div class="worth-badge">⭐ 值得精读</div>
+    <h3><span class='badge badge-b'>B6</span> ARIA: Adaptive Region-Based Importance Allocation for Conditional Diffusion Distillation</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2606.23898v1</span>
+        <span class='tag' style='background:#16a34a;color:#fff'>Model Compression</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦模型压缩领域。<br>In practical settings, this creates a major bottleneck.。<br>【核心方法】we introduce ARIA, a framework that adaptively allocates training effort across coarse regions of the conditioning space.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 ARIA 中的问题，Adaptive Region</div>
+    <div class="read-reason-box"><strong>📖 精读原因：</strong>模型压缩对于边缘部署至关重要，本文可能带来新的压缩技术；论文提出了新的方法/框架，具有创新性</div>
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>核心思路：</strong>ARIA</li><li><strong>研究领域：</strong>隶属于 cs.LG, cs.AI</li><li><strong>研究要点：</strong>As a result, effective distillation requires exploring a large conditioning space.</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2606.23898v1' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2606.23898v1" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card worth-reading' id='B7'>
+    <div class="worth-badge">⭐ 值得精读</div>
+    <h3><span class='badge badge-b'>B7</span> Towards Robust Personalized Federated Learning: Vulnerability Assessment and Defense Co-Design</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2606.22782v1</span>
+        <span class='tag' style='background:#4f46e5;color:#fff'>Federated Learning</span><span class='tag' style='background:#6366f1;color:#fff'>Distributed</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦联邦学习领域。<br>To address this challenge, we propose a defense framework combining stochastic input noise, input-scaled trace regularization, and parameter sensitivity maximization to improve FL's robustness.。<br>【核心方法】we propose a defense framework combining stochastic input noise, input-scaled trace regularization, and parameter sensitivity maximization to improve FL's robustness.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>address data heterogeneity across clients</div>
+    <div class="read-reason-box"><strong>📖 精读原因：</strong>联邦学习对于隐私保护场景至关重要，本文值得深入研究；分布式训练/推理是大规模系统的核心技术，本文提供了有价值的优化思路</div>
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>提出：</strong>propose a defense framework</li><li><strong>首次提出：</strong>first systematic study of adversarial threats in PFL systems</li><li><strong>研究要点：</strong>Wherein, malicious clients can exploit local model knowledge to craft adversarial examples that can compromise peer clie</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2606.22782v1' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2606.22782v1" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card worth-reading' id='B8'>
+    <div class="worth-badge">⭐ 值得精读</div>
+    <h3><span class='badge badge-b'>B8</span> FedOT: Ownership Verification and Leakage Tracing via Watermarks for Federated LDMs</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2606.22875v1</span>
+        <span class='tag' style='background:#4f46e5;color:#fff'>Federated Learning</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦联邦学习领域。<br>Training Latent Diffusion Models (LDMs) within Federated Learning (FL) has attracted increasing attention due to its ability to combine the powerful generative capacity of LDMs with the...。<br>【核心方法】we propose FedOT, the first framework for ownership verification and leakage tracing in federated LDMs.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>Existing methods support ownership verification but lack the ability to trace model leakage to a specific malicious client; (2) VAE-based watermarks a</div>
+    <div class="read-reason-box"><strong>📖 精读原因：</strong>联邦学习对于隐私保护场景至关重要，本文值得深入研究；论文提出了新的方法/框架，具有创新性</div>
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>首次提出：</strong>first framework for ownership verification and leakage tracing in federated LDMs</li><li><strong>核心思路：</strong>FedOT</li><li><strong>研究领域：</strong>隶属于 cs.CV</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2606.22875v1' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2606.22875v1" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='B9'>
+    
+    <h3><span class='badge badge-b'>B9</span> The Professor: Multi-Teacher Unsupervised Prompt Distillation for Vision-Language Models</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2606.23897v1</span>
+        <span class='tag' style='background:#7c3aed;color:#fff'>VLM</span><span class='tag' style='background:#7c3aed;color:#fff'>Domain Adaptation</span><span class='tag' style='background:#16a34a;color:#fff'>Model Compression</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦视觉-语言模型（VLM）领域。<br>Prompt distillation compresses large vision-language models (VLMs) such as CLIP into lightweight student models by matching teacher predictions on unlabeled domain images.。<br>【核心方法】We propose TheProfessor, a multi-teacher extension that distills from a fixed two-teacher ensemble: a domain-finetuned PromptSRC ViT-L/14 teacher and a zero-shot EVA-CLIP-L/14 teacher whose logits are pre-computed per dataset.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 The Professor 中的问题，Multi</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>核心思路：</strong>The Professor</li><li><strong>研究领域：</strong>隶属于 cs.CV, cs.AI</li><li><strong>研究要点：</strong>PromptKD (CVPR 2024) established this paradigm with a single PromptSRC-finetuned ViT-L/14 teacher and a ViT-B/16 student</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2606.23897v1' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2606.23897v1" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='B10'>
+    
+    <h3><span class='badge badge-b'>B10</span> FlowTrain: Flow-Based Decoupled Training for Industrial-Grade Vision-Language Models</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2606.23087v1</span>
+        <span class='tag' style='background:#7c3aed;color:#fff'>VLM</span><span class='tag' style='background:#6366f1;color:#fff'>Distributed</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦视觉-语言模型（VLM）领域。<br>Industrial-grade distributed training of vision-language models (VLMs) remains far less efficient than that of unimodal LLMs.。<br>【核心方法】we present FlowTrain, a flow-based decoupled training framework that reformulates VLM training as a producer-consumer dataflow coordinated through a unified memory pool.。<br>【实验结果】Extensive experiments on real-world workloads show that FlowTrain achieves over 50% MFU and up to 1.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>address space</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>核心思路：</strong>FlowTrain</li><li><strong>研究领域：</strong>隶属于 cs.LG</li><li><strong>研究要点：</strong>Industrial-grade distributed training of vision-language models (VLMs) remains far less efficient than that of unimodal </li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2606.23087v1' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2606.23087v1" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='B11'>
+    
+    <h3><span class='badge badge-b'>B11</span> PRIDE: Privileged Information-enhanced Distillation for Empathetic Dialogue Generation</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2606.23124v1</span>
+        <span class='tag' style='background:#16a34a;color:#fff'>Model Compression</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦模型压缩领域。<br>Large language models have demonstrated significant capabilities in generating diverse and context-aware responses for empathetic dialogue.。<br>【核心方法】we propose a \textbf{pr}ivileged \textbf{i}nformation-enhanced knowledge \textbf{d}istillation method for \textbf{e}mpathetic dialogue generation (PRIDE).。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 PRIDE 中的问题，Privileged Information</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>提出：</strong>propose a \textbf{pr}ivileged \textbf{i}nformation-enhanced knowledge \textbf{d}istillation method</li><li><strong>超越现有方法：</strong>surpasses larger teacher models in terms of accuracy and semantic relevance</li><li><strong>研究要点：</strong>Large language models have demonstrated significant capabilities in generating diverse and context-aware responses for e</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2606.23124v1' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2606.23124v1" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='B12'>
+    
+    <h3><span class='badge badge-b'>B12</span> CADRE: Stable, Parameter Efficient Adaptation of Medical Vision Language Models with Bounded Forgetting and Prior Drift</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2606.23487v1</span>
+        <span class='tag' style='background:#7c3aed;color:#fff'>VLM</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦视觉-语言模型（VLM）领域。<br>Medical vision-language models (VLMs) such as BiomedCLIP generalize broadly, but adapting them to a clinical service is as much a safety problem as an accuracy one.。<br>Two short guarantees, a bound on total consolidation mass and a scale-invariance property, remove the scale-related sources of vanilla EWC's order fragility.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 CADRE 中的问题，Stable, Parameter Efficient Adaptation of Medical Vision Lan</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>核心思路：</strong>CADRE</li><li><strong>研究领域：</strong>隶属于 cs.AI</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2606.23487v1' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2606.23487v1" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='B13'>
+    
+    <h3><span class='badge badge-b'>B13</span> Priority-Aware Learning-Unlearning Correction for Dynamic Decentralized LoRA Fine-Tuning</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2606.22878v1</span>
+        <span class='tag' style='background:#4f46e5;color:#fff'>Federated Learning</span><span class='tag' style='background:#6366f1;color:#fff'>Distributed</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦联邦学习领域。<br>This correction process remains a significant bottleneck, as individual device updates become deeply entangled within the global fine-tuned parameters.。<br>【核心方法】we propose a priority-aware learning-unlearning correction framework based on orthogonal LoRA that can enhance the knowledge evaluation through topology adjustment.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>address this challenge</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>提出：</strong>propose a priority-aware learning-unlearning correction framework</li><li><strong>首次提出：</strong>first design an orthogonal LoRA mechanism that yields post-training contribution coordinates</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2606.22878v1' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2606.22878v1" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+<h2 class="section-header" id="group-C"><span class="badge badge-c">C组</span> 其他AI相关</h2>
+
+<div class='card worth-reading' id='C1'>
+    <div class="worth-badge">⭐ 值得精读</div>
+    <h3><span class='badge badge-c'>C1</span> VideoAgent: All-in-One Framework for Video Understanding and Editing</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2606.23327v1</span>
+        <span class='tag' style='background:#2563eb;color:#fff'>Agent</span><span class='tag' style='background:#db2777;color:#fff'>Video Analysis</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦AI智能体（Agent）领域。<br>They face two critical limitations: i) inability to handle diverse video comprehension and editing operations, and ii) lack of long-video understanding for coherent narrative creation.。<br>【核心方法】We propose VideoAgent, an all-in-one agentic framework addressing these challenges through two key innovations.。<br>【实验结果】VideoAgent achieves 87-95% orchestration success rates while reducing API costs by 60%.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>lack of long-video understanding for coherent narrative creation</div>
+    <div class="read-reason-box"><strong>📖 精读原因：</strong>AI Agent 是当前研究热点，本文可能包含创新性的设计思路；视频理解是计算机视觉的重要方向，本文可能推动该领域的进展</div>
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>核心思路：</strong>VideoAgent</li><li><strong>研究领域：</strong>隶属于 cs.CV, cs.AI</li><li><strong>研究要点：</strong>We propose VideoAgent, an all-in-one agentic framework addressing these challenges through two key innovations.</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2606.23327v1' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2606.23327v1" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card worth-reading' id='C2'>
+    <div class="worth-badge">⭐ 值得精读</div>
+    <h3><span class='badge badge-c'>C2</span> Neuro-Symbolic Drive: Rule-Grounded Faithful Reasoning for Driving VLAs</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2606.23938v1</span>
+        <span class='tag' style='background:#7c3aed;color:#fff'>VLM</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦视觉-语言模型（VLM）领域。<br>Each trace is serialized into structured rule-grounded reasoning and paired with the trajectory to fine-tune Qwen3.。<br>【核心方法】We introduce Neuro-Symbolic Drive, a neuro-symbolic driving framework that supervises a driving VLA with rule-grounded reasoning traces extracted directly from classical rule-based planners.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 Neuro 中的问题，Symbolic Drive</div>
+    <div class="read-reason-box"><strong>📖 精读原因：</strong>本文探索视觉-语言模型（VLM）的前沿进展，对多模态理解有重要参考价值；论文建立了新的基准评测，对后续研究有参考价值</div>
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>核心思路：</strong>Neuro</li><li><strong>研究领域：</strong>隶属于 cs.AI, cs.CL</li><li><strong>研究要点：</strong>We instrument these planners in simulation to capture both the executed trajectory and the internal decision trace at ea</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2606.23938v1' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2606.23938v1" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card worth-reading' id='C3'>
+    <div class="worth-badge">⭐ 值得精读</div>
+    <h3><span class='badge badge-c'>C3</span> RIFT-Bench: Dynamic Red-teaming For Agentic AI Systems</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2606.23927v1</span>
+        <span class='tag' style='background:#2563eb;color:#fff'>Agent</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦AI智能体（Agent）领域。<br>Agentic AI systems powered by large language models (LLMs) are rapidly evolving into autonomous decision-making systems, exposing attack vectors beyond those of traditional LLM vulnerabilities.。<br>【核心方法】we introduce RIFT-Bench, a graph representation-driven methodology for dynamic red-teaming that enables unified evaluations across diverse agentic architectures.。<br>【主要贡献】We demonstrate the effectiveness of the proposed evaluation pipeline across 45 agentic systems spanning a diverse range of implementations, showing that the approach generalizes effectively to...。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>address this gap</div>
+    <div class="read-reason-box"><strong>📖 精读原因：</strong>AI Agent 是当前研究热点，本文可能包含创新性的设计思路；论文提出了新的方法/框架，具有创新性</div>
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>核心思路：</strong>RIFT</li><li><strong>研究领域：</strong>隶属于 cs.AI</li><li><strong>研究要点：</strong>Existing security evaluations are often tied to specific implementations or domains, limiting unified comparison across </li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2606.23927v1' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2606.23927v1" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='C4'>
+    
+    <h3><span class='badge badge-c'>C4</span> Dynamic multi-agent deep reinforcement learning-based pricing and incentivization approach in multimodal transportation networks</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2606.23257v1</span>
+        <span class='tag' style='background:#2563eb;color:#fff'>Agent</span><span class='tag' style='background:#db2777;color:#fff'>Video Analysis</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦AI智能体（Agent）领域。<br>This uneven integration challenges transportation system efficiency, especially in terms of emissions and spatial equity.。<br>【核心方法】This paper proposes a multi-agent deep reinforcement learning framework that captures these interactions through dynamic pricing and incentivization strategies for SMSs and public transport.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 Dynamic multi 中的问题，agent deep reinforcement learning</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>核心思路：</strong>Dynamic multi</li><li><strong>研究领域：</strong>隶属于 cs.LG, cs.AI</li><li><strong>研究要点：</strong>In multimodal transportation systems, shared mobility services (SMSs) are promoted for their potential to enhance flexib</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2606.23257v1' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2606.23257v1" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='C5'>
+    
+    <h3><span class='badge badge-c'>C5</span> Temporal-Spectral Alignment with Frequency Adaptation for Source-Free Time-Series Adaptation</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2606.23120v1</span>
+        <span class='tag' style='background:#7c3aed;color:#fff'>Domain Adaptation</span><span class='tag' style='background:#db2777;color:#fff'>Video Analysis</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦域自适应领域。<br>To adapt time-series data in the target domain, we introduce a trainable frequency adaptation module that modulates the phase and amplitude of target signals in the frequency domain to align them...。<br>【核心方法】we propose a novel approach termed temporal-Spectral Alignment with Frequency Adaptation (SAFA) for source-free time-series domain adaptation.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>existing approaches have explored temporal dynamics in unsupervised source-free adaptation</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>提出：</strong>propose a novel approach</li><li><strong>首次提出：</strong>first model the source domain at multiple scales by jointly capturing temporal dependencies and spectral characteristics</li><li><strong>研究要点：</strong>Specifically, we first model the source domain at multiple scales by jointly capturing temporal dependencies and spectra</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2606.23120v1' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2606.23120v1" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='C6'>
+    
+    <h3><span class='badge badge-c'>C6</span> Decentralized Autonomous Traffic Management through Corridor Networks</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2606.23585v1</span>
+        <span class='tag' style='background:#2563eb;color:#fff'>Agent</span><span class='tag' style='background:#6366f1;color:#fff'>Distributed</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦AI智能体（Agent）领域。<br>In this work, we extend a multi-agent reinforcement learning (MARL) approach to address the challenge of decentralized traffic flow management in air corridor networks.。<br>As autonomous aircraft are introduced at scale and traffic density increases, centralized management becomes insufficient to coordinate the large numbers of crewed and uncrewed aircraft.。<br>Dedicated Advanced Air Mobility (AAM) corridors have therefore been proposed for organizing high-density autonomous traffic flows.。<br>The desire to scalably provide autonomous aircraft flexibility in trajectory planning motivates the development of decentralized approaches to traffic management in AAM corridors.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>challenge of decentralized traffic flow management in air corridor networks</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>无需标注：</strong>without needing centralized coordination or model retraining</li><li><strong>研究领域：</strong>隶属于 cs.MA, cs.AI</li><li><strong>研究要点：</strong>Dedicated Advanced Air Mobility (AAM) corridors have therefore been proposed for organizing high-density autonomous traf</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2606.23585v1' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2606.23585v1" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='C7'>
+    
+    <h3><span class='badge badge-c'>C7</span> Listening makes Vision Clear for VLMs</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2606.23763v1</span>
+        <span class='tag' style='background:#7c3aed;color:#fff'>VLM</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦视觉-语言模型（VLM）领域。<br>Recent work typically assesses vision--language consistency using attention distributions of answer-side tokens.。<br>【核心方法】we adopt prompt-side semantics and propose Prompt-Vision Token Activation Map (PV-TAM).。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>traditional methods that evaluate overlap solely through masks while ignoring activation intensity</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>研究领域：</strong>隶属于 cs.CV, cs.AI</li><li><strong>研究要点：</strong>Recent work typically assesses vision--language consistency using attention distributions of answer-side tokens.</li><li><strong>研究要点：</strong>However, we observe that highest attention regions are not always consistent with the intended semantic token.</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2606.23763v1' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2606.23763v1" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='C8'>
+    
+    <h3><span class='badge badge-c'>C8</span> LOLLA: Deep Reinforcement Learning for Closed-Loop Link Adaptation Towards a GPU-Accelerated AI-RAN</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2606.23110v1</span>
+        <span class='tag' style='background:#64748b;color:#fff'>AI</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦计算机视觉与深度学习领域。<br>Outer-loop link adaptation (OLLA) is widely deployed in 5G NR to track channel variations, yet its reliance on first-order, single-bit feedback degrades performance significantly under high-mobility...。<br>【核心方法】This paper presents LOLLA (Learned Outer-Loop Link Adaptation), a deep reinforcement learning framework that replaces the conventional OLLA staircase with a learned, continuous SINR offset conditioned on rich PHY/MAC telemetry inaccessible to OLLA.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 LOLLA 中的问题，Deep Reinforcement Learning for Closed</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>首次提出：</strong>first closed-loop AI-native control dApp on a GPU-accelerated 5G NR stack</li><li><strong>核心思路：</strong>LOLLA</li><li><strong>研究领域：</strong>隶属于 eess.SP, cs.LG</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2606.23110v1' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2606.23110v1" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='C9'>
+    
+    <h3><span class='badge badge-c'>C9</span> Exposing the Illusion of Erasure in Knowledge Editing for LLMs</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2606.23276v2</span>
+        <span class='tag' style='background:#64748b;color:#fff'>AI</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦计算机视觉与深度学习领域。<br>Knowledge Editing (KE) has emerged as a frontier for updating specific facts in LLMs without costly retraining, but its reliability and underlying mechanisms remain poorly understood.。<br>【主要贡献】We show that low-rank updates do not overwrite existing knowledge but instead redistribute it within the model's representation space.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>解决 AI 领域的关键挑战</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>无需标注：</strong>without costly retraining</li><li><strong>研究领域：</strong>隶属于 cs.LG, cs.AI</li><li><strong>研究要点：</strong>To explain this behavior, we conduct a mechanistic analysis of popular KE methods.</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2606.23276v2' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2606.23276v2" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='C10'>
+    
+    <h3><span class='badge badge-c'>C10</span> Black-Box Continual Learning for Vision-Language Models</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2606.22999v1</span>
+        <span class='tag' style='background:#7c3aed;color:#fff'>VLM</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦视觉-语言模型（VLM）领域。<br>In this paper, we introduce Black-CL, a more realistic benchmark for VLMs that enforces three primary real-world challenges: weight and architecture inaccessibility, constrained computation, and...。<br>【核心方法】we introduce Black-CL, a more realistic benchmark for VLMs that enforces three primary real-world challenges: weight and architecture inaccessibility, constrained computation, and task-agnostic inference.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 Black 中的问题，Box Continual Learning for Vision</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>超越现有方法：</strong>outperforms existing black-box tuners</li><li><strong>核心思路：</strong>Black</li><li><strong>研究领域：</strong>隶属于 cs.CV</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2606.22999v1' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2606.22999v1" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='C11'>
+    
+    <h3><span class='badge badge-c'>C11</span> VideoLatent: Video-Language Learning via Latent Self-Forcing</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2606.22870v1</span>
+        <span class='tag' style='background:#db2777;color:#fff'>Video Analysis</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦视频分析领域。<br>Recent advancements in chain-of-thought (CoT) reasoning have shown promise in enhancing video understanding and reasoning capabilities of multimodal large language models (MLLMs).。<br>【核心方法】we introduce VideoLatent, a novel MLLM equipped with a latent injection module tailored for video understanding and reasoning.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>existing methods primarily focus on image tasks and heavily rely on additional supervision signals for visual latent generation (e</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>超越现有方法：</strong>outperforms existing standard and latent MLLMs on general video understanding and complex video reasoning</li><li><strong>核心思路：</strong>VideoLatent</li><li><strong>研究领域：</strong>隶属于 cs.CV, cs.AI</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2606.22870v1' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2606.22870v1" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='C12'>
+    
+    <h3><span class='badge badge-c'>C12</span> CLIP-guided Diffusion Model for Backdoor Generation in Sensor-based Human Activity Recognition</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2606.22837v1</span>
+        <span class='tag' style='background:#64748b;color:#fff'>AI</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦计算机视觉与深度学习领域。<br>However, the accuracy of such a model is hindered by the lack of data.。<br>【核心方法】we propose a backdoor training technique, IMU-DM-CLIP, that leverages a diffusion model to enable trigger-based attacks on HAR models.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>lack of data</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>提出：</strong>propose a backdoor training technique</li><li><strong>核心思路：</strong>CLIP</li><li><strong>研究领域：</strong>隶属于 cs.LG, cs.AI</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2606.22837v1' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2606.22837v1" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='C13'>
+    
+    <h3><span class='badge badge-c'>C13</span> Safe and Generalizable Hierarchical Multi-Agent RL via Constraint Manifold Control</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2606.24010v1</span>
+        <span class='tag' style='background:#2563eb;color:#fff'>Agent</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦AI智能体（Agent）领域。<br>Existing approaches face a fundamental trade-off: learning-based methods achieve strong empirical performance but lack theoretical safety guarantees, while control-theoretic methods enforce safety...。<br>【核心方法】We propose a hierarchical multi-agent reinforcement learning framework that enforces hard safety constraints under mild assumptions at low level via a constraint manifold, while enabling effective coordination through high-level policy learning.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>Existing approaches face a fundamental trade-off: learning-based methods achieve strong empirical performance but lack theoretical safety guarantees</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>提出：</strong>propose a hierarchical multi-agent reinforcement learning framework</li><li><strong>核心思路：</strong>Safe and Generalizable Hierarchical Multi</li><li><strong>研究领域：</strong>隶属于 cs.AI</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2606.24010v1' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2606.24010v1" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='C14'>
+    
+    <h3><span class='badge badge-c'>C14</span> HANCLIP: A Family of Hyperbolic Angular Negation Vision Language Models</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2606.23843v1</span>
+        <span class='tag' style='background:#7c3aed;color:#fff'>VLM</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦视觉-语言模型（VLM）领域。<br>However, they remain surprisingly brittle to negation: models often rely on shallow word co-occurrence and are easily distracted by misleading or irrelevant textual cues, even when their overall...。<br>【核心方法】this work introduces HANCLIP (Hyperbolic + Angular + Negation), a family of VLMs that explicitly restructures the embedding space to encode "what an image is not" alongside "what it is.。<br>【主要贡献】However, they remain surprisingly brittle to negation: models often rely on shallow word co-occurrence and are easily distracted by misleading or irrelevant textual cues, even when their overall...。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>tackle these issues</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>无需标注：</strong>without large-scale retraining</li><li><strong>核心思路：</strong>HANCLIP</li><li><strong>研究领域：</strong>隶属于 cs.CV, cs.IR</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2606.23843v1' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2606.23843v1" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='C15'>
+    
+    <h3><span class='badge badge-c'>C15</span> From Task-Guided Conversational Graphs to Goal-Oriented Dialogue Runtimes</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2606.23797v1</span>
+        <span class='tag' style='background:#2563eb;color:#fff'>Agent</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦AI智能体（Agent）领域。<br>The paper formalizes the problem, proposes runtime objects and architecture-selection criteria, and frames evaluation as an agenda for future empirical validation rather than as a measured...。<br>This conceptual systems paper focuses on the high-complexity end of that design space, where goals can be suspended, resumed, revised, and invalidated by actions in other goals.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>solve conversational continuity when users maintain several interdependent objectives</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>核心思路：</strong>From Task</li><li><strong>研究领域：</strong>隶属于 cs.SE, cs.AI</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2606.23797v1' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2606.23797v1" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='C16'>
+    
+    <h3><span class='badge badge-c'>C16</span> Emergent Relational Order in LLM Agent Societies: From Collective Affect to Authority Stratification</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2606.23764v1</span>
+        <span class='tag' style='background:#2563eb;color:#fff'>Agent</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦AI智能体（Agent）领域。<br>Although often treated as culturally specific, its mechanistic basis remains under-operationalized, and prior LLM-based simulations have mainly addressed short-term coordination rather than...。<br>【核心方法】We propose CAREB-MAS, a multi-agent framework grounded in Affect Control Theory, Social Identity Theory, and Durkheimian collective affect.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 Emergent Relational Order in LLM Agent Societies 中的问题，From Collective Affect to Authority Stratification</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>核心思路：</strong>Emergent Relational Order in LLM Agent Societies</li><li><strong>研究领域：</strong>隶属于 cs.MA, cs.AI</li><li><strong>研究要点：</strong>We propose CAREB-MAS, a multi-agent framework grounded in Affect Control Theory, Social Identity Theory, and Durkheimian</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2606.23764v1' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2606.23764v1" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='C17'>
+    
+    <h3><span class='badge badge-c'>C17</span> Domain Adaptation Under Wireless Network Constraints: When Does It Become Green?</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2606.23047v1</span>
+        <span class='tag' style='background:#7c3aed;color:#fff'>Domain Adaptation</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦域自适应领域。<br>The deployment of data-driven models in 6G wireless networks is increasingly challenged by frequent distribution shifts that degrade performance over time.。<br>【核心方法】we investigate the energy consumption of UDA and compare it to single task.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 Domain Adaptation Under Wireless Network Constraints 中的问题，When Does It Become Green?</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>无需标注：</strong>without requiring label</li><li><strong>核心思路：</strong>Domain Adaptation Under Wireless Network Constraints</li><li><strong>研究领域：</strong>隶属于 stat.ML, cs.AI</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2606.23047v1' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2606.23047v1" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='C18'>
+    
+    <h3><span class='badge badge-c'>C18</span> Distilling Collaborative Dynamics into Latent Space for Implicit Coordination in Decentralized Multi-Agent Manipulation</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2606.22982v2</span>
+        <span class='tag' style='background:#2563eb;color:#fff'>Agent</span><span class='tag' style='background:#059669;color:#fff'>Embodied AI</span><span class='tag' style='background:#db2777;color:#fff'>Video Analysis</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦AI智能体（Agent）领域。<br>Multi-arm manipulation demands precise spatiotemporal coordination, yet many centralized approaches scale poorly as team size increases.。<br>【核心方法】we propose CLS-DP, a decentralized multi-agent framework that enables implicit coordination under partial observability without shared global views, explicit state information, or inter-agent communication.。<br>【实验结果】Across six RoboFactory benchmark tasks spanning two to four agents, CLS-DP achieves a 38% mean success rate, outperforming the best centralized baseline (20%) and a decentralized ablation without...。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>address this</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>超越现有方法：</strong>outperforming the best centralized baseline (20%) and a decentralized ablation without the collaborative latent (9%)</li><li><strong>核心思路：</strong>Distilling Collaborative Dynamics into Latent Space for Implicit Coordination in Decentralized Multi</li><li><strong>研究领域：</strong>隶属于 cs.RO</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2606.22982v2' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2606.22982v2" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+        <div class='nav-back'><a href='./index.html'>← 返回首页</a></div>
+        <div class='footer'>
+            <p>由 WorkBuddy 论文日报管道自动生成</p>
+            <p>投递时间：2026-07-04 09:44 · <a href='https://github.com/miclover0/paper-daily'>miclover0/paper-daily</a></p>
+        </div>
+    </main>
+</div>
+</body></html>

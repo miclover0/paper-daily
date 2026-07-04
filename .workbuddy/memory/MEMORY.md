@@ -12,6 +12,14 @@
 - `config.json`：纯 JSON 备份，与 config.js 内容相同
 - `daily_reports/YYYY-MM-DD-arXiv.html`：每日日报 HTML
 - `scripts/daily_fetch.py`：主脚本，生成日报 + 更新 config
+- `scripts/catchup_fetch.py`：补录脚本，用于批量补齐历史日期的日报
+
+## 补录脚本 (catchup_fetch.py)
+- 用途：当自动化任务中断多天后，批量补齐历史日期的论文日报
+- 用法：`python scripts/catchup_fetch.py --start=YYYY-MM-DD --end=YYYY-MM-DD`
+- **关键经验**：ArXiv API 的 `submittedDate:[FROM TO]` 日期范围查询不可靠（返回0匹配）
+- **正确策略**：批量获取所有论文按 submittedDate 降序 → 本地按 published 日期分组 → 逐日处理
+- 2026-07-04 首次使用：补录 6/16-7/4 共19天，830篇论文，7843篇原始获取
 
 ## 自动化
 - 自动化任务 ID：automation-1780663365428

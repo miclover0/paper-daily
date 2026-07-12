@@ -4,12 +4,27 @@ const PAPER_ARCHIVE_CONFIG = {
     "subtitle": "Daily Research Paper Digest",
     "description": "An automated collection of cutting-edge research papers in Computer Vision, UAV, FTTA, and Domain Adaptation.",
     "totalPapers": 1445,
-    "totalDays": 38,
-    "lastUpdated": "2026-07-11",
+    "totalDays": 39,
+    "lastUpdated": "2026-07-12",
     "author": "@miclover0",
     "repository": "https://github.com/miclover0/paper-daily"
   },
   "dailyReports": [
+    {
+      "id": "2026-07-12",
+      "date": "2026-07-12",
+      "dateDisplay": "July 12, 2026",
+      "weekday": "Sunday",
+      "filename": "daily_reports/2026-07-12-arXiv.html",
+      "paperCount": 0,
+      "groups": {
+        "A": 0,
+        "B": 0,
+        "C": 0
+      },
+      "featuredPapers": [],
+      "papers": []
+    },
     {
       "id": "2026-07-11",
       "date": "2026-07-11",

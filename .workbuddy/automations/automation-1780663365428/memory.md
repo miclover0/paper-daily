@@ -1,5 +1,15 @@
 # ArXiv 论文日报自动追踪 — 执行历史
 
+## 2026-07-25 — 自动化任务每日运行
+- **状态**: ✅ 成功
+- **日期**: 2026-07-25 (周六)
+- **论文总数**: 0 篇（周六 ArXiv 不更新，RSS 4个feed均0篇，API回退3次亦0篇）
+- **HTML**: daily_reports/2026-07-25-arXiv.html（空日报）
+- **config.js**: 已更新，累计 1945 篇 / 52 天
+- **Git**: commit 9359b9f，SSH push 成功 (3debebc..9359b9f)
+- **GitHub Pages**: https://miclover0.github.io/paper-daily/
+- **注意**: 执行前 git stash 解除自动化 memory.md 未暂存改动，pull --rebase 已是最新，stash pop 恢复
+
 ## 2026-07-24 — 自动化任务每日运行
 - **状态**: ✅ 成功
 - **日期**: 2026-07-24 (周五)

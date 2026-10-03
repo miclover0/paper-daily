@@ -4,8 +4,8 @@ Daily ArXiv Paper Tracker - 每日论文自动追踪脚本
 ====================================================
 功能:
   1. 从 ArXiv API 获取当天新发表的相关论文
-  2. 按主题筛选：VLM、开放世界、TTA、CoTTA、跨域自适应、Agent、视频分析、目标检测、端云协同
-  3. 分为三组：A(检测强相关) / B(端云协同) / C(其他)
+  2. 按主题筛选：Agent、RSI（递归自改进）、Agentic RL，以及 OpenAI/Anthropic/Google/Meta/智谱/DeepSeek/千问/Kimi/混元/小米/字节/百度 等机构的最新 LLM 工作
+  3. 分为三组：A(重点跟进：产业界机构 或 主题∩端云协同) / B(Agent/RSI/Agentic RL 主题) / C(其他AI相关)
   4. 生成日报 HTML 页面（含中文摘要、主要问题、贡献、是否值得精读）
   5. 更新 config.js 数据文件
 
@@ -45,91 +45,89 @@ REQUEST_DELAY = 2  # 请求间延迟（秒）
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 REPO_ROOT = os.path.dirname(SCRIPT_DIR)
 
-# 论文搜索关键词（英文）
-SEARCH_KEYWORDS = [
-    "vision language model",
-    "VLM",
-    "open world detection",
-    "open vocabulary detection",
-    "open set recognition",
-    "zero-shot detection",
-    "test time adaptation",
-    "continual test time adaptation",
-    "CoTTA",
-    "TTA",
-    "domain adaptation",
-    "cross domain adaptation",
-    "cross domain generalization",
-    "AI agent",
-    "embodied agent",
-    "multi-agent",
-    "video understanding",
-    "video analysis",
-    "video object detection",
-    "object detection",
-    "edge computing",
-    "edge device",
-    "cloud edge collaboration",
-    "cloud edge inference",
-    "federated learning",
-    "distributed inference",
-    "model compression",
-    "knowledge distillation",
-    "model partitioning",
-    "edge intelligence",
+# ============================================================
+# 主题配置（仅跟踪三大方向 + 产业界重点机构）
+# ============================================================
+
+# ① 核心跟踪主题（仅此三类）
+THEME_KEYWORDS = [
+    # Agent 家族
+    "agent", "ai agent", "llm agent", "multi-agent", "multi agent",
+    "agentic", "autonomous agent", "agent framework", "agent system",
+    # RSI = Recursive Self-Improvement（智能体 / LLM 自我迭代改进）
+    "recursive self-improvement", "self-improving", "self-improvement",
+    "self-refinement", "self-rewriting", "self-modification",
+    "self-evolving", "iterative self-improvement",
+    # Agentic RL 家族
+    "agentic reinforcement learning", "agentic rl", "rl agent",
+    "reinforcement learning agent", "reinforcement learning from",
+    "llm reinforcement learning", "rlhf agent", "rlvr",
 ]
 
-# 分组关键词（用于分类判断）
-GROUP_A_KEYWORDS = [
-    "object detection", "detector", "detection", "bounding box",
-    "region proposal", "object localization", "object recognition",
-    "target detection", "open vocabulary detect", "zero-shot detect",
-    "YOLO", "DETR", "R-CNN", "SSD", "RetinaNet", "FCOS",
-    "instance segmentation", "panoptic segmentation",
-    "grounding", "referring expression", "visual grounding",
-    "open world", "open set", "open vocabulary",
+# ② 产业界重点机构 / 知名 LLM（命中即优先归入 A 组）
+COMPANY_KEYWORDS = [
+    # 海外
+    "openai", "gpt-4", "gpt-5", "gpt4", "gpt5", "o1", "o3", "o4",
+    "chatgpt", "sora", "dall-e",
+    "anthropic", "claude",
+    "google", "gemini", "palm", "gemma", "bard",
+    "meta ai", "meta-llama", "llama", "llama 2", "llama 3",
+    # 国内
+    "zhipu", "glm", "chatglm", "cogvlm", "cogagent",
+    "deepseek",
+    "qwen", "tongyi", "通义",
+    "kimi", "moonshot", "月之暗面",
+    "hunyuan", "混元", "tencent",
+    "xiaomi", "milm",
+    "doubao", "豆包", "bytedance",
+    "ernie", "文心", "baidu",
 ]
 
-GROUP_B_KEYWORDS = [
+# ③ 端云协同 / 边缘计算（与主题结合时优先归入 A 组）
+EDGE_KEYWORDS = [
     "edge computing", "edge device", "edge intelligence",
     "cloud edge", "cloud-edge", "edge cloud",
-    "federated learning", "distributed training", "distributed inference",
+    "federated learning", "distributed inference", "distributed training",
     "model compression", "model pruning", "model quantization",
     "knowledge distillation", "model partitioning", "split computing",
-    "tiny model", "efficient inference", "on-device",
-    "mobile deployment", "resource constrained", "latency",
-    "FLOPs", "parameter efficient", "lightweight",
-    "collaborative inference", "co-inference",
+    "on-device", "mobile deployment", "resource constrained",
+    "collaborative inference", "co-inference", "edge inference",
 ]
+
+# 搜索关键词 = 主题 + 产业界机构（用于 RSS 过滤 / API 查询）
+SEARCH_KEYWORDS = THEME_KEYWORDS + COMPANY_KEYWORDS
 
 # 分组展示标签
 GROUP_LABELS = {
-    "A": "目标检测强相关",
-    "B": "端云协同/边缘计算",
-    "C": "其他AI相关",
+    "A": "重点跟进（产业界 / 端云结合）",
+    "B": "Agent / RSI / Agentic RL 主题",
+    "C": "其他 AI 相关（兜底）",
 }
 
 # 标签颜色映射
 TAG_COLORS = {
-    "VLM": {"bg": "#7c3aed", "text": "#fff"},
-    "CoTTA": {"bg": "#ea580c", "text": "#fff"},
-    "TTA": {"bg": "#dc2626", "text": "#fff"},
-    "FTTA": {"bg": "#dc2626", "text": "#fff"},
-    "Open World": {"bg": "#0891b2", "text": "#fff"},
-    "Open Vocabulary": {"bg": "#0d9488", "text": "#fff"},
-    "Domain Adaptation": {"bg": "#7c3aed", "text": "#fff"},
-    "Cross Domain": {"bg": "#a855f7", "text": "#fff"},
-    "Agents": {"bg": "#2563eb", "text": "#fff"},
+    # 主题
     "Agent": {"bg": "#2563eb", "text": "#fff"},
+    "Multi-Agent": {"bg": "#1d4ed8", "text": "#fff"},
+    "Agentic RL": {"bg": "#7c3aed", "text": "#fff"},
+    "RSI": {"bg": "#db2777", "text": "#fff"},
     "Embodied AI": {"bg": "#059669", "text": "#fff"},
-    "Video Analysis": {"bg": "#db2777", "text": "#fff"},
-    "Object Detection": {"bg": "#1d4ed8", "text": "#fff"},
-    "Edge Computing": {"bg": "#0891b2", "text": "#fff"},
-    "Federated Learning": {"bg": "#4f46e5", "text": "#fff"},
     "World Model": {"bg": "#d97706", "text": "#fff"},
-    "Distributed": {"bg": "#6366f1", "text": "#fff"},
-    "Model Compression": {"bg": "#16a34a", "text": "#fff"},
     "LLM": {"bg": "#9333ea", "text": "#fff"},
+    "Edge Computing": {"bg": "#0891b2", "text": "#fff"},
+    # 产业界机构
+    "OpenAI": {"bg": "#10a37f", "text": "#fff"},
+    "Anthropic": {"bg": "#d97706", "text": "#fff"},
+    "Google": {"bg": "#ea4335", "text": "#fff"},
+    "Meta": {"bg": "#0866ff", "text": "#fff"},
+    "Zhipu": {"bg": "#16a34a", "text": "#fff"},
+    "DeepSeek": {"bg": "#0ea5e9", "text": "#fff"},
+    "Qwen": {"bg": "#f59e0b", "text": "#fff"},
+    "Kimi": {"bg": "#ec4899", "text": "#fff"},
+    "Hunyuan": {"bg": "#7c3aed", "text": "#fff"},
+    "Xiaomi": {"bg": "#ff6700", "text": "#fff"},
+    "ByteDance": {"bg": "#fe2c55", "text": "#fff"},
+    "Baidu": {"bg": "#2932e1", "text": "#fff"},
     "AI": {"bg": "#64748b", "text": "#fff"},
 }
 
@@ -467,34 +465,29 @@ def fetch_papers_from_api(target_date):
 def classify_paper(paper):
     """
     将论文分为 A/B/C 组
-    - A: 目标检测强相关
-    - B: 端云协同/边缘计算
-    - C: 其他
+    - A: 重点跟进 —— 产业界机构（公司/知名 LLM）发表，或 主题与端云协同/边缘计算结合
+    - B: Agent / RSI / Agentic RL 主题论文
+    - C: 其他 AI 相关（兜底）
     """
     title_lower = paper["title"].lower()
     summary_lower = paper["summary"].lower()
     combined = title_lower + " " + summary_lower
 
-    # 先检查 B 组（端云协同）- 优先检查避免被对象检测覆盖
-    b_score = sum(1 for kw in GROUP_B_KEYWORDS if kw.lower() in combined)
-    if b_score >= 2:
-        return "B"
-
-    # 检查 A 组（目标检测）
-    a_score = sum(1 for kw in GROUP_A_KEYWORDS if kw.lower() in combined)
-    if a_score >= 2 or "detection" in title_lower:
+    # A 组优先级 1：产业界机构 / 知名 LLM 发表
+    if any(kw in combined for kw in COMPANY_KEYWORDS):
         return "A"
 
-    # 检查标题中的检测相关
-    detect_keywords = ["detect", "yolo", "detr", "rcnn", "faster r-cnn", "ssd", "retinanet",
-                       "grounding dino", "grounding", "sam", "segment anything"]
-    if any(kw in combined for kw in detect_keywords):
+    # A 组优先级 2：主题与端云协同 / 边缘计算结合
+    theme_hit = any(kw in combined for kw in THEME_KEYWORDS)
+    edge_hit = any(kw in combined for kw in EDGE_KEYWORDS)
+    if theme_hit and edge_hit:
         return "A"
 
-    # B 组的单个关键词匹配（更宽松）
-    if b_score >= 1:
+    # B 组：纯主题论文
+    if theme_hit:
         return "B"
 
+    # 其余归 C（兜底）
     return "C"
 
 
@@ -506,22 +499,28 @@ def extract_tags(paper):
 
     tags = []
     tag_rules = [
-        ("VLM", ["vision language model", "vlm", "visual language model", "vision-language"]),
-        ("TTA", ["test time adaptation", "test-time adaptation"]),
-        ("CoTTA", ["continual test time", "continual test-time", "cotta"]),
-        ("Open World", ["open world", "open-world"]),
-        ("Open Vocabulary", ["open vocabulary", "open-vocabulary"]),
-        ("Domain Adaptation", ["domain adaptation", "domain generalization", "domain shift"]),
-        ("Cross Domain", ["cross domain", "cross-domain", "cross modal"]),
+        # 产业界机构优先标注（命中即打机构标签）
+        ("OpenAI", ["openai", "gpt-4", "gpt-5", "gpt4", "gpt5", "o1", "o3", "o4", "chatgpt", "sora"]),
+        ("Anthropic", ["anthropic", "claude"]),
+        ("Google", ["google", "gemini", "palm", "gemma", "bard"]),
+        ("Meta", ["meta ai", "meta-llama", "llama", "llama 2", "llama 3"]),
+        ("Zhipu", ["zhipu", "chatglm", "cogvlm", "cogagent"]),
+        ("DeepSeek", ["deepseek"]),
+        ("Qwen", ["qwen", "tongyi", "通义"]),
+        ("Kimi", ["kimi", "moonshot", "月之暗面"]),
+        ("Hunyuan", ["hunyuan", "混元", "tencent"]),
+        ("Xiaomi", ["xiaomi", "milm"]),
+        ("ByteDance", ["doubao", "豆包", "bytedance"]),
+        ("Baidu", ["ernie", "文心", "baidu"]),
+        # 主题标签
+        ("Agentic RL", ["agentic reinforcement", "agentic rl", "rl agent", "reinforcement learning agent", "rlhf", "rlvr"]),
+        ("RSI", ["recursive self-improvement", "self-improving", "self-improvement", "self-refinement", "self-evolving", "iterative self-improvement"]),
         ("Agent", ["agent", "multi-agent", "agentic"]),
+        ("Multi-Agent", ["multi-agent", "multi agent"]),
         ("Embodied AI", ["embodied", "robot", "manipulation", "navigation"]),
-        ("Video Analysis", ["video", "temporal", "action recognition"]),
-        ("Object Detection", ["object detection", "detector", "detection"]),
-        ("Edge Computing", ["edge computing", "edge device", "edge intelligence"]),
-        ("Federated Learning", ["federated learning", "federated"]),
         ("World Model", ["world model", "world-model"]),
-        ("Model Compression", ["model compression", "pruning", "quantization", "distillation"]),
-        ("Distributed", ["distributed", "decentralized"]),
+        ("Edge Computing", ["edge computing", "edge device", "edge intelligence", "cloud edge", "federated", "on-device"]),
+        ("LLM", ["large language model", "llm"]),
     ]
 
     for tag_name, keywords in tag_rules:
@@ -572,19 +571,27 @@ def compute_relevance_score(title, summary, categories):
 
     # 2. 核心关键词匹配（累计，最高40分）
     core_keywords = [
-        ("vision language model", 15), ("vlm", 15), ("visual language", 12),
-        ("object detection", 15), ("detector", 10), ("detection", 8),
-        ("test time adaptation", 15), ("tta", 15), ("test-time adaptation", 15),
-        ("continual test time", 15), ("cotta", 15),
-        ("domain adaptation", 12), ("domain generalization", 12), ("cross domain", 10),
-        ("open world", 12), ("open vocabulary", 12), ("open set", 10), ("zero-shot", 10),
-        ("ai agent", 12), ("multi-agent", 12), ("agentic", 10), ("embodied", 10),
-        ("video understanding", 10), ("video analysis", 10), ("temporal", 8),
-        ("edge computing", 12), ("edge intelligence", 12), ("edge device", 10),
-        ("federated learning", 10), ("distributed inference", 10),
-        ("model compression", 10), ("knowledge distillation", 10), ("pruning", 8), ("quantization", 8),
-        ("diffusion model", 10), ("diffusion", 8),
-        ("transformer", 8), ("attention", 6),
+        # Agent 家族
+        ("agent", 14), ("ai agent", 14), ("multi-agent", 14), ("agentic", 12),
+        ("autonomous agent", 12), ("agent framework", 10),
+        # RSI = Recursive Self-Improvement
+        ("recursive self-improvement", 16), ("self-improving", 14), ("self-improvement", 14),
+        ("self-refinement", 12), ("self-evolving", 12), ("iterative self-improvement", 14),
+        # Agentic RL 家族
+        ("agentic reinforcement learning", 16), ("agentic rl", 16), ("rl agent", 14),
+        ("reinforcement learning agent", 14), ("rlhf", 10), ("rlvr", 12),
+        # 产业界机构（命中即强相关）
+        ("openai", 12), ("gpt-4", 12), ("gpt-5", 12), ("o1", 10), ("o3", 10), ("o4", 10),
+        ("anthropic", 12), ("claude", 12), ("google", 10), ("gemini", 12),
+        ("meta ai", 12), ("llama", 12), ("zhipu", 12), ("glm", 12),
+        ("deepseek", 12), ("qwen", 12), ("kimi", 12), ("hunyuan", 12),
+        ("tencent", 8), ("xiaomi", 10), ("doubao", 10), ("ernie", 10),
+        # 端云结合（加分）
+        ("edge computing", 10), ("edge intelligence", 10), ("edge device", 8),
+        ("federated learning", 10), ("distributed inference", 8),
+        ("model compression", 8), ("knowledge distillation", 8),
+        ("on-device", 8), ("cloud edge", 8),
+        # 通用
         ("benchmark", 5), ("survey", -20), ("review", -10),
     ]
     for kw, pts in core_keywords:
@@ -668,22 +675,14 @@ def generate_read_reason(paper):
 
     # 根据标签生成原因
     tag_reason_map = [
-        ("VLM", "本文探索视觉-语言模型（VLM）的前沿进展，对多模态理解有重要参考价值"),
-        ("CoTTA", "持续测试时自适应（CoTTA）在实际部署中至关重要，本文提出了有价值的改进思路"),
-        ("TTA", "测试时自适应（TTA）是提升模型泛化能力的关键技术，本文值得深入研究"),
-        ("Open World", "开放世界识别是计算机视觉的核心挑战，本文可能带来新的解决思路"),
-        ("Open Vocabulary", "开放词汇检测是连接视觉与语言的重要方向，本文具有一定的创新价值"),
-        ("Domain Adaptation", "域自适应技术对于跨场景泛化至关重要，本文值得深入理解"),
-        ("Cross Domain", "跨域泛化是实际部署中的核心挑战，本文提供了有价值的技术方案"),
         ("Agent", "AI Agent 是当前研究热点，本文可能包含创新性的设计思路"),
+        ("Multi-Agent", "多智能体协作是复杂任务求解的重要范式，本文值得关注"),
+        ("Agentic RL", "Agentic 强化学习将决策与语言模型结合，是智能体研究的前沿方向"),
+        ("RSI", "递归自改进（RSI）是智能体自我进化的关键方向，本文具有一定的探索价值"),
         ("Embodied AI", "具身智能是通向通用 AI 的重要路径，本文值得关注"),
-        ("Video Analysis", "视频理解是计算机视觉的重要方向，本文可能推动该领域的进展"),
-        ("Object Detection", "目标检测是基础且重要的研究方向，本文可能带来性能或效率的显著提升"),
+        ("World Model", "世界模型是提升模型泛化与规划能力的前沿方向，本文具有一定的探索价值"),
         ("Edge Computing", "边缘计算与端云协同是实际系统的核心挑战，本文提供了实用的解决方案"),
-        ("Federated Learning", "联邦学习对于隐私保护场景至关重要，本文值得深入研究"),
-        ("Model Compression", "模型压缩对于边缘部署至关重要，本文可能带来新的压缩技术"),
-        ("World Model", "世界模型是提升模型泛化能力的前沿方向，本文具有一定的探索价值"),
-        ("Distributed", "分布式训练/推理是大规模系统的核心技术，本文提供了有价值的优化思路"),
+        ("LLM", "大语言模型是当代 AI 的核心基座，本文对相关方向有参考价值"),
     ]
     for tag, reason in tag_reason_map:
         if tag in tags:
@@ -691,12 +690,22 @@ def generate_read_reason(paper):
             if len(reasons) >= 2:
                 break
 
+    # 产业界机构标签的补充原因
+    company_tags = {"OpenAI", "Anthropic", "Google", "Meta", "Zhipu", "DeepSeek",
+                    "Qwen", "Kimi", "Hunyuan", "Xiaomi", "ByteDance", "Baidu"}
+    if not reasons or len(reasons) < 2:
+        for tag in tags:
+            if tag in company_tags:
+                reasons.append(f"来自 {tag} 团队的最新研究工作，值得重点关注其技术路线")
+                if len(reasons) >= 2:
+                    break
+
     # 根据分组补充原因
     if not reasons:
         if group == "A":
-            reasons.append("本文与目标检测高度相关，可能包含可借鉴的技术思路")
+            reasons.append("本文属于重点跟进方向（产业界或端云结合），可能包含可借鉴的技术思路")
         elif group == "B":
-            reasons.append("本文涉及端云协同/边缘计算，对系统优化有实际价值")
+            reasons.append("本文属于 Agent / RSI / Agentic RL 主题，是当前智能体研究前沿")
         else:
             reasons.append("本文与当前 AI 研究前沿相关，值得关注其技术思路")
 
@@ -783,12 +792,15 @@ def score_paper(paper, group):
     score += min(method_count * 0.5, 3.0)
 
     # 组匹配度加分
+    combined_text = (title.lower() + " " + summary.lower())
     if group == "A":
-        a_score = sum(1 for kw in GROUP_A_KEYWORDS if kw.lower() in (title.lower() + " " + summary.lower()))
-        score += min(a_score * 0.3, 2.0)
+        # A 组：产业界机构命中数 + 端云结合命中数
+        a_cnt = sum(1 for kw in COMPANY_KEYWORDS if kw in combined_text) + \
+                sum(1 for kw in EDGE_KEYWORDS if kw in combined_text)
+        score += min(a_cnt * 0.3, 2.0)
     elif group == "B":
-        b_score = sum(1 for kw in GROUP_B_KEYWORDS if kw.lower() in (title.lower() + " " + summary.lower()))
-        score += min(b_score * 0.3, 2.0)
+        b_cnt = sum(1 for kw in THEME_KEYWORDS if kw in combined_text)
+        score += min(b_cnt * 0.3, 2.0)
 
     # 是否有具体数值结果
     if re.search(r'\d+\.?\d*\s*%', summary):
@@ -830,21 +842,28 @@ def generate_chinese_summary(paper, group):
     tags = paper.get("tags", [])
 
     # ---- 1. 领域描述 ----
-    domain_desc = "计算机视觉与深度学习"
+    domain_desc = "AI 智能体与大模型"
     domain_map = [
-        ("VLM", "视觉-语言模型（VLM）"),
-        ("Object Detection", "目标检测"),
-        ("Domain Adaptation", "域自适应"),
         ("Agent", "AI智能体（Agent）"),
+        ("Multi-Agent", "多智能体协作"),
+        ("Agentic RL", "Agentic 强化学习"),
+        ("RSI", "递归自改进（RSI）"),
         ("Embodied AI", "具身智能与机器人"),
-        ("Edge Computing", "边缘计算与端云协同"),
-        ("Video Analysis", "视频分析"),
         ("World Model", "世界模型"),
-        ("TTA", "测试时自适应"),
-        ("CoTTA", "持续测试时自适应"),
-        ("Federated Learning", "联邦学习"),
-        ("Model Compression", "模型压缩"),
-        ("Distributed", "分布式学习"),
+        ("Edge Computing", "边缘计算与端云协同"),
+        ("LLM", "大语言模型"),
+        ("OpenAI", "OpenAI"),
+        ("Anthropic", "Anthropic"),
+        ("Google", "Google"),
+        ("Meta", "Meta"),
+        ("Zhipu", "智谱"),
+        ("DeepSeek", "DeepSeek"),
+        ("Qwen", "通义千问"),
+        ("Kimi", "Kimi"),
+        ("Hunyuan", "腾讯混元"),
+        ("Xiaomi", "小米"),
+        ("ByteDance", "字节跳动"),
+        ("Baidu", "百度"),
     ]
     for tag, desc in domain_map:
         if tag in tags:
@@ -1217,7 +1236,7 @@ def generate_daily_html(papers, target_date, groups):
             <h1>📚 论文日报</h1>
             <p class='meta'>{date_str} · A组({group_counts.get("A",0)})+B组({group_counts.get("B",0)})+C组({group_counts.get("C",0)}) 共 {total} 篇</p>
             <p class='meta' style='font-size:13px;color:#64748b'>
-                A组：目标检测强相关 · B组：端云协同/边缘计算 · C组：其他AI相关
+                A组：重点跟进（产业界/端云结合） · B组：Agent/RSI/Agentic RL 主题 · C组：其他AI相关（兜底）
             </p>
             <p class='meta' style='font-size:13px;color:#64748b'>⭐ 精读推荐 20 篇，点击左侧目录跳转</p>
         </div>
@@ -1258,9 +1277,9 @@ def update_config_json(papers, target_date, groups, html_filename, featured_pape
     if not data or "dailyReports" not in data:
         data = {
             "meta": {
-                "title": "Vision Intelligence Daily Archive",
-                "subtitle": "Daily Research Paper Digest",
-                "description": "Automated collection of cutting-edge research papers in Computer Vision, UAV, FTTA, and Domain Adaptation.",
+                "title": "Agent & LLM Research Daily",
+                "subtitle": "Daily arXiv Digest — Agents · RSI · Agentic RL · Frontier LLMs",
+                "description": "Automated collection of cutting-edge research papers on AI Agents, Recursive Self-Improvement (RSI), Agentic RL, and releases from leading LLM labs (OpenAI, Anthropic, Google, Meta, Zhipu, DeepSeek, Qwen, Kimi, Hunyuan, Xiaomi, ByteDance, Baidu, etc.).",
                 "totalPapers": 0,
                 "totalDays": 0,
                 "lastUpdated": date_str,
@@ -1414,8 +1433,8 @@ def main():
         for p in papers:
             groups[p["group"]].append(p)
 
-        log(f"  A组(检测强相关): {len(groups['A'])} 篇")
-        log(f"  B组(端云协同): {len(groups['B'])} 篇")
+        log(f"  A组(重点跟进:产业界/端云结合): {len(groups['A'])} 篇")
+        log(f"  B组(Agent/RSI/Agentic RL 主题): {len(groups['B'])} 篇")
         log(f"  C组(其他): {len(groups['C'])} 篇")
 
         # Step 2.5: 筛选强相关论文（从全部论文中筛选前50篇）

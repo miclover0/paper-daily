@@ -1,6 +1,6 @@
-# Vision Intelligence Daily Archive
+# Agent & LLM Research Daily
 
-📚 每日 AI & 计算机视觉论文精选简报
+📚 每日 ArXiv 论文精选简报 —— 聚焦 **Agent · RSI（递归自改进）· Agentic RL**，以及 OpenAI / Anthropic / Google / Meta / 智谱 / DeepSeek / 千问 / Kimi / 混元 / 小米 / 字节 / 百度 等机构的最新 LLM 工作
 
 ---
 
@@ -46,7 +46,7 @@
 ```javascript
 const PAPER_ARCHIVE_CONFIG = {
     meta: {
-        title: "Vision Intelligence Daily Archive",
+        title: "Agent & LLM Research Daily",
         totalPapers: 15,
         totalDays: 1,
         lastUpdated: "2026-05-29"

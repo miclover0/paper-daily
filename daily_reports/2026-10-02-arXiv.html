@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width,initial-scale=1'>
+<title>论文日报 2026-10-02</title>
+<style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;line-height:1.75;color:#172033;background:#f6f8fb}
+    .layout{display:flex;min-height:100vh}
+    
+    .toc{width:280px;min-width:260px;max-width:320px;background:#fff;border-right:1px solid #e2e8f0;padding:16px 0;overflow-y:auto;position:sticky;top:0;height:100vh;flex-shrink:0}
+    .toc h2{font-size:15px;padding:0 18px 10px;color:#1a1a2e;border-bottom:1px solid #e2e8f0;margin-bottom:6px}
+    .toc ul{list-style:none;padding:0}
+    .toc li{margin:0}
+    .toc .toc-group-header{padding:8px 18px 4px;font-size:13px;font-weight:600;color:#64748b;margin-top:6px}
+    .toc .toc-link{display:block;padding:5px 18px 5px 26px;font-size:12px;color:#475569;text-decoration:none;line-height:1.45;transition:background .15s,border-color .15s;border-left:3px solid transparent}
+    .toc .toc-link:hover{background:#f1f5f9;color:#1e293b;border-left-color:#2563eb}
+    .toc .toc-link.worth-reading{font-weight:500}
+    .toc .toc-link.worth-reading::after{content:' ⭐';font-size:10px}
+    
+    .content{flex:1;padding:24px 48px;min-width:0;overflow-y:auto}
+    .header{margin-bottom:20px;text-align:center;max-width:1100px;margin-left:auto;margin-right:auto}
+    .meta{color:#566074;font-size:14px}
+    .section-header{margin:32px 0 16px;font-size:20px;color:#2563eb;border-bottom:2px solid #2563eb;padding-bottom:8px;max-width:1100px;margin-left:auto;margin-right:auto}
+    .card{border:1px solid #dbe2ea;border-radius:16px;padding:20px;margin:20px 0;background:#fff;box-shadow:0 4px 14px rgba(15,23,42,.04);position:relative;scroll-margin-top:20px;max-width:1100px;margin-left:auto;margin-right:auto;width:auto}
+    .card.worth-reading{border-left:4px solid #f59e0b;background:linear-gradient(135deg,#fffbeb 0%,#fff 100%);max-width:1100px;margin-left:auto;margin-right:auto;width:auto}
+    .worth-badge{position:absolute;top:14px;right:14px;background:linear-gradient(135deg,#f59e0b,#d97706);color:#fff;padding:4px 14px;border-radius:999px;font-size:12px;font-weight:600}
+    h1{font-size:28px;margin:0 0 8px;color:#1a1a2e}
+    h3{margin:0 0 10px;font-size:17px;color:#1e293b;padding-right:90px}
+    p{margin:10px 0}
+    ul{margin:10px 0 0 20px;padding:0}
+    li{margin:8px 0}
+    .chinese-summary{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:12px 14px;margin:12px 0;font-size:14px;color:#334155;line-height:1.85}
+    .chinese-summary strong{color:#1e293b}
+    .problem-box{background:#f0f9ff;border:1px solid #bae6fd;border-radius:8px;padding:10px 14px;margin:12px 0;font-size:14px;color:#0369a1;line-height:1.7}
+    .problem-box strong{color:#0284c7}
+    .read-reason-box{background:#fefce8;border:1px solid #fde68a;border-radius:8px;padding:10px 14px;margin:12px 0;font-size:14px;color:#854d0e}
+    .read-reason-box strong{color:#d97706}
+    a{color:#2563eb;word-break:break-all;text-decoration:none}
+    a:hover{text-decoration:underline}
+    .badge{display:inline-block;padding:2px 10px;border-radius:999px;font-size:12px;margin-right:6px}
+    .badge-a{background:#dbeafe;color:#1d4ed8}
+    .badge-b{background:#dcfce7;color:#15803d}
+    .badge-c{background:#fef3c7;color:#b45309}
+    .badge-source{background:#f1f5f9;color:#475569}
+    .tag{display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;margin-right:4px}
+    .nav-back{text-align:center;margin:20px 0;max-width:1100px;margin-left:auto;margin-right:auto}
+    .nav-back a{color:#64748b;text-decoration:none;font-size:14px}
+    .nav-back a:hover{color:#2563eb}
+    .footer{text-align:center;margin-top:40px;padding:20px;color:#94a3b8;font-size:13px;border-top:1px solid #e2e8f0;max-width:1100px;margin-left:auto;margin-right:auto}
+    @media (max-width:768px){
+        .layout{flex-direction:column}
+        .toc{width:100%;min-width:100%;height:auto;max-height:40vh;position:relative;border-right:none;border-bottom:2px solid #e2e8f0}
+        .content{max-width:100%;padding:16px}
+        .card{padding:14px}
+        h3{padding-right:0}
+        .worth-badge{position:static;display:inline-block;margin-bottom:8px}
+    }
+</style>
+</head>
+<body>
+<div class="layout">
+    <aside class="toc">
+        <h2>📑 目录</h2>
+        <ul><li class="toc-group-header"><span class="badge badge-a">A组</span> 重点跟进（产业界 / 端云结合） (28篇)</li>
+<li><a href="#A1" class="toc-link worth-reading">A1 REVEAL: Robust Evolution of Vision-Language Models for ...</a></li>
+<li><a href="#A2" class="toc-link worth-reading">A2 SHARPO: Segment-Level Credit Assignment for Agentic Rei...</a></li>
+<li><a href="#A3" class="toc-link worth-reading">A3 GUI-HARVEST: Self-Improving GUI Agents through Evidence...</a></li>
+<li><a href="#A4" class="toc-link worth-reading">A4 Do Your Own Research: Learning to Forecast by Learning ...</a></li>
+<li><a href="#A5" class="toc-link worth-reading">A5 Detecting Multi-Agent Collusion Through Multi-Agent Int...</a></li>
+<li><a href="#A6" class="toc-link worth-reading">A6 Kernel-Managed Shared Memory for System-Wide Personaliz...</a></li>
+<li><a href="#A7" class="toc-link worth-reading">A7 Verbal tics in frontier language models: A critical rev...</a></li>
+<li><a href="#A8" class="toc-link worth-reading">A8 The Next Challenge for Agentic Cybersecurity: A Realist...</a></li>
+<li><a href="#A9" class="toc-link worth-reading">A9 Cross-Benchmark Transfer from RL on Agentic Coding Task...</a></li>
+<li><a href="#A10" class="toc-link worth-reading">A10 How Much Can Language Models Gain from Test-Time Comput...</a></li>
+<li><a href="#A11" class="toc-link worth-reading">A11 VERITYGATE: A Four-Gate Schema-Level Faithfulness Frame...</a></li>
+<li><a href="#A12" class="toc-link worth-reading">A12 Measuring the Microtask Eligibility Gap: When Is an Off...</a></li>
+<li><a href="#A13" class="toc-link worth-reading">A13 Kepler: Auditable World Models for ARC-AGI-3</a></li>
+<li><a href="#A14" class="toc-link worth-reading">A14 Agent Error Dataset: Scaling 50,000 Error--Diagnosis Pa...</a></li>
+<li><a href="#A15" class="toc-link">A15 On-Device Named-Entity Recognition: A Deployability Stu...</a></li>
+<li><a href="#A16" class="toc-link">A16 CompactionRL: Reinforcement Learning with Context Compa...</a></li>
+<li><a href="#A17" class="toc-link">A17 The Delegation Danger Band: Why Mid-Capability Sub-Agen...</a></li>
+<li><a href="#A18" class="toc-link">A18 MGSM-Pro: A Simple Strategy for Robust Multilingual Mat...</a></li>
+<li><a href="#A19" class="toc-link">A19 No Model Required: Text Entropy Rate Filtering Mitigate...</a></li>
+<li><a href="#A20" class="toc-link">A20 Decentralized Multi-Agent Systems with Shared Context</a></li>
+<li><a href="#A21" class="toc-link">A21 Finding the Right Fit: Model-Harness Interactions acros...</a></li>
+<li><a href="#A22" class="toc-link">A22 VeriHarness: Scaling Agentic Verification for Long-Hori...</a></li>
+<li><a href="#A23" class="toc-link">A23 FinEvo-Bench: A Longitudinal Benchmark for Self-Evolvin...</a></li>
+<li><a href="#A24" class="toc-link">A24 Scientific Agents: Evaluating Profession-Specific Syste...</a></li>
+<li><a href="#A25" class="toc-link">A25 Reputation, Strategy, and Emotion Effects on Generative...</a></li>
+<li><a href="#A26" class="toc-link">A26 Beyond Linear Concepts: Discovering and Aligning Non-Li...</a></li>
+<li><a href="#A27" class="toc-link">A27 Your Language Model is Its Own Critic: Reinforcement Le...</a></li>
+<li><a href="#A28" class="toc-link">A28 Characterizing a Configuration Where Inference-Time PRM...</a></li>
+<li class="toc-group-header"><span class="badge badge-b">B组</span> Agent / RSI / Agentic RL 主题 (22篇)</li>
+<li><a href="#B1" class="toc-link worth-reading">B1 iARCS: Iterative Agentic RL for Controllable 3D Scene G...</a></li>
+<li><a href="#B2" class="toc-link worth-reading">B2 EmbodiRSI: Recursive Self-Improvement for Data-Efficien...</a></li>
+<li><a href="#B3" class="toc-link worth-reading">B3 False Prophets: On the Security of World Models in Agen...</a></li>
+<li><a href="#B4" class="toc-link worth-reading">B4 Global Coherence: When Every Agent Is Right and the Tea...</a></li>
+<li><a href="#B5" class="toc-link worth-reading">B5 ROGUE: Evaluating Corrigibility Failures in Frontier Co...</a></li>
+<li><a href="#B6" class="toc-link worth-reading">B6 T2SPO: Trajectory-to-Step Policy Optimization for Agent...</a></li>
+<li><a href="#B7" class="toc-link">B7 Learning Meta-Skills for Agent Harness Design in Test-T...</a></li>
+<li><a href="#B8" class="toc-link">B8 Worse Together: How Performance Breaks Down in Multi-Us...</a></li>
+<li><a href="#B9" class="toc-link">B9 Dependency-Aware Reward Shaping for Agentic Reinforceme...</a></li>
+<li><a href="#B10" class="toc-link">B10 Self-Evolving Coding Rules for AI Coding Agents</a></li>
+<li><a href="#B11" class="toc-link">B11 CompMat-Bench: Benchmarking AI Agents for Computational...</a></li>
+<li><a href="#B12" class="toc-link">B12 SWE-chat: Coding Agent Interactions From Real Users in ...</a></li>
+<li><a href="#B13" class="toc-link">B13 Crossing the Cyber Divide: Sim-to-Sim and Sim-to-Real T...</a></li>
+<li><a href="#B14" class="toc-link">B14 A Channel-Boosted Multi-Agent System with Iterative Con...</a></li>
+<li><a href="#B15" class="toc-link">B15 Incident-Arena: Getting agents to the last nine of reli...</a></li>
+<li><a href="#B16" class="toc-link">B16 KaliBench: A Fine-Grained Benchmark for Cybersecurity T...</a></li>
+<li><a href="#B17" class="toc-link">B17 Safety of Latent Communication in Multi-Agent Systems</a></li>
+<li><a href="#B18" class="toc-link">B18 Sapien: A Stateful Policy Engine for Autonomous AI Agen...</a></li>
+<li><a href="#B19" class="toc-link">B19 Pay for the Fault, Not the Flow: Label-Free In-Flow Mul...</a></li>
+<li><a href="#B20" class="toc-link">B20 Beyond Final Accuracy: Auditing Communication in LLM Mu...</a></li>
+<li><a href="#B21" class="toc-link">B21 Counting Moves, Weighing Voices: Bayesian Dialectical A...</a></li>
+<li><a href="#B22" class="toc-link">B22 Mimir: Physics-Grounded LLM Agents for Long-Horizon Irr...</a></li></ul>
+    </aside>
+    <main class="content">
+        <div class='header'>
+            <h1>📚 论文日报</h1>
+            <p class='meta'>2026-10-02 · A组(28)+B组(22)+C组(0) 共 50 篇</p>
+            <p class='meta' style='font-size:13px;color:#64748b'>
+                A组：重点跟进（产业界/端云结合） · B组：Agent/RSI/Agentic RL 主题 · C组：其他AI相关（兜底）
+            </p>
+            <p class='meta' style='font-size:13px;color:#64748b'>⭐ 精读推荐 20 篇，点击左侧目录跳转</p>
+        </div>
+        <div class='nav-back'><a href='./index.html'>← 返回首页</a></div>
+        <h2 class="section-header" id="group-A"><span class="badge badge-a">A组</span> 重点跟进（产业界 / 端云结合）</h2>
+
+<div class='card worth-reading' id='A1'>
+    <div class="worth-badge">⭐ 值得精读</div>
+    <h3><span class='badge badge-a'>A1</span> REVEAL: Robust Evolution of Vision-Language Models for Explainable AI-Video Detection</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2502.14994</span>
+        <span class='tag' style='background:#10a37f;color:#fff'>OpenAI</span><span class='tag' style='background:#ea4335;color:#fff'>Google</span><span class='tag' style='background:#f59e0b;color:#fff'>Qwen</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦OpenAI领域。<br>The rapid advancement of AI-generated video poses challenges to digital authenticity and security.。<br>【核心方法】We introduce a framework leveraging Vision Language Models (VLMs) for robust AI-generated video detection.。<br>【实验结果】Experiments show that REVEAL improves F1 scores by 9.1% to 30.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>struggle with the ever-evolving landscape of generative techniques and unseen manipulations</div>
+    <div class="read-reason-box"><strong>📖 精读原因：</strong>来自 OpenAI 团队的最新研究工作，值得重点关注其技术路线；来自 Google 团队的最新研究工作，值得重点关注其技术路线</div>
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>提出：</strong>introduce a framework leveraging Vision Language Model</li><li><strong>首次提出：</strong>first benchmark VidForensic containing 1</li><li><strong>研究要点：</strong>The rapid advancement of AI-generated video poses challenges to digital authenticity and security.</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2502.14994' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2502.14994" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card worth-reading' id='A2'>
+    <div class="worth-badge">⭐ 值得精读</div>
+    <h3><span class='badge badge-a'>A2</span> SHARPO: Segment-Level Credit Assignment for Agentic Reinforcement Learning</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2610.00838</span>
+        <span class='tag' style='background:#f59e0b;color:#fff'>Qwen</span><span class='tag' style='background:#7c3aed;color:#fff'>Agentic RL</span><span class='tag' style='background:#2563eb;color:#fff'>Agent</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦AI智能体（Agent）领域。<br>To address this limitation, we introduce Segment-level Hindsight Advantage Reweighting for Policy Optimization (SHARPO), a credit-assignment mechanism that refines Group Relative Policy Optimization...。<br>【核心方法】we introduce Segment-level Hindsight Advantage Reweighting for Policy Optimization (SHARPO), a credit-assignment mechanism that refines Group Relative Policy Optimization (GRPO) at the level of environment-facing segments.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>address this limitation</div>
+    <div class="read-reason-box"><strong>📖 精读原因：</strong>AI Agent 是当前研究热点，本文可能包含创新性的设计思路；Agentic 强化学习将决策与语言模型结合，是智能体研究的前沿方向</div>
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>超越现有方法：</strong>outperforms existing baselines on the ALFWorld and WebShop benchmarks</li><li><strong>核心思路：</strong>SHARPO</li><li><strong>研究领域：</strong>隶属于 cs.LG, cs.AI</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2610.00838' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2610.00838" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card worth-reading' id='A3'>
+    <div class="worth-badge">⭐ 值得精读</div>
+    <h3><span class='badge badge-a'>A3</span> GUI-HARVEST: Self-Improving GUI Agents through Evidence-Driven Harness Evolution</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2610.00948</span>
+        <span class='tag' style='background:#10a37f;color:#fff'>OpenAI</span><span class='tag' style='background:#f59e0b;color:#fff'>Qwen</span><span class='tag' style='background:#db2777;color:#fff'>RSI</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦递归自改进（RSI）领域。<br>With the same backbone and initial harness, GUI-HARVEST outperforms Self-Harness and Meta-Harness, suggesting that GUI-specific diagnosis and validation help harness improvements generalize to...。<br>【核心方法】We introduce GUI-HARVEST, an automatic harness optimizer that enables self-improving GUI agents with frozen backbone models.。<br>【实验结果】Frozen-harness transfer improves GPT-5 by 13.87 percentage points on WindowsAgentArena at 50 steps without further optimization.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 GUI 中的问题，HARVEST</div>
+    <div class="read-reason-box"><strong>📖 精读原因：</strong>递归自改进（RSI）是智能体自我进化的关键方向，本文具有一定的探索价值；来自 OpenAI 团队的最新研究工作，值得重点关注其技术路线</div>
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>超越现有方法：</strong>outperforms Self-Harness and Meta-Harness</li><li><strong>核心思路：</strong>GUI</li><li><strong>研究领域：</strong>隶属于 cs.LG, cs.AI</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2610.00948' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2610.00948" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card worth-reading' id='A4'>
+    <div class="worth-badge">⭐ 值得精读</div>
+    <h3><span class='badge badge-a'>A4</span> Do Your Own Research: Learning to Forecast by Learning to Search</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2610.01955</span>
+        <span class='tag' style='background:#d97706;color:#fff'>Anthropic</span><span class='tag' style='background:#f59e0b;color:#fff'>Qwen</span><span class='tag' style='background:#2563eb;color:#fff'>Agent</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦AI智能体（Agent）领域。<br>Outcome-based reinforcement learning can train language models to forecast real-world events, but prior forecasting work either freezes research context before training or deploys agentic research...。<br>【实验结果】Training changes how the agent interacts with information: calibration improves 30-40%, and search attempts fall from 3.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 Do Your Own Research 中的问题，Learning to Forecast by Learning to Search</div>
+    <div class="read-reason-box"><strong>📖 精读原因：</strong>AI Agent 是当前研究热点，本文可能包含创新性的设计思路；来自 Anthropic 团队的最新研究工作，值得重点关注其技术路线</div>
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>核心思路：</strong>Do Your Own Research</li><li><strong>研究领域：</strong>隶属于 cs.LG</li><li><strong>研究要点：</strong>0.256, n=265), at about 5% of the inference cost, and its margin is widest on the hardest questions, the ones the crowd </li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2610.01955' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2610.01955" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card worth-reading' id='A5'>
+    <div class="worth-badge">⭐ 值得精读</div>
+    <h3><span class='badge badge-a'>A5</span> Detecting Multi-Agent Collusion Through Multi-Agent Interpretability</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2604.01151</span>
+        <span class='tag' style='background:#0866ff;color:#fff'>Meta</span><span class='tag' style='background:#0ea5e9;color:#fff'>DeepSeek</span><span class='tag' style='background:#f59e0b;color:#fff'>Qwen</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦Meta领域。<br>While linear probes on model activations have shown promise for detecting deception in single-agent settings, collusion is inherently a multi-agent phenomenon, and the use of internal...。<br>【核心方法】We introduce NARCBench, a benchmark for evaluating collusion detection under environment distribution shift, and propose five probing techniques that aggregate per-agent deception scores to classify scenarios at the group level, evaluated across...。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 Detecting Multi 中的问题，Agent Collusion Through Multi</div>
+    <div class="read-reason-box"><strong>📖 精读原因：</strong>来自 Meta 团队的最新研究工作，值得重点关注其技术路线；来自 DeepSeek 团队的最新研究工作，值得重点关注其技术路线</div>
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>提出：</strong>propose five probing technique</li><li><strong>核心思路：</strong>Detecting Multi</li><li><strong>研究领域：</strong>隶属于 cs.AI, cs.LG</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2604.01151' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2604.01151" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card worth-reading' id='A6'>
+    <div class="worth-badge">⭐ 值得精读</div>
+    <h3><span class='badge badge-a'>A6</span> Kernel-Managed Shared Memory for System-Wide Personalization</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2609.10144</span>
+        <span class='tag' style='background:#10a37f;color:#fff'>OpenAI</span><span class='tag' style='background:#0866ff;color:#fff'>Meta</span><span class='tag' style='background:#f59e0b;color:#fff'>Qwen</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦OpenAI领域。<br>AI systems become more useful when they can adapt to the people using them, but in multi-agent systems, useful context learned by one agent often remains unavailable to others.。<br>【核心方法】We present kernel-managed shared memory, a system-level abstraction in which specialized agents write structured, tagged memories while the agent-system kernel, not individual agents, governs retrieval, privacy enforcement, and prompt injection.。<br>【实验结果】Against an unmanaged external memory backend (Mem0) using identical underlying storage, kernel-managed retrieval and injection improve personalization scores by 2.4-4.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 Kernel 中的问题，Managed Shared Memory for System</div>
+    <div class="read-reason-box"><strong>📖 精读原因：</strong>来自 OpenAI 团队的最新研究工作，值得重点关注其技术路线；来自 Meta 团队的最新研究工作，值得重点关注其技术路线</div>
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>核心思路：</strong>Kernel</li><li><strong>研究领域：</strong>隶属于 cs.AI, cs.LG</li><li><strong>研究要点：</strong>Against standard retrieval-augmented injection, gains are similarly large and consistent across all three models.</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2609.10144' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2609.10144" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card worth-reading' id='A7'>
+    <div class="worth-badge">⭐ 值得精读</div>
+    <h3><span class='badge badge-a'>A7</span> Verbal tics in frontier language models: A critical review of current releases, research evidence, and public discussion</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2604.19139</span>
+        <span class='tag' style='background:#10a37f;color:#fff'>OpenAI</span><span class='tag' style='background:#d97706;color:#fff'>Anthropic</span><span class='tag' style='background:#ea4335;color:#fff'>Google</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦OpenAI领域。<br>Repeated praise, canned reassurance, familiar contrasts, and conspicuous vocabulary are recurring subjects in discussions of large language models.。<br>【核心方法】We propose separate measures of recurrence, contextual appropriateness, and belief distortion, with precise service records and language-specific annotation.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 Verbal tics in frontier language models 中的问题，A critical review of current releases, research evidence, an</div>
+    <div class="read-reason-box"><strong>📖 精读原因：</strong>来自 OpenAI 团队的最新研究工作，值得重点关注其技术路线；来自 Anthropic 团队的最新研究工作，值得重点关注其技术路线</div>
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>核心思路：</strong>Verbal tics in frontier language models</li><li><strong>研究领域：</strong>隶属于 cs.CL, cs.AI</li><li><strong>研究要点：</strong>Repeated praise, canned reassurance, familiar contrasts, and conspicuous vocabulary are recurring subjects in discussion</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2604.19139' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2604.19139" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card worth-reading' id='A8'>
+    <div class="worth-badge">⭐ 值得精读</div>
+    <h3><span class='badge badge-a'>A8</span> The Next Challenge for Agentic Cybersecurity: A Realistic, Contamination-Free Reverse Engineering Benchmark</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2608.11469</span>
+        <span class='tag' style='background:#10a37f;color:#fff'>OpenAI</span><span class='tag' style='background:#d97706;color:#fff'>Anthropic</span><span class='tag' style='background:#2563eb;color:#fff'>Agent</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦AI智能体（Agent）领域。<br>Evaluating agentic RE poses a fundamental challenge: realistic benchmark instances must (1) be absent from LLMs' training data to prevent shortcuts by memorization, and (2) reflect the scale and...。<br>【核心方法】We introduce SRE-Bench, the first realistic, contamination-free RE benchmark.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>solve only 31</div>
+    <div class="read-reason-box"><strong>📖 精读原因：</strong>AI Agent 是当前研究热点，本文可能包含创新性的设计思路；来自 OpenAI 团队的最新研究工作，值得重点关注其技术路线</div>
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>首次提出：</strong>first realistic</li><li><strong>核心思路：</strong>The Next Challenge for Agentic Cybersecurity</li><li><strong>研究领域：</strong>隶属于 cs.CR, cs.AI</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2608.11469' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2608.11469" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card worth-reading' id='A9'>
+    <div class="worth-badge">⭐ 值得精读</div>
+    <h3><span class='badge badge-a'>A9</span> Cross-Benchmark Transfer from RL on Agentic Coding Tasks</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2610.00890</span>
+        <span class='tag' style='background:#ec4899;color:#fff'>Kimi</span><span class='tag' style='background:#2563eb;color:#fff'>Agent</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦AI智能体（Agent）领域。<br>001), and it remains significant on the three sets released after the training data was collected (p = 0.。<br>We ask whether reinforcement learning (RL) on expert-built agentic coding tasks closes this gap, and whether what the agent learns transfers beyond the training distribution.。<br>The reward is the fraction of target checks passed and drops to zero if any pass-to-pass test fails.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 Cross 中的问题，Benchmark Transfer from RL on Agentic Coding Tasks</div>
+    <div class="read-reason-box"><strong>📖 精读原因：</strong>AI Agent 是当前研究热点，本文可能包含创新性的设计思路；来自 Kimi 团队的最新研究工作，值得重点关注其技术路线</div>
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>核心思路：</strong>Cross</li><li><strong>研究领域：</strong>隶属于 cs.LG, cs.AI</li><li><strong>研究要点：</strong>The reward is the fraction of target checks passed and drops to zero if any pass-to-pass test fails.</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2610.00890' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2610.00890" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card worth-reading' id='A10'>
+    <div class="worth-badge">⭐ 值得精读</div>
+    <h3><span class='badge badge-a'>A10</span> How Much Can Language Models Gain from Test-Time Computation?</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2610.01110</span>
+        <span class='tag' style='background:#d97706;color:#fff'>Anthropic</span><span class='tag' style='background:#2563eb;color:#fff'>Agent</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦AI智能体（Agent）领域。<br>How much can test-time computation improve a language model, and at what cost?。<br>【核心方法】We introduce SELF-POT, a benchmark and evaluation framework that measures the test-time potential of a model across competition mathematics, competitive programming, and agentic workflows.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 How Much Can Language Models Gain from Test 中的问题，Time Computation?</div>
+    <div class="read-reason-box"><strong>📖 精读原因：</strong>AI Agent 是当前研究热点，本文可能包含创新性的设计思路；来自 Anthropic 团队的最新研究工作，值得重点关注其技术路线</div>
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>核心思路：</strong>How Much Can Language Models Gain from Test</li><li><strong>研究领域：</strong>隶属于 cs.LG</li><li><strong>研究要点：</strong>How much can test-time computation improve a language model, and at what cost?</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2610.01110' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2610.01110" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card worth-reading' id='A11'>
+    <div class="worth-badge">⭐ 值得精读</div>
+    <h3><span class='badge badge-a'>A11</span> VERITYGATE: A Four-Gate Schema-Level Faithfulness Framework and Paired Benchmark for Grounded LLM Narrations over Structured Evidence</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2610.00833</span>
+        <span class='tag' style='background:#10a37f;color:#fff'>OpenAI</span><span class='tag' style='background:#d97706;color:#fff'>Anthropic</span><span class='tag' style='background:#0866ff;color:#fff'>Meta</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦OpenAI领域。<br>Fluent LLM explanations may not follow the evidence from a structured system.。<br>【核心方法】We present VERITYGATE, a four-gate checker for declared evidence IDs, entities, numbers, and claim types.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 VERITYGATE 中的问题，A Four</div>
+    <div class="read-reason-box"><strong>📖 精读原因：</strong>来自 OpenAI 团队的最新研究工作，值得重点关注其技术路线；来自 Anthropic 团队的最新研究工作，值得重点关注其技术路线</div>
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>核心思路：</strong>VERITYGATE</li><li><strong>研究领域：</strong>隶属于 cs.CL, cs.LG</li><li><strong>研究要点：</strong>Fluent LLM explanations may not follow the evidence from a structured system.</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2610.00833' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2610.00833" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card worth-reading' id='A12'>
+    <div class="worth-badge">⭐ 值得精读</div>
+    <h3><span class='badge badge-a'>A12</span> Measuring the Microtask Eligibility Gap: When Is an Off-the-Shelf SLM Enough for an Agent Harness?</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2610.00025</span>
+        <span class='tag' style='background:#0866ff;color:#fff'>Meta</span><span class='tag' style='background:#f59e0b;color:#fff'>Qwen</span><span class='tag' style='background:#2563eb;color:#fff'>Agent</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦AI智能体（Agent）领域。<br>Agent harnesses increasingly want to run small language models (SLMs) on the microtasks around a frontier large language model (LLM) planner: auto-approving shell commands, writing memory, selecting...。<br>We ask whether off-the-shelf SLMs meet practitioner-defined thresholds and, when they fail, why, and whether quantization changes the answer.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 Measuring the Microtask Eligibility Gap 中的问题，When Is an Off</div>
+    <div class="read-reason-box"><strong>📖 精读原因：</strong>AI Agent 是当前研究热点，本文可能包含创新性的设计思路；来自 Meta 团队的最新研究工作，值得重点关注其技术路线</div>
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>核心思路：</strong>Measuring the Microtask Eligibility Gap</li><li><strong>研究领域：</strong>隶属于 cs.AI, cs.LG</li><li><strong>研究要点：</strong>We ask whether off-the-shelf SLMs meet practitioner-defined thresholds and, when they fail, why, and whether quantizatio</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2610.00025' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2610.00025" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card worth-reading' id='A13'>
+    <div class="worth-badge">⭐ 值得精读</div>
+    <h3><span class='badge badge-a'>A13</span> Kepler: Auditable World Models for ARC-AGI-3</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2610.00834</span>
+        <span class='tag' style='background:#10a37f;color:#fff'>OpenAI</span><span class='tag' style='background:#d97706;color:#fff'>Anthropic</span><span class='tag' style='background:#2563eb;color:#fff'>Agent</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦AI智能体（Agent）领域。<br>ARC-AGI-3 evaluates agents in interactive environments whose rules and objectives must be inferred from observation.。<br>【核心方法】We present Kepler, an open-source harness that represents hypotheses as executable world models and validates them through retrospective transition checks and conditional prediction checks.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 Kepler 中的问题，Auditable World Models for ARC</div>
+    <div class="read-reason-box"><strong>📖 精读原因：</strong>AI Agent 是当前研究热点，本文可能包含创新性的设计思路；来自 OpenAI 团队的最新研究工作，值得重点关注其技术路线</div>
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>核心思路：</strong>Kepler</li><li><strong>研究领域：</strong>隶属于 cs.AI, cs.MA</li><li><strong>研究要点：</strong>ARC-AGI-3 evaluates agents in interactive environments whose rules and objectives must be inferred from observation.</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2610.00834' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2610.00834" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card worth-reading' id='A14'>
+    <div class="worth-badge">⭐ 值得精读</div>
+    <h3><span class='badge badge-a'>A14</span> Agent Error Dataset: Scaling 50,000 Error--Diagnosis Pairs for Failure Analysis and Error-Aware Post-Training</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2609.40111</span>
+        <span class='tag' style='background:#f59e0b;color:#fff'>Qwen</span><span class='tag' style='background:#2563eb;color:#fff'>Agent</span><span class='tag' style='background:#9333ea;color:#fff'>LLM</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦AI智能体（Agent）领域。<br>An unsuccessful LLM agent rollout contains more information than its final reward: the observations available to the agent, the actions it chose, and the environment's responses.。<br>【核心方法】We introduce the Agent Error Dataset (AED), comprising 50,228 error-diagnosis pairs from 9,961 source tasks across 33 environments, 19 harness families, and 23 policy models in text-based agent systems.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 Agent Error Dataset 中的问题，Scaling 50,000 Error</div>
+    <div class="read-reason-box"><strong>📖 精读原因：</strong>AI Agent 是当前研究热点，本文可能包含创新性的设计思路；大语言模型是当代 AI 的核心基座，本文对相关方向有参考价值</div>
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>核心思路：</strong>Agent Error Dataset</li><li><strong>研究领域：</strong>隶属于 cs.AI, cs.CL</li><li><strong>研究要点：</strong>Reusing this experience for learning requires identifying a decision to revise and testing a concrete alternative.</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2609.40111' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2609.40111" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='A15'>
+    
+    <h3><span class='badge badge-a'>A15</span> On-Device Named-Entity Recognition: A Deployability Study of Accuracy, Cost, Reliability, and Confidence</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2610.00007</span>
+        <span class='tag' style='background:#0ea5e9;color:#fff'>DeepSeek</span><span class='tag' style='background:#f59e0b;color:#fff'>Qwen</span><span class='tag' style='background:#0891b2;color:#fff'>Edge Computing</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦边缘计算与端云协同领域。<br>Named-entity recognition (NER) is increasingly wanted on-device (no API, low latency, data kept local).。<br>The practitioner's question is not the leaderboard but which model is deployable, how to evaluate it without human annotation, and whether its confidence can be trusted.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 On 中的问题，Device Named</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>无需标注：</strong>without human annotation</li><li><strong>核心思路：</strong>On</li><li><strong>研究领域：</strong>隶属于 cs.CL, cs.AI</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2610.00007' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2610.00007" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='A16'>
+    
+    <h3><span class='badge badge-a'>A16</span> CompactionRL: Reinforcement Learning with Context Compaction for Long-Horizon Agents</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2607.05378</span>
+        <span class='tag' style='background:#2563eb;color:#fff'>Agent</span><span class='tag' style='background:#9333ea;color:#fff'>LLM</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦AI智能体（Agent）领域。<br>Context compaction offers a natural solution by summarizing previous interaction states and continuing the rollout under a compressed context, but incorporating compaction into reinforcement...。<br>【核心方法】We propose CompactionRL, a reinforcement learning strategy to train long-horizon agentic LLMs with context compaction.。<br>【实验结果】5-Air model (106B-A12B) to achieve Pass@1 scores of 66.4% on SWE-bench Verified and 26.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>limited by finite context windows</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>超越现有方法：</strong>exceed the maximum context length before a task is completed</li><li><strong>核心思路：</strong>CompactionRL</li><li><strong>研究领域：</strong>隶属于 cs.LG</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2607.05378' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2607.05378" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='A17'>
+    
+    <h3><span class='badge badge-a'>A17</span> The Delegation Danger Band: Why Mid-Capability Sub-Agents Over-Trust Inherited Stale State</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2610.00041</span>
+        <span class='tag' style='background:#f59e0b;color:#fff'>Qwen</span><span class='tag' style='background:#2563eb;color:#fff'>Agent</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦AI智能体（Agent）领域。<br>Agent frameworks increasingly delegate work by forking sub-agents; a common default makes the child inherit the parent's full working context.。<br>We measure how the effect of inherited state changes with capability, where $C_m$ denotes clean fork-fresh accuracy.。<br>Every task is solvable from the base evidence, so performance loss can be attributed to reliance on stale state.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 The Delegation Danger Band 中的问题，Why Mid</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>核心思路：</strong>The Delegation Danger Band</li><li><strong>研究领域：</strong>隶属于 cs.MA, cs.AI</li><li><strong>研究要点：</strong>Agent frameworks increasingly delegate work by forking sub-agents; a common default makes the child inherit the parent&#x27;s</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2610.00041' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2610.00041" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='A18'>
+    
+    <h3><span class='badge badge-a'>A18</span> MGSM-Pro: A Simple Strategy for Robust Multilingual Mathematical Reasoning Evaluation</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2601.21225</span>
+        <span class='tag' style='background:#10a37f;color:#fff'>OpenAI</span><span class='tag' style='background:#ea4335;color:#fff'>Google</span><span class='tag' style='background:#0ea5e9;color:#fff'>DeepSeek</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦OpenAI领域。<br>Evaluations across nine languages reveal that many low-resource languages suffer large performance drops when tested on digit instantiations different from those in the original test set.。<br>【核心方法】we introduce MGSM-Pro, an extension of MGSM dataset with GSM-Symbolic approach.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 MGSM 中的问题，Pro</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>核心思路：</strong>MGSM</li><li><strong>研究领域：</strong>隶属于 cs.CL, cs.AI</li><li><strong>研究要点：</strong>Large language models have made substantial progress in mathematical reasoning.</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2601.21225' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2601.21225" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='A19'>
+    
+    <h3><span class='badge badge-a'>A19</span> No Model Required: Text Entropy Rate Filtering Mitigates Iterative Fine-Tuning Collapse</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2610.01493</span>
+        <span class='tag' style='background:#0866ff;color:#fff'>Meta</span><span class='tag' style='background:#2563eb;color:#fff'>Agent</span><span class='tag' style='background:#1d4ed8;color:#fff'>Multi-Agent</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦AI智能体（Agent）领域。<br>Iterative fine-tuning on synthetic data causes \emph{model collapse}: output diversity narrows as rare patterns are progressively lost, a signature most visible as phrase-level repetition.。<br>【核心方法】we develop a new approach grounded in mathematical information theory: the non-parametric Kontoyiannis entropy rate estimator $h_k$, computed entirely from raw text via match-length statistics, with no model of any kind.。<br>【主要贡献】We show that this is in fact a \emph{superior} training-data filter on text-diversity metrics in a fully-synthetic, single-lineage fine-tuning setting.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 No Model Required 中的问题，Text Entropy Rate Filtering Mitigates Iterative Fine</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>核心思路：</strong>No Model Required</li><li><strong>研究领域：</strong>隶属于 cs.CL, cs.AI</li><li><strong>研究要点：</strong>Existing mitigations either require model log-probabilities, an external oracle, or continued access to real human data.</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2610.01493' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2610.01493" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='A20'>
+    
+    <h3><span class='badge badge-a'>A20</span> Decentralized Multi-Agent Systems with Shared Context</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2606.10662</span>
+        <span class='tag' style='background:#d97706;color:#fff'>Anthropic</span><span class='tag' style='background:#2563eb;color:#fff'>Agent</span><span class='tag' style='background:#1d4ed8;color:#fff'>Multi-Agent</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦AI智能体（Agent）领域。<br>Multi-agent systems (MAS) can scale large language model agents on long-horizon tasks by running them in parallel, yet existing designs waste much of this parallelism in bubbles: agent time spent...。<br>【核心方法】We propose Decentralized Language Models (DeLM), a MAS framework on top of existing agent harnesses that squeezes out these bubbles by replacing the main agent with a shared context and a task queue.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 Decentralized Multi 中的问题，Agent Systems with Shared Context</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>提出：</strong>propose Decentralized Language Model</li><li><strong>核心思路：</strong>Decentralized Multi</li><li><strong>研究领域：</strong>隶属于 cs.MA, cs.AI</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2606.10662' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2606.10662" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='A21'>
+    
+    <h3><span class='badge badge-a'>A21</span> Finding the Right Fit: Model-Harness Interactions across Agent Tasks</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2610.00917</span>
+        <span class='tag' style='background:#d97706;color:#fff'>Anthropic</span><span class='tag' style='background:#0ea5e9;color:#fff'>DeepSeek</span><span class='tag' style='background:#ec4899;color:#fff'>Kimi</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦Anthropic领域。<br>GPT does best with PI's lean scaffold, while Kimi, which often issues malformed tool calls, does best in openJiuwen.。<br>Choosing an agent system means choosing both a language model and the harness through which it acts.。<br>We ask whether a strong model, harness, or pairing stays strong when the setting changes.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 Finding the Right Fit 中的问题，Model</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>核心思路：</strong>Finding the Right Fit</li><li><strong>研究领域：</strong>隶属于 cs.AI, cs.SE</li><li><strong>研究要点：</strong>Choosing an agent system means choosing both a language model and the harness through which it acts.</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2610.00917' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2610.00917" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='A22'>
+    
+    <h3><span class='badge badge-a'>A22</span> VeriHarness: Scaling Agentic Verification for Long-Horizon Tasks</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2610.00972</span>
+        <span class='tag' style='background:#d97706;color:#fff'>Anthropic</span><span class='tag' style='background:#ea4335;color:#fff'>Google</span><span class='tag' style='background:#2563eb;color:#fff'>Agent</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦AI智能体（Agent）领域。<br>A disagreement resolver checks competing claims against environmental evidence, while a consensus challenger tests shared claims and searches for omitted requirements.。<br>【核心方法】We study how verification capability can be strengthened with a fixed base model, without access to reference answers or grading rubrics at test time.。<br>【实验结果】Evidence-backed revision further improves average performance, bringing gains over a single rollout to 6.2 points with Gemini 3.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 VeriHarness 中的问题，Scaling Agentic Verification for Long</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>首次提出：</strong>first find that disagreement often exposes correct alternatives</li><li><strong>核心思路：</strong>VeriHarness</li><li><strong>研究领域：</strong>隶属于 cs.AI, cs.MA</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2610.00972' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2610.00972" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='A23'>
+    
+    <h3><span class='badge badge-a'>A23</span> FinEvo-Bench: A Longitudinal Benchmark for Self-Evolving Agents in Professional Financial Workflows</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2608.06144</span>
+        <span class='tag' style='background:#d97706;color:#fff'>Anthropic</span><span class='tag' style='background:#f59e0b;color:#fff'>Qwen</span><span class='tag' style='background:#db2777;color:#fff'>RSI</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦递归自改进（RSI）领域。<br>44 fewer compliance issues per task than their paired controls.。<br>【核心方法】We introduce FinEvo-Bench, a longitudinal benchmark designed around this structure.。<br>【实验结果】Paired score gains at within-scene ranks~4--6 exceed those at ranks~1--3 by 6.10--8.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 FinEvo 中的问题，Bench</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>超越现有方法：</strong>exceed those at ranks~1--3 by 6</li><li><strong>核心思路：</strong>FinEvo</li><li><strong>研究领域：</strong>隶属于 cs.AI</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2608.06144' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2608.06144" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='A24'>
+    
+    <h3><span class='badge badge-a'>A24</span> Scientific Agents: Evaluating Profession-Specific System Prompts on Scientific Tasks</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2610.00084</span>
+        <span class='tag' style='background:#ea4335;color:#fff'>Google</span><span class='tag' style='background:#2563eb;color:#fff'>Agent</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦AI智能体（Agent）领域。<br>On 60 tool-using BioMysteryBench bioinformatics problems (three runs each for baseline and profile), mean solve rates were 46.。<br>Detailed profession-specific system prompts raise token use and estimated cost per response without a consistent accuracy gain.。<br>We evaluate Scientific Agents, an open-source corpus of 503 profession-specific AGENTS.md profiles, with Gemini 3.8 Flash via OpenRouter in the Pi agent harness.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>solve rates were 46</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>核心思路：</strong>Scientific Agents</li><li><strong>研究领域：</strong>隶属于 cs.AI, cs.CL</li><li><strong>研究要点：</strong>Detailed profession-specific system prompts raise token use and estimated cost per response without a consistent accurac</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2610.00084' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2610.00084" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='A25'>
+    
+    <h3><span class='badge badge-a'>A25</span> Reputation, Strategy, and Emotion Effects on Generative AI Cooperation: A Comparison Across Reasoning and Non-Reasoning Models</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2610.01222</span>
+        <span class='tag' style='background:#10a37f;color:#fff'>OpenAI</span><span class='tag' style='background:#d97706;color:#fff'>Anthropic</span><span class='tag' style='background:#ea4335;color:#fff'>Google</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦OpenAI领域。<br>As generative AI (Gen AI) systems take on increasingly autonomous roles in economically and socially consequential interactions, understanding their propensity to cooperate -- and the signals that...。<br>We examine cooperative behavior in frontier Gen AI models using the iterated prisoner's dilemma, manipulating counterpart reputation (positive, unknown, negative), strategy (extortion vs.。<br>generosity), and non-verbal emotional signaling (facial expressions conveying competitive or cooperative appraisals).。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 Reputation, Strategy, and Emotion Effects on Generative AI Cooperation 中的问题，A Comparison Across Reasoning and Non</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>首次提出：</strong>first study with non-reasoning models (Claude 3</li><li><strong>核心思路：</strong>Reputation, Strategy, and Emotion Effects on Generative AI Cooperation</li><li><strong>研究领域：</strong>隶属于 cs.AI</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2610.01222' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2610.01222" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='A26'>
+    
+    <h3><span class='badge badge-a'>A26</span> Beyond Linear Concepts: Discovering and Aligning Non-Linear Concept Manifolds in Large Language Models</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2610.01821</span>
+        <span class='tag' style='background:#0866ff;color:#fff'>Meta</span><span class='tag' style='background:#f59e0b;color:#fff'>Qwen</span><span class='tag' style='background:#7c3aed;color:#fff'>Agentic RL</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦Agentic 强化学习领域。<br>While existing mechanistic interpretability (MI) methods seek to extract concepts, they are constrained by a strong linearity assumption challenged by evidence of non-linear feature manifolds.。<br>【核心方法】we introduce a concept-based alignment (CBA) score, a generalized Rand index that measures geometric proximity without explicit feature matching.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 Beyond Linear Concepts 中的问题，Discovering and Aligning Non</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>核心思路：</strong>Beyond Linear Concepts</li><li><strong>研究领域：</strong>隶属于 cs.LG, cs.CL</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2610.01821' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2610.01821" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='A27'>
+    
+    <h3><span class='badge badge-a'>A27</span> Your Language Model is Its Own Critic: Reinforcement Learning with Value Estimation from Actor&#x27;s Internal States</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2605.07579</span>
+        <span class='tag' style='background:#10a37f;color:#fff'>OpenAI</span><span class='tag' style='background:#f59e0b;color:#fff'>Qwen</span><span class='tag' style='background:#7c3aed;color:#fff'>Agentic RL</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦Agentic 强化学习领域。<br>Moreover, the probe matches a separate LLM-scale value model, generalizes to various tasks, and remains accurate as the policy scales.。<br>【核心方法】We introduce POISE (Policy Optimization with Internal State Value Estimation), a reinforcement learning algorithm that turns the model's internal states into a value model.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>Existing approaches fall short in different ways: GRPO estimates its baseline as the group mean over rollouts from the same prompt</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>超越现有方法：</strong>outperforms other RLVR baselines while achieving more stable training</li><li><strong>核心思路：</strong>Your Language Model is Its Own Critic</li><li><strong>研究领域：</strong>隶属于 cs.LG, cs.AI</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2605.07579' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2605.07579" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='A28'>
+    
+    <h3><span class='badge badge-a'>A28</span> Characterizing a Configuration Where Inference-Time PRM-Pruned Fragment Grafting Is Inert: Evidence from Three Reasoning LMs</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2610.00047</span>
+        <span class='tag' style='background:#0866ff;color:#fff'>Meta</span><span class='tag' style='background:#f59e0b;color:#fff'>Qwen</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦Meta领域。<br>A hindsight oracle bounds any per-problem gain from choosing PPFG over independent at +0.。<br>该论文涉及Meta、Qwen等关键技术方向。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 Characterizing a Configuration Where Inference 中的问题，Time PRM</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>核心思路：</strong>Characterizing a Configuration Where Inference</li><li><strong>研究领域：</strong>隶属于 cs.AI, cs.CL</li><li><strong>研究要点：</strong>A hindsight oracle bounds any per-problem gain from choosing PPFG over independent at +0.13 pp.</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2610.00047' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2610.00047" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+<h2 class="section-header" id="group-B"><span class="badge badge-b">B组</span> Agent / RSI / Agentic RL 主题</h2>
+
+<div class='card worth-reading' id='B1'>
+    <div class="worth-badge">⭐ 值得精读</div>
+    <h3><span class='badge badge-b'>B1</span> iARCS: Iterative Agentic RL for Controllable 3D Scene Generation</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2608.06161</span>
+        <span class='tag' style='background:#7c3aed;color:#fff'>Agentic RL</span><span class='tag' style='background:#2563eb;color:#fff'>Agent</span><span class='tag' style='background:#059669;color:#fff'>Embodied AI</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦AI智能体（Agent）领域。<br>Synthetic 3D scene generation is increasingly used as a data source for computer vision and embodied AI, but existing generators often optimize perceptual realism without reliably satisfying...。<br>【核心方法】We present iARCS, an iterative agentic reinforcement learning framework that adapts a pretrained scene generator to naturallanguage task requirements.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 iARCS 中的问题，Iterative Agentic RL for Controllable 3D Scene Generation</div>
+    <div class="read-reason-box"><strong>📖 精读原因：</strong>AI Agent 是当前研究热点，本文可能包含创新性的设计思路；Agentic 强化学习将决策与语言模型结合，是智能体研究的前沿方向</div>
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>核心思路：</strong>iARCS</li><li><strong>研究领域：</strong>隶属于 cs.AI</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2608.06161' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2608.06161" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card worth-reading' id='B2'>
+    <div class="worth-badge">⭐ 值得精读</div>
+    <h3><span class='badge badge-b'>B2</span> EmbodiRSI: Recursive Self-Improvement for Data-Efficient Robot Adaptation</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2609.38905</span>
+        <span class='tag' style='background:#db2777;color:#fff'>RSI</span><span class='tag' style='background:#2563eb;color:#fff'>Agent</span><span class='tag' style='background:#059669;color:#fff'>Embodied AI</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦AI智能体（Agent）领域。<br>Adapting robot manipulation policies to new tasks and environments remains highly data-intensive, while the data needed for further improvement depends on the policy's current capabilities and...。<br>【实验结果】With 400 adaptive simulated trajectories and only ten real-world refinement trajectories per subtask, EmbodiRSI achieves 83.1% scene-balanced autonomous real-world success, compared with 75.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 EmbodiRSI 中的问题，Recursive Self</div>
+    <div class="read-reason-box"><strong>📖 精读原因：</strong>AI Agent 是当前研究热点，本文可能包含创新性的设计思路；递归自改进（RSI）是智能体自我进化的关键方向，本文具有一定的探索价值</div>
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>核心思路：</strong>EmbodiRSI</li><li><strong>研究领域：</strong>隶属于 cs.RO</li><li><strong>研究要点：</strong>EmbodiRSI uses policy execution feedback to guide subsequent experience acquisition and policy updates.</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2609.38905' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2609.38905" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card worth-reading' id='B3'>
+    <div class="worth-badge">⭐ 值得精读</div>
+    <h3><span class='badge badge-b'>B3</span> False Prophets: On the Security of World Models in Agentic Systems</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2607.23147</span>
+        <span class='tag' style='background:#2563eb;color:#fff'>Agent</span><span class='tag' style='background:#d97706;color:#fff'>World Model</span><span class='tag' style='background:#9333ea;color:#fff'>LLM</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦AI智能体（Agent）领域。<br>Recent research proposes to enhance predictive capabilities via specially trained environment simulators-world models.。<br>【核心方法】we introduce a security benchmark dataset designed for text-based world models.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>mitigate the discovered harms and harden agentic systems</div>
+    <div class="read-reason-box"><strong>📖 精读原因：</strong>AI Agent 是当前研究热点，本文可能包含创新性的设计思路；世界模型是提升模型泛化与规划能力的前沿方向，本文具有一定的探索价值</div>
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>提出：</strong>introduce a security benchmark dataset designed for text-based world model</li><li><strong>核心思路：</strong>False Prophets</li><li><strong>研究领域：</strong>隶属于 cs.CR, cs.AI</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2607.23147' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2607.23147" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card worth-reading' id='B4'>
+    <div class="worth-badge">⭐ 值得精读</div>
+    <h3><span class='badge badge-b'>B4</span> Global Coherence: When Every Agent Is Right and the Team Is Still Wrong - A Local-to-Global Semantic Foundation for Multi-Agent Collaboration</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2610.02036</span>
+        <span class='tag' style='background:#2563eb;color:#fff'>Agent</span><span class='tag' style='background:#1d4ed8;color:#fff'>Multi-Agent</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦AI智能体（Agent）领域。<br>We call this the global coherence problem: a failure of shared state, not merely of model intelligence.。<br>AI agents can each make locally valid decisions yet jointly produce an invalid result.。<br>Our Observation-Aliasing Impossibility Theorem gives the exact boundary.。<br>A policy can guarantee a valid action exactly when all worlds producing the same observation share an admissible action.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 Global Coherence 中的问题，When Every Agent Is Right and the Team Is Still Wrong</div>
+    <div class="read-reason-box"><strong>📖 精读原因：</strong>AI Agent 是当前研究热点，本文可能包含创新性的设计思路；多智能体协作是复杂任务求解的重要范式，本文值得关注</div>
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>超越现有方法：</strong>exceed a shared budget in 5/5 runs</li><li><strong>核心思路：</strong>Global Coherence</li><li><strong>研究领域：</strong>隶属于 cs.AI</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2610.02036' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2610.02036" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card worth-reading' id='B5'>
+    <div class="worth-badge">⭐ 值得精读</div>
+    <h3><span class='badge badge-b'>B5</span> ROGUE: Evaluating Corrigibility Failures in Frontier Computer-Use Agents</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2606.00341</span>
+        <span class='tag' style='background:#2563eb;color:#fff'>Agent</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦AI智能体（Agent）领域。<br>Although much work has focused on agent safety in the presence of an adversary, we study corrigibility: whether agents remain amenable to human correction, interruption, or shutdown while pursuing...。<br>【核心方法】We introduce ROGUE, a benchmark in which agents are asked to complete realistic computer-use tasks but encounter controlled conflicts with human control, shutdown, or explicit resource restrictions.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 ROGUE 中的问题，Evaluating Corrigibility Failures in Frontier Computer</div>
+    <div class="read-reason-box"><strong>📖 精读原因：</strong>AI Agent 是当前研究热点，本文可能包含创新性的设计思路；论文建立了新的基准评测，对后续研究有参考价值</div>
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>核心思路：</strong>ROGUE</li><li><strong>研究领域：</strong>隶属于 cs.LG, cs.AI</li><li><strong>研究要点：</strong>Further, independent task capability does not by itself imply greater corrigibility.</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2606.00341' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2606.00341" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card worth-reading' id='B6'>
+    <div class="worth-badge">⭐ 值得精读</div>
+    <h3><span class='badge badge-b'>B6</span> T2SPO: Trajectory-to-Step Policy Optimization for Agentic Reinforcement Learning</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2610.00388</span>
+        <span class='tag' style='background:#7c3aed;color:#fff'>Agentic RL</span><span class='tag' style='background:#2563eb;color:#fff'>Agent</span><span class='tag' style='background:#9333ea;color:#fff'>LLM</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦AI智能体（Agent）领域。<br>T2SPO derives remaining-distance targets from successful trajectories and pairs them with representations of the states visited along the way.。<br>【核心方法】We introduce Trajectory-to-Step Policy Optimization (T2SPO), a method that uses past interaction trajectories to provide step-level feedback for policy learning.。<br>【主要贡献】5B and 7B language models on ALFWorld and WebShop show that T2SPO consistently improves overall task success over GRPO.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 T2SPO 中的问题，Trajectory</div>
+    <div class="read-reason-box"><strong>📖 精读原因：</strong>AI Agent 是当前研究热点，本文可能包含创新性的设计思路；Agentic 强化学习将决策与语言模型结合，是智能体研究的前沿方向</div>
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>核心思路：</strong>T2SPO</li><li><strong>研究领域：</strong>隶属于 cs.LG, cs.AI</li><li><strong>研究要点：</strong>Reinforcement learning enables large language model (LLM) agents to learn multi-step behaviors through interaction with </li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2610.00388' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2610.00388" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='B7'>
+    
+    <h3><span class='badge badge-b'>B7</span> Learning Meta-Skills for Agent Harness Design in Test-Time AI4AI</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2609.38143</span>
+        <span class='tag' style='background:#db2777;color:#fff'>RSI</span><span class='tag' style='background:#2563eb;color:#fff'>Agent</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦AI智能体（Agent）领域。<br>We study test-time AI-for-AI, asking how a Builder can learn to construct better execution environments for a Target while both models' weights remain fixed.。<br>【核心方法】we introduce Meta-Skill: principles specifying when support is needed and what resources to provide.。<br>【实验结果】Across Harness-Bench and NewtonBench, full-bank meta-skills improve macro-average performance by 8.95 percentage points over no-skill construction, and 12.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 Learning Meta 中的问题，Skills for Agent Harness Design in Test</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>核心思路：</strong>Learning Meta</li><li><strong>研究领域：</strong>隶属于 cs.AI, cs.CL</li><li><strong>研究要点：</strong>Agent performance depends on both reasoning ability and the environment in which it acts.</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2609.38143' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2609.38143" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='B8'>
+    
+    <h3><span class='badge badge-b'>B8</span> Worse Together: How Performance Breaks Down in Multi-User Multi-Agent Teams</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2610.00583</span>
+        <span class='tag' style='background:#2563eb;color:#fff'>Agent</span><span class='tag' style='background:#1d4ed8;color:#fff'>Multi-Agent</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦AI智能体（Agent）领域。<br>People are increasingly delegating tasks to AI agents, and those agents are increasingly encountering other people's agents over shared resources such as a codebase, a calendar, or a budget.。<br>When each agent acts for a different user with different goals, coordination often fails, and the group ends up worse off than if a single agent had acted for everyone.。<br>In each scenario, we compare a single agent that serves every user (a coordinator) to a team in which each agent serves one user, with and without a communication channel between the agents.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 Worse Together 中的问题，How Performance Breaks Down in Multi</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>核心思路：</strong>Worse Together</li><li><strong>研究领域：</strong>隶属于 cs.AI</li><li><strong>研究要点：</strong>For example, in the personal assistant environment, the coordinator fulfills a targeted user request about twice as ofte</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2610.00583' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2610.00583" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='B9'>
+    
+    <h3><span class='badge badge-b'>B9</span> Dependency-Aware Reward Shaping for Agentic Reinforcement Learning</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2610.01207</span>
+        <span class='tag' style='background:#7c3aed;color:#fff'>Agentic RL</span><span class='tag' style='background:#2563eb;color:#fff'>Agent</span><span class='tag' style='background:#9333ea;color:#fff'>LLM</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦AI智能体（Agent）领域。<br>Common methods for assigning step credit overlook that work built on uncorrected mistakes is wasted while independent work remains valid.。<br>【核心方法】We propose Dependency-Aware Reward Shaping (DARS), which represents task progress as predicates linked by prerequisite relations and assigns step-level credit over the dependency graph.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 Dependency 中的问题，Aware Reward Shaping for Agentic Reinforcement Learning</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>超越现有方法：</strong>exceeds OmniOPD in controlled tool-free reasoning comparisons at 1</li><li><strong>核心思路：</strong>Dependency</li><li><strong>研究领域：</strong>隶属于 cs.AI</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2610.01207' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2610.01207" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='B10'>
+    
+    <h3><span class='badge badge-b'>B10</span> Self-Evolving Coding Rules for AI Coding Agents</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2610.00650</span>
+        <span class='tag' style='background:#db2777;color:#fff'>RSI</span><span class='tag' style='background:#2563eb;color:#fff'>Agent</span><span class='tag' style='background:#9333ea;color:#fff'>LLM</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦AI智能体（Agent）领域。<br>In each iteration, it employs an LLM-powered mutator module to generate variants from existing candidates, and then uses a judge module to evaluate these variants and update the pool with the...。<br>【核心方法】we propose RuleEvolve, a self-evolving framework for coding rules.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 Self 中的问题，Evolving Coding Rules for AI Coding Agents</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>超越现有方法：</strong>outperforms both manual engineering and existing prompt optimization baselines in terms of functional correctness of the</li><li><strong>核心思路：</strong>Self</li><li><strong>研究领域：</strong>隶属于 cs.CL, cs.AI</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2610.00650' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2610.00650" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='B11'>
+    
+    <h3><span class='badge badge-b'>B11</span> CompMat-Bench: Benchmarking AI Agents for Computational Materials Science</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2610.00636</span>
+        <span class='tag' style='background:#2563eb;color:#fff'>Agent</span><span class='tag' style='background:#9333ea;color:#fff'>LLM</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦AI智能体（Agent）领域。<br>We introduce CompMat-Bench, a benchmark of 94 tasks derived from recently published computational materials studies, each asking agents to complete a step toward achieving the study's scientific goal.。<br>【核心方法】We introduce CompMat-Bench, a benchmark of 94 tasks derived from recently published computational materials studies, each asking agents to complete a step toward achieving the study's scientific goal.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 CompMat 中的问题，Bench</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>核心思路：</strong>CompMat</li><li><strong>研究领域：</strong>隶属于 cs.AI, cond-mat.mtrl-sci</li><li><strong>研究要点：</strong>Evaluating AI agents on scientific research tasks is constrained by the time and resources required for the underlying e</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2610.00636' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2610.00636" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='B12'>
+    
+    <h3><span class='badge badge-b'>B12</span> SWE-chat: Coding Agent Interactions From Real Users in the Wild</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2604.20779</span>
+        <span class='tag' style='background:#2563eb;color:#fff'>Agent</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦AI智能体（Agent）领域。<br>AI coding agents are being adopted at scale, yet we lack empirical evidence on how people actually use them and how much of their output is useful in practice.。<br>【核心方法】We present SWE-chat, the first large-scale dataset of real coding agent sessions collected from open-source developers in the wild.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 SWE 中的问题，chat</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>首次提出：</strong>first large-scale dataset of real coding agent sessions collected from open-source developers in the wild</li><li><strong>核心思路：</strong>SWE</li><li><strong>研究领域：</strong>隶属于 cs.AI, cs.CY</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2604.20779' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2604.20779" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='B13'>
+    
+    <h3><span class='badge badge-b'>B13</span> Crossing the Cyber Divide: Sim-to-Sim and Sim-to-Real Transfer for RL Agents</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2610.00759</span>
+        <span class='tag' style='background:#7c3aed;color:#fff'>Agentic RL</span><span class='tag' style='background:#2563eb;color:#fff'>Agent</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦AI智能体（Agent）领域。<br>This limitation hinders both deployment and fair comparison, as cyber simulators differ substantially in their state representations, observation models, and action spaces.。<br>【核心方法】We propose a framework that separates state alignment from action translation, enabling a policy trained in one environment to operate in another without retraining.。<br>【实验结果】Our experiments show that zero-shot transfer is feasible, fully preserving source-policy performance in closely aligned environments and achieving 45.2% win rates when transferring policies whose...。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 Crossing the Cyber Divide 中的问题，Sim</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>提出：</strong>propose a framework</li><li><strong>无需标注：</strong>without retraining</li><li><strong>研究要点：</strong>We evaluate transfer across four cyber platforms, CyberBattleSim, NetSecGame, CyberWheel, and NASim, including emulated </li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2610.00759' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2610.00759" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='B14'>
+    
+    <h3><span class='badge badge-b'>B14</span> A Channel-Boosted Multi-Agent System with Iterative Consultation for Document Sensitivity Classification</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2609.22212</span>
+        <span class='tag' style='background:#2563eb;color:#fff'>Agent</span><span class='tag' style='background:#1d4ed8;color:#fff'>Multi-Agent</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦AI智能体（Agent）领域。<br>However, transformer baselines suffer from a structural limitation: fixed input length truncation discards evidence beyond the retained window-precisely where sensitive cables tend to be longest.。<br>【核心方法】We present Channel-Boosted MAS (CB-MAS) and instantiate it as IC-MAS (Iterative Consultation Multi-Agent System) to solve this without long-context computational costs.。<br>【实验结果】Critic-Controlled Gated Channel Boosting with Max-Pool fusion and Blackboard Adaptive Consultation achieves 90.72% accuracy, 91.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>suffer from a structural limitation: fixed input length truncation discards evidence beyond the retained window-precisely where sensitive cables tend </div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>核心思路：</strong>A Channel</li><li><strong>研究领域：</strong>隶属于 cs.CL, cs.LG</li><li><strong>研究要点：</strong>Organizations in critical national infrastructure sectors must assess heterogeneous documents for sensitivity before rou</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2609.22212' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2609.22212" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='B15'>
+    
+    <h3><span class='badge badge-b'>B15</span> Incident-Arena: Getting agents to the last nine of reliability</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2610.00648</span>
+        <span class='tag' style='background:#2563eb;color:#fff'>Agent</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦AI智能体（Agent）领域。<br>AI coding agents are ubiquitous in engineering workflows amongst industry and academia.。<br>【核心方法】We introduce Incident-Arena, a human-built benchmark of 20 carefully selected tasks grounded in real-world deployed open source software.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>limited by (1) unrealistic environments</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>提出：</strong>present a novel verification method</li><li><strong>核心思路：</strong>Incident</li><li><strong>研究领域：</strong>隶属于 cs.AI</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2610.00648' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2610.00648" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='B16'>
+    
+    <h3><span class='badge badge-b'>B16</span> KaliBench: A Fine-Grained Benchmark for Cybersecurity Tool Use on Kali Linux with Runtime-Free Verifiable Rewards</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2610.02206</span>
+        <span class='tag' style='background:#2563eb;color:#fff'>Agent</span><span class='tag' style='background:#9333ea;color:#fff'>LLM</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦AI智能体（Agent）领域。<br>LLMs are increasingly applied to cybersecurity workflows, where they are expected to translate analysts' intent into tool invocations.。<br>【核心方法】We introduce KaliBench, a fine-grained benchmark and dataset for natural-language--to--CLI translation on Kali Linux, comprising 8,504 query--command pairs spanning 1,642 tools across 23 capability dimensions and 5 security phases.。<br>【实验结果】Across three evaluation modes and 24 configurations of general-purpose and security-focused open-weight models, no open-weight model exceeds 42% exact-command accuracy in the unrestricted setting,...。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>difficulty of accurate CLI-based cybersecurity tool use without explicit tool hints</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>超越现有方法：</strong>exceeds 42% exact-command accuracy in the unrestricted setting</li><li><strong>核心思路：</strong>KaliBench</li><li><strong>研究领域：</strong>隶属于 cs.CL, cs.AI</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2610.02206' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2610.02206" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='B17'>
+    
+    <h3><span class='badge badge-b'>B17</span> Safety of Latent Communication in Multi-Agent Systems</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2609.39788</span>
+        <span class='tag' style='background:#2563eb;color:#fff'>Agent</span><span class='tag' style='background:#1d4ed8;color:#fff'>Multi-Agent</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦AI智能体（Agent）领域。<br>In this work, we show that even benign link training can increase harmful compliance relative to text-based communication while the underlying safety-aligned agents remain unchanged.。<br>【主要贡献】In this work, we show that even benign link training can increase harmful compliance relative to text-based communication while the underlying safety-aligned agents remain unchanged.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 Safety of Latent Communication in Multi 中的问题，Agent Systems</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>核心思路：</strong>Safety of Latent Communication in Multi</li><li><strong>研究领域：</strong>隶属于 cs.AI, cs.LG</li><li><strong>研究要点：</strong>To this end, lightweight trainable links are introduced to map the sender&#x27;s representations into the receiver&#x27;s input sp</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2609.39788' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2609.39788" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='B18'>
+    
+    <h3><span class='badge badge-b'>B18</span> Sapien: A Stateful Policy Engine for Autonomous AI Agents</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2610.00797</span>
+        <span class='tag' style='background:#2563eb;color:#fff'>Agent</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦AI智能体（Agent）领域。<br>Contextual security defenses prevent AI agents from taking rogue actions by synthesizing a task-specific policy and enforcing it on the agent's tool calls.。<br>【核心方法】We present Sapien, a policy engine for enforcing stateful contextual policies.。<br>【主要贡献】We show that Sapien stays within a few percent of an unconstrained agent's utility.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 Sapien 中的问题，A Stateful Policy Engine for Autonomous AI Agents</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>核心思路：</strong>Sapien</li><li><strong>研究领域：</strong>隶属于 cs.AI, cs.CL</li><li><strong>研究要点：</strong>In multi-step tasks, however, which actions are valid often depends on what the agent has already done and learned.</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2610.00797' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2610.00797" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='B19'>
+    
+    <h3><span class='badge badge-b'>B19</span> Pay for the Fault, Not the Flow: Label-Free In-Flow Multi-Agent Workflow Optimization</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2610.01017</span>
+        <span class='tag' style='background:#2563eb;color:#fff'>Agent</span><span class='tag' style='background:#1d4ed8;color:#fff'>Multi-Agent</span><span class='tag' style='background:#9333ea;color:#fff'>LLM</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦AI智能体（Agent）领域。<br>However, building such a workflow well remains challenging: how finely to divide the task, which agent to trust with each subtask, and when to create a new specialist are all critical decisions a...。<br>【核心方法】We propose InFlowOp, which prices every decision in one label-free cost that weighs how well an agent's competence meets what a subtask demands against how much that agent takes to run.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 Pay for the Fault, Not the Flow 中的问题，Label</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>超越现有方法：</strong>outperforms single agent baselines by up to $+11</li><li><strong>核心思路：</strong>Pay for the Fault, Not the Flow</li><li><strong>研究领域：</strong>隶属于 cs.AI, cs.CL</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2610.01017' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2610.01017" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='B20'>
+    
+    <h3><span class='badge badge-b'>B20</span> Beyond Final Accuracy: Auditing Communication in LLM Multi-Agent Systems</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2610.01042</span>
+        <span class='tag' style='background:#2563eb;color:#fff'>Agent</span><span class='tag' style='background:#1d4ed8;color:#fff'>Multi-Agent</span><span class='tag' style='background:#9333ea;color:#fff'>LLM</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦AI智能体（Agent）领域。<br>These findings challenge treating communication quality as an intrinsic property of a channel.。<br>【核心方法】We introduce Independent--Communicate--Revise (ICR), a controlled framework that evaluates communication as answer revision following independent reasoning.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 Beyond Final Accuracy 中的问题，Auditing Communication in LLM Multi</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>核心思路：</strong>Beyond Final Accuracy</li><li><strong>研究领域：</strong>隶属于 cs.AI, cs.CL</li><li><strong>研究要点：</strong>Multi-agent communication aims to help agents benefit from one another&#x27;s information.</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2610.01042' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2610.01042" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='B21'>
+    
+    <h3><span class='badge badge-b'>B21</span> Counting Moves, Weighing Voices: Bayesian Dialectical Argumentation for Calibrated Multi-LLM Councils under Persistent Adversaries</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2610.02005</span>
+        <span class='tag' style='background:#2563eb;color:#fff'>Agent</span><span class='tag' style='background:#1d4ed8;color:#fff'>Multi-Agent</span><span class='tag' style='background:#9333ea;color:#fff'>LLM</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦AI智能体（Agent）领域。<br>As these systems become increasingly used for reasoning, that confidence should represent a calibrated \emph{probability of being correct}, and the decision should remain robust when some agents are...。<br>【核心方法】We introduce Bayesian Dialectical Argumentation (BDA), which treats the council's \emph{typed} moves---who proposed, challenged, or conceded which answer---as observations of a classical annotator model with \emph{per-agent} reliabilities.。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 Counting Moves, Weighing Voices 中的问题，Bayesian Dialectical Argumentation for Calibrated Multi</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>核心思路：</strong>Counting Moves, Weighing Voices</li><li><strong>研究领域：</strong>隶属于 cs.AI</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2610.02005' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2610.02005" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='B22'>
+    
+    <h3><span class='badge badge-b'>B22</span> Mimir: Physics-Grounded LLM Agents for Long-Horizon Irrigation Control</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2610.02038</span>
+        <span class='tag' style='background:#db2777;color:#fff'>RSI</span><span class='tag' style='background:#2563eb;color:#fff'>Agent</span><span class='tag' style='background:#9333ea;color:#fff'>LLM</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>【研究背景】该论文聚焦AI智能体（Agent）领域。<br>At the slow timescale, recurrent failure patterns are consolidated into persistent contextual principles that condition future proposals, while the physical model, evaluator, and execution...。<br>【核心方法】We present Mimir, a physics-grounded LLM agent organized around two repair timescales.。<br>【实验结果】Under a common retrospective evaluator across multiple sites, crops, and years, Mimir attains the lowest reported aggregate control cost among the evaluated references and uses about 51% less...。</div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 Mimir 中的问题，Physics</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>核心思路：</strong>Mimir</li><li><strong>研究领域：</strong>隶属于 cs.AI</li><li><strong>研究要点：</strong>We study this regime through irrigation, where daily decisions interact with soil-water dynamics over entire growing sea</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2610.02038' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2610.02038" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+        <div class='nav-back'><a href='./index.html'>← 返回首页</a></div>
+        <div class='footer'>
+            <p>由 WorkBuddy 论文日报管道自动生成</p>
+            <p>投递时间：2026-10-03 11:18 · <a href='https://github.com/miclover0/paper-daily'>miclover0/paper-daily</a></p>
+        </div>
+    </main>
+</div>
+</body></html>

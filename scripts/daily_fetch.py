@@ -981,6 +981,9 @@ _translate_cache = {}
 _mymemory_dead = False
 _mymemory_fail_count = 0
 _MYMEMORY_QUOTA_MSG = "MYMEMORY WARNING"
+# 离线翻译器(Argos/OpenNMT)：免费、无需 key、无额度限制，优先于 MyMemory
+_argos_model = None
+_argos_available = None
 
 def _load_translate_cache():
     global _translate_cache
@@ -1108,6 +1111,51 @@ def _mymemory_translate_block(sentences):
             _mymemory_dead = True
     return None
 
+def _ensure_argos():
+    """尝试加载本地离线翻译模型(en->zh)。成功返回 True 并缓存模型对象；否则 False。"""
+    global _argos_model, _argos_available
+    if _argos_available is not None:
+        return _argos_available
+    try:
+        from argos_translate import translate as argos_tr
+        installed = argos_tr.get_installed_languages()
+        en = next((l for l in installed if l.code == "en"), None)
+        zh = next((l for l in installed if l.code == "zh"), None)
+        if en and zh:
+            model = en.get_translation(zh)
+            if model:
+                _argos_model = model
+                _argos_available = True
+                return True
+    except Exception:
+        pass
+    _argos_available = False
+    return False
+
+def _argos_translate(text):
+    """本地离线翻译(en->zh)。未就绪返回空串。"""
+    if not _ensure_argos():
+        return ""
+    try:
+        return _argos_model.translate(text).strip()
+    except Exception:
+        return ""
+
+def _translate_sentence(s):
+    """单句翻译：优先本地离线 Argos，其次免费 MyMemory，最后返回空串。"""
+    if not s.strip():
+        return ""
+    key_c = s.lower()
+    if key_c in _translate_cache:
+        return _translate_cache[key_c]
+    zh = _argos_translate(s)
+    if not zh:
+        zh = _mymemory_translate(s)
+    if zh:
+        _translate_cache[key_c] = zh
+        _save_translate_cache()
+    return zh
+
 
 def _llm_annotate_batch(sentences):
     """可选：用 OpenAI 兼容 LLM 一次产出全部句子的[语步, 中文]，返回 list[(move, zh)]。
@@ -1151,12 +1199,12 @@ def _llm_annotate_batch(sentences):
         return None
     return None
 
-def generate_annotated_summary(paper):
-    """生成『逐句语步标注 + 中英翻译』的完整中文摘要。
+def generate_bilingual_summary(paper):
+    """生成『逐句中英对照』的完整摘要（按用户要求：只做翻译，不做语步分析）。
     输出形如：
-      【研究背景】Recent advances ... 近期进展...
-      【提出方法】We propose ... 我们提出...
-    返回带换行的文本(供 HTML 用 <br>/<p> 渲染)。"""
+      Recent advances ... 近期进展...
+      We propose ... 我们提出...
+    返回带换行的文本(供 HTML 用 <p> 渲染)。"""
     summary = paper.get("summary", "")
     if not summary:
         return ""
@@ -1164,54 +1212,20 @@ def generate_annotated_summary(paper):
     if not sentences:
         return ""
 
-    # 若配置了 LLM key，整批一次调用(高质量语步+翻译)
+    # 若配置了 LLM key，整批一次调用(高质量翻译，忽略语步)
     llm_res = _llm_annotate_batch(sentences)
     if llm_res:
         lines = []
         for s, (move, zh) in zip(sentences, llm_res):
-            lines.append(f"【{move}】{s} {zh}".strip())
+            line = f"{s} {zh}".strip() if zh else s
+            lines.append(line)
         return "\n".join(lines)
 
-    # 否则走免费规则(语步) + MyMemory(翻译，按字符预算分块以大幅减少 HTTP 调用)
-    translated = [None] * len(sentences)
-    chunk, chunk_chars, start = [], 0, 0
-
-    def flush_chunk(chunk, start_idx):
-        if not chunk:
-            return
-        if not _mymemory_dead:
-            parts = _mymemory_translate_block(chunk)
-            if parts and len(parts) == len(chunk):
-                for j, zh in enumerate(parts):
-                    translated[start_idx + j] = zh
-                return
-        # 兜底：逐句(优先命中缓存；MyMemory 已死则仅用缓存)
-        for j, s in enumerate(chunk):
-            key_c = s.lower()
-            if key_c in _translate_cache:
-                translated[start_idx + j] = _translate_cache[key_c]
-            elif not _mymemory_dead:
-                zh = _mymemory_translate(s)
-                if zh:
-                    _translate_cache[key_c] = zh
-                    _save_translate_cache()
-                translated[start_idx + j] = zh
-                time.sleep(0.1)
-
-    for i, s in enumerate(sentences):
-        if chunk and chunk_chars + len(s) + 1 > 450:
-            flush_chunk(chunk, start)
-            chunk, chunk_chars, start = [], 0, i
-        chunk.append(s)
-        chunk_chars += len(s) + 1
-    flush_chunk(chunk, start)
-
+    # 否则走免费翻译：优先本地离线 Argos，其次 MyMemory(含额度 dead-switch)
     lines = []
-    for s, zh in zip(sentences, translated):
-        move = analyze_move(s)
-        line = f"【{move}】{s}"
-        if zh:
-            line += f" {zh}"
+    for s in sentences:
+        zh = _translate_sentence(s)
+        line = f"{s} {zh}".strip() if zh else s
         lines.append(line)
     return "\n".join(lines)
 
@@ -1359,22 +1373,14 @@ def generate_daily_html(papers, target_date, groups):
                 tc = TAG_COLORS.get(tag, TAG_COLORS["AI"])
                 tags_html += f"<span class='tag' style='background:{tc['bg']};color:{tc['text']}'>{esc(tag)}</span>"
 
-            # 中文摘要（语步标注 + 中英对照；兼容旧 chinese_summary）
-            annotated_raw = paper.get("annotated_summary", "")
-            if annotated_raw:
+            # 中文摘要（中英对照；兼容旧 chinese_summary）
+            bilingual_raw = paper.get("bilingual_summary", "")
+            if bilingual_raw:
                 summary_block_html = ""
-                for _line in annotated_raw.split("\n"):
+                for _line in bilingual_raw.split("\n"):
                     _line = _line.strip()
-                    if not _line:
-                        continue
-                    _m = re.match(r"【(.+?)】(.*)", _line)
-                    if _m:
-                        summary_block_html += (
-                            f'<p class="move-line"><span class="move-tag">【{esc(_m.group(1))}】</span>'
-                            f'{esc(_m.group(2).strip())}</p>'
-                        )
-                    else:
-                        summary_block_html += f'<p class="move-line">{esc(_line)}</p>'
+                    if _line:
+                        summary_block_html += f'<p class="bili-line">{esc(_line)}</p>'
             else:
                 _cs = paper.get("chinese_summary", paper["summary"][:300])
                 summary_block_html = esc(_cs).replace("\n", "<br>") if _cs else ""
@@ -1416,7 +1422,7 @@ def generate_daily_html(papers, target_date, groups):
         <span class='badge badge-source'>arXiv: {esc(arxiv_id[:20])}</span>
         {tags_html}
     </p>
-    <div class="chinese-summary"><strong>📝 中文摘要（语步标注·中英对照）：</strong><br>{summary_block_html}</div>
+    <div class="chinese-summary"><strong>📝 中文摘要（中英对照）：</strong><br>{summary_block_html}</div>
     {main_problem_html}
     {read_reason_html}
     <p><strong>📌 核心亮点：</strong></p>
@@ -1466,8 +1472,8 @@ def generate_daily_html(papers, target_date, groups):
     li{{margin:8px 0}}
     .chinese-summary{{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:12px 14px;margin:12px 0;font-size:14px;color:#334155;line-height:1.85}}
     .chinese-summary strong{{color:#1e293b}}
-    .move-line{{margin:6px 0;line-height:1.9;font-size:14px;color:#334155}}
-    .move-tag{{display:inline-block;background:#eef2ff;color:#4338ca;font-weight:600;border-radius:4px;padding:1px 6px;margin-right:6px;font-size:12.5px}}
+    .bili-line{{margin:6px 0;line-height:1.9;font-size:14px;color:#334155}}
+    .bili-line{{color:#334155}}
     .problem-box{{background:#f0f9ff;border:1px solid #bae6fd;border-radius:8px;padding:10px 14px;margin:12px 0;font-size:14px;color:#0369a1;line-height:1.7}}
     .problem-box strong{{color:#0284c7}}
     .read-reason-box{{background:#fefce8;border:1px solid #fde68a;border-radius:8px;padding:10px 14px;margin:12px 0;font-size:14px;color:#854d0e}}
@@ -1576,7 +1582,7 @@ def update_config_json(papers, target_date, groups, html_filename, featured_pape
                 "venue": f"arXiv {target_date.year}",
                 "arxivId": f"arXiv:{p.get('arxiv_id', '')}",
                 "tags": p.get("tags", []),
-                "summary": p.get("annotated_summary") or p.get("chinese_summary", p.get("summary", "")[:200]),
+                "summary": p.get("bilingual_summary") or p.get("chinese_summary", p.get("summary", "")[:200]),
                 "highlights": highlights_list,
                 "pdfUrl": p.get("pdf_url", ""),
                 "readReason": p.get("read_reason", "")  # 精读原因
@@ -1593,7 +1599,7 @@ def update_config_json(papers, target_date, groups, html_filename, featured_pape
                     "venue": f"arXiv {target_date.year}",
                     "arxivId": f"arXiv:{fp.get('arxiv_id', '')}",
                     "tags": fp.get("tags", []),
-                    "summary": fp.get("annotated_summary") or fp.get("chinese_summary", fp.get("summary", "")[:200]),
+                    "summary": fp.get("bilingual_summary") or fp.get("chinese_summary", fp.get("summary", "")[:200]),
                     "highlights": highlights_list,
                     "pdfUrl": fp.get("pdf_url", ""),
                     "readReason": fp.get("read_reason", "")
@@ -1617,7 +1623,7 @@ def update_config_json(papers, target_date, groups, html_filename, featured_pape
                 "venue": f"arXiv {target_date.year}",
                 "arxivId": f"arXiv:{p.get('arxiv_id', '')}",
                 "tags": p.get("tags", []),
-                "summary": p.get("annotated_summary") or p.get("chinese_summary", p.get("summary", "")[:200]),
+                "summary": p.get("bilingual_summary") or p.get("chinese_summary", p.get("summary", "")[:200]),
                 "highlights": highlights_list,
                 "pdfUrl": p.get("pdf_url", ""),
                 "worthReading": p.get("worth_reading", False)
@@ -1739,7 +1745,7 @@ def main():
         log("Step 4: 生成中文摘要和亮点...")
         for p in top_papers:
             p["chinese_summary"] = generate_chinese_summary(p, p["group"])
-            p["annotated_summary"] = generate_annotated_summary(p)
+            p["bilingual_summary"] = generate_bilingual_summary(p)
             p["main_problem"] = extract_main_problem(p)
             p["highlights"] = extract_highlights(p)
             p["contributions"] = p.get("contributions", "")

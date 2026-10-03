@@ -965,6 +965,257 @@ def generate_chinese_summary(paper, group):
     return "\n".join(parts)
 
 
+# ============================================================
+# 逐句语步分析 + 中英翻译（免费方案）
+# - 语步(写作功能)：规则(cue-phrase)离线判定，零成本
+# - 翻译：默认 MyMemory 免费 API(无需 key)；若设置环境变量
+#   PAPER_DAILY_LLM_KEY，则改用一次 LLM 调用同时产出语步+高质量翻译
+#   （OpenAI 兼容端点，如 Groq / DeepSeek 免费层；对应 PAPER_DAILY_LLM_BASE / _MODEL）
+# ============================================================
+
+TRANSLATION_CACHE_PATH = os.path.join(
+    os.path.dirname(os.path.abspath(__file__)), ".translation_cache.json"
+)
+_translate_cache = {}
+# MyMemory 免费接口一旦耗尽每日额度/连续失败，置为 dead 以避免整批请求挂起
+_mymemory_dead = False
+_mymemory_fail_count = 0
+_MYMEMORY_QUOTA_MSG = "MYMEMORY WARNING"
+
+def _load_translate_cache():
+    global _translate_cache
+    try:
+        if os.path.exists(TRANSLATION_CACHE_PATH):
+            with open(TRANSLATION_CACHE_PATH, "r", encoding="utf-8") as f:
+                _translate_cache = json.load(f)
+    except Exception:
+        _translate_cache = {}
+
+def _save_translate_cache():
+    try:
+        with open(TRANSLATION_CACHE_PATH, "w", encoding="utf-8") as f:
+            json.dump(_translate_cache, f, ensure_ascii=False)
+    except Exception:
+        pass
+
+_load_translate_cache()
+
+# 语步(写作功能)分类与 cue 词
+MOVE_RULES = [
+    ("研究背景", ["recent", "in recent years", "with the rise", "with the advent",
+               "large language model", "recent advances", "the field of",
+               "over the past", "there has been", "due to the rapid",
+               "transformer", "foundation model", "pre-trained"]),
+    ("研究现状", ["existing", "previous", "prior work", "state-of-the-art",
+               "conventional", "traditional", "current approaches", "recent methods"]),
+    ("研究空白", ["however", "but", "yet", "nevertheless", "unfortunately", "remain",
+               "remains", "still", "challenge", "challenges", "limitation", "limitations",
+               "lack", "lacks", "gap", "inefficient", "struggle", "fail to", "fail",
+               "poorly", "not well", "under-explored", "understudied", "little attention"]),
+    ("研究目的", ["in this paper", "this work", "this paper", "we aim", "we focus",
+               "our goal", "the goal of this", "we study", "we investigate",
+               "we propose to", "we present a", "to address", "to tackle", "towards"]),
+    ("提出方法", ["we propose", "we present", "we introduce", "we develop", "we design",
+               "we leverage", "we adopt", "we construct", "we build", "our approach",
+               "our method", "our framework", "our model", "our system", "our architecture",
+               "we formulate", "we define", "we introduce a", "we present a"]),
+    ("技术路线", ["first", "then", "specifically", "in particular", "consists of",
+               "composed of", "we train", "we optimize", "we fine-tune", "we sample",
+               "based on", "by ", "using", "we apply", "we augment"]),
+    ("实验设置", ["we evaluate", "we conduct", "experiment", "experiments", "benchmark",
+               "dataset", "we test", "we compare", "baseline", "settings", "we use the",
+               "we report"]),
+    ("实验结果", ["achieve", "achieves", "achieved", "obtain", "obtains", "outperform",
+               "outperforms", "surpass", "surpasses", "improve", "improves", "boost",
+               "sota", "state-of-the-art", "results show", "results demonstrate",
+               "significantly", "accuracy", "performance", "improvement"]),
+    ("主要贡献", ["contribution", "contributions", "we demonstrate", "we show that",
+               "we find", "our finding", "in summary", "overall", "our main",
+               "key insight", "we release", "we provide", "we argue"]),
+    ("应用前景", ["application", "applications", "deploy", "deployment", "real-world",
+               "practical", "can be used", "potential", "future work", "in the wild"]),
+]
+
+def analyze_move(sentence):
+    """根据 cue 词给单句判定语步(写作功能)标签，返回中文标签。"""
+    s = sentence.lower()
+    best, best_score = "研究背景", 0
+    for label, cues in MOVE_RULES:
+        score = sum(1 for c in cues if c in s)
+        # 靠后的规则(方法/结果/贡献/目的)权重略高，避免被背景词淹没
+        if label in ("提出方法", "实验结果", "主要贡献", "研究目的"):
+            score *= 1.5
+        if score > best_score:
+            best, best_score = label, score
+    return best
+
+def _mymemory_translate(text):
+    """免费、无需 key 的翻译(MyMemory)。失败/额度耗尽返回空串。"""
+    global _mymemory_dead, _mymemory_fail_count
+    if _mymemory_dead:
+        return ""
+    try:
+        q = text.strip()
+        if not q:
+            return ""
+        url = ("https://api.mymemory.translated.net/get?q="
+               + urllib.parse.quote(q) + "&langpair=en|zh")
+        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+        with urllib.request.urlopen(req, timeout=12) as resp:
+            data = json.loads(resp.read().decode("utf-8"))
+        t = data.get("responseData", {}).get("translatedText", "")
+        if _MYMEMORY_QUOTA_MSG in t:
+            _mymemory_dead = True
+            return ""
+        if data.get("responseStatus") == 200 and t:
+            _mymemory_fail_count = 0
+            return t
+    except Exception:
+        _mymemory_fail_count += 1
+        if _mymemory_fail_count >= 3:
+            _mymemory_dead = True
+    return ""
+
+def _mymemory_translate_block(sentences):
+    """将一小批句子(合并后 <= ~450 字符)合并为一次 MyMemory 请求以大幅减少 HTTP 调用；
+    按换行切分返回与输入等长的翻译列表；失败/额度耗尽/行数不对齐返回 None。"""
+    global _mymemory_dead, _mymemory_fail_count
+    if _mymemory_dead:
+        return None
+    try:
+        joined = "\n".join(sentences)
+        url = ("https://api.mymemory.translated.net/get?q="
+               + urllib.parse.quote(joined) + "&langpair=en|zh")
+        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            data = json.loads(resp.read().decode("utf-8"))
+        t = data.get("responseData", {}).get("translatedText", "")
+        if _MYMEMORY_QUOTA_MSG in t:
+            _mymemory_dead = True
+            return None
+        if data.get("responseStatus") == 200 and t:
+            parts = [p.strip() for p in t.split("\n")]
+            if len(parts) == len(sentences):
+                _mymemory_fail_count = 0
+                for s, zh in zip(sentences, parts):
+                    if zh:
+                        _translate_cache[s.lower()] = zh
+                _save_translate_cache()
+                return parts
+    except Exception:
+        _mymemory_fail_count += 1
+        if _mymemory_fail_count >= 3:
+            _mymemory_dead = True
+    return None
+
+
+def _llm_annotate_batch(sentences):
+    """可选：用 OpenAI 兼容 LLM 一次产出全部句子的[语步, 中文]，返回 list[(move, zh)]。
+    未配置 key 或失败返回 None。"""
+    key = os.environ.get("PAPER_DAILY_LLM_KEY")
+    if not key:
+        return None
+    base = os.environ.get("PAPER_DAILY_LLM_BASE", "https://api.deepseek.com/v1")
+    model = os.environ.get("PAPER_DAILY_LLM_MODEL", "deepseek-chat")
+    prompt = (
+        "你是一位学术写作分析助手。下面是一篇论文摘要的英文句子列表(按出现顺序)。\n"
+        "请对每句话：\n"
+        "1) 判定其写作功能(语步)，从以下选一个：研究背景/研究现状/研究空白/研究目的/"
+        "提出方法/技术路线/实验设置/实验结果/主要贡献/应用前景；\n"
+        "2) 给出准确的中文翻译。\n"
+        "严格只输出 JSON 数组，每个元素为 {\"move\": \"...\", \"zh\": \"...\"}，不要额外文字。\n"
+        "句子列表:\n" + "\n".join(f"{i+1}. {s}" for i, s in enumerate(sentences))
+    )
+    try:
+        body = json.dumps({
+            "model": model,
+            "messages": [{"role": "user", "content": prompt}],
+            "temperature": 0.1,
+            "response_format": {"type": "json_object"},
+        }).encode("utf-8")
+        req = urllib.request.Request(
+            base + "/chat/completions", data=body,
+            headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"})
+        with urllib.request.urlopen(req, timeout=90) as resp:
+            out = json.loads(resp.read().decode("utf-8"))
+        content = out["choices"][0]["message"]["content"]
+        arr = json.loads(content)
+        if isinstance(arr, dict):
+            for v in arr.values():
+                if isinstance(v, list):
+                    arr = v
+                    break
+        if isinstance(arr, list) and len(arr) == len(sentences):
+            return [(item.get("move", "研究背景"), item.get("zh", "")) for item in arr]
+    except Exception:
+        return None
+    return None
+
+def generate_annotated_summary(paper):
+    """生成『逐句语步标注 + 中英翻译』的完整中文摘要。
+    输出形如：
+      【研究背景】Recent advances ... 近期进展...
+      【提出方法】We propose ... 我们提出...
+    返回带换行的文本(供 HTML 用 <br>/<p> 渲染)。"""
+    summary = paper.get("summary", "")
+    if not summary:
+        return ""
+    sentences = [s.strip() for s in re.split(r'(?<=[.!?])\s+', summary) if s.strip()]
+    if not sentences:
+        return ""
+
+    # 若配置了 LLM key，整批一次调用(高质量语步+翻译)
+    llm_res = _llm_annotate_batch(sentences)
+    if llm_res:
+        lines = []
+        for s, (move, zh) in zip(sentences, llm_res):
+            lines.append(f"【{move}】{s} {zh}".strip())
+        return "\n".join(lines)
+
+    # 否则走免费规则(语步) + MyMemory(翻译，按字符预算分块以大幅减少 HTTP 调用)
+    translated = [None] * len(sentences)
+    chunk, chunk_chars, start = [], 0, 0
+
+    def flush_chunk(chunk, start_idx):
+        if not chunk:
+            return
+        if not _mymemory_dead:
+            parts = _mymemory_translate_block(chunk)
+            if parts and len(parts) == len(chunk):
+                for j, zh in enumerate(parts):
+                    translated[start_idx + j] = zh
+                return
+        # 兜底：逐句(优先命中缓存；MyMemory 已死则仅用缓存)
+        for j, s in enumerate(chunk):
+            key_c = s.lower()
+            if key_c in _translate_cache:
+                translated[start_idx + j] = _translate_cache[key_c]
+            elif not _mymemory_dead:
+                zh = _mymemory_translate(s)
+                if zh:
+                    _translate_cache[key_c] = zh
+                    _save_translate_cache()
+                translated[start_idx + j] = zh
+                time.sleep(0.1)
+
+    for i, s in enumerate(sentences):
+        if chunk and chunk_chars + len(s) + 1 > 450:
+            flush_chunk(chunk, start)
+            chunk, chunk_chars, start = [], 0, i
+        chunk.append(s)
+        chunk_chars += len(s) + 1
+    flush_chunk(chunk, start)
+
+    lines = []
+    for s, zh in zip(sentences, translated):
+        move = analyze_move(s)
+        line = f"【{move}】{s}"
+        if zh:
+            line += f" {zh}"
+        lines.append(line)
+    return "\n".join(lines)
+
+
 def truncate_en_sentence(text, max_len):
     """截断英文句子到合理长度"""
     if len(text) <= max_len:
@@ -1108,9 +1359,25 @@ def generate_daily_html(papers, target_date, groups):
                 tc = TAG_COLORS.get(tag, TAG_COLORS["AI"])
                 tags_html += f"<span class='tag' style='background:{tc['bg']};color:{tc['text']}'>{esc(tag)}</span>"
 
-            # 中文摘要（支持多行）
-            chinese_summary = paper.get("chinese_summary", paper["summary"][:300])
-            chinese_summary_html = chinese_summary.replace("\n", "<br>") if chinese_summary else ""
+            # 中文摘要（语步标注 + 中英对照；兼容旧 chinese_summary）
+            annotated_raw = paper.get("annotated_summary", "")
+            if annotated_raw:
+                summary_block_html = ""
+                for _line in annotated_raw.split("\n"):
+                    _line = _line.strip()
+                    if not _line:
+                        continue
+                    _m = re.match(r"【(.+?)】(.*)", _line)
+                    if _m:
+                        summary_block_html += (
+                            f'<p class="move-line"><span class="move-tag">【{esc(_m.group(1))}】</span>'
+                            f'{esc(_m.group(2).strip())}</p>'
+                        )
+                    else:
+                        summary_block_html += f'<p class="move-line">{esc(_line)}</p>'
+            else:
+                _cs = paper.get("chinese_summary", paper["summary"][:300])
+                summary_block_html = esc(_cs).replace("\n", "<br>") if _cs else ""
 
             # 主要问题
             main_problem = paper.get("main_problem", "")
@@ -1149,7 +1416,7 @@ def generate_daily_html(papers, target_date, groups):
         <span class='badge badge-source'>arXiv: {esc(arxiv_id[:20])}</span>
         {tags_html}
     </p>
-    <div class="chinese-summary"><strong>📝 中文摘要：</strong><br>{chinese_summary_html}</div>
+    <div class="chinese-summary"><strong>📝 中文摘要（语步标注·中英对照）：</strong><br>{summary_block_html}</div>
     {main_problem_html}
     {read_reason_html}
     <p><strong>📌 核心亮点：</strong></p>
@@ -1199,6 +1466,8 @@ def generate_daily_html(papers, target_date, groups):
     li{{margin:8px 0}}
     .chinese-summary{{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:12px 14px;margin:12px 0;font-size:14px;color:#334155;line-height:1.85}}
     .chinese-summary strong{{color:#1e293b}}
+    .move-line{{margin:6px 0;line-height:1.9;font-size:14px;color:#334155}}
+    .move-tag{{display:inline-block;background:#eef2ff;color:#4338ca;font-weight:600;border-radius:4px;padding:1px 6px;margin-right:6px;font-size:12.5px}}
     .problem-box{{background:#f0f9ff;border:1px solid #bae6fd;border-radius:8px;padding:10px 14px;margin:12px 0;font-size:14px;color:#0369a1;line-height:1.7}}
     .problem-box strong{{color:#0284c7}}
     .read-reason-box{{background:#fefce8;border:1px solid #fde68a;border-radius:8px;padding:10px 14px;margin:12px 0;font-size:14px;color:#854d0e}}
@@ -1307,7 +1576,7 @@ def update_config_json(papers, target_date, groups, html_filename, featured_pape
                 "venue": f"arXiv {target_date.year}",
                 "arxivId": f"arXiv:{p.get('arxiv_id', '')}",
                 "tags": p.get("tags", []),
-                "summary": p.get("chinese_summary", p.get("summary", "")[:200]),
+                "summary": p.get("annotated_summary") or p.get("chinese_summary", p.get("summary", "")[:200]),
                 "highlights": highlights_list,
                 "pdfUrl": p.get("pdf_url", ""),
                 "readReason": p.get("read_reason", "")  # 精读原因
@@ -1324,7 +1593,7 @@ def update_config_json(papers, target_date, groups, html_filename, featured_pape
                     "venue": f"arXiv {target_date.year}",
                     "arxivId": f"arXiv:{fp.get('arxiv_id', '')}",
                     "tags": fp.get("tags", []),
-                    "summary": fp.get("chinese_summary", fp.get("summary", "")[:200]),
+                    "summary": fp.get("annotated_summary") or fp.get("chinese_summary", fp.get("summary", "")[:200]),
                     "highlights": highlights_list,
                     "pdfUrl": fp.get("pdf_url", ""),
                     "readReason": fp.get("read_reason", "")
@@ -1348,7 +1617,7 @@ def update_config_json(papers, target_date, groups, html_filename, featured_pape
                 "venue": f"arXiv {target_date.year}",
                 "arxivId": f"arXiv:{p.get('arxiv_id', '')}",
                 "tags": p.get("tags", []),
-                "summary": p.get("chinese_summary", p.get("summary", "")[:200]),
+                "summary": p.get("annotated_summary") or p.get("chinese_summary", p.get("summary", "")[:200]),
                 "highlights": highlights_list,
                 "pdfUrl": p.get("pdf_url", ""),
                 "worthReading": p.get("worth_reading", False)
@@ -1470,6 +1739,7 @@ def main():
         log("Step 4: 生成中文摘要和亮点...")
         for p in top_papers:
             p["chinese_summary"] = generate_chinese_summary(p, p["group"])
+            p["annotated_summary"] = generate_annotated_summary(p)
             p["main_problem"] = extract_main_problem(p)
             p["highlights"] = extract_highlights(p)
             p["contributions"] = p.get("contributions", "")

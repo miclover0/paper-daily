@@ -152,7 +152,7 @@ def safe_request(url, max_retries=3):
         try:
             time.sleep(REQUEST_DELAY)
             req = urllib.request.Request(url, headers={"User-Agent": "PaperDailyBot/1.0"})
-            with urllib.request.urlopen(req, timeout=30) as resp:
+            with urllib.request.urlopen(req, timeout=60) as resp:
                 return resp.read().decode("utf-8")
         except Exception as e:
             log(f"  请求失败 (尝试 {attempt+1}/{max_retries}): {e}")
@@ -1204,7 +1204,9 @@ def generate_bilingual_summary(paper):
     输出形如：
       Recent advances ... 近期进展...
       We propose ... 我们提出...
-    返回带换行的文本(供 HTML 用 <p> 渲染)。"""
+    返回带换行的文本(供 HTML 用 <p> 渲染)。
+    优化：优先整批 LLM 调用；否则按每篇论文批量翻译（MyMemory block，
+    每批≤5句，约 50 篇×5 句 → 仅 ~50 次请求，避免逐句 250+ 次 HTTP）。"""
     summary = paper.get("summary", "")
     if not summary:
         return ""
@@ -1221,10 +1223,28 @@ def generate_bilingual_summary(paper):
             lines.append(line)
         return "\n".join(lines)
 
-    # 否则走免费翻译：优先本地离线 Argos，其次 MyMemory(含额度 dead-switch)
+    # 否则走免费翻译：批量 MyMemory（每批≤5句，减少请求数），失败回退逐句
+    if not _mymemory_dead:
+        translated = [None] * len(sentences)
+        for i in range(0, len(sentences), 5):
+            chunk = sentences[i:i + 5]
+            res = _mymemory_translate_block(chunk)
+            if res is None:
+                for j, s in enumerate(chunk):
+                    translated[i + j] = _translate_sentence(s)
+            else:
+                for j, zh in enumerate(res):
+                    translated[i + j] = zh
+        lines = []
+        for s, zh in zip(sentences, translated):
+            line = f"{s} {zh}".strip() if zh else s
+            lines.append(line)
+        return "\n".join(lines)
+
+    # MyMemory 额度耗尽：仅本地离线 Argos（若有），否则返回纯英文
     lines = []
     for s in sentences:
-        zh = _translate_sentence(s)
+        zh = _argos_translate(s)
         line = f"{s} {zh}".strip() if zh else s
         lines.append(line)
     return "\n".join(lines)

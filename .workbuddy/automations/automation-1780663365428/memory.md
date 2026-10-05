@@ -1,5 +1,19 @@
 # ArXiv 论文日报自动追踪 — 执行历史
 
+## 2026-08-11 — 自动化任务每日运行
+- **状态**: ✅ 成功（本地+push），⚠️ 部分数据（cs.CV/cs.LG feed 超时失败）
+- **日期**: 2026-08-11 (周二)
+- **论文总数**: 191 篇（从 881 篇 RSS 论文中关键词过滤；仅 cs.AI+cs.RO 成功，cs.CV/cs.LG 超时失败）
+- **强相关筛选后**: 50 篇（相关度分数 >= 70.0）
+- **分组**: A组(检测强相关) 25篇 / B组(端云协同) 7篇 / C组(其他) 18篇
+- **精读推荐**: 20 篇 (40%)
+- **数据源**: ArXiv RSS Feed (cs.CV: 0(超时), cs.LG: 0(超时), cs.AI: 753, cs.RO: 158)
+- **HTML**: daily_reports/2026-08-11-arXiv.html
+- **config.js**: 已更新，累计 2095 篇 / 56 天
+- **Git**: commit cbd0bf2，SSH push 成功 (3d99578..cbd0bf2)
+- **GitHub Pages**: https://miclover0.github.io/paper-daily/
+- **注意**: 执行前 git stash 解除自动化 memory.md 未暂存改动，pull 因 GitHub SSH 连接重置失败故跳过，stash pop 恢复；脚本运行约8分钟，cs.CV/cs.LG RSS 各 3 次重试均超时（WinError 10060），仅 cs.AI/cs.RO 成功，日报为部分数据，建议网络恢复后重跑补齐 CV/LG
+
 ## 2026-07-28 — 自动化任务每日运行
 - **状态**: ✅ 成功
 - **日期**: 2026-07-28 (周二)

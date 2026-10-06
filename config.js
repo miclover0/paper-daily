@@ -3,13 +3,1574 @@ const PAPER_ARCHIVE_CONFIG = {
     "title": "Agent & LLM Research Daily",
     "subtitle": "Daily arXiv Digest — Agents · RSI · Agentic RL · Frontier LLMs",
     "description": "Automated collection of cutting-edge research papers on AI Agents, Recursive Self-Improvement (RSI), Agentic RL, and releases from leading LLM labs (OpenAI, Anthropic, Google, Meta, Zhipu, DeepSeek, Qwen, Kimi, Hunyuan, Xiaomi, ByteDance, Baidu, etc.).",
-    "totalPapers": 100,
-    "totalDays": 2,
-    "lastUpdated": "2026-10-05",
+    "totalPapers": 140,
+    "totalDays": 3,
+    "lastUpdated": "2026-10-06",
     "author": "@miclover0",
     "repository": "https://github.com/miclover0/paper-daily"
   },
   "dailyReports": [
+    {
+      "id": "2026-10-06",
+      "date": "2026-10-06",
+      "dateDisplay": "October 06, 2026",
+      "weekday": "Tuesday",
+      "filename": "daily_reports/2026-10-06-arXiv.html",
+      "paperCount": 40,
+      "groups": {
+        "A": 7,
+        "B": 33,
+        "C": 0
+      },
+      "featuredPapers": [
+        {
+          "title": "EmbodiRSI: Recursive Self-Improvement for Data-Efficient Robot Adaptation",
+          "authors": "Haoran Lang, Haotao Lu, Shiyu Sang",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2609.38905",
+          "tags": [
+            "RSI",
+            "Agent",
+            "Embodied AI"
+          ],
+          "summary": "Adapting robot manipulation policies to new tasks and environments remains highly data-intensive, while the data needed for further improvement depends on the policy's current capabilities and failure modes. 调整机器人操纵策略以适应新的任务和环境仍然是高度数据密集型的，而进一步改进所需的数据取决于策略的当前功能和故障模式。\nWe introduce EmbodiRSI, an agentic system for recursive self-improvement (RSI) in a real-to-sim-to-real setting, where task-specific simulations are constructed from target deployment scenarios and used as low-cost environments for iterative policy improvement before transfer back to the physical world. 我们引入了EmbodiRSI ，这是一种在真实到模拟到真实环境中进行递归自我改进（ RSI ）的代理系统，其中任务特定的模拟是从目标部署场景构建的，并用作在转移回物理世界之前进行迭代策略改进的低成本环境。\nEmbodiRSI uses policy execution feedback to guide subsequent experience acquisition and policy updates. EmbodiRSI使用政策执行反馈来指导后续的经验获取和政策更新。\nTwo complementary mechanisms close this loop: Collaborative Error Correction generates agent-assisted corrective trajectories from policy-reached states, while Adaptive Data Collection directs expert demonstration generation toward the current policy's weaknesses. 两个互补的机制关闭了这个循环：协作纠错从策略到达的状态生成代理辅助的纠正轨迹，而自适应数据收集引导专家演示生成当前策略的弱点。\nThe task-specific simulation serves as a reusable workspace for policy warm-up, repeatable evaluation, failure diagnosis, and targeted data generation across successive RSI rounds. 特定于任务的模拟在连续的RSI回合中充当可重用的工作空间，用于策略预热、可重复评估、故障诊断和有针对性的数据生成。\nAcross three tabletop environments and 14 subtasks, EmbodiRSI increases scene-balanced autonomous simulation success from 50.4% to 83.5% over two RSI updates. 在三个桌面环境和14个子任务中， EmbodiRSI在两个RSI更新中将场景平衡的自主模拟成功率从50.4%提高到83.5%。\nWith 400 adaptive simulated trajectories and only ten real-world refinement trajectories per subtask, EmbodiRSI achieves 83.1% scene-balanced autonomous real-world success, compared with 75.0% for adaptation using 200 real-world demonstrations per subtask. EmbodiRSI拥有400个自适应模拟轨迹，每个子任务只有10个真实世界的细化轨迹，实现了83.1%的场景平衡自主真实世界成功率，而使用每个子任务200个真实世界演示的自适应成功率为75.0%。\nThese results demonstrate that feedback-driven recursive improvement in deployment-specific simulations can enable data-efficient adaptation of embodied policies to physical environments. 这些结果表明，特定于部署的模拟中的反馈驱动递归改进可以实现对物理环境的具体策略的数据高效适应。",
+          "highlights": [
+            "EmbodiRSI",
+            "隶属于 cs.RO",
+            "EmbodiRSI uses policy execution feedback to guide subsequent experience acquisition and policy updates."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2609.38905",
+          "readReason": "AI Agent 是当前研究热点，本文可能包含创新性的设计思路；递归自改进（RSI）是智能体自我进化的关键方向，本文具有一定的探索价值"
+        },
+        {
+          "title": "Recursive Self-Improvement of Visuomotor Policies through Local Recovery Supervision",
+          "authors": "Yuzhi Zhang, Xinyu Liu, Yu Zhang",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.05151",
+          "tags": [
+            "RSI",
+            "Agent"
+          ],
+          "summary": "Visuomotor policies can execute familiar tasks yet lack the corrective behavior needed after their own mistakes. Visuomotor策略可以执行熟悉的任务，但缺乏自身错误后所需的纠正行为。\nWe present a framework for recursive self-improvement through local recovery supervision. 我们通过当地的恢复监督提出了一个递归自我提升的框架。\nEach round audits the current policy, generates corrective demonstrations at supported failure states, and uses them to update the policy that drives the next round of collection. 每轮审核当前策略，在支持的故障状态下生成纠正演示，并使用它们来更新驱动下一轮收集的策略。\nAn offline auditor locates unresolved failures using coarse and dense temporal evidence and specifies observable repair goals. 离线审核员使用粗略和密集的时间证据定位未解决的故障，并指定可观察到的维修目标。\nA fixed multimodal agent acts as a tool-using teacher, generating recovery actions through observation, computation, execution, and feedback. 固定的多模式代理充当使用工具的老师，通过观察、计算、执行和反馈生成恢复操作。\nThe frozen student tests whether each teacher endpoint supports further progress. 冻结的学生测试每个教师端点是否支持进一步的进步。\nIf continuation fails, the system restores that endpoint and extends the demonstration. 如果继续操作失败，系统将恢复该端点并扩展演示。\nAction-level quality assessment then defines continuous training windows with aligned observations, quality weights, and validity masks. 然后，行动级质量评估通过一致的观察结果、质量权重和有效性掩码定义持续培训窗口。\nOnly the student is deployed. 只有学生被部署。\nIn a preliminary LIBERO-Goal study, recovery-augmented post-training achieves 88 successful episodes out of 100 validation scenes, compared with 78 for original-data continuation from the same $\\pi_0$ checkpoint. 在一项初步的LIBERO-Goal研究中，恢复增强后训练在100个验证场景中实现了88个成功的情节，而来自同一个$\\ pi_0 $检查点的原始数据连续为78个。\nAn earlier BC-RNN study on robomimic Can improves success from 102/130 to 112/130 using 26 local recovery segments. 早期BC-RNN对模拟机器人罐的研究使用26个局部恢复段将成功率从102/130提高到112/130。\nBoth comparisons match 2,000 additional optimization steps. 两种比较都匹配2,000个额外的优化步骤。",
+          "highlights": [
+            "present a framework",
+            "Recursive Self",
+            "隶属于 cs.RO"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.05151",
+          "readReason": "AI Agent 是当前研究热点，本文可能包含创新性的设计思路；递归自改进（RSI）是智能体自我进化的关键方向，本文具有一定的探索价值"
+        },
+        {
+          "title": "Recursive Video In-Context Learning for Agentic Robot",
+          "authors": "Wenrui Bao, Xinxin Liu, Bingxin Xu",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.06843",
+          "tags": [
+            "Agent",
+            "Embodied AI",
+            "LLM"
+          ],
+          "summary": "LLM agents that orchestrate frozen vision-language-action (VLA) policies improve across episodes through text memory, which records what the agent did but not how the task is done. 协调冻结视觉-语言-行动（ VLA ）策略的LLM代理通过文本记忆在不同情节中进行改进，文本记忆记录了代理所做的事情，但不记录任务是如何完成的。\nA demonstration video shows it, but fits poorly into an agent's context. 演示视频显示了这一点，但与客服代表的背景不符。\nThe full video slows every turn, fixed keyframes lose the contact detail that decides whether a grasp holds, and what the agent needs shifts from the task's structure while planning to the frames around each contact. 完整的视频每转一圈都会减慢速度，固定的关键帧会丢失联系人详细信息，而联系人详细信息决定了抓取是否正常，以及客服代表在规划时需要从任务的结构转移到每个联系人周围的帧。\nWe introduce Recursive Video In-Context Learning (RV-ICL), a training-free method that turns a demonstration into a hierarchy the agent navigates rather than a prompt it receives. 我们引入了递归视频上下文学习（ RV-ICL ） ，这是一种无需训练的方法，可将演示转化为座席导航的层次结构，而不是收到的提示。\nThe hierarchy is built from the sub-events of the demonstration, such as grasps and releases. 层次结构由演示的子事件构建而成，例如抓取和发布。\nIts levels grow finer, from keyframes of the whole task to phases, moments and short clips, and are exposed through read-only tools. 它的级别越来越精细，从整个任务的关键帧到阶段、时刻和短片，并通过只读工具暴露。\nThe agent reads the coarse levels before planning. 代理在规划之前读取粗略级别。\nDuring execution it re-enters the hierarchy whenever a step needs more detail and loads only the clip of its current sub-goal. 在执行过程中，每当一个步骤需要更多细节时，它都会重新进入层次结构，并仅加载其当前子目标的剪辑。\nOne demonstration per task is enough. 每项任务一次演示就足够了。\nBuilt on RPent, RV-ICL raises success from 92.6% to 96.5% on LIBERO-PRO and from 86.7% to 95.8% on LIBERO-Plus. RV-ICL以RPent为基础，在LIBERO-PRO上的成功率从92.6%提高到96.5% ，在LIBERO-Plus上的成功率从86.7%提高到95.8%。",
+          "highlights": [
+            "Recursive Video In",
+            "隶属于 cs.RO, cs.AI",
+            "A demonstration video shows it, but fits poorly into an agent's context."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.06843",
+          "readReason": "AI Agent 是当前研究热点，本文可能包含创新性的设计思路；具身智能是通向通用 AI 的重要路径，本文值得关注"
+        },
+        {
+          "title": "Video2World: Benchmarking Coding Agents for Interactive World Modeling from Embodied Videos",
+          "authors": "Jinzhou Tang, Zijun Zhang, Jing Yang",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.04432",
+          "tags": [
+            "Anthropic",
+            "Agent",
+            "Embodied AI"
+          ],
+          "summary": "Building interactive simulators from real-world observations is a promising way to scale embodied data, but current pipelines still rely heavily on manual environment construction and calibration. 从真实世界的观察中构建交互式模拟器是扩展具体数据的一种有前途的方法，但目前的管道仍然严重依赖手动环境构建和校准。\nWe study whether frontier foundation models and coding agents can automate this process end to end. 我们研究前沿基础模型和编码代理是否可以端到端地自动化此过程。\nWe formulate \\emph{autonomous video-to-simulation} as a software engineering task in which an agent observes an embodied video, constructs the corresponding simulated environment and robot behavior, and iteratively refines the result through execution feedback. 我们将\\ emph {autonomous video-to-simulation}公式化为软件工程任务，其中代理观察具体的视频，构建相应的模拟环境和机器人行为，并通过执行反馈迭代细化结果。\nTo evaluate this capability, we introduce \\textbf{Video2World}, a benchmark comprising 222 reconstruction instances derived from 189 robot and human demonstration videos. 为了评估这种能力，我们引入了\\ textbf {Video2World} ，这是一个基准，包括来自189个机器人和人类演示视频的222个重建实例。\nVideo2World measures reconstructed worlds along geometric fidelity, dynamic fidelity, and functional correctness, capturing spatial perception, physical reasoning, and executable interaction. Video2World根据几何保真度、动态保真度和功能正确性测量重建的世界，捕捉空间感知、物理推理和可执行交互。\nEvaluating 9 frontier coding-agent systems reveals a sharp improvement in Task success beginning with Claude Opus 5, rising from below 5\\% to over 15\\%, while substantial gaps to human-assisted reconstruction remain. 对9个前沿编码代理系统的评估显示，从Claude Opus 5开始，任务成功率急剧提高，从低于5 ％上升到超过15 ％ ，而在人工辅助重建方面仍然存在巨大差距。\nWe further find that worlds that look better could work worse: better visual fidelity does not always lead to higher task success. 我们进一步发现，看起来更好的世界可能会变得更糟：更好的视觉保真度并不总是能带来更高的任务成功率。\nThis echoes the broader gap between perceptual realism and factual correctness observed in generative models. 这与生成模型中观察到的感知现实主义和事实正确性之间的更大差距相呼应。",
+          "highlights": [
+            "Video2World",
+            "隶属于 cs.CV, cs.AI",
+            "We study whether frontier foundation models and coding agents can automate this process end to end."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.04432",
+          "readReason": "AI Agent 是当前研究热点，本文可能包含创新性的设计思路；具身智能是通向通用 AI 的重要路径，本文值得关注"
+        },
+        {
+          "title": "MG-VQA: Manipulation Grounded Visual Question Answering with VLMs",
+          "authors": "Vineet Bhat, Mikaela Angelina Uy, Siyi Chen",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2608.17129",
+          "tags": [
+            "Google",
+            "Agent",
+            "Embodied AI"
+          ],
+          "summary": "Vision-language models (VLMs) have shown promising spatial reasoning capabilities from static visual inputs, where the evidence needed to answer a question is available in the provided views. 视觉语言模型（ VLM ）显示了来自静态视觉输入的有前途的空间推理能力，其中所提供的视图中提供了回答问题所需的证据。\nHowever, in cluttered environments, answer-relevant evidence may be occluded rather than absent: an object may lie beneath a pile, be covered by another object, or have identifying information facing away from the camera. 然而，在混乱的环境中，与答案相关的证据可能会被遮挡而不是缺失：一个物体可能位于一堆物体下面，被另一个物体覆盖，或者具有背离摄像头的识别信息。\nAnswering such questions requires physical interaction to reveal the hidden evidence. 回答这些问题需要身体互动，以揭示隐藏的证据。\nWe formalize this setting as Manipulation-Grounded Visual Question Answering (MG-VQA), where an agent answers a question about an initially cluttered scene by using manipulation as an intermediate evidence-gathering operation. 我们将此设置形式化为基于操纵的视觉问题回答（ MG-VQA ） ，其中客服代表通过使用操纵作为中间证据收集操作来回答有关最初混乱场景的问题。\nWe introduce MG-VQA-Bench, comprising 600 human-verified questions across four spatial reasoning tasks, and evaluate it in a cluttered tabletop interactive environment. 我们引入了MG-VQA-Bench ，其中包括跨四个空间推理任务的600个人工验证问题，并在杂乱的桌面交互环境中对其进行评估。\nEight VLMs are evaluated under three levels of environment access: Direct (image only), Perception (pointing, segmentation, and scene graphs), and Manipulation (perception, grasping, and pushing). 八个VLM在三个环境访问级别下进行评估：直接（仅图像）、感知（指向、分割和场景图）和操纵（感知、抓握和推送）。\nAcross all models, Direct and Perception achieve average success rates of 36.2% and 37.6%, respectively, only slightly above an image-blind chance baseline of 32.7%. 在所有模型中， Direct和Perception的平均成功率分别为36.2%和37.6% ，仅略高于32.7%的图像盲机率基线。\nIn contrast, Manipulation raises average success to 56.8% (40.8-83.0% across models). 相比之下， Manipulation将平均成功率提高到56.8% （跨模型为40.8-83.0% ）。\nStronger tool-calling VLMs, GPT~6~Astra (83.0%) and Gemini~3.8~Flash (69.3%), search persistently and re-ground after unsuccessful interactions, while weaker models often answer without gathering sufficient evidence or stop prematurely after failed actions. 更强大的工具调用VLM ， GPT ~ 6 ~ Astra （ 83.0 ％ ）和Gemini~3.8~Flash （ 69.3 ％ ） ，持续搜索并在不成功的交互后重新接地，而较弱的模型通常在没有收集足够证据的情况下回答或在失败的操作后过早停止。\nOur results highlight the need for VLM agents that use manipulation for persistent, physically grounded evidence gathering and recovery. 我们的研究结果强调了对VLM代理的需求，这些代理使用操纵来进行持久的、基于物理的证据收集和恢复。\nCode and benchmark is available here: https://github.com/vineet2104/MG-VQA 代码和基准可在此处获得： https://github.com/vineet2104/MG-VQA",
+          "highlights": [
+            "MG",
+            "隶属于 cs.CV, cs.RO",
+            "Answering such questions requires physical interaction to reveal the hidden evidence."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2608.17129",
+          "readReason": "AI Agent 是当前研究热点，本文可能包含创新性的设计思路；具身智能是通向通用 AI 的重要路径，本文值得关注"
+        },
+        {
+          "title": "Human Behavior-Informed Crash Scenario Generation with Real-World Crash Priors for Autonomous Vehicle Safety Evaluation",
+          "authors": "Mingxing Peng, Xusen Guo, Long Chen",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.04366",
+          "tags": [
+            "Agent",
+            "Multi-Agent",
+            "LLM"
+          ],
+          "summary": "Reliable safety evaluation of autonomous vehicles (AVs) is essential to improving road safety, yet it depends critically on realistic simulation of rare crashes. 对自动驾驶汽车（ AV ）进行可靠的安全评估对于改善道路安全至关重要，但它在很大程度上取决于对罕见碰撞的真实模拟。\nExisting crash scenario generation methods can increase collision occurrence, but often fail to realistically reproduce how crashes evolve before impact or the distribution of crash types observed in the real world. 现有的碰撞场景生成方法可能会增加碰撞发生率，但通常无法逼真地再现碰撞在碰撞之前的演变情况或在现实世界中观察到的碰撞类型的分布情况。\nHere, we present CrashSim, a human behavior-informed crash scenario generation framework that uses real-world crash priors to guide generative multi-agent traffic simulation for more reliable AV safety evaluation. 在这里，我们展示了CrashSim ，这是一个基于人类行为的碰撞场景生成框架，它使用真实世界的碰撞先验来指导生成的多智能体交通模拟，以进行更可靠的AV安全评估。\nThese priors capture how real-world crashes evolve before impact and how different crash types are distributed, allowing limited crash data to guide realistic and scalable scenario generation across naturalistic driving contexts. 这些先验数据捕捉了真实世界的碰撞在撞击前是如何演变的，以及不同的碰撞类型是如何分布的，从而允许有限的碰撞数据指导在自然驾驶环境中生成逼真且可扩展的场景。\nWe evaluate CrashSim against competing methods, showing that it more closely reproduces real-world pre-impact behavior, collision dynamics, collision geometry and crash-type distributions. 我们根据竞争方法对CrashSim进行评估，结果表明它更密切地再现了真实世界的撞击前行为、碰撞动态、碰撞几何和碰撞类型分布。\nWe further use CrashSim to construct nuCrash dataset, containing over 4,000 crash and near-crash scenarios. 我们进一步使用CrashSim构建nuCrash数据集，包含超过4,000个崩溃和接近崩溃的场景。\nClosed-loop evaluation of five AV planners shows that nuCrash more effectively exposes differences in planner safety capabilities than nuScenes. 对五名AV规划师的闭环评估表明， nuCrash比nuScenes更有效地暴露了规划师安全性能的差异。\nAn LLM-assisted evaluation agent further analyzes planner failures to provide capability-level diagnoses and targeted improvement guidance. LLM协助的评估代理进一步分析规划师未能提供能力水平诊断和有针对性的改进指导。\nTogether, CrashSim enables realistic and scalable crash generation for more informative AV safety evaluation. CrashSim共同实现了逼真且可扩展的碰撞生成，可提供更多信息的AV安全评估。",
+          "highlights": [
+            "Human Behavior",
+            "隶属于 cs.RO, cs.AI",
+            "We further use CrashSim to construct nuCrash dataset, containing over 4,000 crash and near-crash scenarios."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.04366",
+          "readReason": "AI Agent 是当前研究热点，本文可能包含创新性的设计思路；多智能体协作是复杂任务求解的重要范式，本文值得关注"
+        },
+        {
+          "title": "PreAct-Nav: Agentic Reasoning Before Action for Urban Navigation",
+          "authors": "Jing Xie, Shouwei Ruan, Yubin Wang",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.04916",
+          "tags": [
+            "Agent",
+            "Embodied AI",
+            "World Model"
+          ],
+          "summary": "Urban navigation requires embodied agents to pursue long-horizon goals through local decisions based on egocentric observations. 城市导航需要具体的代理人通过基于自我中心观察的本地决策来追求长远目标。\nHowever, existing agentic navigation methods often struggle to translate distant goals into coherent local decisions in large-scale physical environments. 然而，现有的代理导航方法往往难以在大规模物理环境中将遥远的目标转化为连贯的本地决策。\nTheir reliance on linguistic reasoning over transient observations or limited history constrains anticipation of the consequences of actions and future conditions, despite the importance of such foresight for navigating long and complex urban routes. 他们对语言推理的依赖超过了短暂的观察或有限的历史，这限制了对行动后果和未来状况的预测，尽管这种远见对于漫长而复杂的城市路线的导航非常重要。\nTo bridge this gap, we propose PreAct-Nav, an agentic navigation framework that equips frozen policies with anticipatory reasoning for robust urban navigation. 为了弥合这一差距，我们提出了PreAct-Nav ，这是一个代理导航框架，为冻结的政策提供强大的城市导航的预期推理。\nOur central idea is to anchor local decisions in persistent medium-horizon subgoals, assess the consequences of predicted actions before execution, and continually update the reasoning context using actual outcomes. 我们的核心思想是将本地决策锚定在持久的中期子目标中，在执行前评估预测行动的后果，并使用实际结果不断更新推理上下文。\nAt its core, a navigation memory module maintains the active subgoal and relevant experience across decisions, translating distant goals into actionable intermediate objectives. 导航记忆模块的核心是跨决策维护活动的子目标和相关体验，将遥远的目标转化为可操作的中间目标。\nWe further introduce a predictive world sandbox that uses an action-conditioned world model (AC-WM) to forecast world dynamics conditioned on candidate movements. 我们进一步引入了一个预测世界沙箱，该沙箱使用动作条件世界模型（ AC-WM ）来预测以候选运动为条件的世界动态。\nA vision-language model (VLM) reasoner interprets these predictions under the current subgoal to retain or revise actions. 视觉语言模型（ VLM ）推理者在当前子目标下解释这些预测，以保留或修改操作。\nAfter execution, real observations are used to assess outcomes, correct inconsistent assumptions, and update memory to continue or reformulate the subgoal. 执行后，使用真实观察来评估结果，纠正不一致的假设，并更新记忆以继续或重新制定子目标。\nExtensive evaluations demonstrate that the proposed PreAct-Nav improves action selection through memory updates and visual prediction, with more pronounced gains on longer routes and routes with more turns.",
+          "highlights": [
+            "introduce a predictive world sandbox that uses an action-conditioned world model",
+            "PreAct",
+            "隶属于 cs.RO, cs.AI"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.04916",
+          "readReason": "AI Agent 是当前研究热点，本文可能包含创新性的设计思路；具身智能是通向通用 AI 的重要路径，本文值得关注"
+        },
+        {
+          "title": "Visual Swarm Navigation via Deep Reinforcement Learning and Evolutionary Hybrid Design",
+          "authors": "\\'{A}lvaro D\\'{i}ez (Department of Computer Science, Artificial Intelligence, University of Alicante)",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.06400",
+          "tags": [
+            "Agent",
+            "Multi-Agent",
+            "Embodied AI"
+          ],
+          "summary": "Swarm robotics presents a robust and cost-effective paradigm for advanced automation in complex, dynamic environments, such as those encountered in search and rescue or environmental monitoring. Swarm机器人为复杂、动态环境中的高级自动化提供了强大且具有成本效益的范例，例如在搜索和救援或环境监测中遇到的情况。\nA fundamental challenge for this field is the data-driven design of decentralized controllers capable of generating emergent collective behaviors.\nThis paper proposes a novel, AI-driven hybrid methodology for the automatic synthesis of swarm robotic controllers for autonomous visual navigation.\nThis approach synergistically combines multi-agent reinforcement learning with neuro-evolutionary strategies, specifically leveraging implementations of the cross-entropy method and the covariance matrix adaptation evolution strategy to optimize a pre-trained individual navigation policy.\nThe underlying deep architecture is engineered for low-cost, resource-constrained platforms, utilizing a compact neural network that relies exclusively on monocular camera imagery.\nThis vision-based design emphasizes computational and energy efficiency, a critical requirement for practical swarm deployments.\nExperiments, performed in a high-fidelity physics simulator, demonstrate that the resulting controllers enable robust and scalable collective exploration of diverse indoor environments.\nThe controller trained using our cross-entropy method achieves superior exploration coverage, visiting 36.20% more regions compared to the covariance matrix adaptation evolution strategy.\nCritically, our best vision-based policy achieves exploration performance statistically comparable to traditional methods relying on more expensive distance sensors, while delivering a significant 31.40% average reduction in energy consumption.\nThese findings validate an effective and economically viable autonomous control system, establishing a path for deploying highly efficient collective intelligence in real-world engineering applications.",
+          "highlights": [
+            "隶属于 cs.RO, cs.MA",
+            "A fundamental challenge for this field is the data-driven design of decentralized controllers capable of generating emer",
+            "This paper proposes a novel, AI-driven hybrid methodology for the automatic synthesis of swarm robotic controllers for a"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.06400",
+          "readReason": "AI Agent 是当前研究热点，本文可能包含创新性的设计思路；多智能体协作是复杂任务求解的重要范式，本文值得关注"
+        },
+        {
+          "title": "Nonlinear Density-Driven Optimal Control (D2OC) for Multi-Agent Spatial Coverage via Sequential Convex Programming",
+          "authors": "Julian Martinez, Kooktae Lee",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.04545",
+          "tags": [
+            "Agent",
+            "Multi-Agent"
+          ],
+          "summary": "This paper presents a nonlinear extension of Density-Driven Optimal Control (D2OC) for multi-agent spatial coverage with prescribed density distributions.\nRather than assigning individual target locations, D2OC drives the collective spatial distribution of agents toward a desired density through a Wasserstein-based objective.\nWe extend this framework to multi-step finite-horizon control for discrete-time control-affine nonlinear systems using sequential convex programming.\nAt each control update, the nonlinear dynamics are locally linearized over the prediction horizon, yielding a strictly convex quadratic program that preserves the Wasserstein barycentric structure while directly incorporating input constraints.\nWe further characterize the effect of constrained control deviations and nonlinear Taylor remainders on the accuracy of the local linear prediction, establishing an explicit finite-horizon error bound and a two-step specialization for receding-horizon implementation.\nThe resulting method retains the decentralized, distribution-driven nature of D2OC while providing a computationally efficient optimization procedure for nonlinear multi-agent systems.\nSimulations with unicycle and quadrotor teams show coverage performance comparable to nonlinear model predictive control, while substantially reducing computation time.\nThese results demonstrate a tractable and theoretically characterized framework for density-driven spatial coverage under nonlinear dynamics.",
+          "highlights": [
+            "Nonlinear Density",
+            "隶属于 cs.MA, cs.RO",
+            "We extend this framework to multi-step finite-horizon control for discrete-time control-affine nonlinear systems using s"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.04545",
+          "readReason": "AI Agent 是当前研究热点，本文可能包含创新性的设计思路；多智能体协作是复杂任务求解的重要范式，本文值得关注"
+        },
+        {
+          "title": "Same Pieces, Different Servers: A Tetris Benchmark for AI Agents as Served",
+          "authors": "Haochuan Wang",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2603.02348",
+          "tags": [
+            "Agent"
+          ],
+          "summary": "An agent meets a model as served: through an endpoint with a price card, a shared cache and other tenants, or on whatever hardware a self-hosted model runs.\nBenchmarks rank the weights.\nWe introduce a Tetris benchmark that measures what agents get from models as served: every move is scored against an oracle, and every agent receives the same pieces.\nIn five pre-specified experiments with nine open-weight models on one serverless provider, plus an open decision model self-hosted on a CPU, we find that price and size do not predict decision quality; that resending history costs almost nothing when cached input is free, would cost eleven to twelve times more if it were not, and makes play worse; that deployments keep between 4 and more than 64 agent contexts warm, in line with their throughput rather than the model's KV-cache size; that an agent's own long requests slow its slowest short decisions more than tenfold, which a simple admission rule cuts by 59% without hurting play; and that the decision model plays mid-pack but takes 27 s per move on a CPU, about 650 times longer than reported on a GPU.\nArchitecture predicts some of what an agent sees; the deployment sets the rest.",
+          "highlights": [
+            "introduce a Tetris benchmark that measures what agents get from model",
+            "Same Pieces, Different Servers",
+            "隶属于 cs.LG, cs.AI"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2603.02348",
+          "readReason": "AI Agent 是当前研究热点，本文可能包含创新性的设计思路；论文建立了新的基准评测，对后续研究有参考价值"
+        },
+        {
+          "title": "FLEX-WAM: Flexible Block-Causal World-Action Models for Long-Horizon Imagination and Planning",
+          "authors": "R. Khorrambakht, Joseph Amigo, F\\'elix Lebel",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.05483",
+          "tags": [
+            "RSI",
+            "Embodied AI",
+            "World Model"
+          ],
+          "summary": "World--action models (WAMs) promise a unified model that predicts action-conditioned futures, generates feasible actions, and supports planning in imagination.\nHowever, existing joint video--action models often use computationally heavy, fixed-horizon backbones ill-suited to streaming inference and stable long-horizon open-loop rollouts.\nWe introduce FLEX-WAM, a Flexible and Efficient Block-Causal World--Action Model for unified simulation and policy inference.\nFLEX-WAM supports variable-length contexts and non-causal prediction horizons, as well as infinite autoregressive generation frame by frame or block by block.\nIts block-causal, KV-cacheable architecture combines axial attention and blockwise diffusion forcing to enable efficient real-time rollout and deployment-time latency--throughput tradeoffs without retraining.\nJoint training can nevertheless produce plausible futures that weakly respond to commanded actions.\nWe address this failure mode by balancing state and action flow-matching gradient contributions across the state--action diffusion-noise grid and regulating world-model sampling using Forward-Dynamics (FD) elasticity, an efficient training-time proxy for action responsiveness.\nAcross simulated and real-world datasets, FLEX-WAM achieves superior multi-step prediction quality and latency while producing stable joint state--action rollouts for thousands of steps.\nAs a joint action proposer and simulator within MCTS, it solves long-horizon PushT and all five OGBench Puzzle-4x4 tasks entirely in imagination.\nOn a bimanual OpenArm-based robot, a single checkpoint jointly serves as a play policy and expected-outcome predictor, enabling real-time identification and collection of model--reality mismatches for future self-improvement.",
+          "highlights": [
+            "without retraining",
+            "FLEX",
+            "隶属于 cs.RO, cs.AI"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.05483",
+          "readReason": "递归自改进（RSI）是智能体自我进化的关键方向，本文具有一定的探索价值；具身智能是通向通用 AI 的重要路径，本文值得关注"
+        },
+        {
+          "title": "GEM-Occ: From Visual Geometry Evidence to Embodied Semantic Occupancy Memory",
+          "authors": "Hu Zhu, Bohan Li, Xianda Guo",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2607.05543",
+          "tags": [
+            "Agent",
+            "Embodied AI"
+          ],
+          "summary": "Embodied agents exploring indoor environments require reliable semantic occupancy memory that persists across observations and revisits.\nBuilding such memory is challenging because each observation provides incomplete and uncertain geometric and semantic evidence.\nWe introduce GEM-Occ, a Gaussian Evidence Memory framework that consolidates evidence accumulated over time into persistent semantic occupancy memory.\nLocal predictions are converted into occupied semantic Gaussians and free-space ray evidence.\nConfidence- and visibility-aware causal updates integrate supporting observations, suppress occupancy contradicted by observed free space, and preserve previously observed structures through occlusion.\nA hierarchical memory organization supports continued mapping and efficient queries across connected indoor spaces.\nTo evaluate this capability, we introduce HIOcc, a unified benchmark for embodied semantic occupancy memory.\nHIOcc establishes a shared semantic label space and evaluation framework spanning local prediction, room-level online mapping, and building-level mapping, while accommodating perspective and panoramic observations.\nExperiments on HIOcc demonstrate that GEM-Occ outperforms existing methods, enabling accurate semantic occupancy prediction and consistent online mapping across spatial scales with efficient memory usage and fast occupancy queries.",
+          "highlights": [
+            "outperforms existing methods",
+            "GEM",
+            "隶属于 cs.RO, cs.CV"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2607.05543",
+          "readReason": "AI Agent 是当前研究热点，本文可能包含创新性的设计思路；具身智能是通向通用 AI 的重要路径，本文值得关注"
+        },
+        {
+          "title": "How Vulnerable Is My Learned Policy? Universal Adversarial Perturbation Attacks On Modern Behavior Cloning Policies",
+          "authors": "Akansha Kalra, Basavasagar Patil, Guanhong Tao",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2502.03698",
+          "tags": [
+            "Google"
+          ],
+          "summary": "Imitation learning, also known as learning from demonstrations, is a popular approach to train AI models; however, the vulnerability of these models to adversarial attacks remains underexplored.\nWe present the first systematic study of adversarial attacks, across a range of both classic and recently proposed imitation learning algorithms, including Vanilla Behavior Cloning (Vanilla BC), LSTM-GMM, Implicit Behavior Cloning (IBC), Diffusion Policy (DP), and Vector-Quantized Behavior Transformer (VQ-BET).\nWe study the vulnerability of these methods to white-box, grey-box and black-box adversarial perturbations.\nOur experiments reveal that most existing methods are highly vulnerable to these attacks, including black-box transfer attacks that transfer across algorithms.\nWhite-box attacks cause at least a 65% reduction in average task success across all evaluated tasks and algorithms, while the black-box transfer attacks reduce task success by up to 88% on Lift, 99% on Can, and 100% on Square.\nTo the best of our knowledge, we are the first to study and compare the vulnerabilities of different popular imitation learning algorithms to both white-box and black-box attacks.\nOur findings highlight the vulnerabilities of modern imitation learning algorithms, paving the way for future work in addressing such limitations.\nVideos and code are available at https://sites.google.com/view/uap-attacks-on-bc.",
+          "highlights": [
+            "first systematic study of adversarial attacks",
+            "隶属于 cs.LG, cs.CR",
+            "We study the vulnerability of these methods to white-box, grey-box and black-box adversarial perturbations."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2502.03698",
+          "readReason": "来自 Google 团队的最新研究工作，值得重点关注其技术路线；论文提出了新的方法/框架，具有创新性"
+        },
+        {
+          "title": "From Representational Complementarity to Dual Systems: Synergizing VLM and Vision-Only Backbones for End-to-End Driving",
+          "authors": "Sining Ang, Yuguang Yang, Chenxu Dang",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2602.10719",
+          "tags": [
+            "Qwen"
+          ],
+          "summary": "Vision-Language-Action (VLA) driving augments end-to-end (E2E) planning with language-enabled visual backbones, but how VLM representations differ from vision-only encoders after policy learning, and whether such differences matter for planning, remains unclear.\nUnder a unified VLM-hidden + diffusion-policy paradigm, we compare multiple VLM families/scales (InternVL3 and Qwen3VL) with standard vision-only encoders (ResNet, ViT, and EVA-CLIP) while keeping the downstream planner fixed.\nWe study representation, behavior, and system design.\nCKA/CCA and Shared--Unique SAE show that policy learning enlarges a common decision subspace, but both branches retain non-transferable residual factors.\nWe further replicate this shared-plus-unique representation pattern on nuPlan using the AsyncDrive planning stack.\nLatent-intervention policies and scenario-level analysis further show that these residuals are behaviorally meaningful: vision-only encoders are stronger in simple geometry-dominant scenes, whereas VLMs are more effective in semantically complex and interaction-heavy long-tail cases.\nThe two branches also exhibit distinct progress--braking and path-choice tendencies, and an oracle best-of-two VLM+ViT selector reaches 93.58 PDMS on NAVSIM.\nWe convert this complementarity into two lightweight systems: HybridDriveVLA, which selects from a compact cross-model candidate set using a learned trajectory scorer and improves PDMS from 90.80 to 92.10, and DualDriveVLA, a fast--slow variant that invokes the VLM in only 15% of scenarios, achieving 91.00 PDMS with about $1.9\\times$ lower latency than the VLM baseline.\nCode will be available at https://github.com/WilliamXuanYu/HybridDriveVLA.",
+          "highlights": [
+            "From Representational Complementarity to Dual Systems",
+            "隶属于 cs.RO, cs.CV",
+            "We study representation, behavior, and system design."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2602.10719",
+          "readReason": "来自 Qwen 团队的最新研究工作，值得重点关注其技术路线"
+        },
+        {
+          "title": "DexAgent: An Agentic Human2Sim2Robot Framework for Dexterous Manipulation with Self-Evolving Tool Library",
+          "authors": "Youhui Wang, Yunzhu Li, Li Fei-Fei",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2609.35318",
+          "tags": [
+            "RSI",
+            "Agent",
+            "Embodied AI"
+          ],
+          "summary": "Human videos offer a scalable source of demonstrations for dexterous robot manipulation.\nHowever, existing human-to-simulation-to-robot (Human2Sim2Robot) pipelines rely on predefined procedures that struggle to accommodate diverse object properties and interactions, particularly those involving articulated and deformable objects.\nWe introduce DexAgent, an agentic Human2Sim2Robot framework that converts a single egocentric human video and a task prompt into physically grounded robot trajectories for policy training.\nIt operates through four stages: semantic understanding of human videos, property-based simulation reconstruction, robot trajectory optimization, and robot data generation.\nAt each stage, DexAgent adapts its approach to the task and object properties by selecting suitable skills from its tool library or developing new ones when needed.\nProperty-specific verifiers assess stage outcomes for physical validity and task-specific requirements and provide feedback for refinement, preventing error propagation through the workflow.\nThis adaptive, verification-guided process allows DexAgent to process diverse objects and long-horizon tasks.\nIn the final stage, DexAgent varies object and robot states in simulation to generate diverse robot trajectories from a single human video, then retextures the rendered observations to facilitate sim-to-real transfer.\nNewly developed skills and verifiers are retained in its tool library, making it self-evolving to accumulate reusable capabilities.\nThis reduces processing time as DexAgent encounters more human videos.\nAcross eleven real-world tasks, policies trained with DexAgent-generated data achieve a 3.5x higher success rate than competing baselines.\nProject website: https://dexagent1.github.io/.",
+          "highlights": [
+            "DexAgent",
+            "隶属于 cs.RO",
+            "Human videos offer a scalable source of demonstrations for dexterous robot manipulation."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2609.35318",
+          "readReason": "AI Agent 是当前研究热点，本文可能包含创新性的设计思路；递归自改进（RSI）是智能体自我进化的关键方向，本文具有一定的探索价值"
+        },
+        {
+          "title": "DreamFormer: Dream Imitation with a Transformer World Model for Language-Conditioned Robotic Manipulation",
+          "authors": "Mostafa Kotb, Cornelius Weber, Muhammad Burhan Hafez",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.04540",
+          "tags": [
+            "Agent",
+            "Embodied AI",
+            "World Model"
+          ],
+          "summary": "We introduce DreamFormer, a model-based agent that acquires language-conditioned, multi-task skills by imitating expert demonstrations within the latent imagination of a learned world model.\nDreamFormer first learns a task-agnostic Transformer world model from unstructured play data, then acquires task-specific behaviors by optimizing an intrinsic reward that aligns agent-generated rollouts with expert demonstrations in latent space.\nSince the policy is trained on-policy inside imagination, it is exposed to its own errors during training, mitigating the covariate shift inherent to offline behavioral cloning.\nTo make long-horizon imagination affordable, DreamFormer encodes a high-resolution multi-view robotic observation into a single input token, avoiding both spatial downsampling and the multi-token representations used by prior Transformer world models.\nOn the long-horizon CALVIN benchmark, DreamFormer outperforms LUMOS, the comparable model-based agent, on single-environment evaluation (2.52 vs 2.34 average tasks completed per chain of five) while keeping imagination rollouts tractable.\nAgainst HULC, the behavior cloning baseline, it nearly doubles performance on zero-shot transfer to an unseen environment (1.30 vs 0.67), indicating that dynamics learned by the world model transfer more readily than a directly cloned policy.\nThis is consistent with the role attributed to internal models in biological agents, where a model of environment dynamics supports behavior in situations not previously encountered.",
+          "highlights": [
+            "outperforms LUMOS",
+            "first learns a task-agnostic Transformer world model from unstructured play data"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.04540",
+          "readReason": "AI Agent 是当前研究热点，本文可能包含创新性的设计思路；具身智能是通向通用 AI 的重要路径，本文值得关注"
+        },
+        {
+          "title": "RobotUse: Allocating Computation, Context, and Decisions",
+          "authors": "Junhoo Lee (KAIST), Injun Baek (Seoul National University), Seungyeon Kim (Seoul National University)",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.04929",
+          "tags": [
+            "Agent",
+            "Embodied AI"
+          ],
+          "summary": "Robot agents must connect their intended actions to observed outcomes while retaining the context needed to revise their choices over repeated attempts.\nExisting interfaces often leave these choices inside predefined tools or require agents to manage detailed execution code and its growing history.\nWe introduce RobotUse, a robot agent harness that organizes computation, context, and decisions around specifying and revising physical actions.\nAgents visually select targets and poses, while the backend handles geometry, motion planning, and control.\nSubagents retain detailed interactions within each subgoal and return the information needed for subsequent decisions.\nContinual harnessing lets agents learn from execution by updating a persistent playbook.\nOn RoboLab, RobotUse achieves 45% task success, outperforming CaP-X by 6.7 percentage points while maintaining compact decision contexts and reducing reliance on predefined action abstractions.\nFurthermore, we show that RobotUse learns from real-world execution despite imperfect feedback and transfers what it learns to subsequent tasks.\nProject page is available at https://robotuse-team.github.io/.",
+          "highlights": [
+            "outperforming CaP-X by 6",
+            "RobotUse",
+            "隶属于 cs.RO"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.04929",
+          "readReason": "AI Agent 是当前研究热点，本文可能包含创新性的设计思路；具身智能是通向通用 AI 的重要路径，本文值得关注"
+        },
+        {
+          "title": "NavProbe: Evidence-Grounded Reasoning with Active Memory Retrieval for Zero-Shot Navigation",
+          "authors": "Jingyang Liu, Sujia Yao, Jiayuan Gu",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2609.27526",
+          "tags": [
+            "Agent",
+            "Embodied AI"
+          ],
+          "summary": "Long-horizon navigation requires an agent to revise its intermediate objectives as evidence accumulates.\nFull visual histories are costly to process, while compact summaries may omit details needed to reconsider earlier decisions.\nWe introduce NavProbe, a hierarchical zero-shot navigation agent that couples a dynamic subgoal agenda with active evidence retrieval.\nA compact index links summaries of visited places, transitions, and landmarks to their visual and geometric records.\nWhen the current context is insufficient, a task executive retrieves targeted evidence to generate, revise, or resolve subgoals.\nReusable conclusions are used to update the index, and a skill policy converts the revised task state into parameterized navigation actions.\nNavProbe achieves 71.7% SR and 55.8% SPL on R2R-CE and 55.3% SR and 38.6% SPL on RxR-CE, outperforming strong zero-shot baselines.\nIt also achieves 79.3% SR on HM3D-v2 ObjectNav, with qualitative real-robot demonstrations illustrating physical deployment.\nCode is available at https://github.com/liujy25/NavProbe.",
+          "highlights": [
+            "outperforming strong zero-shot baselines",
+            "NavProbe",
+            "隶属于 cs.RO"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2609.27526",
+          "readReason": "AI Agent 是当前研究热点，本文可能包含创新性的设计思路；具身智能是通向通用 AI 的重要路径，本文值得关注"
+        },
+        {
+          "title": "Controllable Road Marking Generation",
+          "authors": "Zhiyu (Joey), Cai, Yufan Zhang",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.05771",
+          "tags": [
+            "Agent",
+            "Multi-Agent",
+            "Embodied AI"
+          ],
+          "summary": "Lane and road markings provide critical guidance for vehicle navigation and multi-agent coordination, yet authoring them at scale remains a manual workflow that limits quantitative analysis and scenario testing.\nWe introduce Controllable Road Marking Generation, which synthesizes a missing center-region marking layout from a drivable-area mask, optional outer-ring markings, and a textual description.\nOur benchmark uses deterministic, metadata-derived prompts and three output channels: lane dividers, road dividers, and pedestrian crossings.\nWe develop a conditional bird's-eye-view (BEV) pipeline that combines (i) a text-conditioned latent rectified-flow DiT trained with a topology-aware auxiliary loss, (ii) Gaussian-blurred training targets that stabilize learning of thin, sparse markings, and (iii) Structured Gaussian Render (SGR), a training-free post-process that recovers crisp divider geometry by extracting polylines, fitting cubic B\\'ezier curves, and re-rendering them as anisotropic super-Gaussian primitives.\nOn 4,597 Argoverse~2 test tiles, our system achieves Buffered F1 of 80.8 and clDice of 50.2, compared with 38.8 and 24.6 for an adapted state-of-the-art mask-refinement baseline.\nOn Waymo dataset, it yields 88.0 Buffered F1 and 66.2 clDice.\nComponent ablations show complementary connectivity gains from topology-aware supervision and SGR.\nText-editing experiments reveal that stronger guidance improves edit success but also increases changes to non-target structures.\nWe see this framework as a step toward simulation-ready road-marking variation, automated map completion, and early-stage infrastructure design exploration.",
+          "highlights": [
+            "隶属于 cs.CV, cs.RO",
+            "Our benchmark uses deterministic, metadata-derived prompts and three output channels: lane dividers, road dividers, and ",
+            "On Waymo dataset, it yields 88.0 Buffered F1 and 66.2 clDice."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.05771",
+          "readReason": "AI Agent 是当前研究热点，本文可能包含创新性的设计思路；多智能体协作是复杂任务求解的重要范式，本文值得关注"
+        },
+        {
+          "title": "InterEvolve: Test-Time Evolution of Reward Programs for Humanoid Loco-Manipulation",
+          "authors": "Zhuo Lin, Sirui Xu, Liuyu Bian",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.02196",
+          "tags": [
+            "Agent",
+            "Embodied AI",
+            "LLM"
+          ],
+          "summary": "We study test-time evolution for humanoid loco-manipulation: solving tasks that a controller was never trained for by repurposing its existing skills, improving from its own attempts, and retaining what it learns, without retraining.\nOur key insight is that a broad controller already holds much of the competence a new task needs, and that this competence becomes accessible through an interface between planning and control that is expressive enough to specify contact-rich, multi-stage interactions, yet executable and measurable enough that execution feedback can guide planning from experience.\nInterEvolve realizes this interface with two components.\nFirst, we develop an object-aware forward-backward (FB) behavioral foundation model, whose object residuals on a frozen body prior turn a new reward about the body or objects into loco-manipulation behavior at test time.\nSecond, we specify tasks as reward programs: staged rewards with completion conditions and tunable constants.\nA large language model (LLM) agent revises the program structure in context, drawing on execution feedback and a skill library of verified programs, while a numerical optimizer tunes its constants.\nWith every candidate verified across parallel simulation scenarios, the program explores new ways to induce, repurpose, and compose the controller's existing motor competence for the task at hand, and thus improves over iterations.\nExperiments show that human-designed rewards leave much of the FB model's loco-manipulation competence untapped, whereas the programs InterEvolve evolves release it, sometimes through novel strategies.\nIt further produces behaviors for diverse tasks, complex scenes, and long-horizon compositions in simulation, and evolved skills run autonomously on a physical Unitree G1 from egocentric onboard perception.",
+          "highlights": [
+            "without retraining",
+            "InterEvolve",
+            "隶属于 cs.RO, cs.CV"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.02196",
+          "readReason": "AI Agent 是当前研究热点，本文可能包含创新性的设计思路；具身智能是通向通用 AI 的重要路径，本文值得关注"
+        }
+      ],
+      "papers": [
+        {
+          "id": "A1",
+          "anchorId": "A1",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "Video2World: Benchmarking Coding Agents for Interactive World Modeling from Embodied Videos",
+          "authors": [
+            "Jinzhou Tang",
+            "Zijun Zhang",
+            "Jing Yang",
+            "Yuchen Yan",
+            "Kun Zhou",
+            "Lingjun Mao",
+            "Ruobing Han",
+            "Jinglin Cao",
+            "Wenpeng Xu",
+            "Lukun He",
+            "Minghao Fu",
+            "Fan Feng",
+            "Biwei Huang"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.04432",
+          "tags": [
+            "Anthropic",
+            "Agent",
+            "Embodied AI"
+          ],
+          "summary": "Building interactive simulators from real-world observations is a promising way to scale embodied data, but current pipelines still rely heavily on manual environment construction and calibration. 从真实世界的观察中构建交互式模拟器是扩展具体数据的一种有前途的方法，但目前的管道仍然严重依赖手动环境构建和校准。\nWe study whether frontier foundation models and coding agents can automate this process end to end. 我们研究前沿基础模型和编码代理是否可以端到端地自动化此过程。\nWe formulate \\emph{autonomous video-to-simulation} as a software engineering task in which an agent observes an embodied video, constructs the corresponding simulated environment and robot behavior, and iteratively refines the result through execution feedback. 我们将\\ emph {autonomous video-to-simulation}公式化为软件工程任务，其中代理观察具体的视频，构建相应的模拟环境和机器人行为，并通过执行反馈迭代细化结果。\nTo evaluate this capability, we introduce \\textbf{Video2World}, a benchmark comprising 222 reconstruction instances derived from 189 robot and human demonstration videos. 为了评估这种能力，我们引入了\\ textbf {Video2World} ，这是一个基准，包括来自189个机器人和人类演示视频的222个重建实例。\nVideo2World measures reconstructed worlds along geometric fidelity, dynamic fidelity, and functional correctness, capturing spatial perception, physical reasoning, and executable interaction. Video2World根据几何保真度、动态保真度和功能正确性测量重建的世界，捕捉空间感知、物理推理和可执行交互。\nEvaluating 9 frontier coding-agent systems reveals a sharp improvement in Task success beginning with Claude Opus 5, rising from below 5\\% to over 15\\%, while substantial gaps to human-assisted reconstruction remain. 对9个前沿编码代理系统的评估显示，从Claude Opus 5开始，任务成功率急剧提高，从低于5 ％上升到超过15 ％ ，而在人工辅助重建方面仍然存在巨大差距。\nWe further find that worlds that look better could work worse: better visual fidelity does not always lead to higher task success. 我们进一步发现，看起来更好的世界可能会变得更糟：更好的视觉保真度并不总是能带来更高的任务成功率。\nThis echoes the broader gap between perceptual realism and factual correctness observed in generative models. 这与生成模型中观察到的感知现实主义和事实正确性之间的更大差距相呼应。",
+          "highlights": [
+            "Video2World",
+            "隶属于 cs.CV, cs.AI",
+            "We study whether frontier foundation models and coding agents can automate this process end to end."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.04432",
+          "worthReading": true
+        },
+        {
+          "id": "A2",
+          "anchorId": "A2",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "MG-VQA: Manipulation Grounded Visual Question Answering with VLMs",
+          "authors": [
+            "Vineet Bhat",
+            "Mikaela Angelina Uy",
+            "Siyi Chen",
+            "Alex Zook",
+            "Xuning Yang",
+            "Stan Birchfield",
+            "Valts Blukis",
+            "Jonathan Tremblay"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2608.17129",
+          "tags": [
+            "Google",
+            "Agent",
+            "Embodied AI"
+          ],
+          "summary": "Vision-language models (VLMs) have shown promising spatial reasoning capabilities from static visual inputs, where the evidence needed to answer a question is available in the provided views. 视觉语言模型（ VLM ）显示了来自静态视觉输入的有前途的空间推理能力，其中所提供的视图中提供了回答问题所需的证据。\nHowever, in cluttered environments, answer-relevant evidence may be occluded rather than absent: an object may lie beneath a pile, be covered by another object, or have identifying information facing away from the camera. 然而，在混乱的环境中，与答案相关的证据可能会被遮挡而不是缺失：一个物体可能位于一堆物体下面，被另一个物体覆盖，或者具有背离摄像头的识别信息。\nAnswering such questions requires physical interaction to reveal the hidden evidence. 回答这些问题需要身体互动，以揭示隐藏的证据。\nWe formalize this setting as Manipulation-Grounded Visual Question Answering (MG-VQA), where an agent answers a question about an initially cluttered scene by using manipulation as an intermediate evidence-gathering operation. 我们将此设置形式化为基于操纵的视觉问题回答（ MG-VQA ） ，其中客服代表通过使用操纵作为中间证据收集操作来回答有关最初混乱场景的问题。\nWe introduce MG-VQA-Bench, comprising 600 human-verified questions across four spatial reasoning tasks, and evaluate it in a cluttered tabletop interactive environment. 我们引入了MG-VQA-Bench ，其中包括跨四个空间推理任务的600个人工验证问题，并在杂乱的桌面交互环境中对其进行评估。\nEight VLMs are evaluated under three levels of environment access: Direct (image only), Perception (pointing, segmentation, and scene graphs), and Manipulation (perception, grasping, and pushing). 八个VLM在三个环境访问级别下进行评估：直接（仅图像）、感知（指向、分割和场景图）和操纵（感知、抓握和推送）。\nAcross all models, Direct and Perception achieve average success rates of 36.2% and 37.6%, respectively, only slightly above an image-blind chance baseline of 32.7%. 在所有模型中， Direct和Perception的平均成功率分别为36.2%和37.6% ，仅略高于32.7%的图像盲机率基线。\nIn contrast, Manipulation raises average success to 56.8% (40.8-83.0% across models). 相比之下， Manipulation将平均成功率提高到56.8% （跨模型为40.8-83.0% ）。\nStronger tool-calling VLMs, GPT~6~Astra (83.0%) and Gemini~3.8~Flash (69.3%), search persistently and re-ground after unsuccessful interactions, while weaker models often answer without gathering sufficient evidence or stop prematurely after failed actions. 更强大的工具调用VLM ， GPT ~ 6 ~ Astra （ 83.0 ％ ）和Gemini~3.8~Flash （ 69.3 ％ ） ，持续搜索并在不成功的交互后重新接地，而较弱的模型通常在没有收集足够证据的情况下回答或在失败的操作后过早停止。\nOur results highlight the need for VLM agents that use manipulation for persistent, physically grounded evidence gathering and recovery. 我们的研究结果强调了对VLM代理的需求，这些代理使用操纵来进行持久的、基于物理的证据收集和恢复。\nCode and benchmark is available here: https://github.com/vineet2104/MG-VQA 代码和基准可在此处获得： https://github.com/vineet2104/MG-VQA",
+          "highlights": [
+            "MG",
+            "隶属于 cs.CV, cs.RO",
+            "Answering such questions requires physical interaction to reveal the hidden evidence."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2608.17129",
+          "worthReading": true
+        },
+        {
+          "id": "A3",
+          "anchorId": "A3",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "How Vulnerable Is My Learned Policy? Universal Adversarial Perturbation Attacks On Modern Behavior Cloning Policies",
+          "authors": [
+            "Akansha Kalra",
+            "Basavasagar Patil",
+            "Guanhong Tao",
+            "Daniel S. Brown"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2502.03698",
+          "tags": [
+            "Google"
+          ],
+          "summary": "Imitation learning, also known as learning from demonstrations, is a popular approach to train AI models; however, the vulnerability of these models to adversarial attacks remains underexplored.\nWe present the first systematic study of adversarial attacks, across a range of both classic and recently proposed imitation learning algorithms, including Vanilla Behavior Cloning (Vanilla BC), LSTM-GMM, Implicit Behavior Cloning (IBC), Diffusion Policy (DP), and Vector-Quantized Behavior Transformer (VQ-BET).\nWe study the vulnerability of these methods to white-box, grey-box and black-box adversarial perturbations.\nOur experiments reveal that most existing methods are highly vulnerable to these attacks, including black-box transfer attacks that transfer across algorithms.\nWhite-box attacks cause at least a 65% reduction in average task success across all evaluated tasks and algorithms, while the black-box transfer attacks reduce task success by up to 88% on Lift, 99% on Can, and 100% on Square.\nTo the best of our knowledge, we are the first to study and compare the vulnerabilities of different popular imitation learning algorithms to both white-box and black-box attacks.\nOur findings highlight the vulnerabilities of modern imitation learning algorithms, paving the way for future work in addressing such limitations.\nVideos and code are available at https://sites.google.com/view/uap-attacks-on-bc.",
+          "highlights": [
+            "first systematic study of adversarial attacks",
+            "隶属于 cs.LG, cs.CR",
+            "We study the vulnerability of these methods to white-box, grey-box and black-box adversarial perturbations."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2502.03698",
+          "worthReading": true
+        },
+        {
+          "id": "A4",
+          "anchorId": "A4",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "From Representational Complementarity to Dual Systems: Synergizing VLM and Vision-Only Backbones for End-to-End Driving",
+          "authors": [
+            "Sining Ang",
+            "Yuguang Yang",
+            "Chenxu Dang",
+            "Canyu Chen",
+            "Cheng Chi",
+            "Haiyan Liu",
+            "Xuanyao Mao",
+            "Jason Bao",
+            "Xuliang",
+            "Bingchuan Sun",
+            "Yan Wang"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2602.10719",
+          "tags": [
+            "Qwen"
+          ],
+          "summary": "Vision-Language-Action (VLA) driving augments end-to-end (E2E) planning with language-enabled visual backbones, but how VLM representations differ from vision-only encoders after policy learning, and whether such differences matter for planning, remains unclear.\nUnder a unified VLM-hidden + diffusion-policy paradigm, we compare multiple VLM families/scales (InternVL3 and Qwen3VL) with standard vision-only encoders (ResNet, ViT, and EVA-CLIP) while keeping the downstream planner fixed.\nWe study representation, behavior, and system design.\nCKA/CCA and Shared--Unique SAE show that policy learning enlarges a common decision subspace, but both branches retain non-transferable residual factors.\nWe further replicate this shared-plus-unique representation pattern on nuPlan using the AsyncDrive planning stack.\nLatent-intervention policies and scenario-level analysis further show that these residuals are behaviorally meaningful: vision-only encoders are stronger in simple geometry-dominant scenes, whereas VLMs are more effective in semantically complex and interaction-heavy long-tail cases.\nThe two branches also exhibit distinct progress--braking and path-choice tendencies, and an oracle best-of-two VLM+ViT selector reaches 93.58 PDMS on NAVSIM.\nWe convert this complementarity into two lightweight systems: HybridDriveVLA, which selects from a compact cross-model candidate set using a learned trajectory scorer and improves PDMS from 90.80 to 92.10, and DualDriveVLA, a fast--slow variant that invokes the VLM in only 15% of scenarios, achieving 91.00 PDMS with about $1.9\\times$ lower latency than the VLM baseline.\nCode will be available at https://github.com/WilliamXuanYu/HybridDriveVLA.",
+          "highlights": [
+            "From Representational Complementarity to Dual Systems",
+            "隶属于 cs.RO, cs.CV",
+            "We study representation, behavior, and system design."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2602.10719",
+          "worthReading": true
+        },
+        {
+          "id": "A5",
+          "anchorId": "A5",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "Arm-wise Compositional Generalization in Dual-Arm Vision-Language-Action Models",
+          "authors": [
+            "Zaibin Zhang",
+            "Binghao Ran",
+            "Yuhan Wu",
+            "Zhongbo Zhang",
+            "Yifan Wang",
+            "Junwei Jiang",
+            "Junlan Xiao",
+            "Wangcheng Shi",
+            "Li Kang",
+            "Yiran Qin",
+            "Zhenfei Yin",
+            "Lijun Wang",
+            "Huchuan Lu"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.06184",
+          "tags": [
+            "OpenAI",
+            "Embodied AI"
+          ],
+          "summary": "Generalization in multi-arm collaboration can be studied as composing familiar atomic skills in new ways across arms.\nHowever, existing evaluations offer limited insight into which training and architectural choices support this ability under different coordination requirements.\nWe introduce \\textbf{ACG-Bench}, a benchmark for \\emph{Arm-wise Compositional Generalization} that provides a common testbed for studying skill recomposition in dual-arm policies.\nIt contains 23 task--condition pairs across 8 task families, with 6 in-domain conditions and 17 unseen compositions covering reordering, synchronization, their combination, and cross-task composition.\nAll methods receive the same per-arm atomic prompts, and success requires achieving the task goal while satisfying physical milestones and specified order or timing constraints.\nUsing $\\pi_{0.5}$ as a common vision-language-action backbone, we compare representative data-augmentation and architectural strategies with shared source data and a common evaluation protocol.\nOur architectural study examines arm-token grouping, skill-specific LoRA adapters (SkillLoRA), and arm-wise attention (AWA), highlighting the complementarity of skill-conditioned parameters and attention structure.\nCombining these choices yields \\textbf{AE-VLA}, which achieves 21.53\\% generalization success in simulation, compared with 2.94\\% for Single $\\pi_{0.5}$, 3.06\\% for MA-VLA, and 5.53\\% for two independently controlled $\\pi_{0.5}$ policies.\nOn physical SO101 robots, AE-VLA reaches 39.00\\% mean success across five unseen conditions, compared with 10.00\\% for the strongest baseline.\nThese findings provide empirical guidance for designing dual-arm policies that generalize beyond fixed training routines.",
+          "highlights": [
+            "Arm",
+            "隶属于 cs.RO",
+            "Generalization in multi-arm collaboration can be studied as composing familiar atomic skills in new ways across arms."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.06184",
+          "worthReading": false
+        },
+        {
+          "id": "A6",
+          "anchorId": "A6",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "TRACER: Texture-Robust Affordance Chain-of-Thought for Deformable-Object Region Grounding",
+          "authors": [
+            "Wanjun Jia",
+            "Kang Li",
+            "Fan Yang",
+            "Mengfei Duan",
+            "Wenrui Chen",
+            "Yiming Jiang",
+            "Hui Zhang",
+            "Kailun Yang",
+            "Zhiyong Li",
+            "Yaonan Wang"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2601.20208",
+          "tags": [
+            "OpenAI",
+            "Embodied AI"
+          ],
+          "summary": "The central challenge in robotic manipulation of deformable objects lies in aligning high-level semantic instructions with physical interaction points under complex appearance and texture variations.\nExisting vision-based affordance prediction methods often suffer from boundary overflow and fragmented functional regions.\nTo address these issues, we propose TRACER, a Texture-Robust Affordance Chain-of-Thought for Deformable-Object Region Grounding framework that maps hierarchical semantic reasoning to appearance-robust and physically consistent interaction regions.\nSpecifically, a Tree-structured Affordance Chain-of-Thought (TA-CoT) decomposes high-level task intentions into hierarchical affordance-semantic instructions.\nA Spatially-Constrained Boundary Refinement (SCBR) mechanism suppresses prediction spillover and guides responses toward valid object regions.\nFurthermore, an Interactive Convergent Refinement Flow (ICRF) refines dispersed affordance responses into coherent regions, improving spatial continuity and physical plausibility.\nExperiments on the Fine-AGDDO15 dataset and a real-world robotic platform demonstrate that TRACER improves affordance grounding precision across diverse textures and patterns.\nIt also enhances long-horizon manipulation success, bridging high-level semantic reasoning and low-level physical execution.\nThe source code and dataset will be made publicly available at https://github.com/Dikay1/TRACER.",
+          "highlights": [
+            "TRACER",
+            "隶属于 cs.RO, cs.CV",
+            "Existing vision-based affordance prediction methods often suffer from boundary overflow and fragmented functional region"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2601.20208",
+          "worthReading": false
+        },
+        {
+          "id": "A7",
+          "anchorId": "A7",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "Programming Manufacturing Robots with Imperfect AI: LLMs as Tuning Experts for FDM Print Configuration Selection",
+          "authors": [
+            "Ekta U. Samani",
+            "Christopher G. Atkeson"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2603.22118",
+          "tags": [
+            "OpenAI",
+            "Embodied AI",
+            "LLM"
+          ],
+          "summary": "We use fused deposition modeling (FDM) 3D printing as a case study of how manufacturing robots can use imperfect AI.\nIn FDM, print configuration strongly affects output quality.\nYet, novice users typically rely on default configurations, trial-and-error, or direct recommendations from generic AI models (e.g., ChatGPT).\nThese strategies can produce complete prints, but they do not reliably meet specific objectives.\nWe present a modular approach that treats an LLM as a source of tuning expertise.\nWe embed this source of expertise within a Bayesian optimization loop.\nAn approximate evaluator scores each candidate print configuration and returns structured diagnostics, which the LLM uses to propose natural-language adjustments that are compiled into machine-actionable guidance for optimization.\nOn 100 Thingi10k parts, our LLM-guided loop achieves the best configuration on 78% objects with 0% likely-to-fail cases, while direct AI model recommendations are rarely best and exhibit 15% likely-to-fail cases.\nThese results suggest that LLMs provide more value as constrained decision modules in optimization loops than as end-to-end oracles for print configuration selection.\nWe expect this result to extend to broader LLM-based robot programming.",
+          "highlights": [
+            "present a modular approach",
+            "Programming Manufacturing Robots with Imperfect AI",
+            "隶属于 cs.RO"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2603.22118",
+          "worthReading": false
+        },
+        {
+          "id": "B1",
+          "anchorId": "B1",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "EmbodiRSI: Recursive Self-Improvement for Data-Efficient Robot Adaptation",
+          "authors": [
+            "Haoran Lang",
+            "Haotao Lu",
+            "Shiyu Sang",
+            "Haoyang Luo",
+            "Guo Chen",
+            "Qun Li",
+            "Jingyi Yu",
+            "Ye Shi",
+            "Jingya Wang"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2609.38905",
+          "tags": [
+            "RSI",
+            "Agent",
+            "Embodied AI"
+          ],
+          "summary": "Adapting robot manipulation policies to new tasks and environments remains highly data-intensive, while the data needed for further improvement depends on the policy's current capabilities and failure modes. 调整机器人操纵策略以适应新的任务和环境仍然是高度数据密集型的，而进一步改进所需的数据取决于策略的当前功能和故障模式。\nWe introduce EmbodiRSI, an agentic system for recursive self-improvement (RSI) in a real-to-sim-to-real setting, where task-specific simulations are constructed from target deployment scenarios and used as low-cost environments for iterative policy improvement before transfer back to the physical world. 我们引入了EmbodiRSI ，这是一种在真实到模拟到真实环境中进行递归自我改进（ RSI ）的代理系统，其中任务特定的模拟是从目标部署场景构建的，并用作在转移回物理世界之前进行迭代策略改进的低成本环境。\nEmbodiRSI uses policy execution feedback to guide subsequent experience acquisition and policy updates. EmbodiRSI使用政策执行反馈来指导后续的经验获取和政策更新。\nTwo complementary mechanisms close this loop: Collaborative Error Correction generates agent-assisted corrective trajectories from policy-reached states, while Adaptive Data Collection directs expert demonstration generation toward the current policy's weaknesses. 两个互补的机制关闭了这个循环：协作纠错从策略到达的状态生成代理辅助的纠正轨迹，而自适应数据收集引导专家演示生成当前策略的弱点。\nThe task-specific simulation serves as a reusable workspace for policy warm-up, repeatable evaluation, failure diagnosis, and targeted data generation across successive RSI rounds. 特定于任务的模拟在连续的RSI回合中充当可重用的工作空间，用于策略预热、可重复评估、故障诊断和有针对性的数据生成。\nAcross three tabletop environments and 14 subtasks, EmbodiRSI increases scene-balanced autonomous simulation success from 50.4% to 83.5% over two RSI updates. 在三个桌面环境和14个子任务中， EmbodiRSI在两个RSI更新中将场景平衡的自主模拟成功率从50.4%提高到83.5%。\nWith 400 adaptive simulated trajectories and only ten real-world refinement trajectories per subtask, EmbodiRSI achieves 83.1% scene-balanced autonomous real-world success, compared with 75.0% for adaptation using 200 real-world demonstrations per subtask. EmbodiRSI拥有400个自适应模拟轨迹，每个子任务只有10个真实世界的细化轨迹，实现了83.1%的场景平衡自主真实世界成功率，而使用每个子任务200个真实世界演示的自适应成功率为75.0%。\nThese results demonstrate that feedback-driven recursive improvement in deployment-specific simulations can enable data-efficient adaptation of embodied policies to physical environments. 这些结果表明，特定于部署的模拟中的反馈驱动递归改进可以实现对物理环境的具体策略的数据高效适应。",
+          "highlights": [
+            "EmbodiRSI",
+            "隶属于 cs.RO",
+            "EmbodiRSI uses policy execution feedback to guide subsequent experience acquisition and policy updates."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2609.38905",
+          "worthReading": true
+        },
+        {
+          "id": "B2",
+          "anchorId": "B2",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "Recursive Self-Improvement of Visuomotor Policies through Local Recovery Supervision",
+          "authors": [
+            "Yuzhi Zhang",
+            "Xinyu Liu",
+            "Yu Zhang"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.05151",
+          "tags": [
+            "RSI",
+            "Agent"
+          ],
+          "summary": "Visuomotor policies can execute familiar tasks yet lack the corrective behavior needed after their own mistakes. Visuomotor策略可以执行熟悉的任务，但缺乏自身错误后所需的纠正行为。\nWe present a framework for recursive self-improvement through local recovery supervision. 我们通过当地的恢复监督提出了一个递归自我提升的框架。\nEach round audits the current policy, generates corrective demonstrations at supported failure states, and uses them to update the policy that drives the next round of collection. 每轮审核当前策略，在支持的故障状态下生成纠正演示，并使用它们来更新驱动下一轮收集的策略。\nAn offline auditor locates unresolved failures using coarse and dense temporal evidence and specifies observable repair goals. 离线审核员使用粗略和密集的时间证据定位未解决的故障，并指定可观察到的维修目标。\nA fixed multimodal agent acts as a tool-using teacher, generating recovery actions through observation, computation, execution, and feedback. 固定的多模式代理充当使用工具的老师，通过观察、计算、执行和反馈生成恢复操作。\nThe frozen student tests whether each teacher endpoint supports further progress. 冻结的学生测试每个教师端点是否支持进一步的进步。\nIf continuation fails, the system restores that endpoint and extends the demonstration. 如果继续操作失败，系统将恢复该端点并扩展演示。\nAction-level quality assessment then defines continuous training windows with aligned observations, quality weights, and validity masks. 然后，行动级质量评估通过一致的观察结果、质量权重和有效性掩码定义持续培训窗口。\nOnly the student is deployed. 只有学生被部署。\nIn a preliminary LIBERO-Goal study, recovery-augmented post-training achieves 88 successful episodes out of 100 validation scenes, compared with 78 for original-data continuation from the same $\\pi_0$ checkpoint. 在一项初步的LIBERO-Goal研究中，恢复增强后训练在100个验证场景中实现了88个成功的情节，而来自同一个$\\ pi_0 $检查点的原始数据连续为78个。\nAn earlier BC-RNN study on robomimic Can improves success from 102/130 to 112/130 using 26 local recovery segments. 早期BC-RNN对模拟机器人罐的研究使用26个局部恢复段将成功率从102/130提高到112/130。\nBoth comparisons match 2,000 additional optimization steps. 两种比较都匹配2,000个额外的优化步骤。",
+          "highlights": [
+            "present a framework",
+            "Recursive Self",
+            "隶属于 cs.RO"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.05151",
+          "worthReading": true
+        },
+        {
+          "id": "B3",
+          "anchorId": "B3",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "Recursive Video In-Context Learning for Agentic Robot",
+          "authors": [
+            "Wenrui Bao",
+            "Xinxin Liu",
+            "Bingxin Xu",
+            "Yuzhang Shang"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.06843",
+          "tags": [
+            "Agent",
+            "Embodied AI",
+            "LLM"
+          ],
+          "summary": "LLM agents that orchestrate frozen vision-language-action (VLA) policies improve across episodes through text memory, which records what the agent did but not how the task is done. 协调冻结视觉-语言-行动（ VLA ）策略的LLM代理通过文本记忆在不同情节中进行改进，文本记忆记录了代理所做的事情，但不记录任务是如何完成的。\nA demonstration video shows it, but fits poorly into an agent's context. 演示视频显示了这一点，但与客服代表的背景不符。\nThe full video slows every turn, fixed keyframes lose the contact detail that decides whether a grasp holds, and what the agent needs shifts from the task's structure while planning to the frames around each contact. 完整的视频每转一圈都会减慢速度，固定的关键帧会丢失联系人详细信息，而联系人详细信息决定了抓取是否正常，以及客服代表在规划时需要从任务的结构转移到每个联系人周围的帧。\nWe introduce Recursive Video In-Context Learning (RV-ICL), a training-free method that turns a demonstration into a hierarchy the agent navigates rather than a prompt it receives. 我们引入了递归视频上下文学习（ RV-ICL ） ，这是一种无需训练的方法，可将演示转化为座席导航的层次结构，而不是收到的提示。\nThe hierarchy is built from the sub-events of the demonstration, such as grasps and releases. 层次结构由演示的子事件构建而成，例如抓取和发布。\nIts levels grow finer, from keyframes of the whole task to phases, moments and short clips, and are exposed through read-only tools. 它的级别越来越精细，从整个任务的关键帧到阶段、时刻和短片，并通过只读工具暴露。\nThe agent reads the coarse levels before planning. 代理在规划之前读取粗略级别。\nDuring execution it re-enters the hierarchy whenever a step needs more detail and loads only the clip of its current sub-goal. 在执行过程中，每当一个步骤需要更多细节时，它都会重新进入层次结构，并仅加载其当前子目标的剪辑。\nOne demonstration per task is enough. 每项任务一次演示就足够了。\nBuilt on RPent, RV-ICL raises success from 92.6% to 96.5% on LIBERO-PRO and from 86.7% to 95.8% on LIBERO-Plus. RV-ICL以RPent为基础，在LIBERO-PRO上的成功率从92.6%提高到96.5% ，在LIBERO-Plus上的成功率从86.7%提高到95.8%。",
+          "highlights": [
+            "Recursive Video In",
+            "隶属于 cs.RO, cs.AI",
+            "A demonstration video shows it, but fits poorly into an agent's context."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.06843",
+          "worthReading": true
+        },
+        {
+          "id": "B4",
+          "anchorId": "B4",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "Human Behavior-Informed Crash Scenario Generation with Real-World Crash Priors for Autonomous Vehicle Safety Evaluation",
+          "authors": [
+            "Mingxing Peng",
+            "Xusen Guo",
+            "Long Chen",
+            "Xintao Yan",
+            "Siyu Teng",
+            "Jun Ma"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.04366",
+          "tags": [
+            "Agent",
+            "Multi-Agent",
+            "LLM"
+          ],
+          "summary": "Reliable safety evaluation of autonomous vehicles (AVs) is essential to improving road safety, yet it depends critically on realistic simulation of rare crashes. 对自动驾驶汽车（ AV ）进行可靠的安全评估对于改善道路安全至关重要，但它在很大程度上取决于对罕见碰撞的真实模拟。\nExisting crash scenario generation methods can increase collision occurrence, but often fail to realistically reproduce how crashes evolve before impact or the distribution of crash types observed in the real world. 现有的碰撞场景生成方法可能会增加碰撞发生率，但通常无法逼真地再现碰撞在碰撞之前的演变情况或在现实世界中观察到的碰撞类型的分布情况。\nHere, we present CrashSim, a human behavior-informed crash scenario generation framework that uses real-world crash priors to guide generative multi-agent traffic simulation for more reliable AV safety evaluation. 在这里，我们展示了CrashSim ，这是一个基于人类行为的碰撞场景生成框架，它使用真实世界的碰撞先验来指导生成的多智能体交通模拟，以进行更可靠的AV安全评估。\nThese priors capture how real-world crashes evolve before impact and how different crash types are distributed, allowing limited crash data to guide realistic and scalable scenario generation across naturalistic driving contexts. 这些先验数据捕捉了真实世界的碰撞在撞击前是如何演变的，以及不同的碰撞类型是如何分布的，从而允许有限的碰撞数据指导在自然驾驶环境中生成逼真且可扩展的场景。\nWe evaluate CrashSim against competing methods, showing that it more closely reproduces real-world pre-impact behavior, collision dynamics, collision geometry and crash-type distributions. 我们根据竞争方法对CrashSim进行评估，结果表明它更密切地再现了真实世界的撞击前行为、碰撞动态、碰撞几何和碰撞类型分布。\nWe further use CrashSim to construct nuCrash dataset, containing over 4,000 crash and near-crash scenarios. 我们进一步使用CrashSim构建nuCrash数据集，包含超过4,000个崩溃和接近崩溃的场景。\nClosed-loop evaluation of five AV planners shows that nuCrash more effectively exposes differences in planner safety capabilities than nuScenes. 对五名AV规划师的闭环评估表明， nuCrash比nuScenes更有效地暴露了规划师安全性能的差异。\nAn LLM-assisted evaluation agent further analyzes planner failures to provide capability-level diagnoses and targeted improvement guidance. LLM协助的评估代理进一步分析规划师未能提供能力水平诊断和有针对性的改进指导。\nTogether, CrashSim enables realistic and scalable crash generation for more informative AV safety evaluation. CrashSim共同实现了逼真且可扩展的碰撞生成，可提供更多信息的AV安全评估。",
+          "highlights": [
+            "Human Behavior",
+            "隶属于 cs.RO, cs.AI",
+            "We further use CrashSim to construct nuCrash dataset, containing over 4,000 crash and near-crash scenarios."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.04366",
+          "worthReading": true
+        },
+        {
+          "id": "B5",
+          "anchorId": "B5",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "PreAct-Nav: Agentic Reasoning Before Action for Urban Navigation",
+          "authors": [
+            "Jing Xie",
+            "Shouwei Ruan",
+            "Yubin Wang",
+            "Yuxiang Zhang",
+            "Junwei Yang",
+            "Songchang Jin",
+            "Dianxi Shi"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.04916",
+          "tags": [
+            "Agent",
+            "Embodied AI",
+            "World Model"
+          ],
+          "summary": "Urban navigation requires embodied agents to pursue long-horizon goals through local decisions based on egocentric observations. 城市导航需要具体的代理人通过基于自我中心观察的本地决策来追求长远目标。\nHowever, existing agentic navigation methods often struggle to translate distant goals into coherent local decisions in large-scale physical environments. 然而，现有的代理导航方法往往难以在大规模物理环境中将遥远的目标转化为连贯的本地决策。\nTheir reliance on linguistic reasoning over transient observations or limited history constrains anticipation of the consequences of actions and future conditions, despite the importance of such foresight for navigating long and complex urban routes. 他们对语言推理的依赖超过了短暂的观察或有限的历史，这限制了对行动后果和未来状况的预测，尽管这种远见对于漫长而复杂的城市路线的导航非常重要。\nTo bridge this gap, we propose PreAct-Nav, an agentic navigation framework that equips frozen policies with anticipatory reasoning for robust urban navigation. 为了弥合这一差距，我们提出了PreAct-Nav ，这是一个代理导航框架，为冻结的政策提供强大的城市导航的预期推理。\nOur central idea is to anchor local decisions in persistent medium-horizon subgoals, assess the consequences of predicted actions before execution, and continually update the reasoning context using actual outcomes. 我们的核心思想是将本地决策锚定在持久的中期子目标中，在执行前评估预测行动的后果，并使用实际结果不断更新推理上下文。\nAt its core, a navigation memory module maintains the active subgoal and relevant experience across decisions, translating distant goals into actionable intermediate objectives. 导航记忆模块的核心是跨决策维护活动的子目标和相关体验，将遥远的目标转化为可操作的中间目标。\nWe further introduce a predictive world sandbox that uses an action-conditioned world model (AC-WM) to forecast world dynamics conditioned on candidate movements. 我们进一步引入了一个预测世界沙箱，该沙箱使用动作条件世界模型（ AC-WM ）来预测以候选运动为条件的世界动态。\nA vision-language model (VLM) reasoner interprets these predictions under the current subgoal to retain or revise actions. 视觉语言模型（ VLM ）推理者在当前子目标下解释这些预测，以保留或修改操作。\nAfter execution, real observations are used to assess outcomes, correct inconsistent assumptions, and update memory to continue or reformulate the subgoal. 执行后，使用真实观察来评估结果，纠正不一致的假设，并更新记忆以继续或重新制定子目标。\nExtensive evaluations demonstrate that the proposed PreAct-Nav improves action selection through memory updates and visual prediction, with more pronounced gains on longer routes and routes with more turns.",
+          "highlights": [
+            "introduce a predictive world sandbox that uses an action-conditioned world model",
+            "PreAct",
+            "隶属于 cs.RO, cs.AI"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.04916",
+          "worthReading": true
+        },
+        {
+          "id": "B6",
+          "anchorId": "B6",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "Visual Swarm Navigation via Deep Reinforcement Learning and Evolutionary Hybrid Design",
+          "authors": [
+            "\\'{A}lvaro D\\'{i}ez (Department of Computer Science",
+            "Artificial Intelligence",
+            "University of Alicante)",
+            "Fidel Aznar (Department of Computer Science",
+            "Artificial Intelligence",
+            "University of Alicante)"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.06400",
+          "tags": [
+            "Agent",
+            "Multi-Agent",
+            "Embodied AI"
+          ],
+          "summary": "Swarm robotics presents a robust and cost-effective paradigm for advanced automation in complex, dynamic environments, such as those encountered in search and rescue or environmental monitoring. Swarm机器人为复杂、动态环境中的高级自动化提供了强大且具有成本效益的范例，例如在搜索和救援或环境监测中遇到的情况。\nA fundamental challenge for this field is the data-driven design of decentralized controllers capable of generating emergent collective behaviors.\nThis paper proposes a novel, AI-driven hybrid methodology for the automatic synthesis of swarm robotic controllers for autonomous visual navigation.\nThis approach synergistically combines multi-agent reinforcement learning with neuro-evolutionary strategies, specifically leveraging implementations of the cross-entropy method and the covariance matrix adaptation evolution strategy to optimize a pre-trained individual navigation policy.\nThe underlying deep architecture is engineered for low-cost, resource-constrained platforms, utilizing a compact neural network that relies exclusively on monocular camera imagery.\nThis vision-based design emphasizes computational and energy efficiency, a critical requirement for practical swarm deployments.\nExperiments, performed in a high-fidelity physics simulator, demonstrate that the resulting controllers enable robust and scalable collective exploration of diverse indoor environments.\nThe controller trained using our cross-entropy method achieves superior exploration coverage, visiting 36.20% more regions compared to the covariance matrix adaptation evolution strategy.\nCritically, our best vision-based policy achieves exploration performance statistically comparable to traditional methods relying on more expensive distance sensors, while delivering a significant 31.40% average reduction in energy consumption.\nThese findings validate an effective and economically viable autonomous control system, establishing a path for deploying highly efficient collective intelligence in real-world engineering applications.",
+          "highlights": [
+            "隶属于 cs.RO, cs.MA",
+            "A fundamental challenge for this field is the data-driven design of decentralized controllers capable of generating emer",
+            "This paper proposes a novel, AI-driven hybrid methodology for the automatic synthesis of swarm robotic controllers for a"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.06400",
+          "worthReading": true
+        },
+        {
+          "id": "B7",
+          "anchorId": "B7",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "Nonlinear Density-Driven Optimal Control (D2OC) for Multi-Agent Spatial Coverage via Sequential Convex Programming",
+          "authors": [
+            "Julian Martinez",
+            "Kooktae Lee"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.04545",
+          "tags": [
+            "Agent",
+            "Multi-Agent"
+          ],
+          "summary": "This paper presents a nonlinear extension of Density-Driven Optimal Control (D2OC) for multi-agent spatial coverage with prescribed density distributions.\nRather than assigning individual target locations, D2OC drives the collective spatial distribution of agents toward a desired density through a Wasserstein-based objective.\nWe extend this framework to multi-step finite-horizon control for discrete-time control-affine nonlinear systems using sequential convex programming.\nAt each control update, the nonlinear dynamics are locally linearized over the prediction horizon, yielding a strictly convex quadratic program that preserves the Wasserstein barycentric structure while directly incorporating input constraints.\nWe further characterize the effect of constrained control deviations and nonlinear Taylor remainders on the accuracy of the local linear prediction, establishing an explicit finite-horizon error bound and a two-step specialization for receding-horizon implementation.\nThe resulting method retains the decentralized, distribution-driven nature of D2OC while providing a computationally efficient optimization procedure for nonlinear multi-agent systems.\nSimulations with unicycle and quadrotor teams show coverage performance comparable to nonlinear model predictive control, while substantially reducing computation time.\nThese results demonstrate a tractable and theoretically characterized framework for density-driven spatial coverage under nonlinear dynamics.",
+          "highlights": [
+            "Nonlinear Density",
+            "隶属于 cs.MA, cs.RO",
+            "We extend this framework to multi-step finite-horizon control for discrete-time control-affine nonlinear systems using s"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.04545",
+          "worthReading": true
+        },
+        {
+          "id": "B8",
+          "anchorId": "B8",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "Same Pieces, Different Servers: A Tetris Benchmark for AI Agents as Served",
+          "authors": [
+            "Haochuan Wang"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2603.02348",
+          "tags": [
+            "Agent"
+          ],
+          "summary": "An agent meets a model as served: through an endpoint with a price card, a shared cache and other tenants, or on whatever hardware a self-hosted model runs.\nBenchmarks rank the weights.\nWe introduce a Tetris benchmark that measures what agents get from models as served: every move is scored against an oracle, and every agent receives the same pieces.\nIn five pre-specified experiments with nine open-weight models on one serverless provider, plus an open decision model self-hosted on a CPU, we find that price and size do not predict decision quality; that resending history costs almost nothing when cached input is free, would cost eleven to twelve times more if it were not, and makes play worse; that deployments keep between 4 and more than 64 agent contexts warm, in line with their throughput rather than the model's KV-cache size; that an agent's own long requests slow its slowest short decisions more than tenfold, which a simple admission rule cuts by 59% without hurting play; and that the decision model plays mid-pack but takes 27 s per move on a CPU, about 650 times longer than reported on a GPU.\nArchitecture predicts some of what an agent sees; the deployment sets the rest.",
+          "highlights": [
+            "introduce a Tetris benchmark that measures what agents get from model",
+            "Same Pieces, Different Servers",
+            "隶属于 cs.LG, cs.AI"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2603.02348",
+          "worthReading": true
+        },
+        {
+          "id": "B9",
+          "anchorId": "B9",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "FLEX-WAM: Flexible Block-Causal World-Action Models for Long-Horizon Imagination and Planning",
+          "authors": [
+            "R. Khorrambakht",
+            "Joseph Amigo",
+            "F\\'elix Lebel",
+            "Leon Seetoo",
+            "Jean Ponce",
+            "Zhenzhen Li",
+            "Ludovic Righetti"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.05483",
+          "tags": [
+            "RSI",
+            "Embodied AI",
+            "World Model"
+          ],
+          "summary": "World--action models (WAMs) promise a unified model that predicts action-conditioned futures, generates feasible actions, and supports planning in imagination.\nHowever, existing joint video--action models often use computationally heavy, fixed-horizon backbones ill-suited to streaming inference and stable long-horizon open-loop rollouts.\nWe introduce FLEX-WAM, a Flexible and Efficient Block-Causal World--Action Model for unified simulation and policy inference.\nFLEX-WAM supports variable-length contexts and non-causal prediction horizons, as well as infinite autoregressive generation frame by frame or block by block.\nIts block-causal, KV-cacheable architecture combines axial attention and blockwise diffusion forcing to enable efficient real-time rollout and deployment-time latency--throughput tradeoffs without retraining.\nJoint training can nevertheless produce plausible futures that weakly respond to commanded actions.\nWe address this failure mode by balancing state and action flow-matching gradient contributions across the state--action diffusion-noise grid and regulating world-model sampling using Forward-Dynamics (FD) elasticity, an efficient training-time proxy for action responsiveness.\nAcross simulated and real-world datasets, FLEX-WAM achieves superior multi-step prediction quality and latency while producing stable joint state--action rollouts for thousands of steps.\nAs a joint action proposer and simulator within MCTS, it solves long-horizon PushT and all five OGBench Puzzle-4x4 tasks entirely in imagination.\nOn a bimanual OpenArm-based robot, a single checkpoint jointly serves as a play policy and expected-outcome predictor, enabling real-time identification and collection of model--reality mismatches for future self-improvement.",
+          "highlights": [
+            "without retraining",
+            "FLEX",
+            "隶属于 cs.RO, cs.AI"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.05483",
+          "worthReading": true
+        },
+        {
+          "id": "B10",
+          "anchorId": "B10",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "GEM-Occ: From Visual Geometry Evidence to Embodied Semantic Occupancy Memory",
+          "authors": [
+            "Hu Zhu",
+            "Bohan Li",
+            "Xianda Guo",
+            "Yanlun Peng",
+            "Hongsi Liu",
+            "Baorui Peng",
+            "Xiaofeng Wang",
+            "Mingqi Yuan",
+            "Xin Jin",
+            "Wenjun Zeng",
+            "Chang Wen Chen"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2607.05543",
+          "tags": [
+            "Agent",
+            "Embodied AI"
+          ],
+          "summary": "Embodied agents exploring indoor environments require reliable semantic occupancy memory that persists across observations and revisits.\nBuilding such memory is challenging because each observation provides incomplete and uncertain geometric and semantic evidence.\nWe introduce GEM-Occ, a Gaussian Evidence Memory framework that consolidates evidence accumulated over time into persistent semantic occupancy memory.\nLocal predictions are converted into occupied semantic Gaussians and free-space ray evidence.\nConfidence- and visibility-aware causal updates integrate supporting observations, suppress occupancy contradicted by observed free space, and preserve previously observed structures through occlusion.\nA hierarchical memory organization supports continued mapping and efficient queries across connected indoor spaces.\nTo evaluate this capability, we introduce HIOcc, a unified benchmark for embodied semantic occupancy memory.\nHIOcc establishes a shared semantic label space and evaluation framework spanning local prediction, room-level online mapping, and building-level mapping, while accommodating perspective and panoramic observations.\nExperiments on HIOcc demonstrate that GEM-Occ outperforms existing methods, enabling accurate semantic occupancy prediction and consistent online mapping across spatial scales with efficient memory usage and fast occupancy queries.",
+          "highlights": [
+            "outperforms existing methods",
+            "GEM",
+            "隶属于 cs.RO, cs.CV"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2607.05543",
+          "worthReading": true
+        },
+        {
+          "id": "B11",
+          "anchorId": "B11",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "DexAgent: An Agentic Human2Sim2Robot Framework for Dexterous Manipulation with Self-Evolving Tool Library",
+          "authors": [
+            "Youhui Wang",
+            "Yunzhu Li",
+            "Li Fei-Fei",
+            "Jiajun Wu",
+            "Huang Huang"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2609.35318",
+          "tags": [
+            "RSI",
+            "Agent",
+            "Embodied AI"
+          ],
+          "summary": "Human videos offer a scalable source of demonstrations for dexterous robot manipulation.\nHowever, existing human-to-simulation-to-robot (Human2Sim2Robot) pipelines rely on predefined procedures that struggle to accommodate diverse object properties and interactions, particularly those involving articulated and deformable objects.\nWe introduce DexAgent, an agentic Human2Sim2Robot framework that converts a single egocentric human video and a task prompt into physically grounded robot trajectories for policy training.\nIt operates through four stages: semantic understanding of human videos, property-based simulation reconstruction, robot trajectory optimization, and robot data generation.\nAt each stage, DexAgent adapts its approach to the task and object properties by selecting suitable skills from its tool library or developing new ones when needed.\nProperty-specific verifiers assess stage outcomes for physical validity and task-specific requirements and provide feedback for refinement, preventing error propagation through the workflow.\nThis adaptive, verification-guided process allows DexAgent to process diverse objects and long-horizon tasks.\nIn the final stage, DexAgent varies object and robot states in simulation to generate diverse robot trajectories from a single human video, then retextures the rendered observations to facilitate sim-to-real transfer.\nNewly developed skills and verifiers are retained in its tool library, making it self-evolving to accumulate reusable capabilities.\nThis reduces processing time as DexAgent encounters more human videos.\nAcross eleven real-world tasks, policies trained with DexAgent-generated data achieve a 3.5x higher success rate than competing baselines.\nProject website: https://dexagent1.github.io/.",
+          "highlights": [
+            "DexAgent",
+            "隶属于 cs.RO",
+            "Human videos offer a scalable source of demonstrations for dexterous robot manipulation."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2609.35318",
+          "worthReading": true
+        },
+        {
+          "id": "B12",
+          "anchorId": "B12",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "DreamFormer: Dream Imitation with a Transformer World Model for Language-Conditioned Robotic Manipulation",
+          "authors": [
+            "Mostafa Kotb",
+            "Cornelius Weber",
+            "Muhammad Burhan Hafez",
+            "Stefan Wermter"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.04540",
+          "tags": [
+            "Agent",
+            "Embodied AI",
+            "World Model"
+          ],
+          "summary": "We introduce DreamFormer, a model-based agent that acquires language-conditioned, multi-task skills by imitating expert demonstrations within the latent imagination of a learned world model.\nDreamFormer first learns a task-agnostic Transformer world model from unstructured play data, then acquires task-specific behaviors by optimizing an intrinsic reward that aligns agent-generated rollouts with expert demonstrations in latent space.\nSince the policy is trained on-policy inside imagination, it is exposed to its own errors during training, mitigating the covariate shift inherent to offline behavioral cloning.\nTo make long-horizon imagination affordable, DreamFormer encodes a high-resolution multi-view robotic observation into a single input token, avoiding both spatial downsampling and the multi-token representations used by prior Transformer world models.\nOn the long-horizon CALVIN benchmark, DreamFormer outperforms LUMOS, the comparable model-based agent, on single-environment evaluation (2.52 vs 2.34 average tasks completed per chain of five) while keeping imagination rollouts tractable.\nAgainst HULC, the behavior cloning baseline, it nearly doubles performance on zero-shot transfer to an unseen environment (1.30 vs 0.67), indicating that dynamics learned by the world model transfer more readily than a directly cloned policy.\nThis is consistent with the role attributed to internal models in biological agents, where a model of environment dynamics supports behavior in situations not previously encountered.",
+          "highlights": [
+            "outperforms LUMOS",
+            "first learns a task-agnostic Transformer world model from unstructured play data"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.04540",
+          "worthReading": true
+        },
+        {
+          "id": "B13",
+          "anchorId": "B13",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "RobotUse: Allocating Computation, Context, and Decisions",
+          "authors": [
+            "Junhoo Lee (KAIST)",
+            "Injun Baek (Seoul National University)",
+            "Seungyeon Kim (Seoul National University)",
+            "Suhyun Jeon (Seoul National University)",
+            "Minkyu Kim (Seoul National University)",
+            "Baekseung Kim (Seoul National University)",
+            "Nojun Kwak (Seoul National University)"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.04929",
+          "tags": [
+            "Agent",
+            "Embodied AI"
+          ],
+          "summary": "Robot agents must connect their intended actions to observed outcomes while retaining the context needed to revise their choices over repeated attempts.\nExisting interfaces often leave these choices inside predefined tools or require agents to manage detailed execution code and its growing history.\nWe introduce RobotUse, a robot agent harness that organizes computation, context, and decisions around specifying and revising physical actions.\nAgents visually select targets and poses, while the backend handles geometry, motion planning, and control.\nSubagents retain detailed interactions within each subgoal and return the information needed for subsequent decisions.\nContinual harnessing lets agents learn from execution by updating a persistent playbook.\nOn RoboLab, RobotUse achieves 45% task success, outperforming CaP-X by 6.7 percentage points while maintaining compact decision contexts and reducing reliance on predefined action abstractions.\nFurthermore, we show that RobotUse learns from real-world execution despite imperfect feedback and transfers what it learns to subsequent tasks.\nProject page is available at https://robotuse-team.github.io/.",
+          "highlights": [
+            "outperforming CaP-X by 6",
+            "RobotUse",
+            "隶属于 cs.RO"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.04929",
+          "worthReading": true
+        },
+        {
+          "id": "B14",
+          "anchorId": "B14",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "NavProbe: Evidence-Grounded Reasoning with Active Memory Retrieval for Zero-Shot Navigation",
+          "authors": [
+            "Jingyang Liu",
+            "Sujia Yao",
+            "Jiayuan Gu",
+            "Lan Xu"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2609.27526",
+          "tags": [
+            "Agent",
+            "Embodied AI"
+          ],
+          "summary": "Long-horizon navigation requires an agent to revise its intermediate objectives as evidence accumulates.\nFull visual histories are costly to process, while compact summaries may omit details needed to reconsider earlier decisions.\nWe introduce NavProbe, a hierarchical zero-shot navigation agent that couples a dynamic subgoal agenda with active evidence retrieval.\nA compact index links summaries of visited places, transitions, and landmarks to their visual and geometric records.\nWhen the current context is insufficient, a task executive retrieves targeted evidence to generate, revise, or resolve subgoals.\nReusable conclusions are used to update the index, and a skill policy converts the revised task state into parameterized navigation actions.\nNavProbe achieves 71.7% SR and 55.8% SPL on R2R-CE and 55.3% SR and 38.6% SPL on RxR-CE, outperforming strong zero-shot baselines.\nIt also achieves 79.3% SR on HM3D-v2 ObjectNav, with qualitative real-robot demonstrations illustrating physical deployment.\nCode is available at https://github.com/liujy25/NavProbe.",
+          "highlights": [
+            "outperforming strong zero-shot baselines",
+            "NavProbe",
+            "隶属于 cs.RO"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2609.27526",
+          "worthReading": true
+        },
+        {
+          "id": "B15",
+          "anchorId": "B15",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "Controllable Road Marking Generation",
+          "authors": [
+            "Zhiyu (Joey)",
+            "Cai",
+            "Yufan Zhang",
+            "Ruichen Tan",
+            "Zengxiang Lei",
+            "Satish Ukkusuri"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.05771",
+          "tags": [
+            "Agent",
+            "Multi-Agent",
+            "Embodied AI"
+          ],
+          "summary": "Lane and road markings provide critical guidance for vehicle navigation and multi-agent coordination, yet authoring them at scale remains a manual workflow that limits quantitative analysis and scenario testing.\nWe introduce Controllable Road Marking Generation, which synthesizes a missing center-region marking layout from a drivable-area mask, optional outer-ring markings, and a textual description.\nOur benchmark uses deterministic, metadata-derived prompts and three output channels: lane dividers, road dividers, and pedestrian crossings.\nWe develop a conditional bird's-eye-view (BEV) pipeline that combines (i) a text-conditioned latent rectified-flow DiT trained with a topology-aware auxiliary loss, (ii) Gaussian-blurred training targets that stabilize learning of thin, sparse markings, and (iii) Structured Gaussian Render (SGR), a training-free post-process that recovers crisp divider geometry by extracting polylines, fitting cubic B\\'ezier curves, and re-rendering them as anisotropic super-Gaussian primitives.\nOn 4,597 Argoverse~2 test tiles, our system achieves Buffered F1 of 80.8 and clDice of 50.2, compared with 38.8 and 24.6 for an adapted state-of-the-art mask-refinement baseline.\nOn Waymo dataset, it yields 88.0 Buffered F1 and 66.2 clDice.\nComponent ablations show complementary connectivity gains from topology-aware supervision and SGR.\nText-editing experiments reveal that stronger guidance improves edit success but also increases changes to non-target structures.\nWe see this framework as a step toward simulation-ready road-marking variation, automated map completion, and early-stage infrastructure design exploration.",
+          "highlights": [
+            "隶属于 cs.CV, cs.RO",
+            "Our benchmark uses deterministic, metadata-derived prompts and three output channels: lane dividers, road dividers, and ",
+            "On Waymo dataset, it yields 88.0 Buffered F1 and 66.2 clDice."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.05771",
+          "worthReading": true
+        },
+        {
+          "id": "B16",
+          "anchorId": "B16",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "InterEvolve: Test-Time Evolution of Reward Programs for Humanoid Loco-Manipulation",
+          "authors": [
+            "Zhuo Lin",
+            "Sirui Xu",
+            "Liuyu Bian",
+            "Yu-Xiong Wang",
+            "Liang-Yan Gui"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.02196",
+          "tags": [
+            "Agent",
+            "Embodied AI",
+            "LLM"
+          ],
+          "summary": "We study test-time evolution for humanoid loco-manipulation: solving tasks that a controller was never trained for by repurposing its existing skills, improving from its own attempts, and retaining what it learns, without retraining.\nOur key insight is that a broad controller already holds much of the competence a new task needs, and that this competence becomes accessible through an interface between planning and control that is expressive enough to specify contact-rich, multi-stage interactions, yet executable and measurable enough that execution feedback can guide planning from experience.\nInterEvolve realizes this interface with two components.\nFirst, we develop an object-aware forward-backward (FB) behavioral foundation model, whose object residuals on a frozen body prior turn a new reward about the body or objects into loco-manipulation behavior at test time.\nSecond, we specify tasks as reward programs: staged rewards with completion conditions and tunable constants.\nA large language model (LLM) agent revises the program structure in context, drawing on execution feedback and a skill library of verified programs, while a numerical optimizer tunes its constants.\nWith every candidate verified across parallel simulation scenarios, the program explores new ways to induce, repurpose, and compose the controller's existing motor competence for the task at hand, and thus improves over iterations.\nExperiments show that human-designed rewards leave much of the FB model's loco-manipulation competence untapped, whereas the programs InterEvolve evolves release it, sometimes through novel strategies.\nIt further produces behaviors for diverse tasks, complex scenes, and long-horizon compositions in simulation, and evolved skills run autonomously on a physical Unitree G1 from egocentric onboard perception.",
+          "highlights": [
+            "without retraining",
+            "InterEvolve",
+            "隶属于 cs.RO, cs.CV"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.02196",
+          "worthReading": true
+        },
+        {
+          "id": "B17",
+          "anchorId": "B17",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "WAMJET: A Harness for World Action Model Acceleration",
+          "authors": [
+            "Le Chen",
+            "Lixin Liu",
+            "Jan Schneider",
+            "Zeju Qiu",
+            "Simon Guist",
+            "Bernhard Sch\\\"olkopf",
+            "Dieter B\\\"uchler"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.03797",
+          "tags": [
+            "Agent",
+            "Embodied AI"
+          ],
+          "summary": "World Action Models (WAMs) leverage pretrained video foundation models for robot manipulation, but their large backbones and video-action co-prediction are expensive.\nAlthough existing acceleration techniques offer many ways to reduce this cost, selecting and composing them requires substantial engineering for each model and hardware platform.\nTo tackle this bottleneck, we present WAMJET, an agentic harness that accelerates WAM inference by equipping coding agents with reusable optimization guidance and measurement and validation tools.\nWAMJET follows a bottleneck-driven workflow where the agent profiles inference, modifies targeted code, validates effects, and iteratively refines the acceleration stack as bottlenecks shift, while preserving action quality.\nExperiments span six WAMs, three coding agents, and two GPU architectures.\nWAMJET achieves up to 9.95x lossless speedup over upstream implementations.\nApproximation and hardware-aware optimization yield additional latency reductions, with comparable success rates.\nThe results show that WAMJET can produce effective acceleration stacks for WAM deployment.",
+          "highlights": [
+            "WAMJET",
+            "隶属于 cs.CV, cs.AI",
+            "Experiments span six WAMs, three coding agents, and two GPU architectures."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.03797",
+          "worthReading": false
+        },
+        {
+          "id": "B18",
+          "anchorId": "B18",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "InterMimicGen: Scaling Humanoid Loco-Manipulation through Self-Evolving Motion Imitation",
+          "authors": [
+            "Yucheng Zhang",
+            "Sirui Xu",
+            "Jinhong Li",
+            "Liuyu Bian",
+            "Anatulya Nandi",
+            "Derek Zhang",
+            "Xiangchen Liu",
+            "Xueting Li",
+            "Umar Iqbal",
+            "Yu-Xiong Wang",
+            "Liang-Yan Gui"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.06850",
+          "tags": [
+            "RSI",
+            "Embodied AI"
+          ],
+          "summary": "Captured human-object interactions provide rich supervision for humanoid loco-manipulation, but they are sparse, heterogeneous, and not directly executable by robots.\nWe introduce InterMimicGen, a self-evolving motion-imitation framework in which robot motion data and a tracking policy improve each other.\nFirst, we consolidate motion-captured human-object interaction datasets and retarget them into humanoid robot references while preserving whole-body coordination and dexterous hand-object relationships.\nThis produces a large and diverse humanoid robot reference collection for dexterous whole-body loco-manipulation.\nSecond, we train a physics-based generalist tracker that executes these references in simulation on a humanoid with dexterous hands, covering a scale and diversity beyond prior humanoid tracking systems for loco-manipulation.\nThird, we close a data flywheel: each round makes small, task-preserving changes to where an interaction takes place and how the body performs it, fine-tunes the tracker on them, and keeps only the variants whose simulated execution completes the task, which seed the next round.\nWith more iterations, these small edits compound into broader coverage around the sparse original demonstrations while preserving task semantics and motion quality.\nExperiments show contact-preserving retargeting across robot configurations, broad tracking with a single generalist policy, executable motions that keep growing over augmentation rounds, and transfer to real robots.\nInterMimicGen provides a unified path from heterogeneous human demonstrations to a continually expanding motion resource for humanoid robot learning.",
+          "highlights": [
+            "InterMimicGen",
+            "隶属于 cs.RO, cs.CV",
+            "We introduce InterMimicGen, a self-evolving motion-imitation framework in which robot motion data and a tracking policy "
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.06850",
+          "worthReading": false
+        },
+        {
+          "id": "B19",
+          "anchorId": "B19",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "Talk, Render, Act: Integrating Social Gesture and Digital Face with Synchronized Speech for Conversational Humanoid Robot",
+          "authors": [
+            "Jin Jiang",
+            "Kun Li",
+            "Jiancong Ma",
+            "Shengcai Liao"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.06153",
+          "tags": [
+            "Agent",
+            "Embodied AI"
+          ],
+          "summary": "Expressive humanoid interaction requires speech, facial animation, and body gestures to form a coherent response.\nHowever, many full-body humanoid robots produce speech and gestures without a visually expressive face, while talking-face animation and robot gesture generation are typically developed separately.\nWe present Talk, Render, Act (TRABot), an agent-based framework comprising specialized agents for motion-atom construction, dialogue generation, motion planning, and facial animation.\nFirst, to produce natural and semantically meaningful gestures, we construct Robot-Ready Semantic Motion Atoms by segmenting long-form, G1-retargeted BEAT2 motion into units with natural gesture boundaries, human-verified communicative functions, and feasible trajectories.\nSecond, to preserve semantic order and coordinate body motion with the spoken response, we introduce a Semantic-Conditioned Compositional Planner.\nGiven an ordered semantic function sequence and an estimated response duration, the planner selects approved atoms to realize the longest feasible action sequence while accounting for transitions and neutral recovery.\nFinally, we deploy a Streaming Face-Speech-Body Integration system on a physical G1 humanoid, combining streaming dialogue audio, audio-driven facial animation, and semantically planned body motion in a unified real-time interaction loop.\nQuantitative and qualitative experiments demonstrate that TRAbot achieves the best overall performance among all compared conditions in terms of naturalness, expressiveness, and multimodal coherence.",
+          "highlights": [
+            "Talk, Render, Act",
+            "隶属于 cs.RO",
+            "Expressive humanoid interaction requires speech, facial animation, and body gestures to form a coherent response."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.06153",
+          "worthReading": false
+        },
+        {
+          "id": "B20",
+          "anchorId": "B20",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "A Taxonomy on Collective Awareness",
+          "authors": [
+            "Guillermo GP-Lenza",
+            "Miguel Fernandez-Cortizas",
+            "Mart\\'in Molina",
+            "Ricardo Sanz",
+            "Pascual Campoy"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.06427",
+          "tags": [
+            "Agent",
+            "Embodied AI"
+          ],
+          "summary": "As robotic teams tackle increasingly complex tasks in dynamic and unstructured environments, effective coordination requires agents to maintain accurate, aligned representations of their environment, teammates, and mission state.\nWe argue that Mutual Awareness, Shared Situational Awareness, and Team Situational Awareness --- three concepts widely invoked in the multi-robot systems literature --- are not interchangeable: they form a containment hierarchy in which each type subsumes the previous in scope, and span a distribution spectrum from fully individualized understanding (MA) to fully uniform understanding (SSA), with TSA occupying a mixed position.\nWe establish this through a two-dimensional taxonomy organized along the object of awareness and awareness distribution axes.\nTreating these terms as synonyms obscures the precise coordination requirements each imposes on a robotic system.\nA Search and Rescue case study with heterogeneous aerial and ground robots grounds each taxonomy position in concrete coordination requirements.\nThese findings provide a conceptual foundation for principled specification, design, and comparison of collective awareness in multi-robot systems.",
+          "highlights": [
+            "隶属于 cs.RO",
+            "We establish this through a two-dimensional taxonomy organized along the object of awareness and awareness distribution ",
+            "Treating these terms as synonyms obscures the precise coordination requirements each imposes on a robotic system."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.06427",
+          "worthReading": false
+        },
+        {
+          "id": "B21",
+          "anchorId": "B21",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "Least Restrictive Hyperplane Control Barrier Functions",
+          "authors": [
+            "Mattias Trende",
+            "Petter \\\"Ogren"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2510.18643",
+          "tags": [
+            "Agent"
+          ],
+          "summary": "Control Barrier Functions (CBFs) can provide provable safety guarantees for dynamic systems.\nHowever, finding a valid CBF for a system of interest is often non-trivial, especially for systems with low computational resources, higher-order dynamics, and moving close to obstacles of complex shape.\nA common solution to this problem is to use a purely distance-based CBF.\nIn this paper, we study Hyperplane CBFs (H-CBFs), where a hyperplane separates the agent from the obstacle.\nFirst, we note that the common distance-based CBF is a special case of an H-CBF where the hyperplane is a supporting hyperplane of the obstacle that is orthogonal to a line between the agent and the closest point of the obstacle.\nWe then show that a less conservative CBF can be found by optimising over the orientation of the supporting hyperplane, in order to find the Least Restrictive Hyperplane CBF.\nThis enables us to maintain the safety guarantees while allowing controls that are closer to the desired ones, especially when moving fast and passing close to obstacles.\nWe illustrate the approach on a double integrator dynamical system with acceleration constraints, moving through a group of arbitrarily shaped static and moving obstacles, and show that the proposed approach reduces the average gap between desired and safe controls by an order of magnitude.",
+          "highlights": [
+            "隶属于 cs.RO",
+            "Control Barrier Functions (CBFs) can provide provable safety guarantees for dynamic systems.",
+            "A common solution to this problem is to use a purely distance-based CBF."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2510.18643",
+          "worthReading": false
+        },
+        {
+          "id": "B22",
+          "anchorId": "B22",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "Closed-Loop Refinement and Execution for Learned Driving Planners",
+          "authors": [
+            "Huaijin Hu",
+            "Shanting Wang",
+            "Zhongyu Mo",
+            "Andreas A. Malikopoulos"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.00992",
+          "tags": [
+            "Agent"
+          ],
+          "summary": "Learning-based driving planners are usually trained and evaluated in open loop against logged trajectories.\nIn closed loop, a trajectory with small displacement error can still stall the vehicle, steer it into a conflict with surrounding agents, or be executed with abrupt braking.\nWe introduce Closed-Loop Refinement and Execution (CLRE), a hierarchical receding-horizon control framework designed to mitigate these failure modes while leaving the upstream planner frozen and adding no new learned model.\nThe upper layer treats the nominal trajectory as a reference and solves a finite-horizon optimal control problem that trades route progress against interaction with predicted agents.\nSolving it from several initializations gives a candidate set, and a prediction-conditioned oriented-bounding-box (OBB) feasibility test retains only candidates whose minimum predicted OBB clearance over the horizon meets a threshold.\nThe lower layer executes the lowest-cost survivor, or a route-centerline backup when none remains, through the tracking controller supplied with the planner, augmented by a range-based speed bound and a saturated proportional braking law.\nIn closed-loop simulation on the 220-route Bench2Drive validation set with VAD as the upstream planner, CLRE raises the driving score from 42.26 to 55.89 and route completion from 55.69 to 71.51, and reduces collision events from 117 to 97.",
+          "highlights": [
+            "Closed",
+            "隶属于 eess.SY, cs.RO",
+            "Learning-based driving planners are usually trained and evaluated in open loop against logged trajectories."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.00992",
+          "worthReading": false
+        },
+        {
+          "id": "B23",
+          "anchorId": "B23",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "AgenticTactileVLA: Contact-Guided Execution-Time Supervision for Generalizable Dexterous Manipulation without VLA Retraining",
+          "authors": [
+            "Elizaveta Semenyakina",
+            "Ivan Snegirev",
+            "Mikhail Kiselev",
+            "Miguel Altamirano Cabrera",
+            "Artem Lykov",
+            "Hajira Amjad",
+            "Dzmitry Tsetserukou"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.04391",
+          "tags": [
+            "Agent",
+            "Embodied AI"
+          ],
+          "summary": "Vision-language-action policies may predict a transferable manipulation strategy yet fail to realize it reliably on the encountered object: objects compatible with the same grasp differ in geometry and compliance, and visual feedback degrades under closure occlusion.\nAgenticTactileVLA is presented as an execution-time supervisor that shifts part of object-specific adaptation from prediction to physical interaction.\nA fixed VLA provides the approach and hand targets; the supervisor decides whether to remain transparent, refine finger flexion, retain or release the corrected configuration, return control to the VLA for retry, or select a compliant hand-control regime.\nIt uses finger-position and motor-effort feedback as proprioceptive contact evidence and requires neither tactile sensors nor VLA retraining.\nOn a Unitree G1 with a BrainCo Revo2 hand, a randomized matched-block evaluation on five objects held out from VLA training yields 61.3% completion for the base VLA, 72.0% for unconditional close-to-stall control, and 84.0% for the supervisor under a shared budget; the gain is positive on every object and persists under moderate pose perturbations.\nAblations show the gain is not explained by extended closure alone, and that selective triggering reduces correction episodes by 65.7% with no detected change in completion.\nA retention audit shows acceptance predicts retention in 88.9% of held-out cases, while compliant objects expose conservative false rejection.\nA thin-walled-cup study demonstrates contextual routing to compliant control, matching an always-compliant reference.\nThese results suggest that contact-guided execution-time adaptation can improve the object-level generalization of a fixed VLA to held-out objects by adapting physical realization without object-specific retraining.",
+          "highlights": [
+            "without object-specific retraining",
+            "AgenticTactileVLA",
+            "隶属于 cs.RO"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.04391",
+          "worthReading": false
+        },
+        {
+          "id": "B24",
+          "anchorId": "B24",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "CoDimRecon: Agentic Reconstruction of Sim-Ready 3D Scenes with Deformable Curves, Surfaces, and Volumes",
+          "authors": [
+            "Shuzhao Xie",
+            "Lelin Wang",
+            "Guying Lin",
+            "Zhi Wang",
+            "Minchen Li"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2609.36024",
+          "tags": [
+            "Agent",
+            "Embodied AI"
+          ],
+          "summary": "Reconstructing simulation-ready 3D scenes from real-world observations enables robotics, gaming, and immersive applications, yet existing methods largely assume rigid objects.\nThis leaves an important gap for deformables, whose simulation-ready geometry depends on dimensionality (curves, surfaces, or volumes) and whose behavior may require models beyond elasticity.\nWe present CoDimRecon, an agentic framework that reconstructs editable scenes containing rigid, articulated, and deformable objects from multi-view RGB observations.\nScene-level geometric priors ground scale and layout, while object-level generated meshes guide the agent toward detailed, compact geometry; articulated rigid objects are decomposed into movable parts with explicit joints.\nFor deformables, category-wise agent sessions reconstruct curves as centerlines with radii, surfaces as manifold shells with thickness, and volumes as watertight solids for volumetric meshing.\nReusable simulator skills initialize compatible physical models and parameters, while agent-guided behavioral tests expose mismatches and trigger targeted revisions of motion, geometry, numerics, or material modeling.\nOn evaluated Replica and ScanNet++ scenes, CoDimRecon achieves competitive compositional reconstruction accuracy while additionally producing deformable assets for rod, shell, and solid simulation.\nWe further demonstrate robot interactions across all three representations, including a controlled paper-folding case in which behavioral testing motivates plastic bending.",
+          "highlights": [
+            "CoDimRecon",
+            "隶属于 cs.CV, cs.GR"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2609.36024",
+          "worthReading": false
+        },
+        {
+          "id": "B25",
+          "anchorId": "B25",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "AffordCraft: Scalable Construction of Task-Ready Simulation Assets from Single Images",
+          "authors": [
+            "Haoyun Yang",
+            "Xueyang Zhou",
+            "Ziyi Xie",
+            "Yongchao Chen"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.06643",
+          "tags": [
+            "Agent",
+            "Embodied AI"
+          ],
+          "summary": "Robot learning in simulation depends on the objects the simulator offers.\nMany tasks need objects with separate parts, joints that allow the required motion, and physical properties that remain valid under contact.\nExisting methods recover this structure anew for every image: generative models predict parts and joints that mostly fail to settle or move in simulation, and general-purpose agents need a long session of model calls for each photograph.\nAffordCraft builds such an asset from a single RGB image and a task instruction by retrieval instead of generation: it locates the object and the part to operate, selects a matching entry from a library of articulated assets, and fits it to the image while keeping its parts and joints intact.\nWithout any box or mask marking the object, AffordCraft produces a physically valid asset for 1,703 of 2,000 photographs from 31 categories.\nFive generative methods pass on at most 45% of the same photographs and, at the median, need 10 to 78 times our GPU time per valid asset.\nOn 50 cluttered images, 162 of 237 annotated objects pass the same physical test after automatic detection.\nGrowing the library from 141 to 11,372 entries needs no change to the method and raises category coverage from 46% to 100% and the share of selections with the requested label from 18% to 51%.\nWe also build manipulation tasks from the constructed assets, both with single objects and in composed scenes; policies trained on scripted demonstrations complete both kinds of tasks from initial states unseen in training.",
+          "highlights": [
+            "AffordCraft",
+            "隶属于 cs.RO, cs.AI",
+            "Robot learning in simulation depends on the objects the simulator offers."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.06643",
+          "worthReading": false
+        },
+        {
+          "id": "B26",
+          "anchorId": "B26",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "From Social Reasoning to Embodied Interaction: An Agentic Framework for Social Robots",
+          "authors": [
+            "Ziyu Cheng",
+            "Yuewen Guo",
+            "Zhirui Liu",
+            "Dong Zhang",
+            "Haotao Lu",
+            "Jingyi Yu",
+            "Ye Shi",
+            "Jingya Wang"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.05964",
+          "tags": [
+            "Agent",
+            "Embodied AI"
+          ],
+          "summary": "Natural face-to-face human--robot interaction requires a robot to understand an evolving social situation, decide when to engage, and express its intent through coordinated physical behavior.\nYet existing approaches rarely close this loop: foundation-model agents provide increasingly capable multimodal reasoning and memory but remain largely disembodied, while expressive virtual agents do not face the physical constraints of real robots, and physical social robots typically address social reasoning and embodied expression only partially.\nWe present ARISE, a unified framework that bridges Agentic Reasoning and Interactive Social Embodiment on the Sophia humanoid robot.\nARISE integrates multimodal context understanding, long-term memory, and reactive and proactive interaction to determine when and what to communicate, and translates social intent into robot-native gestures coordinated with speech and mechanical facial expressions through streaming execution.\nExtensive evaluations on Sophia demonstrate strong perceived interaction quality, expressive and well-coordinated embodied behavior, and substantial latency reductions through streaming execution.\nThese results highlight the importance of jointly reasoning about what to communicate, when to engage, and how to physically express social intent for natural interaction with humanoid robots.\nProject Page: https://robosocial.github.io/",
+          "highlights": [
+            "From Social Reasoning to Embodied Interaction",
+            "隶属于 cs.RO",
+            "We present ARISE, a unified framework that bridges Agentic Reasoning and Interactive Social Embodiment on the Sophia hum"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.05964",
+          "worthReading": false
+        },
+        {
+          "id": "B27",
+          "anchorId": "B27",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "On Learning Optimal Corners in Orthogonal Partially Observable Cooperative Guard Art Galleries",
+          "authors": [
+            "Yassin Ben Mansour",
+            "Edwin Meriaux"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.06777",
+          "tags": [
+            "Agent"
+          ],
+          "summary": "The CADENCE algorithm solves the Partially Observable Cooperative Guard Art Gallery Problem (POCGAGP) with formal coverage and connectivity guarantees, but leaves unspecified which valid corner each agent should be deployed to, a choice that strongly affects efficiency.\nWe introduce two learned corner-selection heuristics that preserve these guarantees: a CNN scoring candidates on a grid encoding, and a GATv2 network trained with Deep Q-Learning (DQN) on a visibility graph.\nAcross 7,500 runs on random orthogonal environments (50x50 to 250x250), our heuristics outperform baseline CADENCE in both steps to full coverage and peak agent count, with gains growing with scale, and improve on Incremental Self-Deployment (ISDA) baselines in agent utilization while providing guarantees ISDA lacks.\nLearned corner selection thus improves CADENCE in speed and agent utilization at no cost to its formal properties.",
+          "highlights": [
+            "outperform baseline CADENCE in both steps to full coverage and peak agent count",
+            "隶属于 cs.MA, cs.LG",
+            "Learned corner selection thus improves CADENCE in speed and agent utilization at no cost to its formal properties."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.06777",
+          "worthReading": false
+        },
+        {
+          "id": "B28",
+          "anchorId": "B28",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "Traversability-Aware Cooperative Path Planning for Human-UGV Casualty Evacuation",
+          "authors": [
+            "Kristian Dalland",
+            "Prithvi Poddar",
+            "Souma Chowdhury",
+            "Karthik Dantu",
+            "Ehsan T. Esfahani"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.06487",
+          "tags": [
+            "Agent",
+            "Embodied AI"
+          ],
+          "summary": "Heterogeneous multi-robot path planning is a well-studied problem in which agents with disparate kinematic and dynamic models must coordinate to achieve shared objectives.\nThese formulations, however, treat all agents as robotic-their cost models are mechanical and their traversability is sensor-derived.\nIn human-robot teaming, the human partner remains relegated to command and supervisory roles rather than being modeled as a physical co-navigator with distinct mobility constraints and dynamic energy reserves.\nThis work investigates joint path planning for a two-agent human-UGV team in search-and-rescue casualty retrieval scenarios.\nWe model the human agent using the Pandolf-Santee metabolic cost model with fatigue-modulated speed, and the UGV using a rolling-resistance energy model with terrain-dependent speed limits.\nBy exploiting the complementary traversability of each agent-the human's ability to traverse dense vegetation and shallow water versus the UGV's superior speed on open terrain and roads-we optimize casualty transfer locations, termed switch points, to minimize total mission time.\nEvaluated across multiple synthetic 1km2 environments with procedurally generated elevation and land-cover data, the optimized strategy reduces mean mission time by 5.3% relative to a human-only baseline and by 7.0% relative to a naive human-UGV strategy without switch point optimization, while reducing human energy expenditure by 17.8% relative to baseline.\nNotably, the naive strategy reduces human energy expenditure by a larger margin (22.4%) but incurs a 2% increase in mission time relative to baseline, illustrating that switch point optimization is necessary to realize time savings from human-UGV teaming.",
+          "highlights": [
+            "Traversability",
+            "隶属于 cs.RO, cs.HC",
+            "These formulations, however, treat all agents as robotic-their cost models are mechanical and their traversability is se"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.06487",
+          "worthReading": false
+        },
+        {
+          "id": "B29",
+          "anchorId": "B29",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "Inspect Robots: Evaluating the Capabilities and Safety of Embodied AI",
+          "authors": [
+            "Christopher Leet",
+            "Achu Menon",
+            "Sravanthi Machcha",
+            "Sabrina Zou",
+            "Aayushya Patel",
+            "Aditya Kumar Singh",
+            "Anish Kr Singh",
+            "Galaba Vamsi",
+            "Javin Ahuja",
+            "Sai Asish Yamani",
+            "Tushar Anand",
+            "Vedang Alle",
+            "Zihan Jack Zhang",
+            "Tzu Kit Chan",
+            "Jay Chooi"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.06306",
+          "tags": [
+            "Agent",
+            "Embodied AI"
+          ],
+          "summary": "General purpose language models are increasingly able to control robotic hardware.\nUnderstanding the capabilities and safety of these models when embodied is therefore increasingly important for understanding their societal impact and risks.\nTo this end, we introduce Inspect Robots, a modular, open-source framework for developing and running evaluations of embodied agents.\nInspect Robots pairs customizable, reusable abstractions for specifying physical evaluations and analyzing their results with infrastructure that automates evaluation setup, execution and termination.\nWe demonstrate Inspect Robots by using it to evaluate the capabilities and safety of six policies based on frontier language models.\nInspect Robots has seen significant early uptake, receiving nearly 100,000 downloads in the three months since its release.",
+          "highlights": [
+            "Inspect Robots",
+            "隶属于 cs.RO",
+            "General purpose language models are increasingly able to control robotic hardware."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.06306",
+          "worthReading": false
+        },
+        {
+          "id": "B30",
+          "anchorId": "B30",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "Lie Rarely, Lie Big: Stealthy Insider Attacks on LLM Robot Teams",
+          "authors": [
+            "Sribalaji C. Anand",
+            "George J. Pappas"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.04744",
+          "tags": [
+            "Agent",
+            "Embodied AI",
+            "LLM"
+          ],
+          "summary": "When a team of robots delegates planning and mutual trust to LLM agents, a single compromised robot can corrupt the shared outcome.\nWe study this threat in a grounded task: a multi-robot survey in which measurements can be verified against the physical world, but every verification costs budget that would otherwise advance the mission.\nWe treat the compromised robot as a stealthy adversary in the system-theoretic sense: it is limited not by an energy bound but by the team's own detectors.\nWe then derive two bounds.\nFirst, the probability that the adversary's reports are verified is bounded below in terms of the degrees in the communication graph and the verification budget.\nSecond, the map error caused by any stealthy adversary is bounded above by the value of a linear program over the adversary's bias distributions; its solution is an exchange rate between stealth budget and damage: below a critical verification level the worst stealthy attack tells rare, full-magnitude lies on the records least likely to be verified, and above it the better purchase is small biases hidden in the noise.\nIn experiments where the honest robots are LLM agents, both bounds hold at the budget the attack actually spent.\nThe experiments also show that which records an LLM robot re-checks is unbiased, but how much it re-checks is unpredictable.",
+          "highlights": [
+            "Lie Rarely, Lie Big",
+            "隶属于 cs.RO, cs.MA",
+            "When a team of robots delegates planning and mutual trust to LLM agents, a single compromised robot can corrupt the shar"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.04744",
+          "worthReading": false
+        },
+        {
+          "id": "B31",
+          "anchorId": "B31",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "GroundingVLN: Reasoning and Acting with Grounding for Vision-Language Navigation",
+          "authors": [
+            "Kailing Li",
+            "Yu Han",
+            "Tianwen Qian",
+            "Yuqian Fu",
+            "Jingyu Gong",
+            "Jiangming Shi",
+            "Xiaoling Wang"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2609.18581",
+          "tags": [
+            "Agent",
+            "Embodied AI"
+          ],
+          "summary": "Although vision-language models (VLMs) possess strong visual understanding and reasoning capabilities, existing vision-and-language navigation (VLN) agents struggle to connect semantic reasoning with spatial execution.\nTwo coupled gaps remain in this connection, as intermediate reasoning is not explicitly anchored to visual evidence and high-level decisions lack precise spatial goals to guide low-level motion.\nCognitive science suggests that human navigation bridges these levels hierarchically by anchoring cognition to relevant landmarks and guiding locomotion toward spatial goals.\nMotivated by this principle, we propose GroundingVLN, which uses visual grounding as a shared interface between reasoning and action.\nGroundingVLN first reasons with grounding by anchoring task-relevant visual evidence to precise image locations throughout structured reasoning.\nIt then acts through grounding by predicting a progress-aligned pixel goal that a geometric planner translates into primitive actions.\nTo learn these capabilities, we construct GroundingCOTVLN-188K, a dataset of temporally aligned grounded reasoning traces, and introduce Grounded and Execution-Aware Reinforcement Learning (GEAR), which aligns grounded reasoning and spatial decisions with downstream execution.\nExperiments demonstrate that GroundingVLN achieves state-of-the-art performance (69.9% SR on R2R-CE and 75.1% SR on RxR-CE) with high sample efficiency, using just 0.9% as much training data as the strongest baseline.\nIt also generalizes strongly across datasets, attaining 59.9% SR on RxR-CE when trained solely on R2R, a gain of 20.1% over the strongest baseline.\nCode and models will be released after review.\nCode is available at [https://github.com/Teacher-Tom/GroundingVLN](https://github.com/Teacher-Tom/GroundingVLN).",
+          "highlights": [
+            "first reasons with grounding by anchoring task-relevant visual evidence to precise image locations throughout structured",
+            "GroundingVLN",
+            "隶属于 cs.RO"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2609.18581",
+          "worthReading": false
+        },
+        {
+          "id": "B32",
+          "anchorId": "B32",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "Are Frontier VLM Agents Ready to Be Robot Generalists? An Empirical Study with the Embodied Agent Arena",
+          "authors": [
+            "Haojian Huang",
+            "Pukun Zhao",
+            "Zexi Li",
+            "Yehang Zhang",
+            "Yangkai Wei",
+            "Wenqian Li",
+            "Han Yang",
+            "Kaiwen Zhou",
+            "Ying-Cong Chen",
+            "Yinchuan Li"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.00854",
+          "tags": [
+            "Agent",
+            "Embodied AI"
+          ],
+          "summary": "Frontier vision-language models (VLMs) increasingly estimate scenes, ground interactions, and generate executable actions.\nHow far these native capabilities support embodied generalism across diverse tasks remains unclear.\nWe introduce Embodied Agent Arena to assess seven VLM agents across Geometry, Spatial Reasoning, Affordance, Task Planning, and Manipulation.\nThe arena contains 1,000 cases drawn from 32 established sources and GeoProbe, our new benchmark for geometric estimation on Blender renders and real-scene images.\nA minimal harness preserves source observations and operations while leaving perception, reasoning, and action selection to the model.\nSeparate measures of metric precision, functional grounding, and native goal completion connect local competence to complete task outcomes.\nAstra's strengths in precise estimation and usable-contact localization coexist with endpoint errors in tracing and low household-task completion.\nSupplementary comparisons of richer observations and multi-round review show model- and task-dependent effects.\nCurrent VLM agents thus fall short of embodied generalism: they often make partial progress without satisfying all task goals within allotted time and interaction budgets.",
+          "highlights": [
+            "隶属于 cs.RO",
+            "Frontier vision-language models (VLMs) increasingly estimate scenes, ground interactions, and generate executable action",
+            "How far these native capabilities support embodied generalism across diverse tasks remains unclear."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.00854",
+          "worthReading": false
+        },
+        {
+          "id": "B33",
+          "anchorId": "B33",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "A Survey of Robotic Navigation and Manipulation with Physics Simulators in the Era of Embodied AI",
+          "authors": [
+            "Lik Hang Kenny Wong",
+            "Xueyang Kang",
+            "Kaixin Bai",
+            "Jianwei Zhang"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2505.01458",
+          "tags": [
+            "Agent",
+            "Embodied AI"
+          ],
+          "summary": "Navigation and manipulation are core capabilities in Embodied AI, but training agents to perform them directly in the real world is costly, time-consuming, and unsafe.\nTherefore, sim-to-real transfer has emerged as a key approach, yet the sim-to-real gap persists.\nThis survey examines how physics simulators address this gap by analyzing properties that have received limited attention in prior surveys.\nWe also analyze their features for navigation and manipulation tasks, as well as their hardware requirements.\nAdditionally, we offer a resource with benchmark datasets, metrics, simulation platforms, and methods to help researchers select suitable tools while accounting for hardware constraints.",
+          "highlights": [
+            "隶属于 cs.RO, cs.AI",
+            "Therefore, sim-to-real transfer has emerged as a key approach, yet the sim-to-real gap persists.",
+            "This survey examines how physics simulators address this gap by analyzing properties that have received limited attentio"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2505.01458",
+          "worthReading": false
+        }
+      ]
+    },
     {
       "id": "2026-10-05",
       "date": "2026-10-05",

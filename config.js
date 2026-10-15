@@ -3,13 +3,1948 @@ const PAPER_ARCHIVE_CONFIG = {
     "title": "Agent & LLM Research Daily",
     "subtitle": "Daily arXiv Digest — Agents · RSI · Agentic RL · Frontier LLMs",
     "description": "Automated collection of cutting-edge research papers on AI Agents, Recursive Self-Improvement (RSI), Agentic RL, and releases from leading LLM labs (OpenAI, Anthropic, Google, Meta, Zhipu, DeepSeek, Qwen, Kimi, Hunyuan, Xiaomi, ByteDance, Baidu, etc.).",
-    "totalPapers": 390,
-    "totalDays": 10,
-    "lastUpdated": "2026-10-13",
+    "totalPapers": 440,
+    "totalDays": 11,
+    "lastUpdated": "2026-10-15",
     "author": "@miclover0",
     "repository": "https://github.com/miclover0/paper-daily"
   },
   "dailyReports": [
+    {
+      "id": "2026-10-15",
+      "date": "2026-10-15",
+      "dateDisplay": "October 15, 2026",
+      "weekday": "Thursday",
+      "filename": "daily_reports/2026-10-15-arXiv.html",
+      "paperCount": 50,
+      "groups": {
+        "A": 33,
+        "B": 17,
+        "C": 0
+      },
+      "featuredPapers": [
+        {
+          "title": "VideoHarness-SRSI: Structured Recursive Self-Improvement for Video Understanding Harness",
+          "authors": "Zihao Lin, Haoyu Dong, Haobo Xu",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.19424",
+          "tags": [
+            "RSI",
+            "Agent",
+            "LLM"
+          ],
+          "summary": "LLM system capabilities depend not only on model parameters but also on the executable harnesses that organize information acquisition, tool use, reasoning, and memory. LLM系统功能不仅取决于模型参数，还取决于组织信息采集、工具使用、推理和内存的可执行线束。\nRecursive harness evolution can automate their design, but how it can reliably discover generalizable systems from limited, noisy, and repeatedly reused feedback remains unclear. 递归线束的演进可以实现其设计的自动化，但它如何从有限、嘈杂和重复使用的反馈中可靠地发现可推广的系统尚不清楚。\nWe study this question in agentic video understanding, where rich multimodal evidence and coupled mechanisms make harness optimization challenging. 我们在代理视频理解中研究这个问题，丰富的多模态证据和耦合机制使线束优化具有挑战性。\nWe first introduce VideoHarness-BRSI, a recursive self-improvement framework that evolves video harnesses around a frozen vision-language model. 我们首先介绍VideoHarness-BRSI ，这是一个递归自我改进框架，围绕冻结的视觉语言模型发展视频线束。\nAnalyzing over 4,000 evolved candidates, we find it competitive with hand-engineered systems but identify three interconnected failure modes: validation overfitting, search-budget dilution, and the early-experience trap. 我们分析了4000多名进化的候选者，发现它与手工系统有竞争力，但确定了三种相互关联的故障模式：验证过拟合、搜索预算稀释和早期体验陷阱。\nWe trace all three to a common root: the same imperfect validation evidence drives both harness revisions and the proposer's search strategy. 我们将这三者追溯到一个共同的根源：相同的不完美验证证据推动了线束修订和提案者的搜索策略。\nWe therefore propose VideoHarness-SRSI, an evidence-governed framework in which every search decision rests on evidence that is transferable, sufficient, and gathered before the search commits. 因此，我们提出了VideoHarness-SRSI ，这是一个证据管理的框架，其中每个搜索决定都依赖于在搜索提交之前可转移、充分和收集的证据。\nIt restricts the proposer to content-free feedback, informs exploration with instrumented warm-up experiments, and develops mechanisms in isolated probe-race branches before factorial composition and joint refinement. 它将提议者限制为无内容反馈，通过仪器预热实验为探索提供信息，并在析因组合和关节细化之前在孤立的探针-竞赛分支中开发机制。\nAcross four video understanding benchmarks, VideoHarness-SRSI improves the equally weighted mean held-out score by 6.2% relative to VideoHarness-BRSI and reduces the mean validation-test gap by 37.9%. 在四个视频理解基准中， VideoHarness-SRSI相对于VideoHarness-BRSI将同等加权的平均保留分数提高了6.2% ，并将平均验证测试差距缩小了37.9%。\nReliable harness evolution thus depends on how search is organized and informed, not only on how well it optimizes validation performance. 因此，可靠的线束进化取决于搜索的组织和知情方式，而不仅仅是它优化验证性能的程度。",
+          "highlights": [
+            "first introduce VideoHarness-BRSI",
+            "VideoHarness",
+            "隶属于 cs.CV, cs.AI"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.19424",
+          "readReason": "AI Agent 是当前研究热点，本文可能包含创新性的设计思路；递归自改进（RSI）是智能体自我进化的关键方向，本文具有一定的探索价值"
+        },
+        {
+          "title": "Video-Browser: Towards Open-web Agentic Video Browsing",
+          "authors": "Zhengyang Liang, Yan Shu, Xiangrui Liu",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2512.23044",
+          "tags": [
+            "Google",
+            "Qwen",
+            "Agent"
+          ],
+          "summary": "Autonomous agents are shifting information seeking from passive retrieval toward proactive, open-ended research, yet this progress has largely bypassed video, one of the web's richest sources of evidence. 自主代理正在将寻求的信息从被动检索转向主动、开放式的研究，但这一进展在很大程度上绕过了视频，视频是网络上最丰富的证据来源之一。\nWe formalize Agentic Video Browsing, in which an agent must query video search engines, decide which returned videos to watch, and answer questions grounded in their visual content. 我们将Agentic Video Browsing正式化，在Agentic Video Browsing中，客服代表必须查询视频搜索引擎，决定要观看哪些返回的视频，并回答基于其视觉内容的问题。\nTo study this setting reproducibly, we introduce Video-BrowseComp, a benchmark and infrastructure suite with 660 human-annotated questions at three difficulty levels, paired online and offline evaluation tracks, and a fixed video search stack of roughly 12,000 videos spanning over 2,000 hours for evaluation and training-data construction. 为了可重复地研究此设置，我们引入了Video-BrowseComp ，这是一个基准和基础设施套件，包含三个难度级别的660个人工注释问题，配对在线和离线评估轨道，以及大约12,000个视频的固定视频搜索堆栈，跨越2,000多个小时，用于评估和培训数据构建。\nOur analysis reveals that the main bottleneck lies before video understanding: agents often fail to find the answer-bearing video at all. 我们的分析表明，主要的瓶颈在于视频理解：客服代表往往根本无法找到含有答案的视频。\nThis bottleneck stems from two coupled challenges. 这一瓶颈源于两个相互关联的挑战。\nSearch engines index textual metadata such as titles and tags, whereas questions often target implicit visual or cross-source evidence absent from these surface forms; and exhaustively inspecting the many returned videos is prohibitively expensive. 搜索引擎索引标题和标签等文本元数据，而问题通常针对这些表面形式中缺少的隐含视觉或跨源证据；彻底审查许多返回的视频是非常昂贵的。\nWe propose Video-Browser, an evidence-surfacing agent that improves both sides of search. 我们推荐Video-Browser ，这是一种证据展示代理，可改善搜索的两面性。\nA Translation Memory helps the Planner phrase queries by analogy to past question-to-query transformations that successfully surfaced their target videos, and a Watcher performs sparse visual screening over returned candidates, retaining only videos that plausibly contain answer-bearing evidence for later dense verification. 翻译记忆库通过类比过去成功呈现其目标视频的问答转换来帮助规划师进行短语查询，而观察者对返回的候选人进行稀疏的视觉筛选，仅保留可能包含答案证据的视频，以便日后进行密集验证。\nOn the offline track, Video-Browser raises overall accuracy from 11.6% to 27.3% with Qwen3-VL-8B and from 39.8% to 45.1% with Gemini-3.1-Pro over the corresponding ReAct search agents, showing that better query formulation and post-search candidate selection improve end-to-end browsing performance. 在离线轨道上， Video-Browser使用Qwen3-VL-8B将整体准确率从11.6%提高到27.3% ，使用Gemini-3.1-Pro将整体准确率从39.8%提高到45.1% ，优于相应的ReAct搜索代理，这表明更好的查询公式和搜索后候选选择提高了端到端的浏览性能。",
+          "highlights": [
+            "Video",
+            "隶属于 cs.CV",
+            "Our analysis reveals that the main bottleneck lies before video understanding: agents often fail to find the answer-bear"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2512.23044",
+          "readReason": "AI Agent 是当前研究热点，本文可能包含创新性的设计思路；来自 Google 团队的最新研究工作，值得重点关注其技术路线"
+        },
+        {
+          "title": "Verifier-Grounded Agentic RL for Provably Correct Code",
+          "authors": "George Ma, Yuhao Zhang, Bing He",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.19298",
+          "tags": [
+            "Qwen",
+            "Agentic RL",
+            "Agent"
+          ],
+          "summary": "Reinforcement learning for code usually rewards passing tests, which a model can do while remaining wrong on the inputs the tests do not cover. 代码的强化学习通常会奖励通过测试，模型可以在测试未覆盖的输入上保持错误的情况下执行此操作。\nA program verifier instead decides whether a program satisfies a formal specification for all inputs. 相反，程序验证器决定程序是否满足所有输入的形式规范。\nLanguage models are almost always paired with verifiers at inference time only, and turning a verifier into a reward raises two difficulties. 语言模型几乎总是仅在推理时与验证器配对，而将验证器转化为奖励会带来两个困难。\nIt reports only acceptance or rejection, which gives no gradient when every attempt fails, and a policy can cheat it, most simply by telling it to assume what the proof was supposed to establish. 它只报告接受或拒绝，每次尝试失败时都不会给出梯度，政策可以欺骗它，最简单的方法是让它假设证据应该建立什么。\nWe build an agentic environment and reward that address both. 我们构建了一个代理环境，并奖励这两者。\nThe reward reads the verifier's diagnostics rather than its verdict, scoring a candidate by the weighted fraction of proof obligations it discharges, extended with hidden probes from a reference proof's annotations. 奖励读取验证者的诊断而不是其判决，根据其履行的证明义务的加权分数对候选者进行评分，并从参考证明的注释中扩展隐藏探针。\nAn integrity audit outranks the verifier, rejecting any candidate that alters the specification or assumes what it was meant to prove. 诚信审计的排名高于验证者，拒绝任何改变规范或假设其目的是证明的候选人。\nThe model works as an agent against a live verifier over many turns, with a separately trained proof specialist as a frozen collaborator. 该模型在多个回合中作为代理与实时验证者对抗，并由经过单独培训的证明专家作为冻结的合作者。\nAcross Qwen3 models from 1.7B to 14B and a 35B Qwen3.6 mixture-of-experts model, held-out verification on code generation rises from 66.1% to 93.5% on DafnyBench and from 56.3% to 100% on SWE-Proof. 在从1.7B到14B的Qwen3模型和35B Qwen3.6混合专家模型中， DafnyBench的代码生成验证从66.1%上升到93.5% ， SWE-Proof从56.3%上升到100%。\nThis reward leads every other training signal we compare, including a binary pass-or-fail reward trained under otherwise identical settings, with the widest margin on code generation. 这种奖励领先于我们比较的所有其他训练信号，包括在其他相同设置下训练的二进制通过或失败奖励，并且在代码生成上的余量最大。\nWhen the agent must also deliver the repository patch, graded by each project's withheld tests, the fraction of held-out issues it resolves rises from 59.6% to 72.5%. 当代理还必须提供存储库补丁时，根据每个项目的扣留测试进行分级，其解决的扣留问题的比例从59.6%上升到72.5%。\nEvaluated unchanged on three verification suites withheld from training, the checkpoints improve on all of them, including one whose language and verifier are absent from training. 对三个未接受培训的验证套件进行评估后，所有检查点都得到了改善，其中包括一个语言和验证者缺席培训的检查点。",
+          "highlights": [
+            "Verifier",
+            "隶属于 cs.LG",
+            "Reinforcement learning for code usually rewards passing tests, which a model can do while remaining wrong on the inputs "
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.19298",
+          "readReason": "AI Agent 是当前研究热点，本文可能包含创新性的设计思路；Agentic 强化学习将决策与语言模型结合，是智能体研究的前沿方向"
+        },
+        {
+          "title": "SWE-Spot: Building Small Repo-Experts with Repository-Centric Learning",
+          "authors": "Jinjun Peng, Magnus Saebo, Tianjun Zhong",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2601.21649",
+          "tags": [
+            "OpenAI",
+            "Qwen",
+            "Agent"
+          ],
+          "summary": "The deployment of coding agents in privacy-sensitive and resource-constrained environments drives the demand for capable open-weight Small Language Models (SLMs). 在隐私敏感和资源受限的环境中部署编码代理，推动了对功能强大的开放式小型语言模型(SLM)的需求。\nHowever, they suffer from a fundamental capability gap: unlike frontier large models, they lack the inference-time strong generalization to handle complicated, unfamiliar codebases. 然而，它们存在根本的能力差距：与前沿大型模型不同，它们缺乏处理复杂、不熟悉的代码库的推理时间强泛化。\nWe identify that the prevailing Task-Centric Learning (TCL) approach, which scales exposure across disparate repositories, fails to address this limitation. 我们发现，主流的以任务为中心的学习（ TCL ）方法未能解决这一局限性，该方法在不同的存储库中扩展暴露。\nIn response, we propose Repository-Centric Learning (RCL), a shift that prioritizes vertical, single-repository depth over horizontal, single-task breadth for SLM training. 作为回应，我们提出了以存储库为中心的学习（ RCL ） ，这种转变优先考虑了SLM培训的垂直、单存储库深度而不是水平、单任务广度。\nTo accomplish this depth, we design a four-unit Repository-Centric Experience, transforming static codebases into interactive learning signals, to train SWE-Spot-4B, a family of highly compact models built as repo-specialized experts. 为了实现这一深度，我们设计了一个由四个单元组成的以存储库为中心的体验，将静态代码库转换为交互式学习信号，以培训SWE-Spot-4B ，这是一个高度紧凑的模型系列，作为存储库专业化专家构建。\nUnder controlled comparisons with the same teacher and data budget, RCL consistently outperforms TCL across tasks, teachers, model scales, and programming languages. 在同一教师和数据预算的受控比较下， RCL在任务、教师、模型量表和编程语言方面始终优于TCL。\nOn seven target repositories, SWE-Spot-4B experts match or exceed existing open-weight models up to $8\\times$ larger (e.g., CWM by Meta, Qwen3-Coder-30B) and surpass or match efficiency-focused commercial models (e.g., GPT-4.1-mini, GPT-5-nano) across multiple SWE tasks. 在七个目标存储库中， SWE-Spot-4B专家匹配或超过现有的开放权重模型，最高可达$ 8\\ times $ （例如， Meta的CWM ， Qwen3-Coder-30B ） ，并在多个SWE任务中超过或匹配以效率为重点的商业模型（例如， GPT-4.1-mini ， GPT-5-nano ）。\nFurther analysis reveals that RCL yields higher training and inference efficiency, deep knowledge acquisition, and can scale to repository-cluster experts. 进一步分析表明， RCL可以产生更高的培训和推理效率，深度知识获取，并可以扩展到存储库集群专家。\nOur work emphasizes that for building efficient intelligence, repository mastery is a distinct, necessary, and practical dimension that complements general coding capability. 我们的工作强调，为了构建高效的智能，存储库掌握是一个独特、必要和实用的维度，是对一般编码能力的补充。",
+          "highlights": [
+            "outperforms TCL across tasks",
+            "SWE",
+            "隶属于 cs.LG, cs.AI"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2601.21649",
+          "readReason": "AI Agent 是当前研究热点，本文可能包含创新性的设计思路；来自 OpenAI 团队的最新研究工作，值得重点关注其技术路线"
+        },
+        {
+          "title": "Harness^2: Recursive Agent Harnessing for an Open World",
+          "authors": "Ruiyao Xu, Yanfei Chen, Zhongying CuiZhu",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.14224",
+          "tags": [
+            "Google",
+            "RSI",
+            "Agent"
+          ],
+          "summary": "LLM agents' capabilities depend not only on their underlying models but also on their execution harnesses. LLM代理的能力不仅取决于其基础模型，还取决于其执行利用。\nRecursive self-improvement (RSI) offers a promising approach to automatically evolve these harnesses. 递归自我改进（ RSI ）提供了一种有希望的方法来自动发展这些线束。\nHowever, deploying RSI in open-world settings still faces two critical challenges. 然而，在开放世界中部署RSI仍然面临两个关键挑战。\nFirst, open-world tasks are typically unseen during the harness design phase and novel at test time, leaving no ground-truth verifiers to reliably guide online harness edits. 首先，开放世界的任务在线束设计阶段通常是看不到的，在测试时是新颖的，没有留下可靠地指导在线束编辑的地面真相验证器。\nSecond, the RSI process remains highly task-specific and fails to generalize to novel scenarios. 其次， RSI过程仍然具有高度的任务特定性，无法推广到新颖的场景。\nWe introduce Harness^2, a plug-and-play, recursive agent harnessing framework that addresses these challenges through two connected levels of recursion. 我们引入了线束^ 2 ，这是一个即插即用的递归代理利用框架，通过两个相互关联的递归级别来解决这些挑战。\nTask-level recursion refines the current task's harness using a contrastive Propose-Probe-Compose step that reliably guides edits without ground-truth verifiers, and can be scaled further via parallel or sequential recursion. 任务级递归使用对比的Propose-Probe-Compose步骤来优化当前任务的线束，该步骤在没有地面真实性验证器的情况下可靠地指导编辑，并且可以通过并行或顺序递归进一步缩放。\nHarnessing-level recursion then extracts experience from these edits to update a continual improvement harness, enabling the agent to better adapt to future tasks. 利用级别递归然后从这些编辑中提取经验，以更新持续改进利用，使代理能够更好地适应未来的任务。\nAcross three professional benchmarks and four model-harness configurations, a single step consistently improves GLM-5 and Gemini 3.5 Flash over their base harnesses, yielding gains of up to 11.5 points on WorkBuddy-Bench, 4.5 points on JobBench, and 11.8 percentage points on LAB, with further gains as the task-level recursion budget increases. 在三个专业基准和四个模型线束配置中，单一步骤不断改进GLM-5和Gemini 3.5 Flash的基础线束，在WorkBuddy-Bench上获得高达11.5分的收益，在JobBench上获得4.5分，在实验室获得11.8个百分点，随着任务级递归预算的增加，进一步获得收益。",
+          "highlights": [
+            "Harness^2",
+            "隶属于 cs.AI, cs.CL",
+            "LLM agents' capabilities depend not only on their underlying models but also on their execution harnesses."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.14224",
+          "readReason": "AI Agent 是当前研究热点，本文可能包含创新性的设计思路；递归自改进（RSI）是智能体自我进化的关键方向，本文具有一定的探索价值"
+        },
+        {
+          "title": "EvoCowork: A Benchmark for Real-World Office Tasks",
+          "authors": "Zhou Liu, Xingyan Chen, ZhaoYang Han",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.14828",
+          "tags": [
+            "RSI",
+            "Agent"
+          ],
+          "summary": "Office workflows are a demanding testbed for self-improving agents because their deliverables must be correct, natively editable, and mutually consistent. 对于自我改进的代理而言， Office工作流是一个苛刻的测试平台，因为它们的可交付成果必须正确、本机可编辑且相互一致。\nA central question is whether gains on feedback tasks reflect reusable procedures rather than task-specific fixes. 一个核心问题是，反馈任务的收益是否反映了可重复使用的程序，而不是特定于任务的修复。\nWe introduce EvoCowork, a 240-task benchmark for evaluating harness-level recursive self-improvement across four office modalities, with model weights held fixed. 我们引入了EvoCowork ，这是一个240项任务的基准，用于评估四种办公模式的线束级递归自我改进，模型权重保持不变。\nThe benchmark covers presentations, documents, spreadsheets, and cross-office workflows, and scores submitted artifacts for content, native structure, formulas, cross-file consistency, and visual quality where needed. 该基准涵盖演示文稿、文档、电子表格和跨部门工作流程，并在需要时对提交的内容、原生结构、公式、交叉文件一致性和视觉质量进行评分。\nIts protocol separates feedback, revision selection, and final testing: methods learn from single-modality tasks, then are evaluated on unseen single-modality tasks and cross-office workflows under a shared initial harness and explicit budgets. 其协议将反馈、修订选择和最终测试分开：方法从单模态任务中学习，然后在共享的初始线束和显式预算下根据看不见的单模态任务和跨部门工作流程进行评估。\nIn static evaluations of two models and four harnesses, the best configuration scores 42.25 overall and 30.62 on cross-office tasks. 在两种型号和四种线束的静态评估中，最佳配置总体得分为42.25 ，跨部门任务得分为30.62。\nStarting from the same MSA harness with GLM 5.3, ACE and AHE improve in-domain scores by 4.90 and 2.64 points, respectively, but change cross-office scores by only +0.03 and -1.72. 从与GLM 5.3相同的MSA线束开始， ACE和AHE分别将域内分数提高了4.90和2.64分，但仅将跨部门分数提高了+0.03和-1.72。\nThus, gains on the file types that provide feedback do not necessarily transfer to coordinated workflows. 因此，提供反馈的文件类型的增益不一定会转移到协调的工作流中。\nEvoCowork makes this distinction explicit while recording the capability, transfer, and cost of harness evolution. EvoCowork在记录线束演进的能力、转移和成本的同时，明确了这一区别。\nCode and task packages: https://github.com/DeepThinkingZhouLiu/cowork-evolution-benchmark. 代码和任务包： https://github.com/DeepThinkingZhouLiu/cowork-evolution-benchmark。",
+          "highlights": [
+            "EvoCowork",
+            "隶属于 cs.AI",
+            "A central question is whether gains on feedback tasks reflect reusable procedures rather than task-specific fixes."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.14828",
+          "readReason": "AI Agent 是当前研究热点，本文可能包含创新性的设计思路；递归自改进（RSI）是智能体自我进化的关键方向，本文具有一定的探索价值"
+        },
+        {
+          "title": "Trace Evolution Bench: Measuring Whether Agents Improve from Their Own Environment Traces",
+          "authors": "Fangfei Li, Chenyang Zhao, Long Wang",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.15055",
+          "tags": [
+            "DeepSeek",
+            "RSI",
+            "Agent"
+          ],
+          "summary": "Self-evolving agents are usually scored by endpoint Gain: held-out success after an update minus success before. 自我进化药剂通常按终点增益评分：更新后保持成功减去之前的成功。\nThat difference can credit a frozen rescore as evolution. 这种差异可以归功于冻结的重新评分作为进化。\nWe introduce Trace Evolution Bench (TEB), a protocol that separates that rescore from a context or weight update, together with three frozen 80/20/40 packs. 我们引入了Trace Evolution Bench （ TEB ） ，这是一种将重新评分与上下文或权重更新分开的协议，以及三个冷冻的80/20/40内容包。\nAn update is accepted only when validation does not fall, held-out identifiers never enter the update, and a text update is not ranked with a weight update. 只有在验证未失败、保留标识符从未进入更新以及文本更新未与权重更新进行排名时，才接受更新。\nThe primary scoreboard is coding, graded by hidden unit tests in a closed workspace. 主要记分牌是编码，由封闭工作空间中的隐藏单元测试评分。\nOn that pack (40 held-out tasks, one family), DeepSeek v4 Pro under no_evolve never changes its policy yet moves 7.5, 5.0, and 12.5 percentage points across three seeds. 在该包（ 40个未完成的任务，一个系列）上， no_evolve下的DeepSeek v4 Pro从未更改其策略，但在三个种子中移动了7.5、5.0和12.5个百分点。\nOf nine text-update cells inspired by GEPA, ACE, and ExpeL, seven have positive excess above that seed's own band, and one gepa_llm seed moves down by the width of its band (-12.5, regression 0.48). 在受GEPA、ACE和ExpeL启发的九个文本更新细胞中，七个细胞的正过剩高于种子自己的条带，一个gepa_llm种子向下移动其条带的宽度（ -12.5 ，回归0.48 ）。\nGLM and MiniMax do not reproduce that seven-of-nine pattern. GLM和MiniMax不重现九分之七的模式。\nNo method stays above its own band on every seed of all three models: GLM has two paired cells above their own bands, and MiniMax expel_llm seed 44 is a third (regression 0.30). 在所有三个模型的每个种子上，没有方法保持在自己的带之上： GLM在自己的带之上有两个成对的细胞，而MiniMax EXPEL_LLM种子44是第三个（回归0.30 ）。\nThe methods were fixed on a validation screen before held-out was read. 在读取保留的方法之前，将方法固定在验证屏幕上。\nOffice, graded by rule-bounded delivery, and manufacturing table QA are separate packs: office DeepSeek does not exceed its own bands (widest 17.5 points), and manufacturing has no paired positive excess beyond its seed band. Office （按受规则约束的交付分级）和制造表QA是单独的包装： Office DeepSeek不超过自己的频带（最宽的17.5分） ，制造业没有超出其种子频带的成对正过剩。",
+          "highlights": [
+            "exceed its own bands (widest 17",
+            "Trace Evolution Bench",
+            "隶属于 cs.AI"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.15055",
+          "readReason": "AI Agent 是当前研究热点，本文可能包含创新性的设计思路；递归自改进（RSI）是智能体自我进化的关键方向，本文具有一定的探索价值"
+        },
+        {
+          "title": "SpecForge: Recursive Self-Improvement for Coding Agents via Behavioral Specifications",
+          "authors": "Yutong Cheng, Haifeng Chen, Peng Gao",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.15708",
+          "tags": [
+            "Anthropic",
+            "RSI",
+            "Agent"
+          ],
+          "summary": "Coding agents based on frozen language models can improve their performance by refining the external context they rely on, without updating model weights. 基于冻结语言模型的编码代理可以通过优化其所依赖的外部上下文来提高其性能，而无需更新模型权重。\nWe study recursive self-improvement through behavioral specifications: natural-language code documentation that describes the behavior of program entities and guides agents in generating correct code. 我们通过行为规范研究递归自我改进：自然语言代码文档，描述程序实体的行为，并指导代理生成正确的代码。\nWe formulate a self-improvement loop in which an agent generates code from its current specifications, evaluates it with execution-verified tests, and refines the specifications based on observed failures. 我们制定了一个自我改进循环，其中代理根据其当前规范生成代码，通过执行验证测试对其进行评估，并根据观察到的故障完善规范。\nThe improved specifications then guide subsequent generation, progressively improving the agent's understanding of the codebase. 然后，改进的规范指导后续生成，逐步提高代理对代码库的理解。\nHowever, recursive refinement is challenging because program entities are interdependent. 然而，递归细化具有挑战性，因为程序实体是相互依赖的。\nImproving the specification of one entity can inadvertently degrade the correctness of others, a phenomenon we call output coupling. 改进一个实体的规范可能会无意中降低其他实体的正确性，这种现象我们称之为输出耦合。\nThis creates a whack-a-mole effect in which local improvements cause regressions elsewhere, preventing consistent progress. 这产生了一种鼹鼠效应，其中局部改善会导致其他地方的倒退，从而阻止持续的进展。\nWe introduce SpecForge, a multi-frontier tree search framework that addresses this challenge with three mechanisms: (i) Pareto-guided state selection preserves complementary specification states and prevents premature commitment; (ii) dependency-constrained entity selection prioritizes callee-before-caller refinement; and (iii) error-diversified expansion explores multiple refinements using different subsets of test failures. 我们引入了SpecForge ，这是一个多前沿树搜索框架，通过三种机制解决这一挑战： （ i ）帕累托引导的状态选择保留了互补的规范状态并防止过早的承诺； （ ii ）依赖性受限的实体选择优先考虑被调用方在调用方之前的细化；以及（ iii ）错误多样化扩展探索使用不同子集的测试失败的多个细化。\nOn DevEval+, SpecForge achieves the best performance across five backbone models, including a 94.9% solve rate with Claude-4.5-Sonnet and a 5.7-percentage-point average improvement over the strongest baseline. 在DevEval +上， SpecForge在五个骨干模型中实现了最佳性能，包括Claude-4.5-Sonnet的解决率为94.9% ，平均比最强基线提高了5.7个百分点。\nThe improved specifications also make the agent better at tasks outside the loop: they transfer to cross-language translation and to new-feature implementation, where they outperform the benchmark-provided requirement documents. 改进的规范还使代理更好地执行循环外的任务：它们转移到跨语言翻译和新功能实现，在那里它们的表现优于基准提供的需求文档。",
+          "highlights": [
+            "outperform the benchmark-provided requirement documents",
+            "SpecForge",
+            "隶属于 cs.AI, cs.SE"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.15708",
+          "readReason": "AI Agent 是当前研究热点，本文可能包含创新性的设计思路；递归自改进（RSI）是智能体自我进化的关键方向，本文具有一定的探索价值"
+        },
+        {
+          "title": "Get In, Decide, Prove: A Merchant-Side Readiness Benchmark for Agentic Commerce",
+          "authors": "Adrian de Valois-Franklin, Alex Bogdan, Anas Ibrahim",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.17378",
+          "tags": [
+            "Agent"
+          ],
+          "summary": "AI agents now browse and buy on people's behalf, and benchmarks measure how well the agents perform. 人工智能代理现在代表人们浏览和购买，基准衡量代理的表现。\nFar less is known about the other side of the transaction: whether a merchant's website lets an agent in, publishes terms precise enough to decide a purchase, and leaves evidence of what was agreed. 对交易的另一方面知之甚少：商家的网站是否允许代理进入，发布足够精确的条款以决定购买，并留下已达成协议的证据。\nThis paper presents a merchant-side benchmark built on those three questions and reports a pilot of it. 本文提出了基于这三个问题的商家侧基准，并报告了其试点。\nThe central measurement, decision sufficiency, rates each criterion of a concrete buyer mandate (total cost, cancellation or return terms, service date, variant identity) as determinate, indeterminate, or unknown from the merchant's own published evidence. 根据商家自己公布的证据，中央测量、决策充分性、具体买家授权的每个标准（总成本、取消或退货条款、服务日期、变体身份）为确定、不确定或未知。\nReadiness scores carry their evidence coverage and missingness bounds; access is reported separately for a declared bot, a declared headless browser, and a user-present browser; and each observed term is mapped to the RAILS admissibility class of the evidence that could support it in a dispute. 准备情况分数包含其证据覆盖范围和缺失范围；对于已声明的机器人、已声明的无头浏览器和用户存在的浏览器，访问权限分别报告；并且每个观察到的术语都映射到可能在争议中支持其的证据的轨道可接受性类别。\nFour large merchants received the full assessment: three refused the declared profiles at their offer pages, and no mandate could be confirmed as met, because each merchant left a total or a refund term undetermined. 四家大型商家接受了完整的评估：三家商家在其优惠页面上拒绝了已申报的个人资料，并且无法确认是否符合要求，因为每家商家都留下了总额或未确定的退款期限。\nAn access census of 555 sites of merchants that two payment processors publicly name as clients found the home page unreadable to both declared profiles at 105 sites (18.9%). 对两家支付处理商公开命名为客户的555个商家网站的访问普查发现， 105个网站（ 18.9% ）的两个已声明的个人资料都无法读取主页。\nA declared assessment of 330 merchants, scored by deterministic rules without a rater, found that evidence coverage rather than the score decides who can be ranked: 115 merchants (35%) reached the ranking threshold, rankable profiles scored a median of 89 to 90, and material terms was the one pillar well below the others, because the all-in total was decidable at 18 merchants. 在没有评分者的情况下，对330家商家进行了公开评估，发现证据覆盖率而不是得分决定了谁可以排名： 115家商家（ 35 ％ ）达到了排名门槛，可排名的个人资料得分中位数为89至90 ，而物质条件是远低于其他的一个支柱，因为总共18家商家是可以决定的。\nThe pilot shows that the measurements can be taken; it does not validate them or rank merchants, and the weights and the projected clearing band await validation against outcomes. 试点表明可以进行测量；它不会验证它们或对商家进行排名，并且权重和预计的清算区间正在等待对结果的验证。",
+          "highlights": [
+            "Get In, Decide, Prove",
+            "隶属于 cs.AI, cs.CY",
+            "AI agents now browse and buy on people's behalf, and benchmarks measure how well the agents perform."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.17378",
+          "readReason": "AI Agent 是当前研究热点，本文可能包含创新性的设计思路；论文建立了新的基准评测，对后续研究有参考价值"
+        },
+        {
+          "title": "Verifier-Harness Co-Evolution for Training-Free Self-Improvement on Open-Ended Tasks",
+          "authors": "Tianyi Xu, Yaolun Zhang, Yiran Wu",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.17609",
+          "tags": [
+            "Qwen",
+            "RSI",
+            "Agent"
+          ],
+          "summary": "Training-free self-improvement lets an agent use feedback to revise the response it is about to return and to update the harness state that shapes how it handles later tasks. 无需培训的自我提升可让客服代表使用反馈来修改即将返回的回复，并更新影响其处理后续任务的方式的线束状态。\nOn open-ended tasks that feedback rarely comes from reference answers or executable tests, so the agent has to rely on a model-based verifier. 在开放式任务中，反馈很少来自参考答案或可执行测试，因此代理必须依赖于基于模型的验证器。\nWhen the verifier is wrong, the current response can get worse, and misleading experience can persist across the task stream. 当验证者出错时，当前的响应可能会变得更糟，并且误导性体验可能会在任务流中持续存在。\nA verifier that never changes also grows stale as the agent's responses improve and task demands shift. 随着客服代表的回应有所改善，任务需求发生变化，永远不会改变的验证者也会变得陈旧。\nWe introduce Unified Co-Evolution (UCoE), a training-free method that evolves an executable verifier program together with the agent's harness state while all model parameters stay fixed. 我们引入了统一协同进化（ UCoE ） ，这是一种无需培训的方法，可将可执行验证程序与代理的线束状态一起进化，同时所有模型参数保持不变。\nUCoE synthesizes candidate verifier programs and tests them on response contrasts, pairs of responses that differ in one declared property and have a known preferred side. UCoE合成候选验证程序，并根据响应对比度对它们进行测试，这些响应对在一个声明的属性中不同，并且具有已知的首选侧。\nIt selects the candidate whose discrimination on its weakest contrast family is highest, a quantity we call driving capacity. 它选择对最弱对比度家族的歧视最高的候选人，我们称之为驾驶能力。\nThe selected verifier diagnoses one weakness in each draft, guides a single repair, decides which response is served, and determines whether the accepted repair may enter the harness state. 所选验证者诊断每个草案中的一个弱点，指导单个维修，决定提供哪个响应，并确定接受的维修是否可能进入线束状态。\nAs tasks complete, their diagnostics seed new candidate verifiers, which must beat the current verifier on the same contrasts before adoption. 随着任务的完成，他们的诊断会播种新的候选验证器，这些验证器在采用之前必须在相同的对比度上击败当前的验证器。\nAcross six open-ended benchmarks, UCoE averages 59.00% preference against matched direct generation with Qwen3-8B and 57.19% with Qwen3.8-27B, margins of 9.00 and 7.19 percentage points. 在六个开放式基准中， UCoE的平均偏好率为59.00 ％ ， Qwen3-8B为57.19 ％ ， Qwen3.8-27B为57.19 ％ ，利润率为9.00和7.19个百分点。\nOn three verifiable benchmarks, the same method raises the mean from 36.06% for direct generation to 38.48%. 在三个可验证的基准上，相同的方法将直接发电的平均值从36.06%提高到38.48%。\nCode is available at https://github.com/tianyi0216/Unified-Co-Evolution. 优惠码可在https://github.com/tianyi0216/Unified-Co-Evolution上获得。",
+          "highlights": [
+            "Verifier",
+            "隶属于 cs.AI",
+            "On open-ended tasks that feedback rarely comes from reference answers or executable tests, so the agent has to rely on a"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.17609",
+          "readReason": "AI Agent 是当前研究热点，本文可能包含创新性的设计思路；递归自改进（RSI）是智能体自我进化的关键方向，本文具有一定的探索价值"
+        },
+        {
+          "title": "ECG-RSI: Recursive Self-Improvement through Targeted Electrocardiogram Waveform Evolution",
+          "authors": "Xiaoliang Wang, Zhuo Chen, Chuanyang Zheng",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.17718",
+          "tags": [
+            "Qwen",
+            "RSI"
+          ],
+          "summary": "Electrocardiogram (ECG) models need supervision that targets evolving weaknesses and remains faithful to waveform evidence. 心电图（ ECG ）模型需要针对不断变化的弱点进行监督，并始终忠实于波形证据。\nWe introduce ECG-RSI, a recursive self-improvement framework combining verified waveform synthesis with feedback-guided intervention search. 我们引入了ECG-RSI ，这是一种将经过验证的波形合成与反馈引导的干预搜索相结合的递归自我改进框架。\nSignal remeasurement verifies waveform edits; construction errors guide generator repair, while learner errors motivate interventions compared on a separate selection set. 信号重新测量验证波形编辑；构造错误指导生成器修复，而学习者错误激励干预措施在单独的选择集上进行比较。\nAcross seven benchmarks, three rounds raise Qwen3.5-35B-A3B's mean question-answering accuracy from 34.57% to 56.04% and mean classification F1 from 24.27 to 34.03. 在七个基准中，三轮将Qwen3.5-35B-A3B的平均问答准确率从34.57%提高到56.04% ，平均分类F1从24.27提高到34.03。\nAcross the retained trajectory, the preferred supervision shifts from direct reinforcement to confusion-focused contrasts. 在保留的轨迹上，首选的监督从直接强化转变为以混乱为中心的对比。\nContinued feedback correction yields diminishing external gains. 持续的反馈修正会减少外部收益。\nThese results motivate separating error diagnosis from intervention selection and checking whether gains on the feedback set transfer to independent benchmarks. 这些结果促使将错误诊断与干预选择分开，并检查反馈集的增益是否转移到独立的基准。",
+          "highlights": [
+            "ECG",
+            "隶属于 cs.AI, cs.LG",
+            "Electrocardiogram (ECG) models need supervision that targets evolving weaknesses and remains faithful to waveform eviden"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.17718",
+          "readReason": "递归自改进（RSI）是智能体自我进化的关键方向，本文具有一定的探索价值；来自 Qwen 团队的最新研究工作，值得重点关注其技术路线"
+        },
+        {
+          "title": "Output Discipline Sets the Floor: A Falsification-Guided, Model-Agnostic Agent Protocol for Auditable Hypothesis-Driven Decision Making",
+          "authors": "Jing Liu, Yongxing Qi, Ping Yao",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.18298",
+          "tags": [
+            "DeepSeek",
+            "Qwen",
+            "Kimi"
+          ],
+          "summary": "What binds large language models on auditable, hypothesis-driven decision tasks, where every candidate can be checked against the evidence? 是什么将大型语言模型与可审计、假设驱动的决策任务结合在一起，每个候选人都可以根据证据进行检查？\nOn the public TCMEval-SDT benchmark for Traditional Chinese Medicine syndrome differentiation (200 cases), the binding constraint is output discipline and reasoning structure, not model capability alone: two years of model scaling move zero-shot scores by only -0.03 to +0.08, while output-discipline failures (non-terminating reasoning, format non-compliance, large run-to-run spread) persist even in frontier models. 在中医辨证的公共TCMEval-SDT基准（ 200例）上，约束约束是输出纪律和推理结构，而不仅仅是模型能力：两年的模型缩放仅将零点得分移动了-0.03到+0.08 ，而输出纪律失效（非终止推理，格式不合规，大量运行到运行传播）甚至在前沿模型中仍然存在。\nWe test this with a model-agnostic agent framework formalizing decision making as a five-stage closed loop, enforced by a candidate x evidence matrix falsification protocol: every candidate is judged against every evidence item, at least half of the candidates must be falsified before a conclusion is licensed, and survivors are emitted in a machine-verifiable single-line format. 我们使用与模型无关的代理框架对此进行测试，该框架将决策形式化为五个阶段的闭环，通过候选x证据矩阵伪造协议强制执行：根据每个证据项目来判断每个候选，在获得许可之前必须至少有一半的候选人被伪造，并且幸存者以机器可验证的单行格式发出。\nAcross five base models, the effect is sign-conditional on zero-shot output discipline: it rescues models whose discipline fails (DeepSeek-V4-Flash: +0.267/+0.271, entirely termination rescue), reduces a high-variance model's run-to-run standard deviation from 0.218 to 0.007 (Kimi K3), and significantly costs already-disciplined models (-0.087 to -0.120 on budget-matched Qwen3-4B/32B). 在五个基本模型中，对零射输出纪律的影响是符号条件的：它挽救纪律失败的模型（ DeepSeek-V4-Flash ： +0.267/+0 .271 ，完全终止挽救） ，将高方差模型的运行标准差从0.218降至0.007 （ Kimi K3 ） ，并显著降低已有纪律的模型的成本（预算匹配的Qwen3-4B/32B为-0.087至-0.120 ）。\nAblations attribute the cost to the candidate-bounded format layer and show the effect is independent of injected knowledge content (protocol-knowledge decoupling). 消融将成本归因于候选受限的格式层，并显示效果独立于注入的知识内容（协议-知识解耦）。\nThe protocol also transfers to misinformation-robust mathematical reasoning, detecting injected false premises at 89.8% recall with a 6.8% false-positive rate (MCC 0.54; a flag-everything baseline scores 0) and restoring accuracy to the no-misinformation ceiling. 该方案还转向错误信息强健的数学推理，以89.8%的召回率检测注射虚假前提，假阳性率为6.8% （ MCC 0.54 ；标记一切基线得分0 ） ，并恢复无错误信息上限的准确性。\nWhere zero-shot output discipline is weak, the reasoning protocol sets the floor; base-model capability always sets the ceiling. 在零拍输出纪律较弱的地方，推理协议设定底线；基本模型能力始终设定上限。",
+          "highlights": [
+            "Output Discipline Sets the Floor",
+            "隶属于 cs.AI",
+            "What binds large language models on auditable, hypothesis-driven decision tasks, where every candidate can be checked ag"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.18298",
+          "readReason": "来自 DeepSeek 团队的最新研究工作，值得重点关注其技术路线；来自 Qwen 团队的最新研究工作，值得重点关注其技术路线"
+        },
+        {
+          "title": "LLM Agents for Automated Post-Training via Structured Recipe Optimization",
+          "authors": "Ruohong Liu, Bohan Tang, Lekang Jiang",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.18572",
+          "tags": [
+            "OpenAI",
+            "DeepSeek",
+            "Qwen"
+          ],
+          "summary": "Automated post-training transforms pre-trained large language models (LLMs) into models capable of handling diverse domains by automatically constructing and optimizing a recipe of coupled decisions over data sources, data processing, cross-domain composition, and training configuration under a limited experimental budget. 自动训练后，在有限的实验预算下，通过自动构建和优化数据源、数据处理、跨域组合和训练配置的耦合决策配方，将预训练的大型语言模型（ LLM ）转换为能够处理不同领域的模型。\nExisting automation either searches predefined recipe spaces that enable systematic optimization but remain fixed rather than adapting their available choices to the target tasks, or uses open-ended agents that discover task-specific choices but leave them implicit in trial-level edits, limiting their systematic reuse and recombination across trials. 现有的自动化要么搜索预定义的配方空间，以实现系统优化，但保持固定状态，而不是根据目标任务调整其可用选择，要么使用开放式代理来发现特定任务的选择，但将其隐含在试用级编辑中，从而限制它们在试用中的系统重用和重组。\nTo fill this gap, we introduce optimization over a task-adapted recipe space, a novel paradigm that can adapt the recipe space itself to the target tasks while representing its choices explicitly for systematic reuse, recombination, and joint optimization. 为了填补这一空白，我们引入了任务适应配方空间的优化，这是一种新颖的范式，可以使配方空间本身适应目标任务，同时明确表示其选择以进行系统重用、重组和关节优化。\nWe instantiate this paradigm with Structured Recipe Optimization (SRO), comprising an LLM-based Recipe-Space Designer that constructs the task-adapted recipe space and a Multi-Domain Recipe Optimizer that uses structured trial evidence to guide LLM candidate construction and multi-objective Bayesian trial selection. 我们使用结构化配方优化（ SRO ）实例化此范式，其中包括基于LLM的配方空间设计器（构建任务适应的配方空间）和多域配方优化器（使用结构化试验证据来指导LLM候选人构建和多目标贝叶斯试验选择）。\nExtensive experiments show that SRO achieves the highest average score in all evaluated target-model and agent-LLM combinations. 广泛的实验表明，在所有评估的目标模型和Agent-LLM组合中， SRO达到了最高的平均分数。\nIn joint post-training across three capability domains and six benchmarks, SRO reaches 41.1 versus 15.4 for the strongest baseline on Qwen3-1.7B with GPT-5.4, and 53.8 versus 40.8 on Qwen3-4B with DeepSeek-V4-Flash. 在跨三个能力域和六个基准的联合训练后， SRO在Qwen3-1.7B和GPT-5.4上的最强基线分别达到41.1和15.4 ，在Qwen3-4B和DeepSeek-V4-Flash上的最强基线分别达到53.8和40.8。\nOur code is available at https://github.com/RuohLiuq/SRO. 我们的代码可在https://github.com/RuohLiuq/SRO上找到。",
+          "highlights": [
+            "LLM Agents for Automated Post",
+            "隶属于 cs.AI, cs.LG",
+            "Extensive experiments show that SRO achieves the highest average score in all evaluated target-model and agent-LLM combi"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.18572",
+          "readReason": "来自 OpenAI 团队的最新研究工作，值得重点关注其技术路线；来自 DeepSeek 团队的最新研究工作，值得重点关注其技术路线"
+        },
+        {
+          "title": "Humans vs. Machines: A Comparison With AI Agents in Software Reverse Engineering",
+          "authors": "Samuele Doria, Stefano De Rosa, Ruoyu Wang",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.14960",
+          "tags": [
+            "OpenAI",
+            "Anthropic",
+            "Kimi"
+          ],
+          "summary": "Can an autonomous AI agent reverse engineer a binary as well as a skilled human analyst? 自主人工智能代理可以对二进制文件进行逆向工程，也可以对熟练的人类分析师进行逆向工程吗？\nDo they adopt the same strategy, and can agents scale to real-world programs? 他们是否采用相同的策略，代理是否可以扩展到现实世界的计划？\nWe compare human and LLM-based software reverse engineering (SRE): nine models tackle two compact static-analysis challenges previously solved by human analysts, scored with a common understanding rubric, and we record their complete interactions with IDA Pro. 我们比较了人类和基于LLM的软件逆向工程（ SRE ） ：九个模型解决了之前由人类分析师解决的两个紧凑的静态分析挑战，并使用共同的理解评分标准进行评分，我们记录了他们与IDA Pro的完整交互。\nThis lets us compare not only what humans and agents recover, but also how they investigate a binary. 这不仅可以让我们比较人类和智能体的恢复情况，还可以让我们比较他们如何调查二进制文件。\nThe best agents (GPT-5.5 Pro, Claude Opus 4.8, and Kimi K3) achieve statistically human-competitive understanding on both tasks, while weaker models remain far behind. 最好的代理（ GPT-5.5 Pro、Claude Opus 4.8和Kimi K3 ）在这两项任务上都实现了统计学上的人类竞争理解，而较弱的模型仍然远远落后。\nAblations show that the gap depends on code representation and workflow demands, not on model capability alone: open-weight models improve substantially with richer code representations, whereas frontier models show no significant change. 消融表明，差距取决于代码表示和工作流需求，而不仅仅取决于模型能力：开放权重模型随着更丰富的代码表示而大幅改善，而前沿模型则没有显着变化。\nSimilar success rates hide different workflows. 类似的成功率会隐藏不同的工作流程。\nHumans repeatedly revisit functions and follow local program structure; strong agents jump across the binary, retrieve information broadly, and rarely return to inspected code, a behavior we call greedy fetching. 人类反复重温函数并遵循本地程序结构；强代理跳过二进制文件，广泛检索信息，很少返回到被检查的代码，这种行为我们称之为贪婪获取。\nThis strategy is not fixed: given semantically richer code, agents fetch less without losing understanding. 这种策略不是固定的：给定语义更丰富的代码，代理获取更少而不会失去理解。\nBecause greedy fetching aggregates large amounts of code in the agent's context, we measure context-window saturation across 4,000 real-world binaries: large windows accommodate many programs, but larger applications and lower-level representations quickly exhaust them. 由于贪婪获取在代理的上下文中聚合了大量代码，因此我们测量了4,000个真实世界二进制文件的上下文窗口饱和度：大窗口可容纳许多程序，但较大的应用程序和较低级别的表示会很快耗尽它们。\nAutonomous reverse engineering is becoming competitive, with a large speed advantage, but scaling it will require better navigation, selective retrieval, and persistent analysis state, not merely larger context windows. 自主逆向工程正在变得具有竞争力，具有很大的速度优势，但扩展它将需要更好的导航、选择性检索和持久分析状态，而不仅仅是更大的上下文窗口。",
+          "highlights": [
+            "Humans vs. Machines",
+            "隶属于 cs.SE, cs.AI",
+            "Can an autonomous AI agent reverse engineer a binary as well as a skilled human analyst?"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.14960",
+          "readReason": "来自 OpenAI 团队的最新研究工作，值得重点关注其技术路线；来自 Anthropic 团队的最新研究工作，值得重点关注其技术路线"
+        },
+        {
+          "title": "LLM Value Functions for Credit Assignment in Agentic RL",
+          "authors": "Kaijie Zhu, Weixiang Yan, Omar Attia",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.15840",
+          "tags": [
+            "Agentic RL",
+            "Agent",
+            "LLM"
+          ],
+          "summary": "Reinforcement learning (RL) for large language model (LLM) agents remains challenging in long-horizon tasks with sparse outcome rewards, where assigning credit to individual actions is difficult. 大型语言模型（ LLM ）代理的强化学习（ RL ）在具有稀疏结果奖励的长期任务中仍然具有挑战性，在这些任务中，很难为个人行为分配信用。\nMethods such as GRPO assign the same trajectory-level advantage to all actions, while critic-based methods require learning an additional value function that can be costly and unstable. 诸如GRPO之类的方法为所有操作分配相同的轨迹级优势，而基于批评者的方法需要学习一个额外的价值函数，这可能是昂贵和不稳定的。\nWe introduce LLM Value Function RL (LVRL), which uses the pretrained knowledge and in-context learning ability of an LLM to estimate policy-aware state values without finetuning a separate critic. 我们引入了LLM值函数RL （ LVRL ） ，它使用LLM的预训练知识和上下文学习能力来估计策略感知状态值，而无需微调单独的批评者。\nLVRL conditions the value model on group context and calibrates its predictions using known values at the initial and terminal states, enabling step-level credit assignment from estimated value differences. LVRL根据组上下文调整价值模型，并使用初始和最终状态下的已知值校准其预测，从而实现从估计值差异的阶梯级信用分配。\nWe further extend this idea to learning from an expert policy through on-policy distillation (OPD), introducing LLM Value Function OPD (LVOPD), which focuses teacher supervision on actions associated with decreases in estimated value. 我们进一步扩展了这一理念，通过政策提炼（ OPD ）从专家政策中学习，引入了LLM价值函数OPD （ LVOPD ） ，将教师监督的重点放在与估计价值降低相关的行动上。\nWe evaluate our approach across diverse agentic benchmarks: AppWorld, BabyAI, and SWE-bench Verified. 我们在不同的代理基准上评估我们的方法： AppWorld、BabyAI和SWE-bench Verified。\nAcross policy scales (4B to 32B), LVRL consistently and substantially outperforms both GRPO and PPO. 在政策量表（ 4B至32B ）中， LVRL的表现始终如一且大幅优于GRPO和PPO。\nOn AppWorld and SWE-bench Verified, LVRL yields absolute improvements of up to 13.6 and 8.6 percentage points over GRPO. 在AppWorld和SWE-bench Verified上， LVRL比GRPO提高了高达13.6和8.6个百分点。\nNotably, on tasks requiring extended exploration like BabyAI, LVRL bridges the gap from total failure to 75.0% success. 值得注意的是，在像BabyAI这样需要扩展探索的任务上， LVRL弥合了从完全失败到75.0%成功的差距。\nFurthermore, LVOPD yields consistent improvements over standard distillation baselines on AppWorld. 此外， LVOPD在AppWorld上的标准蒸馏基线上产生了一致的改进。\nFinally, Monte-Carlo analysis confirms that our frozen critic accurately identifies semantic pitfalls and recoveries, proving that LVRL extracts robust, policy-aware step-level credit from sparse terminal outcomes. 最后，蒙特卡洛分析证实，我们的冷冻评论家准确地识别了语义陷阱和恢复，证明LVRL从稀疏的终端结果中提取了稳健的、具有政策意识的阶梯级信用。",
+          "highlights": [
+            "outperforms both GRPO and PPO",
+            "隶属于 cs.LG, cs.AI",
+            "We evaluate our approach across diverse agentic benchmarks: AppWorld, BabyAI, and SWE-bench Verified."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.15840",
+          "readReason": "AI Agent 是当前研究热点，本文可能包含创新性的设计思路；Agentic 强化学习将决策与语言模型结合，是智能体研究的前沿方向"
+        },
+        {
+          "title": "Drafting Agents, Not Just Tokens: Speculative Recursive Self-Improvement for Agentic Systems",
+          "authors": "Xin Xu, Ke Cheng, Hao Wang",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.16491",
+          "tags": [
+            "RSI",
+            "Agent"
+          ],
+          "summary": "Improving an agent through successive revisions requires balancing exploration and evaluation under a limited budget. 通过连续修订改进代理需要在有限的预算下平衡探索和评估。\nA narrow search can miss useful sequences of edits, while fully evaluating every intermediate version can exhaust the budget before those sequences yield a verified improvement. 狭隘的搜索可能会错过有用的编辑序列，而充分评估每个中间版本可能会在这些序列产生经过验证的改进之前耗尽预算。\nWe introduce Speculative Recursive Self-Improvement (SpecRSI), which drafts executable successor agents before their predecessors are fully evaluated, while requiring complete verification before adoption. 我们引入了推测递归自我改进（ SpecRSI ） ，它在可执行后继代理的前身得到充分评估之前起草可执行后继代理，同时要求在采用之前进行完整的验证。\nVerification-Aware Tree Search (VATS) allocates the budget between further edits and outstanding checks using the predicted verified return of a continuation. 验证感知树搜索（ VATS ）使用预测的连续验证回报，在进一步编辑和未完成检查之间分配预算。\nGroup Verification Optimization (GVO) learns the improver from completed searches while keeping the real evaluator fixed. 组验证优化（ GVO ）从已完成的搜索中学习改进者，同时保持真实评估者的固定状态。\nIn the main scientific comparison, terminal gains exceed Janus by 33.3%--40.0%. 在主要的科学比较中，终端增益超过Janus 33.3% --40.0%。\nAdditional evaluations show that SpecRSI outperforms Janus in all 50 scientific backbone--task pairs and exceeds MetaRSI-v1 by 1.85%--2.38% in macro-average system score across twenty backbones. 其他评估显示， SpecRSI在所有50个科学骨干（任务对）中的表现优于Janus ，并且在20个骨干的宏观平均系统得分中超过MetaRSI-v1 1.85% - -2.38%。\nCoding-validation success reaches 69.4% versus HGM's 64.3% at a 20.8% lower target-cost index. 编码验证成功率达到69.4% ，而HGM为64.3% ，目标成本指数较低20.8%。",
+          "highlights": [
+            "exceed Janus by 33",
+            "Drafting Agents, Not Just Tokens",
+            "隶属于 cs.LG, cs.AI"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.16491",
+          "readReason": "AI Agent 是当前研究热点，本文可能包含创新性的设计思路；递归自改进（RSI）是智能体自我进化的关键方向，本文具有一定的探索价值"
+        },
+        {
+          "title": "DeltaTTG: Training Multi-Turn Agents with a Token-to-Go Progress Meter",
+          "authors": "Xuyan Ye, Xiyan Fu, Shengda Fan",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.17666",
+          "tags": [
+            "Meta",
+            "Qwen",
+            "Agentic RL"
+          ],
+          "summary": "Reinforcement learning with verifiable rewards (RLVR) for multi-turn agents relies on sparse terminal rewards that say little about individual steps. 针对多回合座席的可验证奖励强化学习（ RLVR ）依赖于稀疏的终端奖励，而这些终端奖励对单个步骤的影响很小。\nWithin-group step comparisons depend on reliable state matching and sufficiently diverse sampled outcomes, while direct step scoring may require costly external evaluators, human annotations, or task-specific heuristics. 组内分步比较依赖于可靠的状态匹配和足够多样化的采样结果，而直接分步评分可能需要昂贵的外部评估人员、人工注释或特定任务的启发式方法。\nWe introduce DeltaTTG to learn a reusable progress signal through a shared progress meter, using low-cost supervision from diverse policies' recorded trajectories without task-specific progress rules. 我们引入DeltaTTG ，通过共享进度计学习可重用的进度信号，使用来自不同政策记录轨迹的低成本监督，而无需特定任务的进度规则。\nIts supervision target, Token-to-Go (TTG), the number of tokens remaining to be generated until task completion, serves as an observable proxy for remaining completion effort. 其监督目标Token-to-Go （ TTG ） ，即在任务完成之前剩余待生成的代币数量，可作为剩余完成工作的可观察代理。\nDuring actor training, changes in the frozen meter's estimates redistribute outcome-derived advantages across steps without altering the reward, preserving each trajectory's advantage sign and token-average scale. 在演员培训期间，冻结仪表估计值的变化在不改变奖励的情况下跨步骤重新分配结果派生的优势，保留每个轨迹的优势符号和令牌平均尺度。\nOn ALFWorld, PaperSearchQA, and BFCLv3, DeltaTTG improves the average score over GRPO by 5.7 and 7.2 points with Qwen3-4B and Llama-3.1-8B-Instruct, respectively, outperforms all compared RL baselines on average, and keeps actor-training GPU-hours close to GRPO. 在ALFWorld、PaperSearchQA和BFCLv3上， DeltaTTG分别使用Qwen3-4B和Llama-3.1-8B-Instruct将GRPO的平均分数提高了5.7和7.2分，平均优于所有比较RL基线，并使参与者培训GPU小时接近GRPO。\nFurther experiments show improved sample efficiency and out-of-domain performance, and support the meter's ability to distinguish step quality and guide test-time action selection across actor sizes. 进一步的实验表明，提高了样本效率和域外性能，并支持仪表区分步骤质量和引导跨演员大小的测试时间动作选择的能力。\nThe code is available at https://github.com/Xuyan923r/DeltaTTG. 该代码可在https://github.com/Xuyan923r/DeltaTTG上获得。",
+          "highlights": [
+            "outperforms all compared RL baselines on average",
+            "DeltaTTG",
+            "隶属于 cs.LG, cs.AI"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.17666",
+          "readReason": "Agentic 强化学习将决策与语言模型结合，是智能体研究的前沿方向；来自 Meta 团队的最新研究工作，值得重点关注其技术路线"
+        },
+        {
+          "title": "GIFT-Eval-CTX: A Benchmark For Contextual Forecasting Model Evaluation",
+          "authors": "Xu Liu, Hanshu Yan, Taha Aksu",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.17794",
+          "tags": [
+            "OpenAI",
+            "Anthropic",
+            "Agent"
+          ],
+          "summary": "Contextual forecasting seeks to improve time series forecasting by incorporating forward-looking information, such as planned events, external conditions, and expert expectations. 情境预测旨在通过整合前瞻性信息（如计划事件、外部条件和专家期望）来改进时间序列预测。\nHowever, reliable evaluation remains difficult: existing benchmarks often have limited domain coverage, lack standardized history-future splits, or provide text that is not guaranteed to inform the future. 然而，可靠的评估仍然很困难：现有的基准通常具有有限的领域覆盖范围，缺乏标准化的历史-未来分割，或者提供的文本不能保证为未来提供信息。\nWe introduce GIFT-Eval-CTX, a benchmark that isolates whether forecasting methods can translate verified future information into accurate numerical trajectories. 我们引入了GIFT-Eval-CTX ，这是一个基准，用于隔离预测方法是否可以将经过验证的未来信息转化为准确的数字轨迹。\nBuilt upon GIFT-Eval, GIFT-Eval-CTX contains 10,000 instances across 20 datasets. GIFT-Eval-CTX基于GIFT-Eval构建，包含20个数据集中的10,000个实例。\nEach instance provides structured effects derived from the realized future: Macro effects describe horizon-wide behavior, while Micro effects specify localized changes.\nWe construct these annotations with an agentic pipeline combining LLM-based discovery and deterministic code validation. 我们使用基于LLM的发现和确定性代码验证相结合的代理流水线构建这些注释。\nWe benchmark TSFMs, frontier LLMs, and tool-using agentic systems.\nThe results show that structured effects reduce aggregate relative MASE by 40.7% for GPT-5.6 Sol and 29.6% for Claude Opus 4.8 relative to history-only prompting. 结果表明，相对于纯历史提示， GPT-5.6 Sol和Claude Opus 4.8的结构化效应使聚合相对MASE降低了40.7% ，而Claude Opus 4.8的结构化效应使聚合相对Mase降低了29.6%。\nThe evaluated MoiraiAgent system achieves the best overall result.\nWe further analyze the contributions of structured effects and agentic systems to performance, and identify opportunities for future research. 我们进一步分析了结构效应和代理系统对绩效的贡献，并确定了未来研究的机会。",
+          "highlights": [
+            "GIFT",
+            "隶属于 cs.LG, cs.AI",
+            "Built upon GIFT-Eval, GIFT-Eval-CTX contains 10,000 instances across 20 datasets."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.17794",
+          "readReason": "AI Agent 是当前研究热点，本文可能包含创新性的设计思路；来自 OpenAI 团队的最新研究工作，值得重点关注其技术路线"
+        },
+        {
+          "title": "APT: Feedback-Driven Agentic Post-Training for Text-to-Image Generation",
+          "authors": "Sirui Zhang, Fangyun Wei, Dong Chen",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.18097",
+          "tags": [
+            "RSI",
+            "Agent"
+          ],
+          "summary": "Post-training is crucial for improving text-to-image models, yet existing pipelines typically rely on manually curated training data and fixed training distributions.\nWe introduce APT (Agentic Post-Training), a fully automated framework that adaptively post-trains a base model according to its evolving capability profile.\nAPT coordinates three agents to construct evaluation sets from user requirements, diagnose model-specific strengths and failure modes, and generate reinforcement learning data with an adaptive prompt distribution that emphasizes underperforming capabilities.\nBy repeatedly evaluating, diagnosing, and updating the generator, APT lets the current model's behavior shape its next training tasks, forming a feedback loop inspired by recursive self-improvement.\nFor general-purpose settings without user-specified evaluation scenarios, we further develop an evaluation harness that enables broad and diverse evaluation set generation.\nExperiments across multiple base models, benchmarks, and generation architectures demonstrate that APT is model-agnostic, benchmark-agnostic, architecture-agnostic, and fully automated.",
+          "highlights": [
+            "APT",
+            "隶属于 cs.CV, cs.AI"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.18097",
+          "readReason": "AI Agent 是当前研究热点，本文可能包含创新性的设计思路；递归自改进（RSI）是智能体自我进化的关键方向，本文具有一定的探索价值"
+        },
+        {
+          "title": "Tev: Scaling Long-Horizon Agentic Environments with Dense Progress Rewards",
+          "authors": "Wenbo Hu, Shraman Pramanick, Krishna Kumar Singh",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.18868",
+          "tags": [
+            "Anthropic",
+            "Google",
+            "RSI"
+          ],
+          "summary": "Long-horizon agents have drawn growing attention for their ability to work autonomously -- from hours to days -- on economically valuable tasks, a capability essential to automated discovery and recursive self-improvement (RSI).\nYet open-source models still struggle on long-horizon tasks, largely for lack of both training data and a working recipe, and scaling both is hard: long, complex tasks are difficult to curate and verify, and their rewards are sparse.\nWe address both.\nFirst, we introduce Tev-Gym, the first long-horizon agent training dataset with verifiable, dense, progressive rewards -- 1,170 verified task environments across 7 domains.\nIt is built on a latent-world-first approach that first constructs a latent world: a complete and correct hidden specification of the task domain, workflow, and expected state after each step.\nEach task is then progressively rendered from this specification into an agent-facing environment, enabling controllable complexity and a natural progress metric.\nSecond, we turn this metric into a training recipe: via progress-potential reward shaping (PPRS), we convert progress into a dense per-step reward that improves training efficiency and makes otherwise-intractable tasks trainable.\nTraining with this recipe yields Tev-27B, which achieves substantial gains on the Agents' Last Exam computing and math sciences domains (ALE-CM), matching GPT-6 Astra and Claude Opus 5 at Pass@5.\nDespite training only on ALE-related data, it generalizes to the Terminal-Bench (TB) 3.0 and 4.0 subsets, surpassing GLM 5.2 and Gemini 3.7 Flash, and reaches Claude Opus 4.8-level performance on middle-horizon tasks such as TB 2.1.",
+          "highlights": [
+            "surpassing GLM 5",
+            "first long-horizon agent training dataset with verifiable"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.18868",
+          "readReason": "递归自改进（RSI）是智能体自我进化的关键方向，本文具有一定的探索价值；来自 Anthropic 团队的最新研究工作，值得重点关注其技术路线"
+        }
+      ],
+      "papers": [
+        {
+          "id": "A1",
+          "anchorId": "A1",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "Video-Browser: Towards Open-web Agentic Video Browsing",
+          "authors": [
+            "Zhengyang Liang",
+            "Yan Shu",
+            "Xiangrui Liu",
+            "Minghao Qin",
+            "Nicu Sebe",
+            "Jiaxin Mao",
+            "Zheng Liu",
+            "Lizi Liao"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2512.23044",
+          "tags": [
+            "Google",
+            "Qwen",
+            "Agent"
+          ],
+          "summary": "Autonomous agents are shifting information seeking from passive retrieval toward proactive, open-ended research, yet this progress has largely bypassed video, one of the web's richest sources of evidence. 自主代理正在将寻求的信息从被动检索转向主动、开放式的研究，但这一进展在很大程度上绕过了视频，视频是网络上最丰富的证据来源之一。\nWe formalize Agentic Video Browsing, in which an agent must query video search engines, decide which returned videos to watch, and answer questions grounded in their visual content. 我们将Agentic Video Browsing正式化，在Agentic Video Browsing中，客服代表必须查询视频搜索引擎，决定要观看哪些返回的视频，并回答基于其视觉内容的问题。\nTo study this setting reproducibly, we introduce Video-BrowseComp, a benchmark and infrastructure suite with 660 human-annotated questions at three difficulty levels, paired online and offline evaluation tracks, and a fixed video search stack of roughly 12,000 videos spanning over 2,000 hours for evaluation and training-data construction. 为了可重复地研究此设置，我们引入了Video-BrowseComp ，这是一个基准和基础设施套件，包含三个难度级别的660个人工注释问题，配对在线和离线评估轨道，以及大约12,000个视频的固定视频搜索堆栈，跨越2,000多个小时，用于评估和培训数据构建。\nOur analysis reveals that the main bottleneck lies before video understanding: agents often fail to find the answer-bearing video at all. 我们的分析表明，主要的瓶颈在于视频理解：客服代表往往根本无法找到含有答案的视频。\nThis bottleneck stems from two coupled challenges. 这一瓶颈源于两个相互关联的挑战。\nSearch engines index textual metadata such as titles and tags, whereas questions often target implicit visual or cross-source evidence absent from these surface forms; and exhaustively inspecting the many returned videos is prohibitively expensive. 搜索引擎索引标题和标签等文本元数据，而问题通常针对这些表面形式中缺少的隐含视觉或跨源证据；彻底审查许多返回的视频是非常昂贵的。\nWe propose Video-Browser, an evidence-surfacing agent that improves both sides of search. 我们推荐Video-Browser ，这是一种证据展示代理，可改善搜索的两面性。\nA Translation Memory helps the Planner phrase queries by analogy to past question-to-query transformations that successfully surfaced their target videos, and a Watcher performs sparse visual screening over returned candidates, retaining only videos that plausibly contain answer-bearing evidence for later dense verification. 翻译记忆库通过类比过去成功呈现其目标视频的问答转换来帮助规划师进行短语查询，而观察者对返回的候选人进行稀疏的视觉筛选，仅保留可能包含答案证据的视频，以便日后进行密集验证。\nOn the offline track, Video-Browser raises overall accuracy from 11.6% to 27.3% with Qwen3-VL-8B and from 39.8% to 45.1% with Gemini-3.1-Pro over the corresponding ReAct search agents, showing that better query formulation and post-search candidate selection improve end-to-end browsing performance. 在离线轨道上， Video-Browser使用Qwen3-VL-8B将整体准确率从11.6%提高到27.3% ，使用Gemini-3.1-Pro将整体准确率从39.8%提高到45.1% ，优于相应的ReAct搜索代理，这表明更好的查询公式和搜索后候选选择提高了端到端的浏览性能。",
+          "highlights": [
+            "Video",
+            "隶属于 cs.CV",
+            "Our analysis reveals that the main bottleneck lies before video understanding: agents often fail to find the answer-bear"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2512.23044",
+          "worthReading": true
+        },
+        {
+          "id": "A2",
+          "anchorId": "A2",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "Verifier-Grounded Agentic RL for Provably Correct Code",
+          "authors": [
+            "George Ma",
+            "Yuhao Zhang",
+            "Bing He",
+            "Zeren Shui",
+            "Ferhat Erata",
+            "Murali Krishna Ramanathan",
+            "Somayeh Sojoudi",
+            "Hao Zhou"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.19298",
+          "tags": [
+            "Qwen",
+            "Agentic RL",
+            "Agent"
+          ],
+          "summary": "Reinforcement learning for code usually rewards passing tests, which a model can do while remaining wrong on the inputs the tests do not cover. 代码的强化学习通常会奖励通过测试，模型可以在测试未覆盖的输入上保持错误的情况下执行此操作。\nA program verifier instead decides whether a program satisfies a formal specification for all inputs. 相反，程序验证器决定程序是否满足所有输入的形式规范。\nLanguage models are almost always paired with verifiers at inference time only, and turning a verifier into a reward raises two difficulties. 语言模型几乎总是仅在推理时与验证器配对，而将验证器转化为奖励会带来两个困难。\nIt reports only acceptance or rejection, which gives no gradient when every attempt fails, and a policy can cheat it, most simply by telling it to assume what the proof was supposed to establish. 它只报告接受或拒绝，每次尝试失败时都不会给出梯度，政策可以欺骗它，最简单的方法是让它假设证据应该建立什么。\nWe build an agentic environment and reward that address both. 我们构建了一个代理环境，并奖励这两者。\nThe reward reads the verifier's diagnostics rather than its verdict, scoring a candidate by the weighted fraction of proof obligations it discharges, extended with hidden probes from a reference proof's annotations. 奖励读取验证者的诊断而不是其判决，根据其履行的证明义务的加权分数对候选者进行评分，并从参考证明的注释中扩展隐藏探针。\nAn integrity audit outranks the verifier, rejecting any candidate that alters the specification or assumes what it was meant to prove. 诚信审计的排名高于验证者，拒绝任何改变规范或假设其目的是证明的候选人。\nThe model works as an agent against a live verifier over many turns, with a separately trained proof specialist as a frozen collaborator. 该模型在多个回合中作为代理与实时验证者对抗，并由经过单独培训的证明专家作为冻结的合作者。\nAcross Qwen3 models from 1.7B to 14B and a 35B Qwen3.6 mixture-of-experts model, held-out verification on code generation rises from 66.1% to 93.5% on DafnyBench and from 56.3% to 100% on SWE-Proof. 在从1.7B到14B的Qwen3模型和35B Qwen3.6混合专家模型中， DafnyBench的代码生成验证从66.1%上升到93.5% ， SWE-Proof从56.3%上升到100%。\nThis reward leads every other training signal we compare, including a binary pass-or-fail reward trained under otherwise identical settings, with the widest margin on code generation. 这种奖励领先于我们比较的所有其他训练信号，包括在其他相同设置下训练的二进制通过或失败奖励，并且在代码生成上的余量最大。\nWhen the agent must also deliver the repository patch, graded by each project's withheld tests, the fraction of held-out issues it resolves rises from 59.6% to 72.5%. 当代理还必须提供存储库补丁时，根据每个项目的扣留测试进行分级，其解决的扣留问题的比例从59.6%上升到72.5%。\nEvaluated unchanged on three verification suites withheld from training, the checkpoints improve on all of them, including one whose language and verifier are absent from training. 对三个未接受培训的验证套件进行评估后，所有检查点都得到了改善，其中包括一个语言和验证者缺席培训的检查点。",
+          "highlights": [
+            "Verifier",
+            "隶属于 cs.LG",
+            "Reinforcement learning for code usually rewards passing tests, which a model can do while remaining wrong on the inputs "
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.19298",
+          "worthReading": true
+        },
+        {
+          "id": "A3",
+          "anchorId": "A3",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "SWE-Spot: Building Small Repo-Experts with Repository-Centric Learning",
+          "authors": [
+            "Jinjun Peng",
+            "Magnus Saebo",
+            "Tianjun Zhong",
+            "Junfeng Yang",
+            "Shi-Xiong Zhang",
+            "Baishakhi Ray",
+            "Simin Chen",
+            "Yangruibo Ding"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2601.21649",
+          "tags": [
+            "OpenAI",
+            "Qwen",
+            "Agent"
+          ],
+          "summary": "The deployment of coding agents in privacy-sensitive and resource-constrained environments drives the demand for capable open-weight Small Language Models (SLMs). 在隐私敏感和资源受限的环境中部署编码代理，推动了对功能强大的开放式小型语言模型(SLM)的需求。\nHowever, they suffer from a fundamental capability gap: unlike frontier large models, they lack the inference-time strong generalization to handle complicated, unfamiliar codebases. 然而，它们存在根本的能力差距：与前沿大型模型不同，它们缺乏处理复杂、不熟悉的代码库的推理时间强泛化。\nWe identify that the prevailing Task-Centric Learning (TCL) approach, which scales exposure across disparate repositories, fails to address this limitation. 我们发现，主流的以任务为中心的学习（ TCL ）方法未能解决这一局限性，该方法在不同的存储库中扩展暴露。\nIn response, we propose Repository-Centric Learning (RCL), a shift that prioritizes vertical, single-repository depth over horizontal, single-task breadth for SLM training. 作为回应，我们提出了以存储库为中心的学习（ RCL ） ，这种转变优先考虑了SLM培训的垂直、单存储库深度而不是水平、单任务广度。\nTo accomplish this depth, we design a four-unit Repository-Centric Experience, transforming static codebases into interactive learning signals, to train SWE-Spot-4B, a family of highly compact models built as repo-specialized experts. 为了实现这一深度，我们设计了一个由四个单元组成的以存储库为中心的体验，将静态代码库转换为交互式学习信号，以培训SWE-Spot-4B ，这是一个高度紧凑的模型系列，作为存储库专业化专家构建。\nUnder controlled comparisons with the same teacher and data budget, RCL consistently outperforms TCL across tasks, teachers, model scales, and programming languages. 在同一教师和数据预算的受控比较下， RCL在任务、教师、模型量表和编程语言方面始终优于TCL。\nOn seven target repositories, SWE-Spot-4B experts match or exceed existing open-weight models up to $8\\times$ larger (e.g., CWM by Meta, Qwen3-Coder-30B) and surpass or match efficiency-focused commercial models (e.g., GPT-4.1-mini, GPT-5-nano) across multiple SWE tasks. 在七个目标存储库中， SWE-Spot-4B专家匹配或超过现有的开放权重模型，最高可达$ 8\\ times $ （例如， Meta的CWM ， Qwen3-Coder-30B ） ，并在多个SWE任务中超过或匹配以效率为重点的商业模型（例如， GPT-4.1-mini ， GPT-5-nano ）。\nFurther analysis reveals that RCL yields higher training and inference efficiency, deep knowledge acquisition, and can scale to repository-cluster experts. 进一步分析表明， RCL可以产生更高的培训和推理效率，深度知识获取，并可以扩展到存储库集群专家。\nOur work emphasizes that for building efficient intelligence, repository mastery is a distinct, necessary, and practical dimension that complements general coding capability. 我们的工作强调，为了构建高效的智能，存储库掌握是一个独特、必要和实用的维度，是对一般编码能力的补充。",
+          "highlights": [
+            "outperforms TCL across tasks",
+            "SWE",
+            "隶属于 cs.LG, cs.AI"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2601.21649",
+          "worthReading": true
+        },
+        {
+          "id": "A4",
+          "anchorId": "A4",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "Harness^2: Recursive Agent Harnessing for an Open World",
+          "authors": [
+            "Ruiyao Xu",
+            "Yanfei Chen",
+            "Zhongying CuiZhu",
+            "Bhavana Dalvi Mishra",
+            "Yifei Ming",
+            "Han Yu",
+            "Rujun Han",
+            "Chen-Yu Lee",
+            "Tomas Pfister"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.14224",
+          "tags": [
+            "Google",
+            "RSI",
+            "Agent"
+          ],
+          "summary": "LLM agents' capabilities depend not only on their underlying models but also on their execution harnesses. LLM代理的能力不仅取决于其基础模型，还取决于其执行利用。\nRecursive self-improvement (RSI) offers a promising approach to automatically evolve these harnesses. 递归自我改进（ RSI ）提供了一种有希望的方法来自动发展这些线束。\nHowever, deploying RSI in open-world settings still faces two critical challenges. 然而，在开放世界中部署RSI仍然面临两个关键挑战。\nFirst, open-world tasks are typically unseen during the harness design phase and novel at test time, leaving no ground-truth verifiers to reliably guide online harness edits. 首先，开放世界的任务在线束设计阶段通常是看不到的，在测试时是新颖的，没有留下可靠地指导在线束编辑的地面真相验证器。\nSecond, the RSI process remains highly task-specific and fails to generalize to novel scenarios. 其次， RSI过程仍然具有高度的任务特定性，无法推广到新颖的场景。\nWe introduce Harness^2, a plug-and-play, recursive agent harnessing framework that addresses these challenges through two connected levels of recursion. 我们引入了线束^ 2 ，这是一个即插即用的递归代理利用框架，通过两个相互关联的递归级别来解决这些挑战。\nTask-level recursion refines the current task's harness using a contrastive Propose-Probe-Compose step that reliably guides edits without ground-truth verifiers, and can be scaled further via parallel or sequential recursion. 任务级递归使用对比的Propose-Probe-Compose步骤来优化当前任务的线束，该步骤在没有地面真实性验证器的情况下可靠地指导编辑，并且可以通过并行或顺序递归进一步缩放。\nHarnessing-level recursion then extracts experience from these edits to update a continual improvement harness, enabling the agent to better adapt to future tasks. 利用级别递归然后从这些编辑中提取经验，以更新持续改进利用，使代理能够更好地适应未来的任务。\nAcross three professional benchmarks and four model-harness configurations, a single step consistently improves GLM-5 and Gemini 3.5 Flash over their base harnesses, yielding gains of up to 11.5 points on WorkBuddy-Bench, 4.5 points on JobBench, and 11.8 percentage points on LAB, with further gains as the task-level recursion budget increases. 在三个专业基准和四个模型线束配置中，单一步骤不断改进GLM-5和Gemini 3.5 Flash的基础线束，在WorkBuddy-Bench上获得高达11.5分的收益，在JobBench上获得4.5分，在实验室获得11.8个百分点，随着任务级递归预算的增加，进一步获得收益。",
+          "highlights": [
+            "Harness^2",
+            "隶属于 cs.AI, cs.CL",
+            "LLM agents' capabilities depend not only on their underlying models but also on their execution harnesses."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.14224",
+          "worthReading": true
+        },
+        {
+          "id": "A5",
+          "anchorId": "A5",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "EvoCowork: A Benchmark for Real-World Office Tasks",
+          "authors": [
+            "Zhou Liu",
+            "Xingyan Chen",
+            "ZhaoYang Han",
+            "Zewei Pan",
+            "Zeli Su",
+            "Ningxin Pan",
+            "Xue Hu",
+            "Kaixiong Ting",
+            "Wentao Zhang"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.14828",
+          "tags": [
+            "RSI",
+            "Agent"
+          ],
+          "summary": "Office workflows are a demanding testbed for self-improving agents because their deliverables must be correct, natively editable, and mutually consistent. 对于自我改进的代理而言， Office工作流是一个苛刻的测试平台，因为它们的可交付成果必须正确、本机可编辑且相互一致。\nA central question is whether gains on feedback tasks reflect reusable procedures rather than task-specific fixes. 一个核心问题是，反馈任务的收益是否反映了可重复使用的程序，而不是特定于任务的修复。\nWe introduce EvoCowork, a 240-task benchmark for evaluating harness-level recursive self-improvement across four office modalities, with model weights held fixed. 我们引入了EvoCowork ，这是一个240项任务的基准，用于评估四种办公模式的线束级递归自我改进，模型权重保持不变。\nThe benchmark covers presentations, documents, spreadsheets, and cross-office workflows, and scores submitted artifacts for content, native structure, formulas, cross-file consistency, and visual quality where needed. 该基准涵盖演示文稿、文档、电子表格和跨部门工作流程，并在需要时对提交的内容、原生结构、公式、交叉文件一致性和视觉质量进行评分。\nIts protocol separates feedback, revision selection, and final testing: methods learn from single-modality tasks, then are evaluated on unseen single-modality tasks and cross-office workflows under a shared initial harness and explicit budgets. 其协议将反馈、修订选择和最终测试分开：方法从单模态任务中学习，然后在共享的初始线束和显式预算下根据看不见的单模态任务和跨部门工作流程进行评估。\nIn static evaluations of two models and four harnesses, the best configuration scores 42.25 overall and 30.62 on cross-office tasks. 在两种型号和四种线束的静态评估中，最佳配置总体得分为42.25 ，跨部门任务得分为30.62。\nStarting from the same MSA harness with GLM 5.3, ACE and AHE improve in-domain scores by 4.90 and 2.64 points, respectively, but change cross-office scores by only +0.03 and -1.72. 从与GLM 5.3相同的MSA线束开始， ACE和AHE分别将域内分数提高了4.90和2.64分，但仅将跨部门分数提高了+0.03和-1.72。\nThus, gains on the file types that provide feedback do not necessarily transfer to coordinated workflows. 因此，提供反馈的文件类型的增益不一定会转移到协调的工作流中。\nEvoCowork makes this distinction explicit while recording the capability, transfer, and cost of harness evolution. EvoCowork在记录线束演进的能力、转移和成本的同时，明确了这一区别。\nCode and task packages: https://github.com/DeepThinkingZhouLiu/cowork-evolution-benchmark. 代码和任务包： https://github.com/DeepThinkingZhouLiu/cowork-evolution-benchmark。",
+          "highlights": [
+            "EvoCowork",
+            "隶属于 cs.AI",
+            "A central question is whether gains on feedback tasks reflect reusable procedures rather than task-specific fixes."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.14828",
+          "worthReading": true
+        },
+        {
+          "id": "A6",
+          "anchorId": "A6",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "Trace Evolution Bench: Measuring Whether Agents Improve from Their Own Environment Traces",
+          "authors": [
+            "Fangfei Li",
+            "Chenyang Zhao",
+            "Long Wang",
+            "Feng Tian",
+            "Lv Guo"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.15055",
+          "tags": [
+            "DeepSeek",
+            "RSI",
+            "Agent"
+          ],
+          "summary": "Self-evolving agents are usually scored by endpoint Gain: held-out success after an update minus success before. 自我进化药剂通常按终点增益评分：更新后保持成功减去之前的成功。\nThat difference can credit a frozen rescore as evolution. 这种差异可以归功于冻结的重新评分作为进化。\nWe introduce Trace Evolution Bench (TEB), a protocol that separates that rescore from a context or weight update, together with three frozen 80/20/40 packs. 我们引入了Trace Evolution Bench （ TEB ） ，这是一种将重新评分与上下文或权重更新分开的协议，以及三个冷冻的80/20/40内容包。\nAn update is accepted only when validation does not fall, held-out identifiers never enter the update, and a text update is not ranked with a weight update. 只有在验证未失败、保留标识符从未进入更新以及文本更新未与权重更新进行排名时，才接受更新。\nThe primary scoreboard is coding, graded by hidden unit tests in a closed workspace. 主要记分牌是编码，由封闭工作空间中的隐藏单元测试评分。\nOn that pack (40 held-out tasks, one family), DeepSeek v4 Pro under no_evolve never changes its policy yet moves 7.5, 5.0, and 12.5 percentage points across three seeds. 在该包（ 40个未完成的任务，一个系列）上， no_evolve下的DeepSeek v4 Pro从未更改其策略，但在三个种子中移动了7.5、5.0和12.5个百分点。\nOf nine text-update cells inspired by GEPA, ACE, and ExpeL, seven have positive excess above that seed's own band, and one gepa_llm seed moves down by the width of its band (-12.5, regression 0.48). 在受GEPA、ACE和ExpeL启发的九个文本更新细胞中，七个细胞的正过剩高于种子自己的条带，一个gepa_llm种子向下移动其条带的宽度（ -12.5 ，回归0.48 ）。\nGLM and MiniMax do not reproduce that seven-of-nine pattern. GLM和MiniMax不重现九分之七的模式。\nNo method stays above its own band on every seed of all three models: GLM has two paired cells above their own bands, and MiniMax expel_llm seed 44 is a third (regression 0.30). 在所有三个模型的每个种子上，没有方法保持在自己的带之上： GLM在自己的带之上有两个成对的细胞，而MiniMax EXPEL_LLM种子44是第三个（回归0.30 ）。\nThe methods were fixed on a validation screen before held-out was read. 在读取保留的方法之前，将方法固定在验证屏幕上。\nOffice, graded by rule-bounded delivery, and manufacturing table QA are separate packs: office DeepSeek does not exceed its own bands (widest 17.5 points), and manufacturing has no paired positive excess beyond its seed band. Office （按受规则约束的交付分级）和制造表QA是单独的包装： Office DeepSeek不超过自己的频带（最宽的17.5分） ，制造业没有超出其种子频带的成对正过剩。",
+          "highlights": [
+            "exceed its own bands (widest 17",
+            "Trace Evolution Bench",
+            "隶属于 cs.AI"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.15055",
+          "worthReading": true
+        },
+        {
+          "id": "A7",
+          "anchorId": "A7",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "SpecForge: Recursive Self-Improvement for Coding Agents via Behavioral Specifications",
+          "authors": [
+            "Yutong Cheng",
+            "Haifeng Chen",
+            "Peng Gao",
+            "Wei Cheng"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.15708",
+          "tags": [
+            "Anthropic",
+            "RSI",
+            "Agent"
+          ],
+          "summary": "Coding agents based on frozen language models can improve their performance by refining the external context they rely on, without updating model weights. 基于冻结语言模型的编码代理可以通过优化其所依赖的外部上下文来提高其性能，而无需更新模型权重。\nWe study recursive self-improvement through behavioral specifications: natural-language code documentation that describes the behavior of program entities and guides agents in generating correct code. 我们通过行为规范研究递归自我改进：自然语言代码文档，描述程序实体的行为，并指导代理生成正确的代码。\nWe formulate a self-improvement loop in which an agent generates code from its current specifications, evaluates it with execution-verified tests, and refines the specifications based on observed failures. 我们制定了一个自我改进循环，其中代理根据其当前规范生成代码，通过执行验证测试对其进行评估，并根据观察到的故障完善规范。\nThe improved specifications then guide subsequent generation, progressively improving the agent's understanding of the codebase. 然后，改进的规范指导后续生成，逐步提高代理对代码库的理解。\nHowever, recursive refinement is challenging because program entities are interdependent. 然而，递归细化具有挑战性，因为程序实体是相互依赖的。\nImproving the specification of one entity can inadvertently degrade the correctness of others, a phenomenon we call output coupling. 改进一个实体的规范可能会无意中降低其他实体的正确性，这种现象我们称之为输出耦合。\nThis creates a whack-a-mole effect in which local improvements cause regressions elsewhere, preventing consistent progress. 这产生了一种鼹鼠效应，其中局部改善会导致其他地方的倒退，从而阻止持续的进展。\nWe introduce SpecForge, a multi-frontier tree search framework that addresses this challenge with three mechanisms: (i) Pareto-guided state selection preserves complementary specification states and prevents premature commitment; (ii) dependency-constrained entity selection prioritizes callee-before-caller refinement; and (iii) error-diversified expansion explores multiple refinements using different subsets of test failures. 我们引入了SpecForge ，这是一个多前沿树搜索框架，通过三种机制解决这一挑战： （ i ）帕累托引导的状态选择保留了互补的规范状态并防止过早的承诺； （ ii ）依赖性受限的实体选择优先考虑被调用方在调用方之前的细化；以及（ iii ）错误多样化扩展探索使用不同子集的测试失败的多个细化。\nOn DevEval+, SpecForge achieves the best performance across five backbone models, including a 94.9% solve rate with Claude-4.5-Sonnet and a 5.7-percentage-point average improvement over the strongest baseline. 在DevEval +上， SpecForge在五个骨干模型中实现了最佳性能，包括Claude-4.5-Sonnet的解决率为94.9% ，平均比最强基线提高了5.7个百分点。\nThe improved specifications also make the agent better at tasks outside the loop: they transfer to cross-language translation and to new-feature implementation, where they outperform the benchmark-provided requirement documents. 改进的规范还使代理更好地执行循环外的任务：它们转移到跨语言翻译和新功能实现，在那里它们的表现优于基准提供的需求文档。",
+          "highlights": [
+            "outperform the benchmark-provided requirement documents",
+            "SpecForge",
+            "隶属于 cs.AI, cs.SE"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.15708",
+          "worthReading": true
+        },
+        {
+          "id": "A8",
+          "anchorId": "A8",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "Verifier-Harness Co-Evolution for Training-Free Self-Improvement on Open-Ended Tasks",
+          "authors": [
+            "Tianyi Xu",
+            "Yaolun Zhang",
+            "Yiran Wu",
+            "Joe Nguyen",
+            "Shengyu Dai",
+            "Saba Moeinizade",
+            "Zhenwen Shao",
+            "Qingyun Wu",
+            "Huazheng Wang"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.17609",
+          "tags": [
+            "Qwen",
+            "RSI",
+            "Agent"
+          ],
+          "summary": "Training-free self-improvement lets an agent use feedback to revise the response it is about to return and to update the harness state that shapes how it handles later tasks. 无需培训的自我提升可让客服代表使用反馈来修改即将返回的回复，并更新影响其处理后续任务的方式的线束状态。\nOn open-ended tasks that feedback rarely comes from reference answers or executable tests, so the agent has to rely on a model-based verifier. 在开放式任务中，反馈很少来自参考答案或可执行测试，因此代理必须依赖于基于模型的验证器。\nWhen the verifier is wrong, the current response can get worse, and misleading experience can persist across the task stream. 当验证者出错时，当前的响应可能会变得更糟，并且误导性体验可能会在任务流中持续存在。\nA verifier that never changes also grows stale as the agent's responses improve and task demands shift. 随着客服代表的回应有所改善，任务需求发生变化，永远不会改变的验证者也会变得陈旧。\nWe introduce Unified Co-Evolution (UCoE), a training-free method that evolves an executable verifier program together with the agent's harness state while all model parameters stay fixed. 我们引入了统一协同进化（ UCoE ） ，这是一种无需培训的方法，可将可执行验证程序与代理的线束状态一起进化，同时所有模型参数保持不变。\nUCoE synthesizes candidate verifier programs and tests them on response contrasts, pairs of responses that differ in one declared property and have a known preferred side. UCoE合成候选验证程序，并根据响应对比度对它们进行测试，这些响应对在一个声明的属性中不同，并且具有已知的首选侧。\nIt selects the candidate whose discrimination on its weakest contrast family is highest, a quantity we call driving capacity. 它选择对最弱对比度家族的歧视最高的候选人，我们称之为驾驶能力。\nThe selected verifier diagnoses one weakness in each draft, guides a single repair, decides which response is served, and determines whether the accepted repair may enter the harness state. 所选验证者诊断每个草案中的一个弱点，指导单个维修，决定提供哪个响应，并确定接受的维修是否可能进入线束状态。\nAs tasks complete, their diagnostics seed new candidate verifiers, which must beat the current verifier on the same contrasts before adoption. 随着任务的完成，他们的诊断会播种新的候选验证器，这些验证器在采用之前必须在相同的对比度上击败当前的验证器。\nAcross six open-ended benchmarks, UCoE averages 59.00% preference against matched direct generation with Qwen3-8B and 57.19% with Qwen3.8-27B, margins of 9.00 and 7.19 percentage points. 在六个开放式基准中， UCoE的平均偏好率为59.00 ％ ， Qwen3-8B为57.19 ％ ， Qwen3.8-27B为57.19 ％ ，利润率为9.00和7.19个百分点。\nOn three verifiable benchmarks, the same method raises the mean from 36.06% for direct generation to 38.48%. 在三个可验证的基准上，相同的方法将直接发电的平均值从36.06%提高到38.48%。\nCode is available at https://github.com/tianyi0216/Unified-Co-Evolution. 优惠码可在https://github.com/tianyi0216/Unified-Co-Evolution上获得。",
+          "highlights": [
+            "Verifier",
+            "隶属于 cs.AI",
+            "On open-ended tasks that feedback rarely comes from reference answers or executable tests, so the agent has to rely on a"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.17609",
+          "worthReading": true
+        },
+        {
+          "id": "A9",
+          "anchorId": "A9",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "ECG-RSI: Recursive Self-Improvement through Targeted Electrocardiogram Waveform Evolution",
+          "authors": [
+            "Xiaoliang Wang",
+            "Zhuo Chen",
+            "Chuanyang Zheng",
+            "Jiangwei Lao",
+            "Quanbin Wang",
+            "Honglin Lin",
+            "Jiajia Liu",
+            "Zhihong Lu",
+            "Hao Jin",
+            "Jian Wang",
+            "Lijun Wu"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.17718",
+          "tags": [
+            "Qwen",
+            "RSI"
+          ],
+          "summary": "Electrocardiogram (ECG) models need supervision that targets evolving weaknesses and remains faithful to waveform evidence. 心电图（ ECG ）模型需要针对不断变化的弱点进行监督，并始终忠实于波形证据。\nWe introduce ECG-RSI, a recursive self-improvement framework combining verified waveform synthesis with feedback-guided intervention search. 我们引入了ECG-RSI ，这是一种将经过验证的波形合成与反馈引导的干预搜索相结合的递归自我改进框架。\nSignal remeasurement verifies waveform edits; construction errors guide generator repair, while learner errors motivate interventions compared on a separate selection set. 信号重新测量验证波形编辑；构造错误指导生成器修复，而学习者错误激励干预措施在单独的选择集上进行比较。\nAcross seven benchmarks, three rounds raise Qwen3.5-35B-A3B's mean question-answering accuracy from 34.57% to 56.04% and mean classification F1 from 24.27 to 34.03. 在七个基准中，三轮将Qwen3.5-35B-A3B的平均问答准确率从34.57%提高到56.04% ，平均分类F1从24.27提高到34.03。\nAcross the retained trajectory, the preferred supervision shifts from direct reinforcement to confusion-focused contrasts. 在保留的轨迹上，首选的监督从直接强化转变为以混乱为中心的对比。\nContinued feedback correction yields diminishing external gains. 持续的反馈修正会减少外部收益。\nThese results motivate separating error diagnosis from intervention selection and checking whether gains on the feedback set transfer to independent benchmarks. 这些结果促使将错误诊断与干预选择分开，并检查反馈集的增益是否转移到独立的基准。",
+          "highlights": [
+            "ECG",
+            "隶属于 cs.AI, cs.LG",
+            "Electrocardiogram (ECG) models need supervision that targets evolving weaknesses and remains faithful to waveform eviden"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.17718",
+          "worthReading": true
+        },
+        {
+          "id": "A10",
+          "anchorId": "A10",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "Output Discipline Sets the Floor: A Falsification-Guided, Model-Agnostic Agent Protocol for Auditable Hypothesis-Driven Decision Making",
+          "authors": [
+            "Jing Liu",
+            "Yongxing Qi",
+            "Ping Yao",
+            "Ting Wu"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.18298",
+          "tags": [
+            "DeepSeek",
+            "Qwen",
+            "Kimi"
+          ],
+          "summary": "What binds large language models on auditable, hypothesis-driven decision tasks, where every candidate can be checked against the evidence? 是什么将大型语言模型与可审计、假设驱动的决策任务结合在一起，每个候选人都可以根据证据进行检查？\nOn the public TCMEval-SDT benchmark for Traditional Chinese Medicine syndrome differentiation (200 cases), the binding constraint is output discipline and reasoning structure, not model capability alone: two years of model scaling move zero-shot scores by only -0.03 to +0.08, while output-discipline failures (non-terminating reasoning, format non-compliance, large run-to-run spread) persist even in frontier models. 在中医辨证的公共TCMEval-SDT基准（ 200例）上，约束约束是输出纪律和推理结构，而不仅仅是模型能力：两年的模型缩放仅将零点得分移动了-0.03到+0.08 ，而输出纪律失效（非终止推理，格式不合规，大量运行到运行传播）甚至在前沿模型中仍然存在。\nWe test this with a model-agnostic agent framework formalizing decision making as a five-stage closed loop, enforced by a candidate x evidence matrix falsification protocol: every candidate is judged against every evidence item, at least half of the candidates must be falsified before a conclusion is licensed, and survivors are emitted in a machine-verifiable single-line format. 我们使用与模型无关的代理框架对此进行测试，该框架将决策形式化为五个阶段的闭环，通过候选x证据矩阵伪造协议强制执行：根据每个证据项目来判断每个候选，在获得许可之前必须至少有一半的候选人被伪造，并且幸存者以机器可验证的单行格式发出。\nAcross five base models, the effect is sign-conditional on zero-shot output discipline: it rescues models whose discipline fails (DeepSeek-V4-Flash: +0.267/+0.271, entirely termination rescue), reduces a high-variance model's run-to-run standard deviation from 0.218 to 0.007 (Kimi K3), and significantly costs already-disciplined models (-0.087 to -0.120 on budget-matched Qwen3-4B/32B). 在五个基本模型中，对零射输出纪律的影响是符号条件的：它挽救纪律失败的模型（ DeepSeek-V4-Flash ： +0.267/+0 .271 ，完全终止挽救） ，将高方差模型的运行标准差从0.218降至0.007 （ Kimi K3 ） ，并显著降低已有纪律的模型的成本（预算匹配的Qwen3-4B/32B为-0.087至-0.120 ）。\nAblations attribute the cost to the candidate-bounded format layer and show the effect is independent of injected knowledge content (protocol-knowledge decoupling). 消融将成本归因于候选受限的格式层，并显示效果独立于注入的知识内容（协议-知识解耦）。\nThe protocol also transfers to misinformation-robust mathematical reasoning, detecting injected false premises at 89.8% recall with a 6.8% false-positive rate (MCC 0.54; a flag-everything baseline scores 0) and restoring accuracy to the no-misinformation ceiling. 该方案还转向错误信息强健的数学推理，以89.8%的召回率检测注射虚假前提，假阳性率为6.8% （ MCC 0.54 ；标记一切基线得分0 ） ，并恢复无错误信息上限的准确性。\nWhere zero-shot output discipline is weak, the reasoning protocol sets the floor; base-model capability always sets the ceiling. 在零拍输出纪律较弱的地方，推理协议设定底线；基本模型能力始终设定上限。",
+          "highlights": [
+            "Output Discipline Sets the Floor",
+            "隶属于 cs.AI",
+            "What binds large language models on auditable, hypothesis-driven decision tasks, where every candidate can be checked ag"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.18298",
+          "worthReading": true
+        },
+        {
+          "id": "A11",
+          "anchorId": "A11",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "LLM Agents for Automated Post-Training via Structured Recipe Optimization",
+          "authors": [
+            "Ruohong Liu",
+            "Bohan Tang",
+            "Lekang Jiang",
+            "Jack Umenberger",
+            "Yiwen Guo"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.18572",
+          "tags": [
+            "OpenAI",
+            "DeepSeek",
+            "Qwen"
+          ],
+          "summary": "Automated post-training transforms pre-trained large language models (LLMs) into models capable of handling diverse domains by automatically constructing and optimizing a recipe of coupled decisions over data sources, data processing, cross-domain composition, and training configuration under a limited experimental budget. 自动训练后，在有限的实验预算下，通过自动构建和优化数据源、数据处理、跨域组合和训练配置的耦合决策配方，将预训练的大型语言模型（ LLM ）转换为能够处理不同领域的模型。\nExisting automation either searches predefined recipe spaces that enable systematic optimization but remain fixed rather than adapting their available choices to the target tasks, or uses open-ended agents that discover task-specific choices but leave them implicit in trial-level edits, limiting their systematic reuse and recombination across trials. 现有的自动化要么搜索预定义的配方空间，以实现系统优化，但保持固定状态，而不是根据目标任务调整其可用选择，要么使用开放式代理来发现特定任务的选择，但将其隐含在试用级编辑中，从而限制它们在试用中的系统重用和重组。\nTo fill this gap, we introduce optimization over a task-adapted recipe space, a novel paradigm that can adapt the recipe space itself to the target tasks while representing its choices explicitly for systematic reuse, recombination, and joint optimization. 为了填补这一空白，我们引入了任务适应配方空间的优化，这是一种新颖的范式，可以使配方空间本身适应目标任务，同时明确表示其选择以进行系统重用、重组和关节优化。\nWe instantiate this paradigm with Structured Recipe Optimization (SRO), comprising an LLM-based Recipe-Space Designer that constructs the task-adapted recipe space and a Multi-Domain Recipe Optimizer that uses structured trial evidence to guide LLM candidate construction and multi-objective Bayesian trial selection. 我们使用结构化配方优化（ SRO ）实例化此范式，其中包括基于LLM的配方空间设计器（构建任务适应的配方空间）和多域配方优化器（使用结构化试验证据来指导LLM候选人构建和多目标贝叶斯试验选择）。\nExtensive experiments show that SRO achieves the highest average score in all evaluated target-model and agent-LLM combinations. 广泛的实验表明，在所有评估的目标模型和Agent-LLM组合中， SRO达到了最高的平均分数。\nIn joint post-training across three capability domains and six benchmarks, SRO reaches 41.1 versus 15.4 for the strongest baseline on Qwen3-1.7B with GPT-5.4, and 53.8 versus 40.8 on Qwen3-4B with DeepSeek-V4-Flash. 在跨三个能力域和六个基准的联合训练后， SRO在Qwen3-1.7B和GPT-5.4上的最强基线分别达到41.1和15.4 ，在Qwen3-4B和DeepSeek-V4-Flash上的最强基线分别达到53.8和40.8。\nOur code is available at https://github.com/RuohLiuq/SRO. 我们的代码可在https://github.com/RuohLiuq/SRO上找到。",
+          "highlights": [
+            "LLM Agents for Automated Post",
+            "隶属于 cs.AI, cs.LG",
+            "Extensive experiments show that SRO achieves the highest average score in all evaluated target-model and agent-LLM combi"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.18572",
+          "worthReading": true
+        },
+        {
+          "id": "A12",
+          "anchorId": "A12",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "Humans vs. Machines: A Comparison With AI Agents in Software Reverse Engineering",
+          "authors": [
+            "Samuele Doria",
+            "Stefano De Rosa",
+            "Ruoyu Wang",
+            "Zion Leonahenahe Basque",
+            "Eleonora Losiouk",
+            "Simone Aonzo"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.14960",
+          "tags": [
+            "OpenAI",
+            "Anthropic",
+            "Kimi"
+          ],
+          "summary": "Can an autonomous AI agent reverse engineer a binary as well as a skilled human analyst? 自主人工智能代理可以对二进制文件进行逆向工程，也可以对熟练的人类分析师进行逆向工程吗？\nDo they adopt the same strategy, and can agents scale to real-world programs? 他们是否采用相同的策略，代理是否可以扩展到现实世界的计划？\nWe compare human and LLM-based software reverse engineering (SRE): nine models tackle two compact static-analysis challenges previously solved by human analysts, scored with a common understanding rubric, and we record their complete interactions with IDA Pro. 我们比较了人类和基于LLM的软件逆向工程（ SRE ） ：九个模型解决了之前由人类分析师解决的两个紧凑的静态分析挑战，并使用共同的理解评分标准进行评分，我们记录了他们与IDA Pro的完整交互。\nThis lets us compare not only what humans and agents recover, but also how they investigate a binary. 这不仅可以让我们比较人类和智能体的恢复情况，还可以让我们比较他们如何调查二进制文件。\nThe best agents (GPT-5.5 Pro, Claude Opus 4.8, and Kimi K3) achieve statistically human-competitive understanding on both tasks, while weaker models remain far behind. 最好的代理（ GPT-5.5 Pro、Claude Opus 4.8和Kimi K3 ）在这两项任务上都实现了统计学上的人类竞争理解，而较弱的模型仍然远远落后。\nAblations show that the gap depends on code representation and workflow demands, not on model capability alone: open-weight models improve substantially with richer code representations, whereas frontier models show no significant change. 消融表明，差距取决于代码表示和工作流需求，而不仅仅取决于模型能力：开放权重模型随着更丰富的代码表示而大幅改善，而前沿模型则没有显着变化。\nSimilar success rates hide different workflows. 类似的成功率会隐藏不同的工作流程。\nHumans repeatedly revisit functions and follow local program structure; strong agents jump across the binary, retrieve information broadly, and rarely return to inspected code, a behavior we call greedy fetching. 人类反复重温函数并遵循本地程序结构；强代理跳过二进制文件，广泛检索信息，很少返回到被检查的代码，这种行为我们称之为贪婪获取。\nThis strategy is not fixed: given semantically richer code, agents fetch less without losing understanding. 这种策略不是固定的：给定语义更丰富的代码，代理获取更少而不会失去理解。\nBecause greedy fetching aggregates large amounts of code in the agent's context, we measure context-window saturation across 4,000 real-world binaries: large windows accommodate many programs, but larger applications and lower-level representations quickly exhaust them. 由于贪婪获取在代理的上下文中聚合了大量代码，因此我们测量了4,000个真实世界二进制文件的上下文窗口饱和度：大窗口可容纳许多程序，但较大的应用程序和较低级别的表示会很快耗尽它们。\nAutonomous reverse engineering is becoming competitive, with a large speed advantage, but scaling it will require better navigation, selective retrieval, and persistent analysis state, not merely larger context windows. 自主逆向工程正在变得具有竞争力，具有很大的速度优势，但扩展它将需要更好的导航、选择性检索和持久分析状态，而不仅仅是更大的上下文窗口。",
+          "highlights": [
+            "Humans vs. Machines",
+            "隶属于 cs.SE, cs.AI",
+            "Can an autonomous AI agent reverse engineer a binary as well as a skilled human analyst?"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.14960",
+          "worthReading": true
+        },
+        {
+          "id": "A13",
+          "anchorId": "A13",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "DeltaTTG: Training Multi-Turn Agents with a Token-to-Go Progress Meter",
+          "authors": [
+            "Xuyan Ye",
+            "Xiyan Fu",
+            "Shengda Fan",
+            "Jiawei Cui",
+            "Yankai Lin",
+            "Wei Lu"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.17666",
+          "tags": [
+            "Meta",
+            "Qwen",
+            "Agentic RL"
+          ],
+          "summary": "Reinforcement learning with verifiable rewards (RLVR) for multi-turn agents relies on sparse terminal rewards that say little about individual steps. 针对多回合座席的可验证奖励强化学习（ RLVR ）依赖于稀疏的终端奖励，而这些终端奖励对单个步骤的影响很小。\nWithin-group step comparisons depend on reliable state matching and sufficiently diverse sampled outcomes, while direct step scoring may require costly external evaluators, human annotations, or task-specific heuristics. 组内分步比较依赖于可靠的状态匹配和足够多样化的采样结果，而直接分步评分可能需要昂贵的外部评估人员、人工注释或特定任务的启发式方法。\nWe introduce DeltaTTG to learn a reusable progress signal through a shared progress meter, using low-cost supervision from diverse policies' recorded trajectories without task-specific progress rules. 我们引入DeltaTTG ，通过共享进度计学习可重用的进度信号，使用来自不同政策记录轨迹的低成本监督，而无需特定任务的进度规则。\nIts supervision target, Token-to-Go (TTG), the number of tokens remaining to be generated until task completion, serves as an observable proxy for remaining completion effort. 其监督目标Token-to-Go （ TTG ） ，即在任务完成之前剩余待生成的代币数量，可作为剩余完成工作的可观察代理。\nDuring actor training, changes in the frozen meter's estimates redistribute outcome-derived advantages across steps without altering the reward, preserving each trajectory's advantage sign and token-average scale. 在演员培训期间，冻结仪表估计值的变化在不改变奖励的情况下跨步骤重新分配结果派生的优势，保留每个轨迹的优势符号和令牌平均尺度。\nOn ALFWorld, PaperSearchQA, and BFCLv3, DeltaTTG improves the average score over GRPO by 5.7 and 7.2 points with Qwen3-4B and Llama-3.1-8B-Instruct, respectively, outperforms all compared RL baselines on average, and keeps actor-training GPU-hours close to GRPO. 在ALFWorld、PaperSearchQA和BFCLv3上， DeltaTTG分别使用Qwen3-4B和Llama-3.1-8B-Instruct将GRPO的平均分数提高了5.7和7.2分，平均优于所有比较RL基线，并使参与者培训GPU小时接近GRPO。\nFurther experiments show improved sample efficiency and out-of-domain performance, and support the meter's ability to distinguish step quality and guide test-time action selection across actor sizes. 进一步的实验表明，提高了样本效率和域外性能，并支持仪表区分步骤质量和引导跨演员大小的测试时间动作选择的能力。\nThe code is available at https://github.com/Xuyan923r/DeltaTTG. 该代码可在https://github.com/Xuyan923r/DeltaTTG上获得。",
+          "highlights": [
+            "outperforms all compared RL baselines on average",
+            "DeltaTTG",
+            "隶属于 cs.LG, cs.AI"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.17666",
+          "worthReading": true
+        },
+        {
+          "id": "A14",
+          "anchorId": "A14",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "GIFT-Eval-CTX: A Benchmark For Contextual Forecasting Model Evaluation",
+          "authors": [
+            "Xu Liu",
+            "Hanshu Yan",
+            "Taha Aksu",
+            "Quang Pham",
+            "Zhongzheng Qiao",
+            "Jun Hao Liew",
+            "Silvio Savarese",
+            "Doyen Sahoo",
+            "Junnan Li"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.17794",
+          "tags": [
+            "OpenAI",
+            "Anthropic",
+            "Agent"
+          ],
+          "summary": "Contextual forecasting seeks to improve time series forecasting by incorporating forward-looking information, such as planned events, external conditions, and expert expectations. 情境预测旨在通过整合前瞻性信息（如计划事件、外部条件和专家期望）来改进时间序列预测。\nHowever, reliable evaluation remains difficult: existing benchmarks often have limited domain coverage, lack standardized history-future splits, or provide text that is not guaranteed to inform the future. 然而，可靠的评估仍然很困难：现有的基准通常具有有限的领域覆盖范围，缺乏标准化的历史-未来分割，或者提供的文本不能保证为未来提供信息。\nWe introduce GIFT-Eval-CTX, a benchmark that isolates whether forecasting methods can translate verified future information into accurate numerical trajectories. 我们引入了GIFT-Eval-CTX ，这是一个基准，用于隔离预测方法是否可以将经过验证的未来信息转化为准确的数字轨迹。\nBuilt upon GIFT-Eval, GIFT-Eval-CTX contains 10,000 instances across 20 datasets. GIFT-Eval-CTX基于GIFT-Eval构建，包含20个数据集中的10,000个实例。\nEach instance provides structured effects derived from the realized future: Macro effects describe horizon-wide behavior, while Micro effects specify localized changes.\nWe construct these annotations with an agentic pipeline combining LLM-based discovery and deterministic code validation. 我们使用基于LLM的发现和确定性代码验证相结合的代理流水线构建这些注释。\nWe benchmark TSFMs, frontier LLMs, and tool-using agentic systems.\nThe results show that structured effects reduce aggregate relative MASE by 40.7% for GPT-5.6 Sol and 29.6% for Claude Opus 4.8 relative to history-only prompting. 结果表明，相对于纯历史提示， GPT-5.6 Sol和Claude Opus 4.8的结构化效应使聚合相对MASE降低了40.7% ，而Claude Opus 4.8的结构化效应使聚合相对Mase降低了29.6%。\nThe evaluated MoiraiAgent system achieves the best overall result.\nWe further analyze the contributions of structured effects and agentic systems to performance, and identify opportunities for future research. 我们进一步分析了结构效应和代理系统对绩效的贡献，并确定了未来研究的机会。",
+          "highlights": [
+            "GIFT",
+            "隶属于 cs.LG, cs.AI",
+            "Built upon GIFT-Eval, GIFT-Eval-CTX contains 10,000 instances across 20 datasets."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.17794",
+          "worthReading": true
+        },
+        {
+          "id": "A15",
+          "anchorId": "A15",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "Tev: Scaling Long-Horizon Agentic Environments with Dense Progress Rewards",
+          "authors": [
+            "Wenbo Hu",
+            "Shraman Pramanick",
+            "Krishna Kumar Singh",
+            "Nanyun Peng",
+            "Kai-Wei Chang",
+            "Yong Jae Lee"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.18868",
+          "tags": [
+            "Anthropic",
+            "Google",
+            "RSI"
+          ],
+          "summary": "Long-horizon agents have drawn growing attention for their ability to work autonomously -- from hours to days -- on economically valuable tasks, a capability essential to automated discovery and recursive self-improvement (RSI).\nYet open-source models still struggle on long-horizon tasks, largely for lack of both training data and a working recipe, and scaling both is hard: long, complex tasks are difficult to curate and verify, and their rewards are sparse.\nWe address both.\nFirst, we introduce Tev-Gym, the first long-horizon agent training dataset with verifiable, dense, progressive rewards -- 1,170 verified task environments across 7 domains.\nIt is built on a latent-world-first approach that first constructs a latent world: a complete and correct hidden specification of the task domain, workflow, and expected state after each step.\nEach task is then progressively rendered from this specification into an agent-facing environment, enabling controllable complexity and a natural progress metric.\nSecond, we turn this metric into a training recipe: via progress-potential reward shaping (PPRS), we convert progress into a dense per-step reward that improves training efficiency and makes otherwise-intractable tasks trainable.\nTraining with this recipe yields Tev-27B, which achieves substantial gains on the Agents' Last Exam computing and math sciences domains (ALE-CM), matching GPT-6 Astra and Claude Opus 5 at Pass@5.\nDespite training only on ALE-related data, it generalizes to the Terminal-Bench (TB) 3.0 and 4.0 subsets, surpassing GLM 5.2 and Gemini 3.7 Flash, and reaches Claude Opus 4.8-level performance on middle-horizon tasks such as TB 2.1.",
+          "highlights": [
+            "surpassing GLM 5",
+            "first long-horizon agent training dataset with verifiable"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.18868",
+          "worthReading": true
+        },
+        {
+          "id": "A16",
+          "anchorId": "A16",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "Detecting Multi-Agent Collusion Through Multi-Agent Interpretability",
+          "authors": [
+            "Aaron Rose",
+            "Carissa Cullen",
+            "Sahar Abdelnabi",
+            "Philip Torr",
+            "Brandon Gary Kaplowitz",
+            "Christian Schroeder de Witt"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2604.01151",
+          "tags": [
+            "Meta",
+            "DeepSeek",
+            "Qwen"
+          ],
+          "summary": "As LLM agents are increasingly deployed in multi-agent systems, they introduce risks of covert coordination that may evade standard forms of human oversight.\nWhile linear probes on model activations have shown promise for detecting deception in single-agent settings, collusion is inherently a multi-agent phenomenon, and the use of internal representations for detecting collusion between agents remains unexplored.\nWe introduce NARCBench, a benchmark for evaluating collusion detection under environment distribution shift, and propose five probing techniques that aggregate per-agent deception scores to classify scenarios at the group level, evaluated across four open-weight models (Qwen3-32B, Llama-3.1-70B, DeepSeek-R1 32B, GPT-OSS-20B) and six probe architectures.\nWe frame this as a distributed anomaly detection problem, identifying three collusion signatures that map onto distinct anomaly types and detection paradigms.\nEvery model reaches 1.00 AUROC in-distribution; on our strongest model (Llama-3.1-70B), our five probing techniques achieve 0.73 to 0.93 AUROC when transferred zero-shot to structurally different multi-agent scenarios and 0.99 to 1.00 on a steganographic blackjack card-counting task, with detection performance scaling with model capability.\nWe find that no single probing technique dominates across all collusion types, consistent with the framework's prediction that different anomaly types require different detection paradigms.\nThis work takes a step toward multi-agent interpretability: extending white-box inspection from single models to multi-agent contexts, where detection requires aggregating signals across agents.\nThese results suggest that model internals provide a complementary signal to text-level monitoring for detecting multi-agent collusion.\nCode and data available at https://github.com/aaronrose227/narcbench.",
+          "highlights": [
+            "propose five probing technique",
+            "Detecting Multi",
+            "隶属于 cs.AI, cs.LG"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2604.01151",
+          "worthReading": false
+        },
+        {
+          "id": "A17",
+          "anchorId": "A17",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "Verifiable Process Rewards for Agentic Reasoning",
+          "authors": [
+            "Huining Yuan",
+            "Zelai Xu",
+            "Huaijie Wang",
+            "Xiangmin Yi",
+            "Jiaxuan Gao",
+            "Xiao-Ping Zhang",
+            "Yu Wang",
+            "Chao Yu",
+            "Yi Wu"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2605.10325",
+          "tags": [
+            "Qwen",
+            "Agentic RL",
+            "Agent"
+          ],
+          "summary": "Reinforcement learning from verifiable rewards (RLVR) has improved the reasoning capabilities of large language models (LLMs), yet existing approaches predominantly rely on sparse outcome-level feedback, posing a substantial credit-assignment challenge in long-horizon agentic tasks.\nIn this work, we study structured agentic reasoning problems that admit symbolic or algorithmic task-solving oracles.\nWe propose Verifiable Process Rewards (VPR), a training framework that repurposes such task oracles as action-level process verifiers, providing dense rewards for intermediate actions and enabling fine-grained credit assignment.\nWe instantiate VPR in three distinct settings: a search-based oracle for Sokoban, a constraint-based oracle for Sudoku, and a posterior-based oracle for Minesweeper.\nTo optimize policies with these rewards, we introduce oracle-guided state-group rollout and locally normalized optimization.\nEmpirically, VPR-trained Qwen3-4B outperforms outcome-reward GRPO and VinePPO across all three training environments.\nWhen jointly trained on math data and all three game environments, VPR achieves the highest average general-reasoning performance and strongest agentic results among the compared training configurations.\nTo further assess its applicability to more general agentic tool-use settings, we apply VPR-style action-level supervision to $\\tau^2$-bench using an expert LLM as a reference policy and observe improved performance over outcome-reward GRPO on held-out tasks.\nTogether, these results position VPR as a promising approach for leveraging reliable task oracles to improve agentic reasoning, while highlighting its dependence on the availability and reliability of task oracles and the challenge of extending intermediate verification to less structured, open-ended environments.",
+          "highlights": [
+            "outperforms outcome-reward GRPO and VinePPO across all three training environments",
+            "隶属于 cs.AI",
+            "In this work, we study structured agentic reasoning problems that admit symbolic or algorithmic task-solving oracles."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2605.10325",
+          "worthReading": false
+        },
+        {
+          "id": "A18",
+          "anchorId": "A18",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "Do Agents Know When They Succeed? Calibrating Agent Confidence from Internal Representations",
+          "authors": [
+            "Priyanka Mary Mammen",
+            "Emil Joswin",
+            "Srujananjali Medicherla"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2609.09448",
+          "tags": [
+            "DeepSeek",
+            "Qwen",
+            "Agent"
+          ],
+          "summary": "As agentic systems getting adopted rapidly in safety critical applications, it is vital to measure the confidence associated with the agentic actions.\nIn comparison to the traditional machine learning systems, agentic workflows have complex failure modes with planning, tool invocation and dynamic environment interactions.\nIn this paper, we investigate whether model's internal representations provide stronger signals of eventual task success in multi-turn agentic setups.\nWe introduce two complementary methods: Latent Trajectory Dynamics (LTD), which summarizes changes in residual-stream representations across an interaction trajectory, and the Action Representation Probe (ARP), which predicts success from representations formed at action decisions.\nAcross three interactive benchmarks (Bash, SQL, Python) and three model families (Qwen14B, Qwen7B, DeepSeek6.7B), our methods consistently outperform surface level generation and sequence-based calibration baselines providing a zero-overhead reliability monitor that requires neither prompt alterations nor multi-sample rollouts.",
+          "highlights": [
+            "introduce two complementary method",
+            "outperform surface level generation and sequence-based calibration baselines providing a zero-overhead reliability monit"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2609.09448",
+          "worthReading": false
+        },
+        {
+          "id": "A19",
+          "anchorId": "A19",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "VETR: Execution-Grounded Self-Improving Agent for Symbolic Graphics Reasoning",
+          "authors": [
+            "Yingbo Ma",
+            "Kuangshi Ai",
+            "Gordon Dai",
+            "Chenglong Yu",
+            "Chaoli Wang",
+            "Hua Shen"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.13098",
+          "tags": [
+            "OpenAI",
+            "Qwen",
+            "RSI"
+          ],
+          "summary": "Visual agents for symbolic graphics reasoning depend on executable world representations, yet continued improvement remains bottlenecked by ambiguous supervision from final renders.\nRecent agentic systems refine scenes through repeated interaction, but they lack mechanisms to recursively extract actionable evidence from execution traces, overlooking which proposed symbolic edits survived, disappeared, or interfered during program execution.\nTo address this, we propose VETR (Verified Execution Trajectories for Refinement), a framework that enables agentic recursive self-improvement over executable world representations for symbolic graphics reasoning.\nWithin each task, VETR retains aligned program/render records with bounded runtime observations and introduces an execution refiner that compiles observed writes and state changes into constrained alternative programs.\nThe refiner validates their endpoints and preservation conditions against captured runtime state; the ordinary visual verifier then assesses goal relevance.\nRepair construction makes no additional language-model calls, but can require additional executions.\nEvaluations on BlenderGym (280 tasks) and BlenderBench (27 released tasks) with GPT-5.6-luna and Qwen3.8-27B show that VETR consistently outperforms existing refinement strategies, including BlenderAlchemy and VIGA.\nControlled ablations evaluate the contributions of execution refinement and role-asymmetric evidence organization under fixed generator-interaction caps.",
+          "highlights": [
+            "outperforms existing refinement strategies",
+            "VETR",
+            "隶属于 cs.AI"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.13098",
+          "worthReading": false
+        },
+        {
+          "id": "A20",
+          "anchorId": "A20",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "TENET: One Step Toward Test-Driven Development for Repository-Level Code Generation",
+          "authors": [
+            "Yiran Hu",
+            "Shanchao Liang",
+            "Nan Jiang",
+            "Yi Wu",
+            "Lin Tan"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2509.24148",
+          "tags": [
+            "Anthropic",
+            "Agent",
+            "LLM"
+          ],
+          "summary": "Test-Driven Development (TDD) is a widely adopted practice that requires developers to create and execute tests alongside implementation.\nWith recent advances in Large Language Models (LLMs), developers can shift from manually writing the code to defining tests as executable specifications and delegating code synthesis to AI agents.\nHowever, enabling repository-level TDD under developer-written tests is challenging, requiring: (1) specification enhancement: identifying a concise yet representative test subset from large suites with rich task semantics; (2) retrieval augmentation: using tests to guide reasoning and context retrieval; and (3) test-driven refinement: interpreting test feedback for iterative improvement.\nWe propose TENET, an agentic framework for repository-level code generation under the TDD paradigm.\nTENET includes: (1) a test harness mechanism that selects a concise test suite to maximize diversity of the target usage scenarios; (2) a tailored agent toolset for efficient retrieval and debugging; and (3) a reflection-based refinement workflow that iteratively analyzes failures and updates implementations.\nTENET consistently outperforms the strongest baselines across backbones, achieving 69.08% and 81.77% Pass@1 on RepoCod and RepoEval with Claude Sonnet 4, improving by 9.49 and 2.17 percentage points, respectively.\nAdditionally, we present the first systematic study of how test suite characteristics influence LLM agent performance in TDD settings.",
+          "highlights": [
+            "outperforms the strongest baselines across backbones",
+            "first systematic study of how test suite characteristics influence LLM agent performance in TDD settings",
+            "Test-Driven Development (TDD) is a widely adopted practice that requires developers to create and execute tests alongsid"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2509.24148",
+          "worthReading": false
+        },
+        {
+          "id": "A21",
+          "anchorId": "A21",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "Dive into Claude Code: The Design Space of Today's and Future AI Agent Systems",
+          "authors": [
+            "Jiacheng Liu",
+            "Xiaohan Zhao",
+            "Xinyi Shang",
+            "Zhiqiang Shen"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2604.14228",
+          "tags": [
+            "Anthropic",
+            "Agent"
+          ],
+          "summary": "Claude Code is an agentic coding tool that can run shell commands, edit files, and call external services on behalf of the user.\nThis study describes its architecture by analyzing the publicly available source code and comparing it with two independent open-source AI agent systems, OpenClaw and Hermes Agent, that answer many of similar or even the same design questions.\nOur analysis identifies five human values, philosophies, and needs that motivate the architecture: human decision authority, safety, security, and privacy, reliable execution, capability amplification, and contextual adaptability.\nWe then trace them through thirteen design principles to implementation choices.\nThe core of the system is a simple while-loop that calls the model, runs tools, and repeats.\nMost of the code, however, lives in the systems around this loop: a permission system with seven modes and an ML-based classifier, a five-layer compaction pipeline for context management, four extensibility mechanisms (MCP, plugins, skills, and hooks), a subagent delegation and orchestration mechanism, and append-oriented session storage.\nComparisons with OpenClaw and Hermes Agent show that the same design questions produce different answers across three deployment contexts.\nClaude Code emphasizes per-action safety, OpenClaw emphasizes perimeter-level access, and Hermes renders per-action approvals across many surfaces.\nAt the runtime layer, Claude Code uses a single CLI loop, OpenClaw embeds the runtime within a gateway control plane, and Hermes uses one process whose role is set by its entry point.\nAt the context and extension layer, Claude Code extends the context window, OpenClaw registers gateway-wide capabilities, and Hermes provides pluggable memory and model backends.\nWe finally identify six open design directions for future agent systems, grounded in recent empirical, architectural, and policy literature.",
+          "highlights": [
+            "Dive into Claude Code",
+            "隶属于 cs.SE, cs.AI",
+            "Claude Code is an agentic coding tool that can run shell commands, edit files, and call external services on behalf of t"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2604.14228",
+          "worthReading": false
+        },
+        {
+          "id": "A22",
+          "anchorId": "A22",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "SPINE: Measuring LLM Sycophancy under Sustained Multi-Turn Pressure",
+          "authors": [
+            "Leyuan Tang",
+            "Kangda Wei",
+            "Tianyu Jiang",
+            "Ruihong Huang"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2609.09090",
+          "tags": [
+            "OpenAI",
+            "Anthropic",
+            "Google"
+          ],
+          "summary": "Large language models (LLMs) may abandon correct positions when users push back, exhibiting a failure mode known as sycophancy.\nExisting evaluations typically use short, prespecified conversations and may therefore miss failures that emerge under sustained, adaptive disagreement.\nWe introduce SPINE, a benchmark in which an LLM proxy plays a persistent but mistaken user and adaptively challenges a target model for up to 25 turns.\nWe evaluate four commercial models (Claude Sonnet 5, GPT-5.6 Terra, Gemini 3.1 Pro, and DeepSeek V4 Pro) and three Olmo3-7b models on 100 false presuppositions and 100 unethical queries.\nWe define collapse as a target model abandoning the correct position and yielding to user pressure.\nOur experimental results show that collapse rates increase with conversation length across post-trained models, with the overall rate rising from 0%-57% within 5 turns to 20%-97% within 25 turns depending on model and scenario.\nThese results show that evaluations limited to a few conversational turns underestimate sycophancy and resistance under sustained pressure remains unreliable across current models.\nBy analyzing models with accessible reasoning traces, we surprisingly found that the correct position often remains represented in the trace in 50%-89% of analyzed collapse turns, suggesting that the model chooses to please a user and sycophancy is not due to ignorance or the correct knowledge being overridden.\nAblations show that the SPINE protocol substantially increases the sycophantic collapse rate compared to pre-generated scripts.\nAmong all tactics, emotional appeals are most associated with inducing LLM sycophantic behavior, with position weakening in 44.3% of turns using this tactic.\nCode, data, and transcripts will be released upon publication.",
+          "highlights": [
+            "SPINE",
+            "隶属于 cs.CL, cs.AI",
+            "Large language models (LLMs) may abandon correct positions when users push back, exhibiting a failure mode known as syco"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2609.09090",
+          "worthReading": false
+        },
+        {
+          "id": "A23",
+          "anchorId": "A23",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "TimeWarp: Evaluating Web Agents by Revisiting the Past",
+          "authors": [
+            "Md Farhan Ishmam",
+            "Kenneth Marino"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2603.04949",
+          "tags": [
+            "Meta",
+            "Qwen",
+            "Agent"
+          ],
+          "summary": "As web agents close the gap with humans on benchmarks, one question arises: Do today's agents perform just as well on tomorrow's web?\nWe introduce TimeWarp, a benchmark that emulates the evolving web.\nTimeWarp consists of three web environments, each with six UI versions spanning UI design, frontend code, and workflows from different eras of the internet.\nWe pair TimeWarp with a set of complex, realistic tasks covering different forms of web navigation.\nOur experiments reveal that vision-based agents are vulnerable to changes, while text-based agents become brittle once fine-tuned on a single version.\nTo address this, we propose TimeTraj, a new annotation method that uses plan distillation to collect trajectories across multiple versions.\nBy training agents on teacher rollouts using our BC-variant, we achieve substantial performance gains: 20.4% to 37.7% for Qwen-3 4B and 0% to 27.0% for Llama-3.1 8B models.\nOur work helps study generalization across web designs and opens a new paradigm for collecting plans rather than trajectories to improve the robustness of web agents.",
+          "highlights": [
+            "TimeWarp",
+            "隶属于 cs.AI, cs.CL",
+            "As web agents close the gap with humans on benchmarks, one question arises: Do today's agents perform just as well on to"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2603.04949",
+          "worthReading": false
+        },
+        {
+          "id": "A24",
+          "anchorId": "A24",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "Evidence-First Agentic Verification",
+          "authors": [
+            "Reza Sanayei",
+            "Razvan-Gabriel Dumitru",
+            "Sunjie Hou",
+            "MohammadHossein Rezaei",
+            "Haris Riaz",
+            "Robert Vacareanu",
+            "Minglai Yang",
+            "Ying Liu",
+            "Mihai Surdeanu",
+            "Daniel Yue Zhang"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.17724",
+          "tags": [
+            "OpenAI",
+            "Agent"
+          ],
+          "summary": "Long-horizon, semi-verifiable agentic tasks often rely on rubric-based evaluation, but the evidence needed to assess these tasks can be spread across the environment state and the execution trace.\nA judge may overlook this evidence or accept unsupported claims, including an agent's own reports of success.\nWhen rubric verdicts serve as reinforcement-learning rewards, such errors can reinforce undesirable behavior.\nWe introduce Sauron, an evidence-first agentic verifier that investigates both state and trace and relies on a claim only after independently validating it against its source.\nBounded queries and joint investigation of related criteria reduce context use and redundant work, and each verdict carries an auditable receipt of its supporting evidence.\nAcross 2,586 human-labeled criteria from 100 personal-assistant episodes, Sauron achieves the highest F1 of five verifiers on all eight backbones tested while costing less than Gandalf, the strongest baseline.\nWith GPT-5.6 Sol, it reaches 0.96 F1 versus Gandalf's 0.92 at 23% lower cost, with a wider margin on process criteria.\nOn a paired fault-injection suite covering 13 families, several of which simulate reward hacking, Sauron detects 97% of injected failures while flagging only 2% of clean controls, outperforming baselines even when they are given the full trace.\nOn TRAIL, a benchmark for detecting and localizing real agent errors, Sauron leads both Gandalf and TRAIL's own judge on all three quality metrics.",
+          "highlights": [
+            "outperforming baselines even when they are given the full trace",
+            "first agentic verifier that investigates both state and trace and relies on a claim only after independently validating ",
+            "A judge may overlook this evidence or accept unsupported claims, including an agent's own reports of success."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.17724",
+          "worthReading": false
+        },
+        {
+          "id": "A25",
+          "anchorId": "A25",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "TopoPilot: Reliable Conversational Workflow Automation for Topological Data Analysis and Visualization",
+          "authors": [
+            "Nathaniel Gorski",
+            "Shusen Liu",
+            "Bei Wang"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2603.25063",
+          "tags": [
+            "Anthropic",
+            "Agent",
+            "LLM"
+          ],
+          "summary": "Recent agentic systems demonstrate that large language models can generate complex codebases from natural language prompts.\nDespite this progress, they present reliability concerns for scientific visualization due to invalid operations, subtle errors, and failure to resolve underspecified inputs.\nThese challenges are compounded in real-world workflows that exceed the complexity of standard benchmarks.\nIn this work, we introduce TopoPilot, a reliable and extensible agentic framework for automating complex scientific visualization workflows.\nWe focus on topological data analysis and visualization as a primary use case, while designing the framework to generalize to broader visualization domains.\nTopoPilot employs a two-agent architecture: an orchestrator translates user prompts into workflows composed of atomic backend actions, while a verifier evaluates workflows prior to execution.\nIts modular design isolates components and supports new topological descriptors and domain-specific workflows without modifying the core system.\nIt also employs numerous deterministic guardrails to ensure semantic consistency and accurate execution.\nTo systematically improve reliability, we develop a taxonomy of failure modes and employ targeted safeguards for each class of error.\nAcross 1,000 simulated multi-turn conversations spanning 100 prompts, including adversarial and infeasible requests, TopoPilot achieves a success rate exceeding 95%, compared with under 50% for a baseline without comprehensive guardrails and verification.\nWe also show that TopoPilot outperforms Claude Code and Codex on similar prompts in terms of accuracy, completion time, and token usage.",
+          "highlights": [
+            "exceed the complexity of standard benchmarks",
+            "TopoPilot",
+            "隶属于 cs.HC, cs.AI"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2603.25063",
+          "worthReading": false
+        },
+        {
+          "id": "A26",
+          "anchorId": "A26",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "REMORY: Learning Residual Memory for Context Compaction",
+          "authors": [
+            "Hanchen Xia",
+            "Baoyou Chen",
+            "Yutang Ge",
+            "Naihao Deng",
+            "Senqiao Yang",
+            "Zilong Dong",
+            "Weihao Yuan",
+            "Siyu Zhu"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.11287",
+          "tags": [
+            "Qwen",
+            "Agent",
+            "LLM"
+          ],
+          "summary": "Long-horizon agents compact their history to continue within a finite context window, but a textual summary alone may not support every subsequent decision.\nWe introduce REMORY, a neural memory network that supplements the summary with a bounded sequence of soft memory tokens.\nGiven the history and summary, the network learns to generate tokens that help a frozen LLM approximate the continuation it would produce with the full history.\nThe tokens are conditioned on the summary and appended after it, forming an analogue of a residual connection along the sequence dimension.\nOn SummHay, REMORY improves source attribution at nearly unchanged insight coverage and approaches the full-context joint score using only 5.2% of the input positions.\nAcross long-horizon agent benchmarks, Qwen3.8-27B and GLM-5.3-Flash show consistent gains with residual memory.\nBoth models also exhibit substantially fewer repeated tool outputs and tool errors on BrowseComp and Terminal-Bench 2.1.",
+          "highlights": [
+            "REMORY",
+            "隶属于 cs.CL, cs.AI",
+            "We introduce REMORY, a neural memory network that supplements the summary with a bounded sequence of soft memory tokens."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.11287",
+          "worthReading": false
+        },
+        {
+          "id": "A27",
+          "anchorId": "A27",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "RewardHarness: Self-Evolving Agentic Post-Training",
+          "authors": [
+            "Yuxuan Zhang",
+            "Cong Wei",
+            "Penghui Du",
+            "Bo Li",
+            "Junwen Miao",
+            "Huaisong Zhang",
+            "Songcheng Cai",
+            "Yubo Wang",
+            "Dongfu Jiang",
+            "Yuyu Zhang",
+            "Changqian Yu",
+            "Ping Nie",
+            "Wenhu Chen",
+            "Kelsey R. Allen"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2605.08703",
+          "tags": [
+            "OpenAI",
+            "Agentic RL",
+            "RSI"
+          ],
+          "summary": "Aligning generative models with human preferences remains a central challenge.\nWhile RLHF is widely adopted, it relies on large-scale preference data.\nThis limitation is particularly evident in evaluating instruction-guided image edits, even though humans can often learn such preferences from only a few examples.\nWe present RewardHarness, a training-free, self-evolving agentic reward framework that reframes reward modeling as context evolution rather than weight optimization.\nInstead of learning from large-scale annotations, RewardHarness aligns with human preferences by iteratively evolving a library of tools and skills from as few as 100 preference demonstrations.\nGiven a source image, an edited image, and an editing instruction, an orchestrator agent selects the most relevant subset of tools and skills from the maintained library, and sub-agents invoke them to construct a reasoning chain that produces a reward score.\nBy comparing predicted scores with ground-truth preferences and analyzing successes and failures in the reasoning process, the orchestrator automatically refines its library of tools and skills without additional human annotation.\nUsing only 0.05% of the EditReward preference data, RewardHarness achieves 47.4% average accuracy on EditReward-Bench K=2/3/4 and GenAI-Bench, surpassing GPT-5 by 5.3 points.\nWhen used as a reward signal in FlowGRPO, RL-tuned models achieve 3.52 on ImgEdit-Bench.\nCode and model are available at the project page: https://rewardharness.com/",
+          "highlights": [
+            "surpassing GPT-5 by 5",
+            "without additional human annotation",
+            "Aligning generative models with human preferences remains a central challenge."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2605.08703",
+          "worthReading": false
+        },
+        {
+          "id": "A28",
+          "anchorId": "A28",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "OxyGen: Unified KV Cache Management for VLA Inference under Multi-Task Parallelism",
+          "authors": [
+            "Xiangyu Li",
+            "Huaizhi Tang",
+            "Xin Ding",
+            "Weijun Wang",
+            "Ting Cao",
+            "Yunxin Liu"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2603.14371",
+          "tags": [
+            "Xiaomi",
+            "Agent",
+            "Embodied AI"
+          ],
+          "summary": "Embodied AI agents increasingly require parallel execution of multiple tasks, such as manipulation, conversation, and memory construction, from shared observations under distinct time constraints.\nRecent Mixture-of-Transformers (MoT) Vision-Language-Action Models (VLAs) support such heterogeneous outputs, yet existing inference systems incur redundant computation and resource contention when serving concurrent tasks on-device.\nWe identify isolated KV cache management as the root cause.\nTo address this, we propose unified KV cache management, an inference design that treats the KV cache as a first-class shared resource across tasks and control cycles.\nThis abstraction enables two key optimizations: cross-task KV sharing eliminates redundant prefill of shared observations, while cross-frame continuous batching batches unfinished language requests from different frames and advances them within a per-frame decoding budget.\nWe implement this design in OxyGen and evaluate $\\pi_{0.5}$ on NVIDIA GeForce RTX 4090 and Jetson AGX Thor.\nOxyGen achieves up to 3.7$\\times$ speedup over isolated execution, delivering over 200 tokens/s language throughput and 70 Hz action frequency simultaneously on RTX 4090.\nWe also validate the design on Xiaomi-Robotics-0 and StarVLA across different backbones and expert configurations.\nWe further demonstrate the inference gains on a humanoid robot with on-board Jetson AGX Thor.",
+          "highlights": [
+            "OxyGen",
+            "隶属于 cs.RO, cs.AI",
+            "We identify isolated KV cache management as the root cause."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2603.14371",
+          "worthReading": false
+        },
+        {
+          "id": "A29",
+          "anchorId": "A29",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "AI Discovery in Combinatorics: From Problems to Solutions and Back to Bigger Problems",
+          "authors": [
+            "Eugenio Cainelli",
+            "Lorenzo Luccioli",
+            "Alessandro Iraci",
+            "Giovanni Paolini"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.16555",
+          "tags": [
+            "OpenAI",
+            "Agent"
+          ],
+          "summary": "We introduce $qt$Bench, a benchmark of 29 open problems in algebraic combinatorics.\nThese problems ask for a simple combinatorial algorithm that explains given polynomial coefficients or identities.\nTo help AI agents search for such algorithms, we provide a scaffold for playing with combinatorial objects, countering cheating attempts, and testing candidate solutions.\nTo explore how far frontier AI systems can go on these problems, we collaborated with OpenAI, whose researchers obtained proposed solutions to several of them.\nThis highlights bigger meta-problems: is AI discovery at scale ethical?\nHow should these results be released?\nHow should proof digestion be organized?\nWe discuss these questions and give our views.",
+          "highlights": [
+            "AI Discovery in Combinatorics",
+            "隶属于 cs.AI, cs.LG",
+            "We introduce $qt$Bench, a benchmark of 29 open problems in algebraic combinatorics."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.16555",
+          "worthReading": false
+        },
+        {
+          "id": "A30",
+          "anchorId": "A30",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "Learning Adaptive Deliberation Control for Reliable Recognition with Multi-Agent Language Models",
+          "authors": [
+            "Yuan Liu",
+            "Haoyue Peng",
+            "Fanliang Hu",
+            "Lei Huang",
+            "Wenli Cai"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.17840",
+          "tags": [
+            "Qwen",
+            "Agent",
+            "Multi-Agent"
+          ],
+          "summary": "Multi-agent deliberation can improve recognition by criticizing and revising candidate answers, but fixed controls cannot respond to changes in disagreement or reasoning quality.\nWe present an adaptive multi-agent controller (ADMA) that learns continuous policies for proposal, challenge, arbitration, and coordination while keeping the task model frozen.\nShared trace features describe quality, agreement, and progress, while role-specific features support decentralized control during inference.\nOne controller trained on legal and financial reasoning is transferred without policy updates to four textual and multimodal benchmarks and two successive task-model versions.\nWith Qwen3.5 held fixed, ADMA-Full improves accuracy by 6.2-14.2 percentage points over Direct and by 2.8-3.0 points over ADMA-Fixed.\nPaired bootstrap ranges for the Full-Fixed comparison are positive on three tasks.\nOutcome decompositions show that recoveries exceed introduced errors, while process assessment records fewer false-consensus events and more supported correct outcomes.\nTransfer to Qwen3.6 remains task dependent, which bounds the generality of the learned policy.\nMedian token and latency ratios are 14.3-18.7 and 7.8-16.5 relative to Direct.\nThese results show that adaptive deliberation can improve fixed-model recognition when its task-dependent gains justify the additional computation.",
+          "highlights": [
+            "exceed introduced errors",
+            "Learning Adaptive Deliberation Control for Reliable Recognition with Multi",
+            "隶属于 cs.AI"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.17840",
+          "worthReading": false
+        },
+        {
+          "id": "A31",
+          "anchorId": "A31",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "Iterate on an LLM, Serve on an SLM",
+          "authors": [
+            "Keegan Wang"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.14576",
+          "tags": [
+            "OpenAI",
+            "Qwen",
+            "Agent"
+          ],
+          "summary": "As frontier LLMs gain more capabilities, the cost to run them also goes up.\nAt the same time, small language models (SLMs) also gain more capabilities but have largely been able to keep their cost stable, offering 5-40 times cheaper inference for the narrow, repetitive subtasks that agents decompose work into.\nHowever, the standing limiting factor is getting the correct behavior out of a small model in a fast, efficient, and economical way.\nUnfortunately, in most cases, zero-shot small models fail narrow production tasks.\nFurthermore, retraining one every time the behavior changes is too slow to iterate on.\nWe propose doing both in sequence.\nFirst, develop the desired behavior in prompt space, on a frontier model, with immediate feedback from live traffic.\nThen, once the behavior converges, distill the recorded production behavior (not synthetic imitations of it) into an SLM through supervised fine-tuning (SFT).\nWe show a proper use case of this method through a scheduling agent for home-care agencies that fans out a single yes/no safety decision per caregiver-shift pair on GPT-5.4-nano.\nA LoRA-tuned Qwen3-8B trained on 11.6k recorded production decisions reaches 0.913 agreement, while the teacher (GPT-5.4-nano), re-run on its own recorded prompts, agrees with itself only 72.7% of the time, pointing to the fact that the SLM may also be more consistent.\nFurthermore, when the two disagreed, a blinded professional scheduler sided with the student 48-29.\nFinally, we find that the SLM has approximately 2.5 times lower median latency and is a fraction of the cost.\nWe believe this lifecycle of quick building, live feedback, and cheap inference is a blueprint for others building similar systems.",
+          "highlights": [
+            "隶属于 cs.AI, cs.MA",
+            "As frontier LLMs gain more capabilities, the cost to run them also goes up.",
+            "However, the standing limiting factor is getting the correct behavior out of a small model in a fast, efficient, and eco"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.14576",
+          "worthReading": false
+        },
+        {
+          "id": "A32",
+          "anchorId": "A32",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "Beyond Successful Play: Diagnosing Opponent Modeling in Large Language Models",
+          "authors": [
+            "Hanbo Xie",
+            "Yue Zhao",
+            "Robert C. Wilson"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.17310",
+          "tags": [
+            "OpenAI",
+            "Qwen",
+            "Agent"
+          ],
+          "summary": "Language-model agents are expected to adapt to others whose behavior changes through interaction.\nYet adaptation may rely on learned behavioral patterns rather than theory of mind (ToM): the ability to infer others' mental states, including beliefs and intentions.\nWe introduce a benchmark and diagnostic framework for repeated hide-and-seek against algorithmic opponents with explicitly defined recursive belief updates.\nTheir ground-truth beliefs and action probabilities let us distinguish adaptive play, action prediction, and belief tracking through live interaction, fixed-history evaluation, and controlled information interventions.\nWith structured elicitation and behavioral supervised fine-tuning (SFT), we find improved play in several tested settings, but diagnostics reveal limitations in opponent prediction and belief tracking.\nWe test whether supervising opponent action probabilities can address this predictive deficit in Qwen2.5-7B-Instruct.\nPredictions improve when the model is told the opponent's type and parameter settings, but become less accurate when it must infer the opponent from history without this information.\nTraining on examples that also omit these details reduces the gap, although improvements vary across opponents.\nIs this limitation specific to smaller open-weight models, or does it also appear in a frontier model?\nGPT-5.4 also benefits from correct opponent beliefs: supplying them improves its predictions and choices, whereas deeper explicit belief reports and self-generated memory do not consistently improve forecasting from interaction history.\nThis contrast suggests that using useful belief information is easier than inferring it autonomously, even for a frontier model.\nTogether, our findings distinguish improved play and action prediction from reliable belief tracking, providing a framework for evaluating mentalizing and testing targeted improvements.",
+          "highlights": [
+            "introduce a benchmark and diagnostic framework",
+            "Beyond Successful Play",
+            "隶属于 cs.AI, q-bio.NC"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.17310",
+          "worthReading": false
+        },
+        {
+          "id": "A33",
+          "anchorId": "A33",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "Memory Echo in Single-Agent Long-Term Memory: Lifecycle Evaluation and Provenance-Guided Mitigation",
+          "authors": [
+            "Yufeng Li",
+            "Sheng Yao",
+            "Peng Zeng",
+            "Dezhang Kong",
+            "Shi Lin",
+            "Changting Lin",
+            "Xun Wang",
+            "Meng Han"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.17763",
+          "tags": [
+            "DeepSeek",
+            "Kimi",
+            "Agent"
+          ],
+          "summary": "Long-term memory supports agents across sessions.\nRepeated retrieval and write-back can let one historical claim occupy multiple retrieval positions and influence current answers without independent evidence.\nExisting work examines retrieval, updating, and question answering, leaving same-source record accumulation and post-correction persistence underexplored.\nMotivated by research in social cognition and memory psychology on repeated exposure, retrieval, and revision, we define \\emph{Memory Echo} as the excess retrieval exposure gained by historical information from the same source without additional independent evidence, and introduce MEchoBench to evaluate its emergence, correction resistance, persistence, and effect on answers.\nTo address this phenomenon, we introduce the Family--Provenance--Authority framework (FPA).\nSpecifically, FPA selects one representative per source family, conditions the eligibility of old records for the answer context on verified corrections, and constrains final answers with authoritative evidence.\nIn paired replay on 190 fixed questions across four memory frameworks, FPA raises accuracy from 0.825 to 0.920 with DeepSeek V4 Flash and from 0.782 to 0.916 with Kimi K2.6; mean Decision Contamination Effect falls from 0.106 to 0.030 and from 0.109 to 0.038, respectively.\nThese results show that agent memory can preserve traceable history without allowing repeated historical information to govern current decisions.\nThe code is available at https://github.com/OrcasSam/memory-echo-benchmark.",
+          "highlights": [
+            "introduce the Family--Provenance--Authority framework",
+            "Memory Echo in Single",
+            "隶属于 cs.AI"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.17763",
+          "worthReading": false
+        },
+        {
+          "id": "B1",
+          "anchorId": "B1",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "VideoHarness-SRSI: Structured Recursive Self-Improvement for Video Understanding Harness",
+          "authors": [
+            "Zihao Lin",
+            "Haoyu Dong",
+            "Haobo Xu",
+            "Chi-Chih Chang",
+            "Xuying Ning",
+            "Yinglong Xia",
+            "Shuang Yang",
+            "Zhuokai Zhao",
+            "Xinying Song",
+            "Dongfang Liu",
+            "Lifu Huang",
+            "Yang Song",
+            "Qifan Wang"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.19424",
+          "tags": [
+            "RSI",
+            "Agent",
+            "LLM"
+          ],
+          "summary": "LLM system capabilities depend not only on model parameters but also on the executable harnesses that organize information acquisition, tool use, reasoning, and memory. LLM系统功能不仅取决于模型参数，还取决于组织信息采集、工具使用、推理和内存的可执行线束。\nRecursive harness evolution can automate their design, but how it can reliably discover generalizable systems from limited, noisy, and repeatedly reused feedback remains unclear. 递归线束的演进可以实现其设计的自动化，但它如何从有限、嘈杂和重复使用的反馈中可靠地发现可推广的系统尚不清楚。\nWe study this question in agentic video understanding, where rich multimodal evidence and coupled mechanisms make harness optimization challenging. 我们在代理视频理解中研究这个问题，丰富的多模态证据和耦合机制使线束优化具有挑战性。\nWe first introduce VideoHarness-BRSI, a recursive self-improvement framework that evolves video harnesses around a frozen vision-language model. 我们首先介绍VideoHarness-BRSI ，这是一个递归自我改进框架，围绕冻结的视觉语言模型发展视频线束。\nAnalyzing over 4,000 evolved candidates, we find it competitive with hand-engineered systems but identify three interconnected failure modes: validation overfitting, search-budget dilution, and the early-experience trap. 我们分析了4000多名进化的候选者，发现它与手工系统有竞争力，但确定了三种相互关联的故障模式：验证过拟合、搜索预算稀释和早期体验陷阱。\nWe trace all three to a common root: the same imperfect validation evidence drives both harness revisions and the proposer's search strategy. 我们将这三者追溯到一个共同的根源：相同的不完美验证证据推动了线束修订和提案者的搜索策略。\nWe therefore propose VideoHarness-SRSI, an evidence-governed framework in which every search decision rests on evidence that is transferable, sufficient, and gathered before the search commits. 因此，我们提出了VideoHarness-SRSI ，这是一个证据管理的框架，其中每个搜索决定都依赖于在搜索提交之前可转移、充分和收集的证据。\nIt restricts the proposer to content-free feedback, informs exploration with instrumented warm-up experiments, and develops mechanisms in isolated probe-race branches before factorial composition and joint refinement. 它将提议者限制为无内容反馈，通过仪器预热实验为探索提供信息，并在析因组合和关节细化之前在孤立的探针-竞赛分支中开发机制。\nAcross four video understanding benchmarks, VideoHarness-SRSI improves the equally weighted mean held-out score by 6.2% relative to VideoHarness-BRSI and reduces the mean validation-test gap by 37.9%. 在四个视频理解基准中， VideoHarness-SRSI相对于VideoHarness-BRSI将同等加权的平均保留分数提高了6.2% ，并将平均验证测试差距缩小了37.9%。\nReliable harness evolution thus depends on how search is organized and informed, not only on how well it optimizes validation performance. 因此，可靠的线束进化取决于搜索的组织和知情方式，而不仅仅是它优化验证性能的程度。",
+          "highlights": [
+            "first introduce VideoHarness-BRSI",
+            "VideoHarness",
+            "隶属于 cs.CV, cs.AI"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.19424",
+          "worthReading": true
+        },
+        {
+          "id": "B2",
+          "anchorId": "B2",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "Get In, Decide, Prove: A Merchant-Side Readiness Benchmark for Agentic Commerce",
+          "authors": [
+            "Adrian de Valois-Franklin",
+            "Alex Bogdan",
+            "Anas Ibrahim",
+            "Ibrahim Shaer",
+            "Tamaz Andguladze"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.17378",
+          "tags": [
+            "Agent"
+          ],
+          "summary": "AI agents now browse and buy on people's behalf, and benchmarks measure how well the agents perform. 人工智能代理现在代表人们浏览和购买，基准衡量代理的表现。\nFar less is known about the other side of the transaction: whether a merchant's website lets an agent in, publishes terms precise enough to decide a purchase, and leaves evidence of what was agreed. 对交易的另一方面知之甚少：商家的网站是否允许代理进入，发布足够精确的条款以决定购买，并留下已达成协议的证据。\nThis paper presents a merchant-side benchmark built on those three questions and reports a pilot of it. 本文提出了基于这三个问题的商家侧基准，并报告了其试点。\nThe central measurement, decision sufficiency, rates each criterion of a concrete buyer mandate (total cost, cancellation or return terms, service date, variant identity) as determinate, indeterminate, or unknown from the merchant's own published evidence. 根据商家自己公布的证据，中央测量、决策充分性、具体买家授权的每个标准（总成本、取消或退货条款、服务日期、变体身份）为确定、不确定或未知。\nReadiness scores carry their evidence coverage and missingness bounds; access is reported separately for a declared bot, a declared headless browser, and a user-present browser; and each observed term is mapped to the RAILS admissibility class of the evidence that could support it in a dispute. 准备情况分数包含其证据覆盖范围和缺失范围；对于已声明的机器人、已声明的无头浏览器和用户存在的浏览器，访问权限分别报告；并且每个观察到的术语都映射到可能在争议中支持其的证据的轨道可接受性类别。\nFour large merchants received the full assessment: three refused the declared profiles at their offer pages, and no mandate could be confirmed as met, because each merchant left a total or a refund term undetermined. 四家大型商家接受了完整的评估：三家商家在其优惠页面上拒绝了已申报的个人资料，并且无法确认是否符合要求，因为每家商家都留下了总额或未确定的退款期限。\nAn access census of 555 sites of merchants that two payment processors publicly name as clients found the home page unreadable to both declared profiles at 105 sites (18.9%). 对两家支付处理商公开命名为客户的555个商家网站的访问普查发现， 105个网站（ 18.9% ）的两个已声明的个人资料都无法读取主页。\nA declared assessment of 330 merchants, scored by deterministic rules without a rater, found that evidence coverage rather than the score decides who can be ranked: 115 merchants (35%) reached the ranking threshold, rankable profiles scored a median of 89 to 90, and material terms was the one pillar well below the others, because the all-in total was decidable at 18 merchants. 在没有评分者的情况下，对330家商家进行了公开评估，发现证据覆盖率而不是得分决定了谁可以排名： 115家商家（ 35 ％ ）达到了排名门槛，可排名的个人资料得分中位数为89至90 ，而物质条件是远低于其他的一个支柱，因为总共18家商家是可以决定的。\nThe pilot shows that the measurements can be taken; it does not validate them or rank merchants, and the weights and the projected clearing band await validation against outcomes. 试点表明可以进行测量；它不会验证它们或对商家进行排名，并且权重和预计的清算区间正在等待对结果的验证。",
+          "highlights": [
+            "Get In, Decide, Prove",
+            "隶属于 cs.AI, cs.CY",
+            "AI agents now browse and buy on people's behalf, and benchmarks measure how well the agents perform."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.17378",
+          "worthReading": true
+        },
+        {
+          "id": "B3",
+          "anchorId": "B3",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "LLM Value Functions for Credit Assignment in Agentic RL",
+          "authors": [
+            "Kaijie Zhu",
+            "Weixiang Yan",
+            "Omar Attia",
+            "Abbas Kazerouni",
+            "Alexander Toshev",
+            "Andrew Szot"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.15840",
+          "tags": [
+            "Agentic RL",
+            "Agent",
+            "LLM"
+          ],
+          "summary": "Reinforcement learning (RL) for large language model (LLM) agents remains challenging in long-horizon tasks with sparse outcome rewards, where assigning credit to individual actions is difficult. 大型语言模型（ LLM ）代理的强化学习（ RL ）在具有稀疏结果奖励的长期任务中仍然具有挑战性，在这些任务中，很难为个人行为分配信用。\nMethods such as GRPO assign the same trajectory-level advantage to all actions, while critic-based methods require learning an additional value function that can be costly and unstable. 诸如GRPO之类的方法为所有操作分配相同的轨迹级优势，而基于批评者的方法需要学习一个额外的价值函数，这可能是昂贵和不稳定的。\nWe introduce LLM Value Function RL (LVRL), which uses the pretrained knowledge and in-context learning ability of an LLM to estimate policy-aware state values without finetuning a separate critic. 我们引入了LLM值函数RL （ LVRL ） ，它使用LLM的预训练知识和上下文学习能力来估计策略感知状态值，而无需微调单独的批评者。\nLVRL conditions the value model on group context and calibrates its predictions using known values at the initial and terminal states, enabling step-level credit assignment from estimated value differences. LVRL根据组上下文调整价值模型，并使用初始和最终状态下的已知值校准其预测，从而实现从估计值差异的阶梯级信用分配。\nWe further extend this idea to learning from an expert policy through on-policy distillation (OPD), introducing LLM Value Function OPD (LVOPD), which focuses teacher supervision on actions associated with decreases in estimated value. 我们进一步扩展了这一理念，通过政策提炼（ OPD ）从专家政策中学习，引入了LLM价值函数OPD （ LVOPD ） ，将教师监督的重点放在与估计价值降低相关的行动上。\nWe evaluate our approach across diverse agentic benchmarks: AppWorld, BabyAI, and SWE-bench Verified. 我们在不同的代理基准上评估我们的方法： AppWorld、BabyAI和SWE-bench Verified。\nAcross policy scales (4B to 32B), LVRL consistently and substantially outperforms both GRPO and PPO. 在政策量表（ 4B至32B ）中， LVRL的表现始终如一且大幅优于GRPO和PPO。\nOn AppWorld and SWE-bench Verified, LVRL yields absolute improvements of up to 13.6 and 8.6 percentage points over GRPO. 在AppWorld和SWE-bench Verified上， LVRL比GRPO提高了高达13.6和8.6个百分点。\nNotably, on tasks requiring extended exploration like BabyAI, LVRL bridges the gap from total failure to 75.0% success. 值得注意的是，在像BabyAI这样需要扩展探索的任务上， LVRL弥合了从完全失败到75.0%成功的差距。\nFurthermore, LVOPD yields consistent improvements over standard distillation baselines on AppWorld. 此外， LVOPD在AppWorld上的标准蒸馏基线上产生了一致的改进。\nFinally, Monte-Carlo analysis confirms that our frozen critic accurately identifies semantic pitfalls and recoveries, proving that LVRL extracts robust, policy-aware step-level credit from sparse terminal outcomes. 最后，蒙特卡洛分析证实，我们的冷冻评论家准确地识别了语义陷阱和恢复，证明LVRL从稀疏的终端结果中提取了稳健的、具有政策意识的阶梯级信用。",
+          "highlights": [
+            "outperforms both GRPO and PPO",
+            "隶属于 cs.LG, cs.AI",
+            "We evaluate our approach across diverse agentic benchmarks: AppWorld, BabyAI, and SWE-bench Verified."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.15840",
+          "worthReading": true
+        },
+        {
+          "id": "B4",
+          "anchorId": "B4",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "Drafting Agents, Not Just Tokens: Speculative Recursive Self-Improvement for Agentic Systems",
+          "authors": [
+            "Xin Xu",
+            "Ke Cheng",
+            "Hao Wang",
+            "Yangru Huang",
+            "Yanghao Xiao",
+            "Zhichao Chen",
+            "Zhisheng Zhong",
+            "Xun Liu",
+            "Yi Li",
+            "Qian Li",
+            "Haibin Lv",
+            "Jun Zhang",
+            "Jie Jiang",
+            "Zhouchen Lin"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.16491",
+          "tags": [
+            "RSI",
+            "Agent"
+          ],
+          "summary": "Improving an agent through successive revisions requires balancing exploration and evaluation under a limited budget. 通过连续修订改进代理需要在有限的预算下平衡探索和评估。\nA narrow search can miss useful sequences of edits, while fully evaluating every intermediate version can exhaust the budget before those sequences yield a verified improvement. 狭隘的搜索可能会错过有用的编辑序列，而充分评估每个中间版本可能会在这些序列产生经过验证的改进之前耗尽预算。\nWe introduce Speculative Recursive Self-Improvement (SpecRSI), which drafts executable successor agents before their predecessors are fully evaluated, while requiring complete verification before adoption. 我们引入了推测递归自我改进（ SpecRSI ） ，它在可执行后继代理的前身得到充分评估之前起草可执行后继代理，同时要求在采用之前进行完整的验证。\nVerification-Aware Tree Search (VATS) allocates the budget between further edits and outstanding checks using the predicted verified return of a continuation. 验证感知树搜索（ VATS ）使用预测的连续验证回报，在进一步编辑和未完成检查之间分配预算。\nGroup Verification Optimization (GVO) learns the improver from completed searches while keeping the real evaluator fixed. 组验证优化（ GVO ）从已完成的搜索中学习改进者，同时保持真实评估者的固定状态。\nIn the main scientific comparison, terminal gains exceed Janus by 33.3%--40.0%. 在主要的科学比较中，终端增益超过Janus 33.3% --40.0%。\nAdditional evaluations show that SpecRSI outperforms Janus in all 50 scientific backbone--task pairs and exceeds MetaRSI-v1 by 1.85%--2.38% in macro-average system score across twenty backbones. 其他评估显示， SpecRSI在所有50个科学骨干（任务对）中的表现优于Janus ，并且在20个骨干的宏观平均系统得分中超过MetaRSI-v1 1.85% - -2.38%。\nCoding-validation success reaches 69.4% versus HGM's 64.3% at a 20.8% lower target-cost index. 编码验证成功率达到69.4% ，而HGM为64.3% ，目标成本指数较低20.8%。",
+          "highlights": [
+            "exceed Janus by 33",
+            "Drafting Agents, Not Just Tokens",
+            "隶属于 cs.LG, cs.AI"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.16491",
+          "worthReading": true
+        },
+        {
+          "id": "B5",
+          "anchorId": "B5",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "APT: Feedback-Driven Agentic Post-Training for Text-to-Image Generation",
+          "authors": [
+            "Sirui Zhang",
+            "Fangyun Wei",
+            "Dong Chen",
+            "Jinjing Zhao",
+            "Yitong Wang",
+            "Yunuo Chen",
+            "Baining Guo",
+            "Zheng-Jun Zha"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.18097",
+          "tags": [
+            "RSI",
+            "Agent"
+          ],
+          "summary": "Post-training is crucial for improving text-to-image models, yet existing pipelines typically rely on manually curated training data and fixed training distributions.\nWe introduce APT (Agentic Post-Training), a fully automated framework that adaptively post-trains a base model according to its evolving capability profile.\nAPT coordinates three agents to construct evaluation sets from user requirements, diagnose model-specific strengths and failure modes, and generate reinforcement learning data with an adaptive prompt distribution that emphasizes underperforming capabilities.\nBy repeatedly evaluating, diagnosing, and updating the generator, APT lets the current model's behavior shape its next training tasks, forming a feedback loop inspired by recursive self-improvement.\nFor general-purpose settings without user-specified evaluation scenarios, we further develop an evaluation harness that enables broad and diverse evaluation set generation.\nExperiments across multiple base models, benchmarks, and generation architectures demonstrate that APT is model-agnostic, benchmark-agnostic, architecture-agnostic, and fully automated.",
+          "highlights": [
+            "APT",
+            "隶属于 cs.CV, cs.AI"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.18097",
+          "worthReading": true
+        },
+        {
+          "id": "B6",
+          "anchorId": "B6",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "AgentFly: Scaling Agentic Reinforcement Learning with Unified Resource System",
+          "authors": [
+            "Renxi Wang",
+            "Bilal El Bouardi",
+            "Rifo Ahmad Genadi",
+            "Yongxin Wang",
+            "Shu Wang",
+            "Fajri Koto",
+            "Zhengzhong Liu",
+            "Timothy Baldwin",
+            "Haonan Li"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2507.14897",
+          "tags": [
+            "Agentic RL",
+            "Agent",
+            "LLM"
+          ],
+          "summary": "Methods to build LLM agents have evolved from prompt engineering and supervised finetuning to agentic reinforcement learning (agentic RL).\nHowever, agentic RL remains bottlenecked by its surrounding systems: agents must interact with heterogeneous environments, such as sandboxes, model services, and external APIs.\nTheir allocation, reuse, and lifecycle dominate rollout cost and cap the scale at which training becomes practical.\nIn this work, we present AgentFly, an agentic RL framework built with a unified resource layer that treats each of these environments as a distinct, typed resource scheduled through one engine, with per-tool acquisition for multi-turn reuse, asynchronous backpressure, and rollout versus global-scoped lifecycles.\nAgentFly adopts a four-layer design: (I) agent layer that abstracts the agent, tool, and reward concepts, decomposing agentic RL into defining agents, tools, and reward functions; (II) rollout layer that composes these into agent loops and computes rewards; (III) context layer that organizes rollouts, injects contextual information, and arranges resources; and (IV) a low-level resource layer that performs resource management.\nWe provide a suite of prebuilt tools and environments, demonstrate successful agent training across multiple tasks and models, and report the first controlled cross-framework throughput comparison against agentic RL frameworks.",
+          "highlights": [
+            "first controlled cross-framework throughput comparison against agentic RL frameworks",
+            "AgentFly",
+            "隶属于 cs.AI"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2507.14897",
+          "worthReading": false
+        },
+        {
+          "id": "B7",
+          "anchorId": "B7",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "RoboGaze: Evaluating Robot World Models via Structured Vision-Language Analysis",
+          "authors": [
+            "Minh-Loi Nguyen",
+            "Nghiem T. Diep",
+            "Hung K. Nguyen",
+            "Minh Le",
+            "Doanh L. Thien",
+            "Tuan A. Tran",
+            "Hoang H. Tran",
+            "Dung D. Le",
+            "Vu N. Duong",
+            "Khoa D. Doan",
+            "Ngan Le",
+            "Daniel Sonntag",
+            "An T. Le",
+            "Vien Anh Ngo",
+            "Duy M. H. Nguyen",
+            "Tran V. Nhiem"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2606.28385",
+          "tags": [
+            "Agent",
+            "Multi-Agent",
+            "Embodied AI"
+          ],
+          "summary": "Robot world models now generate synthetic manipulation videos, but evaluating them is hard: realistic-looking outputs often violate physical laws, temporal consistency or task logic, while conventional metrics and monolithic Vision-Language Model (VLM) judges return scores that do not say what failed.\nWe present RoboGaze, a training-free multi-agent VLM evaluator that grounds the task and scene, routes each subtask to dimension-specific specialists and verifies their findings with a critic, producing temporally localized diagnostic reports that state what failed, when, why and how severely, under a schema of 6 dimensions and 30 failure types whose annotation reliability and coverage we measure.\nTo benchmark it, we introduce RoboGazeBench, 914 human-annotated clips from five generators, conditioned on simulated and real-world data and running from 4.9 to 148.9 s.\nAcross eight open-source and proprietary VLM backbones, RoboGaze outperforms every baseline; even a published agentic detector given the same schema and a slightly larger inference budget trails it by 10.1-12.3 description-F1 points, a margin that blinded human raters confirm.\nOn the strongest backbone it closes 83% of the gap between chain-of-thought prompting and human agreement, and its critic curbs the \"cry-wolf\" false positives of standard VLMs, lifting mean clean-clip accuracy from 17% to 85%.\nThe advantage is largest on held-out generators and long clips, and carries over to selecting generated demonstrations (80% vs.\n71% precision).",
+          "highlights": [
+            "outperforms every baseline; even a published agentic detector given the same schema and a slightly larger inference budg",
+            "RoboGaze",
+            "隶属于 cs.RO, cs.AI"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2606.28385",
+          "worthReading": false
+        },
+        {
+          "id": "B8",
+          "anchorId": "B8",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "AdaRSI: On-Demand Recursive Self-Improvement for Embodied Agents",
+          "authors": [
+            "Peidong Wang",
+            "Ying Chang",
+            "Zhiming Ma",
+            "Xiaocui Yang",
+            "Shi Feng",
+            "Daqi Liu",
+            "Yuzhe Yang",
+            "Xu Cao",
+            "Chuang Wang",
+            "Jian Su",
+            "Daling Wang"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.20474",
+          "tags": [
+            "RSI",
+            "Agent",
+            "Embodied AI"
+          ],
+          "summary": "Pretrained vision-language-action models (VLAs) often fail midway through unseen long-horizon tasks.\nRecursive self-improvement (RSI) offers a remedy, but embodied RSI methods either refine the harness around a frozen executor and so cannot add a missing motion, or train the executor on persistent failures without asking whether a failure lies in how the executor is called or in what it can do.\nWe ask when a self-improving embodied system should change the weights of its executor, and propose AdaRSI, an on-demand RSI framework for embodied agents.\nA coding agent first improves its skills and harness, then attributes persistent failures by retrying failing sub-steps from saved states, and fine-tunes only the sub-steps that remain unreliable, with demonstrations it collects itself and experience carried over from earlier tasks.\nOn all 50 target tasks of RoboCasa365, with GR00T N1.5 as the executor and no human demonstrations, AdaRSI improves the VLA on all three suites and raises its success on unseen composite tasks from 4.6% to 13.8%.\nCompared with fine-tuning every sub-step, it reaches slightly higher success while using only 28% of the GPU time and 22% of the self-collected demonstrations, and fine-tuning without a harness trains more yet gains far less.",
+          "highlights": [
+            "first improves its skills and harness",
+            "AdaRSI",
+            "隶属于 cs.CL, cs.RO"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.20474",
+          "worthReading": false
+        },
+        {
+          "id": "B9",
+          "anchorId": "B9",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "Agents Don't Just Agree, They Remember: Benchmarking Persistent Sycophancy in Self-Improving Personal Agents",
+          "authors": [
+            "Xutao Mao",
+            "Liangjie Zhao",
+            "Leyao Wang",
+            "Rui Qian",
+            "Qiang Huang",
+            "Wentao Wang",
+            "Bo Han",
+            "Xiang Zheng",
+            "Cong Wang"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2607.10526",
+          "tags": [
+            "RSI",
+            "Agent"
+          ],
+          "summary": "Self-improving personal agents write profiles, memories, and reusable skills that carry over from one chat to the next.\nPrior works ask whether a model agrees with the user in its next reply.\nYet these agents can also write down a claim the user made, and a later chat can read that note back as trusted context.\nWe call this persistent sycophancy.\nWe introduce the Personal Agent Sycophancy Benchmark, PASB, with 1,600 tasks run on two agent frameworks, Hermes-Agent and OpenClaw, across sixteen models that span scales and generations.\nEach task separates a first chat containing the claim from a follow-up chat in a fresh session, so the first chat can reach the follow-up only through a note the agent chose to write.\nDownstream failure, the rate at which follow-up answers still rely on the claim, reaches 68.1% when the agent saved the claim against 35.6% when it did not.\nLater generations fail less often, yet a saved note still more than doubles their failure rate.\nIn 38.8% of runs the saved note states the claim with more authority than the user gave it, and a saved claim still shapes answers in a different domain.\nAmong four mitigations, editing the stored note works better than correcting the agent in conversation, cutting same-domain downstream failure from 36.3% to 30.3% for Hermes-Agent and from 37.9% to 31.6% for OpenClaw.\nA strong instruction against saving brings failure back to the level of runs that saved nothing.\nSelf-improving agents need controls on what they write to memory as well as on what they say.\nOur benchmark is available at https://github.com/henrymao2004/agent-sycophancy.",
+          "highlights": [
+            "first chat containing the claim from a follow-up chat in a fresh session",
+            "Agents Don't Just Agree, They Remember",
+            "隶属于 cs.AI"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2607.10526",
+          "worthReading": false
+        },
+        {
+          "id": "B10",
+          "anchorId": "B10",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "Co-Evolving Acting and Forecasting for Language Agents",
+          "authors": [
+            "Haofei Yu",
+            "Yixing Chen",
+            "Yining Zhao",
+            "Xuyan Ye",
+            "Yuxiang Liu",
+            "Zhigang Hua",
+            "Yan Xie",
+            "Shuang Yang",
+            "Jiaxuan You"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.20597",
+          "tags": [
+            "Agentic RL",
+            "Agent"
+          ],
+          "summary": "Training language agents is bottlenecked by the high cost of long-horizon rollouts, yet standard agentic reinforcement learning (RL) learns only from a terminal scalar reward, leaving the supervision in intermediate steps largely unused.\nPrior work exploits this supervision through value targets that estimate per-step success probabilities or observation targets that fit environment response.\nBoth are hard to construct well: (1) value targets come from the same single scalar signal for each step in the trajectory, and (2) observation targets, such as web pages and terminal logs, are long and noisy and reach only one step ahead.\nWe propose \\name, which adds a third kind of multi-step action targets.\nOn successful on-policy trajectories, \\name trains the policy backbone to generate the action sequences that follows each history.\nEach action is also supervised when forecast from the preceding histories, forming a temporal ensemble that the shared backbone absorbs during training, and this enables acting and forecasting to co-evolve.\nThe policy still acts one step at a time at inference, with no overhead.\nAcross five benchmarks (ALFWorld, ScienceWorld, WebShop, $\\tau^2$-bench, and AppWorld), \\name (1) achieves stronger aggregate performance than GRPO and RL baselines with predictive auxiliary targets across simulated environments, while improving overall performance on both realistic applications; (2) delivers up to $1.9\\times$ and $2.0\\times$ higher sample efficiency than ECHO and GRPO, respectively, on ScienceWorld; and (3) achieves these gains with a single policy backbone, without additional models, separate pretraining, or inference overhead.\nThe codebase is available at https://github.com/ulab-uiuc/CoPE.",
+          "highlights": [
+            "Co",
+            "隶属于 cs.AI, cs.LG",
+            "We propose \\name, which adds a third kind of multi-step action targets."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.20597",
+          "worthReading": false
+        },
+        {
+          "id": "B11",
+          "anchorId": "B11",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "Rollout-Time Intervention: Unlocking Agentic Reinforcement Learning Beyond Policy Limits",
+          "authors": [
+            "Xi Chen",
+            "Ruixue Ding",
+            "Zhigaoyuan Wang",
+            "Fanrui Zhang",
+            "Qiang Zhang",
+            "Boli Chen",
+            "Shihang Wang",
+            "Tianfu Wang",
+            "Ailin Ren",
+            "Pengyong Wang",
+            "Pengjun Xie",
+            "Hui Xiong"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.13438",
+          "tags": [
+            "Agentic RL",
+            "Agent",
+            "LLM"
+          ],
+          "summary": "Reinforcement learning (RL) has emerged as a key paradigm for improving large language model (LLM) agents, enabling stronger reasoning, planning, and tool-use in interactive environments.\nHowever, existing agent RL methods remain fundamentally constrained by an on-policy reasoning bottleneck: when tasks exceed the model's current capability boundary, effective trajectories become extremely sparse and training often collapses.\nWe introduce Rollout-Time Intervention (RTI), a technique designed to elicit successful trajectories beyond the policy's intrinsic exploration capacity.\nRTI operates by leveraging reward-side evidence (i.e., evaluation rubrics) during rollout to convert erroneous trajectories into successful ones, providing effective learning signals for tasks that the policy rarely solves on its own.\nAlthough intervention trajectories are inherently off-policy, we find that they can effectively guide policy optimization when trajectories with excessive distributional shifts are filtered out.\nExtensive experiments across five benchmarks demonstrate that RTI consistently outperforms RL baselines, enabling the post-trained policy to approach the performance of substantially stronger contemporary LLMs and, more importantly, transcend its original capability boundary.\nThe code is available at https://github.com/Alibaba-NLP/qqr.",
+          "highlights": [
+            "exceed the model's current capability boundary",
+            "Rollout",
+            "隶属于 cs.AI"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.13438",
+          "worthReading": false
+        },
+        {
+          "id": "B12",
+          "anchorId": "B12",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "Memory as a Controlled Process: Learned Adaptive Memory Management for LLM Agents",
+          "authors": [
+            "Eric Hanchen Jiang",
+            "Zhi Zhang",
+            "Yuchen Wu",
+            "Levina Li",
+            "Dong Liu",
+            "Xiao Liang",
+            "Rui Sun",
+            "Yubei Li",
+            "Edward Sun",
+            "Haozheng Luo",
+            "Zhaolu Kang",
+            "Aylin Caliskan",
+            "Kai-Wei Chang",
+            "Ying Nian Wu"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2607.13591",
+          "tags": [
+            "Agent",
+            "LLM"
+          ],
+          "summary": "Large Language Model (LLM) agents increasingly rely on external memory systems to accumulate experience across tasks.\nYet nearly all existing approaches, from graph-structured memories to reflective insight stores, access memory through fixed, hand-designed heuristics.\nWe argue that this static view of memory is a core bottleneck for agentic learning because optimal memory behavior is fundamentally context-dependent.\nThe early stages of the tasks, benefit from minimal retrieval because memory is sparse; recurring goal types benefit from plan reuse rather than generic nearest-neighbor lookup; stuck agents benefit from re-retrieval with alternative queries; and across long task streams, the memory store itself must be consolidated and pruned to remain useful.\nWe present Memory as a Controlled Process (MemCon), a framework that models memory operations as a Markov Decision Process and learns an online policy that adaptively decides when, what, and how much to retrieve, when to inject a distilled plan, and when to consolidate or forget.\nMemCon is backend-agnostic: it wraps any existing memory implementation, learns from task-by-task binary feedback with no pretraining and no additional LLM calls, and uses a lightweight tabular contextual bandit with UCB exploration that converges within tens of tasks.\nAcross 6 benchmarks, 3 agent frameworks, and 3 LLM backbones, MemCon consistently outperforms multiple memory baselines by up to 15.2 points in task success while reducing token consumption by 5--20%.",
+          "highlights": [
+            "outperforms multiple memory baselines by up to 15",
+            "Memory as a Controlled Process",
+            "隶属于 cs.CL, cs.AI"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2607.13591",
+          "worthReading": false
+        },
+        {
+          "id": "B13",
+          "anchorId": "B13",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "More Methods, Better Agents? A Reality Check on Self-Distillation in Agentic Reinforcement Learning",
+          "authors": [
+            "Linhao Zhong",
+            "Bozhen Fang",
+            "Xuehao Wang",
+            "Duochao Shi",
+            "Zekai Luo",
+            "Guangming Yao",
+            "Yi Yuan",
+            "Hao Chen",
+            "Jingdong Chen",
+            "Chunhua Shen"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.19789",
+          "tags": [
+            "Agentic RL",
+            "Agent"
+          ],
+          "summary": "Self-distillation in agentic reinforcement learning has produced a growing number of methods.\nHowever, existing evaluations often reuse published baseline scores under differing experimental conditions, provide few direct comparisons among contemporaneous methods, and give limited attention to training stability and computational cost.\nThese limitations obscure the source of reported gains and the practical strengths and weaknesses of competing methods.\nCostly agent training further motivates a common basis for comparison.\nTo address these gaps, we compare ten representative methods against GRPO on ALFWorld, ScienceWorld, Search-QA, and WebShop across three model sizes.\nOur study comprises 132 training runs totaling 12,124.4 recorded H800 GPU-hours, with repeated evaluations over eight rollout seeds for the pretrained backbones and all eleven trained methods.\nBeyond final task performance, we examine training progress, stability, and measured computational cost.\nOur evaluation yields three key findings.\nFirst, gains over GRPO remain limited in scope, with no method consistently outperforming it across settings.\nSecond, strong final performance can mask unstable training.\nThird, additional training cost does not consistently translate into better performance.\nWe establish this benchmark to support fair, comprehensive comparison and guide future research toward reliable and cost-effective improvements in agent training.\nProject page: https://aim-uofa.github.io/Self-Distillation-AgentRL/",
+          "highlights": [
+            "outperforming it across settings",
+            "More Methods, Better Agents? A Reality Check on Self",
+            "隶属于 cs.CL, cs.LG"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.19789",
+          "worthReading": false
+        },
+        {
+          "id": "B14",
+          "anchorId": "B14",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "Pre-Registered Genesis Accounting for Recursive Self-Improvement: First Audited Operator-Genesis Events in a Physics-Discovery Runtime",
+          "authors": [
+            "Wenbin Mao",
+            "Pei Zou"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.14843",
+          "tags": [
+            "RSI",
+            "Agent"
+          ],
+          "summary": "Claims of recursive self-improvement are easy to make and hard to falsify: did improvement come from re-using designer-provided mechanisms, or from mechanisms the system authored itself?\nWe introduce a pre-registered, two-tier accounting: M1 counts machine-generated content instances within a designer-provided vocabulary, while M2 counts machine-authored mechanism types (new operators registered into the runtime's own vocabulary, with a held-out-validation certificate).\nWe report the first audited M2 genesis events.\nIn the primary event, depth-limited compositional search over elementary operators, judged by held-out R^2 on real NIST hydrogen Balmer measurements, produced the operator sq(inv(n)) = 1/n^2 -- the Rydberg-level form -- which no standard-library transform could express (held-out R^2: -0.546 best standard transform vs.\n1.0000000 composed).\nA protocol flaw (independent variable built by inverting the very law under test) was caught in audit and repaired via an independent-label protocol; extrapolation to unseen levels (n=8,9 trained on n<=7) attains relative error ~10^-6, four to six orders beyond the best standard operator.\nA second event independently recovered sqrt(inv(a)) -- Kepler's velocity law -- from JPL ephemeris vectors.\nAlso incorporated: an audited compounding channel (first domain-level measurement: 1.109x accuracy ratio on a real held-out domain) and blind, decurated genesis exams whose honest tally is zero.\nThe Kepler event passes line audit; the hydrogen gap reproduces on He II; the certificate is threshold-stable.\nAgainst eleven prior systems, the contribution is the measurement and governance of machine-authored mechanisms, not the search algorithm or rediscovered physics.\nLimitations: exams were curated by agents who knew the textbook answer, triggers manual, grammar observer-injected; both events demonstrate capability to author, not yet autonomous genesis.",
+          "highlights": [
+            "first audited M2 genesis events",
+            "Pre",
+            "隶属于 cs.AI"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.14843",
+          "worthReading": false
+        },
+        {
+          "id": "B15",
+          "anchorId": "B15",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "D-World: An Explicit World-Language-Action Model with Recursive Self-Improvement under Dual Control",
+          "authors": [
+            "Xuan Wen",
+            "Baichao Wang"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.17114",
+          "tags": [
+            "RSI",
+            "Agent",
+            "Embodied AI"
+          ],
+          "summary": "Frontier large language models (LLMs) now reason about space well enough to program robots, yet the world models behind robot policies are implicit, held in network weights or predicted video, and cannot be inspected or corrected directly.\nWe present D-World, an explicit world-language-action model built on the Sense, Plan and Act decomposition.\nA perception agent writes the scene as an executable digital twin using generated vision and geometry code.\nA planning agent searches for actions in simulation and, after each executed action chunk, revises the twin's object states and named physical parameters against what the robot measured.\nA parameter revision is accepted only if replaying the latest chunk does not increase any measured residual beyond its tolerance, and every chunk is checked in the updated twin before it runs.\nStructural mismatches return to perception for reconstruction.\nWe call this measurement-grounded cycle of correction and revision recursive self-improvement (RSI), in which the LLM stays frozen while the world it acts in improves.\nWe model the choice of actions that both advance the task and expose model error as a dual control problem and show that the cost of incorporating evidence into the twin sets the threshold at which probing pays, so cheap local revision counteracts the turn-off of cautious controllers.\nEach episode runs a real-to-sim-to-real loop, and its recorded twins can be refitted and re-rendered offline into higher-fidelity environments for post-training.\nBecause perception and planning communicate only through the twin and language, either can be replaced by a learned model, and since inference dominates the loop, the loop speeds up with faster models.\nOn a dual-arm robot, towel and toaster tasks show local revisions, such as one reducing the bread's rendered-depth residual from 22.4 to 1.5 mm, that let execution continue without reconstruction.",
+          "highlights": [
+            "D",
+            "隶属于 cs.RO, cs.AI",
+            "We present D-World, an explicit world-language-action model built on the Sense, Plan and Act decomposition."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.17114",
+          "worthReading": false
+        },
+        {
+          "id": "B16",
+          "anchorId": "B16",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "Self-Retrospection Distillation: Turning Post-hoc Experiences into Prior Foresight",
+          "authors": [
+            "Haoxiang Zhang",
+            "Qinglin Chen",
+            "Hiroaki Hayashi",
+            "Zhuofeng Li",
+            "Siming Zhang",
+            "Jiaxin Zhang",
+            "Jixuan Chen",
+            "Fang Wu",
+            "Pan Lu",
+            "Silvio Savarese",
+            "Julian McAuley",
+            "Chien-Sheng Wu"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.08077",
+          "tags": [
+            "Agentic RL",
+            "Agent"
+          ],
+          "summary": "Reinforcement learning with verifiable rewards (RLVR) turns agent experience into learning signals primarily through scalar outcome rewards after interaction.\nFor group-relative objectives, however, this signal vanishes when all rollouts receive the same reward, even though their trajectories may reveal useful information about what the task requires and how the agent fails.\nWe ask a complementary question: can hindsight teach an agent what it could have anticipated before acting?\nWe introduce prospective learning, which uses post-hoc experience to supervise foresight predictions from the pre-interaction view, and instantiate it with Self-Retrospection Distillation (SRD).\nIntuitively, a completed trajectory reveals knowledge that would have been useful and pitfalls that should be avoided; SRD distills this privileged hindsight into trajectory-blind foresight of the same policy.\nForesight serves only as a training target and need not be explicitly generated at inference time.\nAcross 10 tool-integrated reasoning and long-horizon agentic tasks, SRD complements RLVR and self-distillation baselines with gains of up to 24.2 pp.\nIts advantage is especially pronounced when reward contrast is scarce: when 37--98% of rollout groups are reward-uniform across model scales, yet SRD can still exploit learning signal from sampled trajectories.\nIn the 2B setting, where 98% of groups are all-failure, the RLVR training ends up at 0.0% success, while adding SRD reaches 60.6% under the same rollout budget.\nOur results suggest that post-hoc agent experience is useful not only for evaluating or improving behavior, but also for shaping predictive representations before available interaction.\nTraining code can be found at https://github.com/SalesforceAIResearch/SRD.",
+          "highlights": [
+            "Self",
+            "隶属于 cs.AI, cs.CL",
+            "We ask a complementary question: can hindsight teach an agent what it could have anticipated before acting?"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.08077",
+          "worthReading": false
+        },
+        {
+          "id": "B17",
+          "anchorId": "B17",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "Self-Evolving Visual Agent via Margin Reward",
+          "authors": [
+            "Wenxi Yang",
+            "Yuzhong Zhao",
+            "Baochang Zhang",
+            "Yunfan Liu",
+            "Qixiang Ye"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.15084",
+          "tags": [
+            "RSI",
+            "Agent"
+          ],
+          "summary": "Visual agents that interleave reasoning with tool invocation have posed a promising direction for multimodal tasks.\nHowever, learning effective tool invocation usually relies on curated question-answer pairs or expert demonstrations at scale, which are expensive to acquire.\nIn this study, we propose Marvo, a simple-yet-effective self-evolution approach that enables learning tool invocation from unlabeled images.\nMarvo consists of two agents: (1) a challenger that generates question-answer pairs from unlabeled images, and (2) a solver that learns tool invocation by solving questions through reinforcement learning.\nTo encourage effective tool invocation, a good training question should be difficult enough to warrant tool use, yet remain within the solver's capabilities.\nTo this end, we introduce a margin reward to the challenger, defined as solver's performance difference with and without access to tools.\nWith the margin reward, we create an adaptive curriculum that encourages the solver to learn effective tool invocation.\nAcross benchmarks covering agentic reasoning, visual search, mathematical, and general real-world reasoning, Marvo improves average accuracy by up to 7.1\\% --- demonstrating margin reward as a preferred way to scale question complexity without human supervision.",
+          "highlights": [
+            "without human supervision",
+            "Self",
+            "隶属于 cs.AI"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.15084",
+          "worthReading": false
+        }
+      ]
+    },
     {
       "id": "2026-10-13",
       "date": "2026-10-13",

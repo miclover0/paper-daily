@@ -93,3 +93,12 @@
 - **产物**：`daily_reports/2026-10-13-arXiv.html`（空），`config.js`/`config.json` 更新（累计 390 篇 / 10 天，今日 +0）。
 - **Git**：commit `73c349a`，push 成功（`5480250..73c349a main -> main`），SSH 认证正常（本次 pull 曾遇 `Connection reset by 20.205.243.166 port 22`，但 push 成功）。
 - **待办（建议）**：今日为周二工作日，ArXiv 应有新论文，但抓取时服务端降级导致数据缺失。待 ArXiv 恢复后，可用 `scripts/catchup_fetch.py --start=2026-10-13 --end=2026-10-13` 补录当日日报，覆盖本次空日报。
+
+## 2026-10-15 (周四) 执行摘要
+- **结果**：成功。日报 2026-10-15 已生成并推送至 GitHub Pages。
+- **抓取**：ArXiv RSS 4 个分类全部正常（cs.CV=234、cs.LG=447[去重后]、cs.AI=1329、cs.RO=118），共 2128 篇 → 关键词过滤 764 篇。
+- **筛选/分组**：相关度阈值 93.0，取前 50 篇强相关 → A组=33、B组=17、C组=0。
+- **精读推荐**：20 篇 / 50 篇标记值得精读。
+- **产物**：`daily_reports/2026-10-15-arXiv.html`，`config.js`/`config.json` 更新（累计 440 篇 / 11 天，今日 +50）。
+- **Git**：commit `d7546fc`，push 首次遇 `Connection reset by 20.205.243.166 port 22`（网络问题），重试第 2 次成功（`73c349a..d7546fc main -> main`），SSH 认证正常。
+- **备注**：pull 因本地未暂存改动（memory.md 修改 + 新增 2026-10-13.md）先 stash 再 pull（Connection reset 失败，按预案跳过）再 pop，正常恢复。本次数据完整（4 分类齐全），无需补跑。

@@ -102,6 +102,15 @@
 - **产物**：`daily_reports/2026-10-15-arXiv.html`，`config.js`/`config.json` 更新（累计 440 篇 / 11 天，今日 +50）。
 - **Git**：commit `d7546fc`，push 首次遇 `Connection reset by 20.205.243.166 port 22`（网络问题），重试第 2 次成功（`73c349a..d7546fc main -> main`），SSH 认证正常。
 
+## 2026-10-16 (周五) 执行摘要
+- **结果**：成功。日报 2026-10-16 已生成并推送至 GitHub Pages。
+- **抓取**：ArXiv RSS 4 个分类全部正常（cs.CV=253、cs.LG=427[去重后,含1次超时重试]、cs.AI=260、cs.RO=100），共 1040 篇 → 关键词过滤 309 篇。
+- **筛选/分组**：相关度阈值 83.0，取前 50 篇强相关 → A组=21、B组=29、C组=0。
+- **精读推荐**：20 篇 / 50 篇标记值得精读。
+- **产物**：`daily_reports/2026-10-16-arXiv.html`，`config.js`/`config.json` 更新（累计 490 篇 / 12 天，今日 +50）。
+- **Git**：pull --rebase 先 stash（memory.md 未暂存）再 pull（Already up to date）再 pop，正常恢复；commit `06b36f7`，push 一次成功（`b13c67b..06b36f7 main -> main`），SSH 认证正常。
+- **备注**：本次数据完整（4 分类齐全），无需补跑。
+
 ## 2026-10-15 (周四) 二次执行（自动化重触发，23:00）
 - **结果**：成功。当日首次已生成推送（commit `d7546fc`）；本次同日期重触发，重新抓取并刷新日报后推送。
 - **抓取**：ArXiv RSS 4 分类全部正常（cs.CV=234、cs.LG=447[去重]、cs.AI=1329、cs.RO=118），共 2128 篇 → 关键词过滤 764 篇（cs.AI 抓取遇 1 次 WinError 10054 远端强制关闭，重试成功）。

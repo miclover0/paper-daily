@@ -118,3 +118,12 @@
 - **产物**：`daily_reports/2026-10-15-arXiv.html` 刷新，`config.js`/`config.json` 更新（累计 440 篇 / 11 天，今日 +50）。
 - **Git**：pull --rebase 已 up-to-date；commit `b13c67b`，push 一次成功（`d7546fc..b13c67b main -> main`），SSH 认证正常。
 - **备注**：pull 因本地未暂存改动（memory.md 修改 + 新增 2026-10-13.md）先 stash 再 pull（Connection reset 失败，按预案跳过）再 pop，正常恢复。本次数据完整（4 分类齐全），无需补跑。
+
+## 2026-10-17 (周六) 执行摘要
+- **结果**：成功。日报 2026-10-17 已生成并推送至 GitHub Pages。
+- **抓取（数据不完整）**：ArXiv RSS 4 分类中仅 `cs.AI` 成功（453 篇）；`cs.CV`、`cs.LG`、`cs.RO` 均返回 0 篇（疑似周六稀疏/限流，非超时报错）。共 453 篇 → 关键词过滤 221 篇。
+- **筛选/分组**：相关度阈值 81.0，取前 50 篇强相关 → A组=20、B组=30、C组=0。
+- **精读推荐**：20 篇 / 50 篇标记值得精读。
+- **产物**：`daily_reports/2026-10-17-arXiv.html`，`config.js`/`config.json` 更新（累计 540 篇 / 13 天，今日 +50）。
+- **Git**：pull 因 memory.md 未暂存改动先 stash 再 pull（Already up to date）再 pop，正常恢复；commit `e975adf`，push 一次成功（`06b36f7..e975adf main -> main`），SSH 认证正常。
+- **备注**：本次缺 cs.CV/LG/RO 三个分类（返回 0 篇），属周末 ArXiv 更新稀疏/限流所致，非本机网络全中断。数据仅含 cs.AI，无需补跑；若需完整覆盖可于后续工作日补录。

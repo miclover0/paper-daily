@@ -145,3 +145,12 @@
 - **精读推荐**：0 篇。
 - **产物**：`daily_reports/2026-10-18-arXiv.html`（空），`config.js`/`config.json` 更新（累计 540 篇 / 14 天，今日 +0）。
 - **Git**：pull 因 memory.md 未暂存改动先 stash 再 pull（Already up to date）再 pop，正常恢复；commit `e50aa79`，push 一次成功（`e975adf..e50aa79 main -> main`），SSH 认证正常。
+
+## 2026-10-20 (周二) 执行摘要
+- **结果**：成功。日报 2026-10-20 已生成并推送至 GitHub Pages。
+- **抓取**：ArXiv RSS 4 个分类全部正常（cs.CV=505、cs.LG=739[去重后]、cs.AI=451[去重后]、cs.RO=149[去重后]），共 1844 篇 → 关键词过滤 551 篇。
+- **筛选/分组**：相关度阈值 88.0，取前 50 篇强相关 → A组=30、B组=20、C组=0。筛选前原始分组 A组=242、B组=309。
+- **精读推荐**：20 篇 / 50 篇标记值得精读。
+- **产物**：`daily_reports/2026-10-20-arXiv.html`，`config.js`/`config.json` 更新（累计 640 篇 / 16 天，今日 +50）。
+- **Git**：pull 因 memory.md 未暂存改动先 stash 再 pull（Already up to date）再 pop，正常恢复；commit `a7081a7`，push 一次成功（`7148802..a7081a7 main -> main`），SSH 认证正常。
+- **备注**：本次数据完整（4 分类齐全），无需补跑。

@@ -3,13 +3,2275 @@
     "title": "Agent & LLM Research Daily",
     "subtitle": "Daily arXiv Digest — Agents · RSI · Agentic RL · Frontier LLMs",
     "description": "Automated collection of cutting-edge research papers on AI Agents, Recursive Self-Improvement (RSI), Agentic RL, and releases from leading LLM labs (OpenAI, Anthropic, Google, Meta, Zhipu, DeepSeek, Qwen, Kimi, Hunyuan, Xiaomi, ByteDance, Baidu, etc.).",
-    "totalPapers": 590,
-    "totalDays": 15,
-    "lastUpdated": "2026-10-19",
+    "totalPapers": 640,
+    "totalDays": 16,
+    "lastUpdated": "2026-10-20",
     "author": "@miclover0",
     "repository": "https://github.com/miclover0/paper-daily"
   },
   "dailyReports": [
+    {
+      "id": "2026-10-20",
+      "date": "2026-10-20",
+      "dateDisplay": "October 20, 2026",
+      "weekday": "Tuesday",
+      "filename": "daily_reports/2026-10-20-arXiv.html",
+      "paperCount": 50,
+      "groups": {
+        "A": 30,
+        "B": 20,
+        "C": 0
+      },
+      "featuredPapers": [
+        {
+          "title": "BlenderWorld: Benchmarking Visual Agents for 3D Creation from Real-World References",
+          "authors": "Xinyu Fang, Yuchi Wang, Weihao Yu",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.23986",
+          "tags": [
+            "OpenAI",
+            "Agent",
+            "Embodied AI"
+          ],
+          "summary": "Recent advances in multimodal large language models (MLLMs) have enabled them to act as autonomous agents, creating and editing 3D models via code or direct software manipulation. 多模态大型语言模型（ MLLM ）的最新进展使它们能够充当自主代理，通过代码或直接软件操作创建和编辑3D模型。\nIn practical workflows, these models must infer object shapes, materials, spatial layouts, and lighting from diverse references while strictly following instructions to reconstruct, modify, or design 3D content. 在实际工作流程中，这些模型必须从不同的参考中推断出对象形状、材质、空间布局和光照，同时严格按照说明重建、修改或设计3D内容。\nHowever, existing benchmarks provide limited coverage of such open-ended requests across real-world scenarios. 但是，现有基准在现实场景中对此类开放式请求的覆盖范围有限。\nTo bridge this gap, we introduce BlenderWorld, the first comprehensive benchmark dedicated to evaluating frontier models on realistic 3D creation tasks. 为了弥合这一差距，我们引入了BlenderWorld ，这是第一个致力于评估逼真3D创建任务的前沿模型的综合基准。\nBlenderWorld comprises 223 tasks spanning architecture, products, natural environments, and scientific visualization, driven by text, image, video, and structured specification inputs. BlenderWorld由223项任务组成，涵盖架构、产品、自然环境和科学可视化，由文本、图像、视频和结构化规范输入驱动。\nTo rigorously assess these complex deliverables, we establish a unified evaluation protocol: we render the submitted Blender projects from multiple viewpoints and evaluate them against 2,651 task-specific binary rubrics alongside holistic visual quality scores. 为了严格评估这些复杂的可交付成果，我们建立了一个统一的评估协议：我们从多个角度渲染提交的Blender项目，并根据2,651个特定任务的二元评分细则表和全面的视觉质量评分进行评估。\nBenchmarking thirteen frontier models reveals that GPT-6-Astra achieves the highest overall fused score of 79.9, followed by Opus-5 (73.0) and GPT-5.6-Sol (67.7). 对13个前沿模型进行基准测试显示， GPT-6-Astra的总体融合得分最高，为79.9 ，其次是Opus-5 （ 73.0 ）和GPT-5.6-Sol （ 67.7 ）。\nUltimately, our findings reveal a critical bottleneck: while current models can parse broad instructions, they still profoundly struggle with fine-grained 3D spatial coherence and accurate structural reproduction in Blender, leaving substantial headroom for future 3D-native agentics. 最终，我们的研究结果揭示了一个关键的瓶颈：虽然当前的模型可以解析广泛的指令，但它们仍然在Blender中与精细的3D空间连贯性和准确的结构复制进行着深刻的斗争，为未来的3D原生代理留下了巨大的空间。",
+          "highlights": [
+            "first comprehensive benchmark dedicated to evaluating frontier models on realistic 3D creation tasks",
+            "BlenderWorld",
+            "隶属于 cs.CV"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.23986",
+          "readReason": "AI Agent 是当前研究热点，本文可能包含创新性的设计思路；具身智能是通向通用 AI 的重要路径，本文值得关注"
+        },
+        {
+          "title": "IndusAgent: Agentic Reinforcement Learning for Cross-Category Industrial Anomaly Detection",
+          "authors": "Rongbin Tan*, Fangfang Lin*, Jinguo Luo*",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2605.20682",
+          "tags": [
+            "Qwen",
+            "Agentic RL",
+            "Agent"
+          ],
+          "summary": "Small defects in unfamiliar product categories can be difficult to distinguish from benign appearance variations in a global view. 在全球范围内，很难将不熟悉的产品类别中的小缺陷与良性外观变化区分开来。\nAdditional reasoning over the same view may leave this ambiguity unresolved. 对同一视图的其他推理可能会使这种模棱两可的问题得不到解决。\nWe introduce IndusAgent, a Qwen3-VL-8B inspection policy trained through supervised fine-tuning and tool-augmented reinforcement learning for cross-category industrial anomaly detection. 我们引入了IndusAgent ，这是一种Qwen3-VL-8B检测策略，通过监督微调和工具增强强化学习进行培训，用于跨类别工业异常检测。\nThe policy selects among six tools for cropping, enhancement, measurement, within-image comparison, texture analysis, and external visual opinions from Qwen3-VL-Max, then integrates returned observations into a structured diagnosis. 该策略从Qwen3-VL-Max的裁剪、增强、测量、图像内比较、纹理分析和外部视觉意见的六个工具中进行选择，然后将返回的观察结果集成到结构化诊断中。\nIndus-CoT provides 3,000 trajectories from 26 Real-IAD categories, generated with actual tool feedback and screened against annotations after teacher generation. Indus-CoT提供来自26个Real-IAD类别的3,000条轨迹，这些轨迹通过实际工具反馈生成，并在教师生成后对照注释进行筛选。\nGRPO optimizes an accuracy-gated objective that conditions localization, type, and tool rewards, including call costs, on final diagnostic correctness while retaining an independent format reward. GRPO优化了一个精度门控目标，该目标在最终诊断正确性方面为本地化、类型和工具奖励（包括呼叫成本）提供条件，同时保留独立的格式奖励。\nAcross five benchmarks, IndusAgent achieves 83.5% mean balanced accuracy, compared with 79.4% for direct Max inference under the common protocol. 在五个基准中， IndusAgent实现了83.5%的平均平衡精度，而在通用协议下，直接最大推断的准确率为79.4%。\nAcross three training seeds, the five-benchmark mean balanced accuracy is 80.5\\% for a weight-matched ungated control and 83.5% for the gated policy. 在三个训练种子中，对于重量匹配的无门控控制，五基准平均平衡准确率为80.5\\ % ，对于门控策略，平均平衡准确率为83.5%。\nEvaluation uses disjoint product categories and a fixed defect vocabulary. 评估使用不相交的产品类别和固定的缺陷词汇。",
+          "highlights": [
+            "IndusAgent",
+            "隶属于 cs.CV",
+            "Small defects in unfamiliar product categories can be difficult to distinguish from benign appearance variations in a gl"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2605.20682",
+          "readReason": "AI Agent 是当前研究热点，本文可能包含创新性的设计思路；Agentic 强化学习将决策与语言模型结合，是智能体研究的前沿方向"
+        },
+        {
+          "title": "Web Agent Agentic Reinforcement Learning Decision Model Under Multi-Cost and Failure Risk",
+          "authors": "Qianli Ma, Limengxi Yue, Shuyang Xu",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.23857",
+          "tags": [
+            "Agentic RL",
+            "Agent",
+            "Embodied AI"
+          ],
+          "summary": "Intelligent agent interactions in real-world web environments are commonly constrained by request budgets, time delays, anti-crawling restrictions, and operational failure risks. 现实Web环境中的智能代理交互通常受到请求预算、时间延迟、反爬网限制和操作故障风险的限制。\nStrategies solely optimizing task success rates often exhibit unusable phenomena such as \"high success but high cost\" or \"low risk but conservative failure.\" This paper proposes a constrained agentic reinforcement learning model for web agents, unifying page access, search requests, and external API calls into a unified long-term decision-making framework with associated costs. 仅优化任务成功率的策略通常表现出不可用的现象，例如“高成功但高成本”或“低风险但保守的失败”。“本文提出了一种用于Web代理的约束代理强化学习模型，将页面访问、搜索请求和外部API调用统一到具有相关成本的统一长期决策框架中。\nIt simultaneously incorporates cost budget constraints and tail risk control into the optimization objective: constructing a multidimensional cost vector comprising cumulative request count, total latency, and failure penalties to achieve budget compliance via Lagrange dual updates, while employing a CVaR risk term to suppress excessive exploration of high-failure-probability paths, thereby achieving an adaptive balance among \"completion rate, cost, and risk.\"\n  Experiments were conducted across 30-70 site/page templates and 800-1,500 end-to-end web tasks, including information extraction, price comparison, form submission, and cross-page navigation.\nInteraction sequences spanned 20-120 steps with tool scales of 30-200. 交互序列跨越20-120个步骤，工具尺度为30-200。\nPerformance was benchmarked against unconstrained RL, budget-constrained RL, and rule-based/scripted web agents, quantifying task completion rates, cost-per-success, failure rates, and policy stability. 根据不受约束的RL、预算受限的RL和基于规则/脚本的Web代理对性能进行基准测试，量化任务完成率、每次成功成本、失败率和策略稳定性。\nResults demonstrate that at equivalent completion rates, our method reduces C-PS by 22%-31% and lowers failure rates by 18%-26% under high failure penalties. 结果表明，在相同的完成率下，我们的方法在高故障罚款下可将C-PS降低22% -31% ，并将故障率降低18% -26%。\nUnder fixed budgets, task completion rates increase by 10%-16%, highlighting the necessity and effectiveness of constraint modeling for practical web agent deployment. 在固定预算下，任务完成率提高10% -16% ，凸显了约束建模在实际Web代理部署中的必要性和有效性。",
+          "highlights": [
+            "increase by 10%",
+            "Web Agent Agentic Reinforcement Learning Decision Model Under Multi",
+            "隶属于 cs.LG, cs.AI"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.23857",
+          "readReason": "AI Agent 是当前研究热点，本文可能包含创新性的设计思路；Agentic 强化学习将决策与语言模型结合，是智能体研究的前沿方向"
+        },
+        {
+          "title": "CoEvo-RSI: When Harnesses Evolve, Which Models Should Follow?",
+          "authors": "Jiaqi Su, Guibin Zhang, Jie-Jing Shao",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.25078",
+          "tags": [
+            "DeepSeek",
+            "Qwen",
+            "RSI"
+          ],
+          "summary": "Model--harness co-evolution has emerged as a prominent paradigm for recursive self-improving (RSI) agents, jointly evolving their execution scaffolds and intrinsic capabilities. 模型- Harness协同进化已成为递归自我改善（ RSI ）代理的突出范例，共同发展其执行支架和内在能力。\nWe study the persistent yet often overlooked brain--body mismatch problem in this paradigm, where an evolving harness (body) demands behaviors its model (brain) has not learned or restricts capabilities it already possesses. 我们研究了这种范式中持续存在但经常被忽视的大脑-身体错配问题，在这种范式中，不断发展的线束（身体）要求其模型（大脑）尚未学习的行为或限制其已经拥有的能力。\nWe introduce CoEvo-RSI, a RSI framework that advances model--harness co-evolution through agent-driven, bidirectional historical inheritance. 我们引入了CoEvo-RSI ，这是一个RSI框架，它通过代理驱动的双向历史继承来推进模型- Harness协同进化。\nDrawing on a shared evolutionary archive and execution feedback, a meta-agent coordinates harness development from historical designs with model checkpoint selection or merging and subsequent adaptation under the selected harness, aligning inherited capabilities with evolving execution requirements to reduce brain--body mismatch. 借助共享的进化存档和执行反馈，元代理通过模型检查点选择或合并以及所选线束下的后续适应来协调历史设计中的线束开发，使继承的能力与不断变化的执行要求保持一致，以减少脑-身体不匹配。\nUsing only supervised fine-tuning (SFT) on its own rejection-sampled trajectories, CoEvo-RSI makes Qwen3.5-9B competitive with larger models across diverse vertical applications, including multi-agent failure attribution, role-aware text-to-SQL, and smart-home instruction following. CoEvo-RSI仅在其自身的剔除采样轨迹上使用监督微调（ SFT ） ，使Qwen3.5-9B在不同的垂直应用中与更大的模型竞争，包括多代理失败归因、角色感知文本到SQL和智能家居指令跟踪。\nIt surpasses DeepSeek-V4-Pro on TraceElephant (+14.16 agent accuracy) and GLM-5.3 on HomeBench VM (+4.90 success rate), underscoring the need for brain--body alignment and the potential of bidirectional historical inheritance to advance agent co-evolution. 它超过了TraceElephant上的DeepSeek-V4-Pro （ +14.16药剂准确度）和HomeBench VM上的GLM-5.3 （ +4.90成功率） ，强调了大脑-身体对齐的必要性以及双向历史遗传的潜力，以促进药剂的共同进化。",
+          "highlights": [
+            "surpasses DeepSeek-V4-Pro on TraceElephant (+14",
+            "CoEvo",
+            "隶属于 cs.LG, cs.CL"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.25078",
+          "readReason": "递归自改进（RSI）是智能体自我进化的关键方向，本文具有一定的探索价值；来自 DeepSeek 团队的最新研究工作，值得重点关注其技术路线"
+        },
+        {
+          "title": "Trackable Skill Library Lifecycle Management for Agentic Reinforcement Learning",
+          "authors": "Xi Zhu, Yuanlin Duan, Changyi Yang",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.25126",
+          "tags": [
+            "Agentic RL",
+            "Agent",
+            "LLM"
+          ],
+          "summary": "Skill-augmented agentic RL has emerged as an effective approach to improving LLM agents on long-horizon tasks. 技能增强型代理强化学习已成为改进长期任务LLM代理的有效方法。\nDespite this progress, individual skills may follow distinct trajectories as the policy evolves, with some becoming redundant after the model internalizes their capabilities, others remaining valuable as external scaffolding, and still others turning harmful. 尽管取得了这一进展，但随着政策的演变，个人技能可能会遵循不同的轨迹，其中一些技能在模型内化其能力后变得多余，另一些技能作为外部支架仍然具有价值，还有一些技能变得有害。\nHowever, existing skill library systems fail to identify each skill's true contribution due to free-riding among co-retrieved skills, difficulty confounding across tasks, and the absence of skill-specific counterfactual evidence, which prevents reliable skill lifecycle management. 然而，现有的技能库系统由于在共同检索的技能之间搭便车、难以混淆任务以及缺乏特定技能的反事实证据而无法识别每项技能的真正贡献，这阻碍了可靠的技能生命周期管理。\nWe propose TrackRL, an agentic RL framework where skill tracking drives skill library full lifecycle management. 我们提出了TrackRL ，这是一个代理式RL框架，其中技能跟踪驱动技能库的整个生命周期管理。\nSpecifically, within each GRPO group, we turn grouped sampling into online randomized controlled experiments. 具体而言，在每个GRPO组中，我们将分组抽样转化为在线随机对照实验。\nIndependent random injection and within-group contrasts on the same task isolate each skill's true contribution, and reliability-weighted aggregation accumulates evidence across groups. 同一任务的独立随机注射和组内对比隔离了每项技能的真正贡献，可靠性加权聚合积累了跨组证据。\nAs evidence accumulates, we continuously track skill utility, which measures the skill's causal contribution as external scaffolding, and model mastery, which reflects how far the corresponding capability has been internalized. 随着证据的积累，我们不断跟踪技能效用，将技能的因果关系作为外部支架来衡量，以及模型掌握，这反映了相应能力的内化程度。\nAlong this line, we formulate skill lifecycle management as an evidence-gated state-transition process that governs each skill from generation and admission through protected incubation to retention, retirement, or removal, while a soft capacity bound controls library growth. 沿着这一思路，我们将技能生命周期管理制定为一个循证门控的状态转换过程，从生成和录取到受保护的孵化到保留、退休或移除，管理每个技能，而软容量绑定控制库增长。\nExperiments show that TrackRL outperforms recent skill-augmented RL baselines in both library-assisted and skill-free evaluation, with further analyses revealing how skill value shifts during policy learning and how evidence-driven state transitions shape skill library evolution. 实验表明， TrackRL在图书馆辅助和无技能评估方面都优于最近的技能增强RL基线，进一步分析揭示了政策学习过程中技能价值的转变以及循证驱动的状态转变如何影响技能库的演变。\nOur code is available at https://github.com/xizhu1022/TrackRL. 我们的代码可在https://github.com/xizhu1022/TrackRL上找到。",
+          "highlights": [
+            "outperforms recent skill-augmented RL baselines in both library-assisted and skill-free evaluation",
+            "隶属于 cs.LG, cs.CL",
+            "Skill-augmented agentic RL has emerged as an effective approach to improving LLM agents on long-horizon tasks."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.25126",
+          "readReason": "AI Agent 是当前研究热点，本文可能包含创新性的设计思路；Agentic 强化学习将决策与语言模型结合，是智能体研究的前沿方向"
+        },
+        {
+          "title": "Zephyrus-R1: Agentic Reinforcement Learning for Weather Reporting",
+          "authors": "Fengfei Yu, Marshall Fisher, Isadora White",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.25625",
+          "tags": [
+            "OpenAI",
+            "Qwen",
+            "Kimi"
+          ],
+          "summary": "Reinforcement learning (RL) has emerged as a key method for training AI models in scientific applications, but RL remains difficult when outputs cannot easily be verified against a known ground-truth answer. 强化学习（ RL ）已成为在科学应用中训练人工智能模型的关键方法，但当无法根据已知的地面真实答案轻松验证输出时， RL仍然很困难。\nNatural-language weather forecast reports are one such domain: they translate atmospheric data into assessments of weather evolution, hazards, and uncertainty for both the general public and key decision-makers. 自然语言天气预报报告就是这样一个领域：它们将大气数据转化为公众和关键决策者对天气演变、灾害和不确定性的评估。\nUnlike numerical weather-analysis questions, they admit many valid outputs, which limits deterministic verification. 与数值天气分析问题不同，它们承认许多有效的输出，这限制了确定性验证。\nTo address this, we develop Zephyrus-R1, a practical framework for RL on scientific weather forecast reporting. 为了解决这个问题，我们开发了Zephyrus-R1 ，这是科学天气预报报告的实用框架。\nWe focus on three key components of the agentic RL pipeline: reward design, curriculum learning, and an analysis of human-expert alignment. 我们专注于代理RL管道的三个关键组成部分：奖励设计、课程学习和人与专家对齐分析。\nTo encourage both report legibility and factual accuracy, we design a reward function that combines a meteorological rubric with bidirectional claim entailment, both evaluated against National Weather Service reference reports. 为了鼓励报告清晰度和事实准确性，我们设计了一个奖励函数，将气象分类和双向索赔相结合，两者都根据国家气象局参考报告进行了评估。\nOur framework optimizes this reward in a simulated tool-calling environment, enabling vision-language agents to gather and analyze forecast evidence across regions and lead times before producing a report. 我们的框架在模拟工具调用环境中优化此奖励，使视觉语言代理能够在生成报告之前收集和分析跨地区和交付周期的预测证据。\nWe use annotations from three meteorologists to audit the claim labels produced by our LLM judges. 我们使用三位气象学家的注释来审核法学硕士评委制作的索赔标签。\nFinally, a curriculum helps small models first develop tool use and scientific reasoning through RL on verifiable weather-analysis questions, then optimize the open-ended report reward. 最后，课程帮助小模型首先通过RL在可验证的天气分析问题上开发工具使用和科学推理，然后优化开放式报告奖励。\nAfter training Qwen3.5-4B with Zephyrus-R1, we improve the mean across six judge-metric scores by 26% over the base model and achieve results competitive with frontier open-weight models. 在使用Zephyrus-R1训练Qwen3.5-4B之后，我们将六个判断指标的平均分比基本模型提高了26% ，并实现了与前沿开放权重模型竞争的结果。\nFor Qwen3.8-27B, we improve the same mean by 13% over the base model, by 6.7% over Kimi-K3, and by 2.7% over GPT-5.6-Luna. 对于Qwen3.8-27B ，我们将相同的平均值比基本模型提高了13% ，比Kimi-K3提高了6.7% ，比GPT-5.6-Luna提高了2.7%。",
+          "highlights": [
+            "first develop tool use and scientific reasoning through RL on verifiable weather-analysis questions",
+            "Zephyrus",
+            "隶属于 cs.LG"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.25625",
+          "readReason": "来自 OpenAI 团队的最新研究工作，值得重点关注其技术路线；来自 Qwen 团队的最新研究工作，值得重点关注其技术路线"
+        },
+        {
+          "title": "HarnessPro: Recursive Harness Self-Improvement with Pareto Optimization for Performance-Cost Trade-offs",
+          "authors": "Zhuoshi Pan, ZhiYuan Feng, Yukuo Cen",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.26770",
+          "tags": [
+            "OpenAI",
+            "Anthropic",
+            "RSI"
+          ],
+          "summary": "Harness development plays a crucial role in building capable AI agents. 线束开发在构建有能力的人工智能代理中起着至关重要的作用。\nRecent approaches improve harnesses through recursive self-improvement (RSI), but their performance gains often come with higher execution costs. 最近的方法通过递归自我改进（ RSI ）来改进线束，但其性能提升通常伴随着更高的执行成本。\nWe introduce HarnessPro, a label-free method for evolving harnesses to improve task performance while reducing execution cost. 我们引入了HarnessPro ，这是一种无标签的方法，用于改进线束，以提高任务性能，同时降低执行成本。\nIn this setting, candidate harnesses are evaluated using LLM-generated tests without access to ground-truth solutions or official tests. 在此设置中，候选线束使用LLM生成的测试进行评估，而无需访问地面真相解决方案或官方测试。\nSpecialized agents diagnose execution trajectories, plan updates with different performance-cost priorities, and implement them as candidate harnesses. 专业代理诊断执行轨迹，使用不同的绩效成本优先级计划更新，并将其作为候选工具来实施。\nRather than returning a single harness, HarnessPro uses normalized weighted squared-distance selection to provide cost-focused (lite), balanced (medium), and performance-focused (heavy) harnesses for different deployment budgets.\nSelected harnesses enter the next iteration, where execution feedback guides further updates.\nOur experiments cover Terminal-Bench 2, SWE-Bench Pro, and ProgramBench, using GPT-5.5 with Codex and GLM-5.2 with Claude Code.\nAcross these benchmarks using GPT-5.5 with Codex, the heavy mode of HarnessPro achieves an average pass-rate gain of 2.0 percentage points and an average per-task cost reduction of 26.1% relative to RHO.\nThis advantage also holds when using GLM-5.2 with Claude Code.\nCode is available at https://github.com/pzs19/HarnessPro",
+          "highlights": [
+            "HarnessPro",
+            "隶属于 cs.LG, cs.CL",
+            "Harness development plays a crucial role in building capable AI agents."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.26770",
+          "readReason": "递归自改进（RSI）是智能体自我进化的关键方向，本文具有一定的探索价值；来自 OpenAI 团队的最新研究工作，值得重点关注其技术路线"
+        },
+        {
+          "title": "Compile Once, Run Cheap: Frozen, Portable Skills for Embodied Agents, and What Recursive Self-Improvement Adds",
+          "authors": "Jingwen Bai, Guochao Bai, Canbo Zhang",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.25114",
+          "tags": [
+            "Anthropic",
+            "DeepSeek",
+            "RSI"
+          ],
+          "summary": "Embodied AI lacks the data-rich pretraining that gave language models their agents and skills, so new manipulation capability costs demonstrations per task or a frontier model in every episode.\nWe study a third route: a strong general model acts only as an offline author that writes, runs, diagnoses and repairs a manipulation skill in simulation until it passes an exam on layouts drawn after freezing; the frozen skill then runs as code alone or under a cheap caller that reads only its description.\nWe call this skill-level recursive self-improvement Skill-RSI and specify a compile protocol (isolated, audited author; hidden validation layouts; no-feedback and inherit-only controls; tamper-evident ledger) and a reuse protocol that runs the identical files with executors from another model family.\nOn 7 RoboTwin 2.0 tasks with cluttered tables, Claude Code compiled 4 tasks into 7 frozen skills, 5 from a first draft needing only qualification, at USD 4.29-8.22 of author cost each (USD 55 per skill counting the 13 failed campaigns).\nThe other three tasks did not compile in 18 campaigns, including five with GPT-6 and a pre-registered 150-layout run: on the hardest task every campaign scored 78-95 of 100 but had 3-16 safety aborts, failing the gate of 95% success with zero aborts; a 100-episode exam bounds an abort rate only to 3.6%.\nOn hidden layouts, repair that inherits the previous version beat from-scratch rewriting in 8 of 8 controlled campaigns (sign test p = 0.004); an inherit-only lineage attributes most of the gap to inheritance, with development feedback adding a little (3 of 3, p = 0.125).\nWrite-once campaigns found no detectable first-draft effect of practice (minimum detectable effect 14 points).\nThe frozen skills kept 148/150 successes on new layouts with no model and 147/150 with a DeepSeek-flash caller at USD 0.00028-0.00054 per episode; no direct-control baseline was run.",
+          "highlights": [
+            "first draft needing only qualification",
+            "Compile Once, Run Cheap",
+            "隶属于 cs.RO, cs.AI"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.25114",
+          "readReason": "递归自改进（RSI）是智能体自我进化的关键方向，本文具有一定的探索价值；来自 Anthropic 团队的最新研究工作，值得重点关注其技术路线"
+        },
+        {
+          "title": "MOSAIC: More LLMs, Less Cost through Collaborative Reasoning for Compiler Optimizations",
+          "authors": "Annabelle Sujun Tang, Christopher Priebe, Lianhui Qin",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2602.01935",
+          "tags": [
+            "OpenAI",
+            "Meta",
+            "Agent"
+          ],
+          "summary": "LLM-guided compiler optimization has recently shown promise.\nHowever, current LLM-guided optimizers query a single LLM at every search step, so their cost grows with both that model's price and the search budget.\nA smaller model is cheaper but degrades the search: in our experiments, a recent single-LLM optimizer reaches 10.2% (6.0%) lower speedup on GPU (CPU) with gpt-5-mini than with GPT-5.2.\nAgentic multi-LLM frameworks add controllers, concurrent calls, and shared memory, whose overhead can offset the savings of cheaper models.\nThis paper shows that the optimization search tree itself can coordinate heterogeneous LLMs: the tree already records which proposals improved the program, and we can augment the tree to record which model made them.\nThat evidence can then be used to decide which model should propose next.\nTo this end, we introduce MOSAIC, in which each Monte Carlo tree search (MCTS) node records a program and the LLM that expands it, and the active LLM proposes both a compiler transformation and the LLM for the next step.\nWe also contribute an LLM-aware UCT that favors smaller models and a course-alteration rule that invokes the largest model only after repeated small-model regressions.\nAgainst that single-LLM optimizer run with GPT-5.2 alone and the same number of search iterations and tree parameters, on an NVIDIA GPU (Intel CPU), MOSAIC with eight LLMs improves the geometric-mean speedup on five kernels by 7.2% (14.4%) and the end-to-end Llama-3-8B speedup by 1.61x (1.41x), while reducing kernel compilation time by 1.95x (1.74x) and API cost by 4.47x (4.32x), with GPT-5.2 making only 23.1% (23.9%) of LLM calls.\nWith the same eight models, random or round-robin model choice improves over the single-LLM baseline by only 2.5% on CPU, showing that the gains come from letting the LLMs choose the next model rather than from mixing the pool at random.",
+          "highlights": [
+            "MOSAIC",
+            "隶属于 cs.LG, cs.AI",
+            "LLM-guided compiler optimization has recently shown promise."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2602.01935",
+          "readReason": "AI Agent 是当前研究热点，本文可能包含创新性的设计思路；来自 OpenAI 团队的最新研究工作，值得重点关注其技术路线"
+        },
+        {
+          "title": "RLTLDR: Self-improvement by Internalizing Self-generated Feedback",
+          "authors": "Michael Kirchhof, Eleonora Gualdoni, Andrew Szot",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2609.37633",
+          "tags": [
+            "Qwen",
+            "Agentic RL",
+            "RSI"
+          ],
+          "summary": "The common paradigm of reinforcement learning with verifiable rewards (RLVR) is to let agents make multiple attempts at a task, and optimize towards the successful ones.\nThis becomes problematic in the realms of self-improvement, where tasks are so difficult that the agent has a low or even no chance of success, and where there are no teacher models or example solutions to distill from.\nIn this paper, we introduce RLTLDR.\nAfter each failed attempt, we show the policy the verifier outputs and let it write its own feedback, in the form of a single TL;DR insight.\nThe next rollout is conditioned on all previous insights, and we sequentially sample rollouts until a solution is found.\nMoreover, we enable backpropagation on the in-context insights to internalize a direct task to insight mapping.\nOn challenging tool-calling and coding datasets (filtered to Pass@128=0), standard GRPO training of a Qwen 3.5 9B Thinking policy stays flat at a Pass@1 of 0% to 1%.\nRLTLDR breaks through this learning barrier, achieving a Pass@1 of 14-31% with insights in context during training and, crucially, 12-13% when no insight is in context at eval time.\nWe identify that the key is the task to insight internalization.\nTo study this further, we reduce our approach to SFTLDR, training only on (task, insight) tuples, without showing or backpropagating on any rollouts.\nTraining on only 4k of these tuples recovers almost the full performance of RLTLDR and classical SFT on full rollouts.\nThis demonstrates a promising compacted training paradigm of the form \"on this sort of task, keep this sort of thing in mind\", which we hope to inspire future research on.",
+          "highlights": [
+            "RLTLDR",
+            "隶属于 cs.LG, cs.AI",
+            "In this paper, we introduce RLTLDR."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2609.37633",
+          "readReason": "Agentic 强化学习将决策与语言模型结合，是智能体研究的前沿方向；递归自改进（RSI）是智能体自我进化的关键方向，本文具有一定的探索价值"
+        },
+        {
+          "title": "OpenCollab: A Multi-Agent Coding Framework with Programmable Collaboration and Controllable Runtime",
+          "authors": "Chun-Wah Hsu, Kai Gong, Yu Wu",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2609.38345",
+          "tags": [
+            "Anthropic",
+            "Agent",
+            "Multi-Agent"
+          ],
+          "summary": "Multi-agent coding systems are designed to tackle complex software engineering tasks through collaboration.\nHowever, existing evaluations typically assume configured organizations are followed faithfully, whereas reality differs.\nThis behavioral gap, combined with differences in underlying system components, prevents clear attribution of observed gains.\nTo this end, we introduce OpenCollab, a multi-agent coding framework that provides a unified infrastructure for programmable collaboration and controllable runtime.\nSpecifically, OpenCollab unifies organization design, enforces experimental control on a shared runtime, and tracks execution through fine-grained event streams.\nOn this basis, we define Adherence to quantify whether the declared organization is actually realized.\nOur experiments reveal that agents collaborate very differently across configurations: changing any single dimension shifts Adherence, from 47.2% to as high as 97.2%.\nFurthermore, extensive agentic coding benchmarks show that OpenCollab (Duo) establishes new SOTA performance compared to the mainstream harnesses such as Mini-SWE-agent, OpenHands, Codex CLI, and Claude Code, showing that a well-designed organization can outperform strong existing harnesses, while OpenCollab's single-agent configuration uses the fewest tokens across all evaluated suites.\nOpenCollab establishes a unified multi-agent infrastructure for easy programmable collaboration and controlled causal evaluation.",
+          "highlights": [
+            "outperform strong existing harnesses",
+            "OpenCollab",
+            "隶属于 cs.SE, cs.AI"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2609.38345",
+          "readReason": "AI Agent 是当前研究热点，本文可能包含创新性的设计思路；多智能体协作是复杂任务求解的重要范式，本文值得关注"
+        },
+        {
+          "title": "AM-Bench: A Unified Taxonomy and Evaluation Suite for Agentic Misalignment",
+          "authors": "Eric Zhang, Terry Jingchen Zhang, Chijioke Ugwuanyi",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.24264",
+          "tags": [
+            "Anthropic",
+            "Google",
+            "Agent"
+          ],
+          "summary": "As LLM-based agents are deployed with increasing autonomy in real-world environments, a critical failure mode emerges: agentic misalignment, where agents choose harmful actions over failure.\nHowever, existing safety benchmarks primarily evaluate whether agents comply with explicitly harmful instructions, leaving the conditions that cause agents to choose harmful actions poorly understood.\nTo address this limitation, we propose AM-Bench, a unified taxonomy and 35 scenario evaluation benchmark spanning seven industries for agentic misalignment grounded in the fraud triangle, a well-established criminological framework explaining goal-directed misconduct.\nWe adapt this framework to agentic environments and construct our evaluation suite and detection systems along three dimensions: perceived threat, perceived opportunity, and reasoning.\nWe operationalize each dimension into structured subcategories rooted in prior theory: five threat categories derived from the instrumental convergence thesis, seven opportunity categories drawn from the Emergent Strategic Reasoning Risks (ESRR) taxonomy, and a novel four-question binary reasoning framework synthesized from prior literature.\nOur evaluation of 10 frontier models reveals a 62-percentage-point gap in misalignment across scenarios, with Gemini 3 Flash and Gemini 3.1 Pro exhibiting the highest levels of agentic misalignment while Claude Sonnet 4.6 displays near-zero rates across all conditions.\nOur reasoning framework further reveals that models may exhibit harmful behaviours without explicit situational awareness or explanation, complicating both mitigation and detection.\nAM-Bench scenarios and code are available at https://github.com/AI4Collaboration/Agentic-Misalignment-Bench",
+          "highlights": [
+            "AM",
+            "隶属于 cs.AI",
+            "AM-Bench scenarios and code are available at https://github.com/AI4Collaboration/Agentic-Misalignment-Bench"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.24264",
+          "readReason": "AI Agent 是当前研究热点，本文可能包含创新性的设计思路；来自 Anthropic 团队的最新研究工作，值得重点关注其技术路线"
+        },
+        {
+          "title": "IF-MAP: Influence-Function-Inspired Agent Prioritization in Multi-Agent Systems",
+          "authors": "Jie Mao, Pingchen Lu, Zikun Qu",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.24383",
+          "tags": [
+            "DeepSeek",
+            "Qwen",
+            "Agent"
+          ],
+          "summary": "Improving every agent in an LLM-based multi-agent system can be prohibitively costly, making it important to identify which agent should be prioritized to achieve the greatest system-level gain with limited resources.\nFailure attribution can inform this decision, but an agent's responsibility for failures does not directly reveal the system-level gains achievable by improving it.\nWe therefore introduce IF-MAP, an influence-function-inspired method for identifying agents with high potential for system-level improvement.\nFor each agent, IF-MAP measures end-to-end loss changes under controlled semantic prompt perturbations, fits a regularized local response model in a low-dimensional prompt-embedding subspace, and uses the estimated response norm as a priority score.\nThis black-box procedure requires no access to model parameters or gradients and produces agent priorities that can guide subsequent improvement effort.\nWe evaluate IF-MAP across six multi-agent workflows spanning code generation, question answering, and mathematical reasoning, using the same priorities for prompt optimization and model upgrades.\nOptimizing the selected agents' prompts achieves a macro-average gain of 3.81 percentage points, compared with 1.85 for uniform agent selection.\nAcross five target models, upgrading the selected agents yields macro-average gains of 7.62-16.42 percentage points, compared with 3.81-8.62 for uniform agent selection.\nDespite its probing overhead, IF-MAP reduces Qwen3-8B and DeepSeek-V3.2 token use by 74.2% and 35.2%, respectively, relative to optimizing every agent, and reduces target-model tokens by 63.6-64.9% relative to upgrading every agent.\nThese results support the use of IF-MAP to identify promising agents and direct improvement effort toward greater end-to-end performance gains.",
+          "highlights": [
+            "IF",
+            "隶属于 cs.AI, cs.MA",
+            "We therefore introduce IF-MAP, an influence-function-inspired method for identifying agents with high potential for syst"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.24383",
+          "readReason": "AI Agent 是当前研究热点，本文可能包含创新性的设计思路；来自 DeepSeek 团队的最新研究工作，值得重点关注其技术路线"
+        },
+        {
+          "title": "MELD: Recursive Self-Improvement via Hierarchical Coordination for Multi-Agent Scientific Discovery",
+          "authors": "Sizhe Tang, Zuyuan Zhang, Zeyu Fang",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.24454",
+          "tags": [
+            "RSI",
+            "Agent",
+            "Multi-Agent"
+          ],
+          "summary": "Multi-agent scientific discovery with large language models raises a coupled learning problem: research assignments determine both which experiments are pursued and the experiences from which agents adapt.\nWe introduce MELD, a unified hierarchical test-time training framework that jointly adapts a team-level Coordinator policy and agent-level individual Scientist policies within a single discovery process.\nThe Coordinator generates a joint portfolio of search branches and research directives over a shared derivation tree, while Scientists develop hypotheses and execution plans implemented by a shared frozen Executor.\nBoth levels receive alternating GRPO-style parameter updates under a shared smooth best-of-budget objective, allowing team organization and individual research behavior to co-evolve in a recursive self-improvement loop.\nOur analysis establishes objective alignment for the hierarchy, characterizes conditions for coordination gains over independent parallel discovery and the first-order benefit of private adaptation, and derives a finite-budget regret bound for adapted models.\nOn 22 MLGym and MLE-bench tasks, MELD is best on 20 of them and achieves the highest aggregate normalized scores on MLGym, using a 4B backbone for coordination and research.\nMost baselines use proprietary Scientists, and all systems share one frozen Executor.",
+          "highlights": [
+            "MELD",
+            "隶属于 cs.AI",
+            "Most baselines use proprietary Scientists, and all systems share one frozen Executor."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.24454",
+          "readReason": "AI Agent 是当前研究热点，本文可能包含创新性的设计思路；多智能体协作是复杂任务求解的重要范式，本文值得关注"
+        },
+        {
+          "title": "One Skill Takes Over: Clashing Agent Skills and a One-File Fix",
+          "authors": "Parsa Razmara, Seyedarmin Azizi, Ardalan Aryashad",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.25064",
+          "tags": [
+            "OpenAI",
+            "Anthropic",
+            "Qwen"
+          ],
+          "summary": "Agent Skills are instruction files that tell a coding agent how to do one job.\nUsers install skills from many authors, so two skills for the same job can be active at the same time.\nWe ask what a model does when both skill files are in its context: does it combine their compatible rules, or follow one skill and drop the other?\nWe build SkillClash, 16 pairs of same-job skills in which code checks every rule and a reference output shows the best result that can be reached.\nOn seven models from five families, from 4B open models to Qwen3-235B and GPT-4.1, a skill's rules are followed 93 to 99% of the time when it is loaded alone and 61 to 62% when a same-job skill is loaded next to it.\nMost outputs show takeover: every rule that only one skill asks for is followed, and every rule that only the other skill asks for is dropped.\nThe worked examples inside the skills drive this.\nWhen each skill file instead ends with one example that follows both skills, takeover falls to 1 to 15% on the six models we tested.\nTelling the model which skill has priority does not bring the dropped skill back, and telling it to apply both skills brings the dropped skill back only on the two strong models and leaves the interacting rules broken.\nOne merged skill file written by the strongest model we used, Claude Opus 5.5, lets all seven models follow 96 to 99% of the achievable rules.\nMost of its gain over a plain list of both skills' rules comes from its one worked example, and such an example helps only when it is correct.\nCode and data: https://github.com/prazmara/skillclash",
+          "highlights": [
+            "One Skill Takes Over",
+            "隶属于 cs.AI",
+            "Agent Skills are instruction files that tell a coding agent how to do one job."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.25064",
+          "readReason": "来自 OpenAI 团队的最新研究工作，值得重点关注其技术路线；来自 Anthropic 团队的最新研究工作，值得重点关注其技术路线"
+        },
+        {
+          "title": "EvalRx: Agentic Diagnosis and Verified Repair of Foundation Models",
+          "authors": "Jiaqi Liu, Ruinan Jin, Yitong Tang",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.25767",
+          "tags": [
+            "Google",
+            "Qwen",
+            "Agent"
+          ],
+          "summary": "Model evaluation reveals where models fail, but rarely why or whether a proposed fix genuinely works.\nWe introduce EvalRx, an open-source agentic framework for statistically grounded model diagnosis and repair.\nEvalRx discovers systematic failure modes, explores candidate mechanisms, formulates falsifiable hypotheses, and verifies them by executing frozen, pre-specified tests before using supported diagnoses to guide tiered repair.\nCandidate repairs are validated against the unchanged model and promoted only when they improve the target behavior without unacceptable regression.\nAcross language, vision-language, and audio-language settings spanning Gemini, Qwen, Gemma, and Nemotron, EvalRx improves performance in all 12 evaluated model family-modality combinations, with gains ranging from +1.4 to +10.9 percentage points (+5.8 points on average).\nThese results show that model evaluation can serve not only to measure failures, but to support an auditable process for diagnosing and repairing them.",
+          "highlights": [
+            "EvalRx",
+            "隶属于 cs.AI",
+            "Model evaluation reveals where models fail, but rarely why or whether a proposed fix genuinely works."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.25767",
+          "readReason": "AI Agent 是当前研究热点，本文可能包含创新性的设计思路；来自 Google 团队的最新研究工作，值得重点关注其技术路线"
+        },
+        {
+          "title": "BetaMem: Learning to Remember a Changing World for Embodied Agents",
+          "authors": "Mai Liu, He Sun, Siru Zhong",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.26554",
+          "tags": [
+            "Qwen",
+            "RSI",
+            "Agent"
+          ],
+          "summary": "Long-horizon embodied agents face temporal confusion and incomplete or distorted records, recurring errors from fixed memory rules, and growing storage and retrieval costs.\nWe present BetaMem, a framework for building and evolving traceable long-term memory through six linked layers: working, spatial, entity, episodic, experiential, and procedural memory.\nA dual-level write contract constrains operation executability and source support for content: supervised fine-tuning learns compliant memory operations, while reinforcement learning combines repeated sampling with teacher verification of the original observations to reward complete, accurate records and penalize omissions, distortion, and unsupported content.\nWe formulate failure-driven policy recursive self-improvement through diagnosis along the causal sequence of memory operations and local rule repairs gated by independent replay.\nAtomic tools frame storage, updates, retrieval, and forgetting as cost-utility allocation under storage and read budgets.\nUsing the open-source Qwen3.5-9B model for memory generation, BetaMem achieves overall scores of 48.08% on M3-Bench-robot, 92.08% on LoCoMo, 72.6% on OpenEQA EM-EQA, and 62.4% on EgoLifeQA, the highest among the listed memory methods under their respective evaluation protocols.\nTraining the model for memory generation raises the contract pass rate from 50.9% to 86.2% while reducing output tokens per stored action by 47.3%.\nA separate Qwen3-VL-8B-Instruct evaluation on EMem-Bench achieves an average success rate of 38.4% and an average error recurrence rate of 24.9%.\nWe perform best among evaluated methods using comparably sized open-source models.\nCategory results show that we have advantages in integrating information across observations, recalling events over long histories, and inferring personal habits.",
+          "highlights": [
+            "BetaMem",
+            "隶属于 cs.AI",
+            "Atomic tools frame storage, updates, retrieval, and forgetting as cost-utility allocation under storage and read budgets"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.26554",
+          "readReason": "AI Agent 是当前研究热点，本文可能包含创新性的设计思路；递归自改进（RSI）是智能体自我进化的关键方向，本文具有一定的探索价值"
+        },
+        {
+          "title": "OR-License: Evaluating LLM Agents as Real-World Operations Research Practitioners",
+          "authors": "Peisong Wang, Feixue Liu, Yize Meng",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.24087",
+          "tags": [
+            "Anthropic",
+            "RSI",
+            "Agent"
+          ],
+          "summary": "Can large language model (LLM) agents deliver expert-level operations research (OR) solutions directly from original client materials, without prior expert reformulation?\nExisting OR benchmarks typically begin with self-contained descriptions or predefined optimization tasks, underrepresenting the translation of original business materials into professionally validated solutions.\nWe introduce OR-License, an end-to-end benchmark of 31 instances across 10 industrial scenarios from paid OR engagements totaling USD 3.68 million.\nIt preserves original requirements, input data, deliverable formats, and information boundaries after de-identification.\nTo study information acquisition, we introduce ORSim, a controlled client simulator that discloses business facts without supplying OR expertise.\nHidden evaluation checks feasibility and compares objective quality against original expert solutions accepted by clients before benchmark construction.\nDeployment-Adjusted Quality (DAQ) averages expert-relative quality across instances, assigning zero to infeasible deliveries.\nAcross 11 frontier LLMs using coding-agent harnesses, several exceed the expert reference in conditional objective quality, but none matches its DAQ; the strongest primary Claude Code configuration achieves 88.39% strict feasibility and a DAQ of 0.87 against the expert reference of 1.\nClient information acquisition extends beyond clarification into solution development and validation, with some later stages showing higher confirmed issue-resolution proportions.\nTrajectory analysis identifies formulation and implementation failures, while task-equalized research-chain completion rates range from 24% to 45% across models on evaluable tasks.\nThese findings motivate sustained information-gap resolution, faithful problem formulation, and evidence-linked self-improvement for reliable long-horizon agents.",
+          "highlights": [
+            "exceed the expert reference in conditional objective quality",
+            "OR",
+            "隶属于 cs.CL, cs.AI"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.24087",
+          "readReason": "AI Agent 是当前研究热点，本文可能包含创新性的设计思路；递归自改进（RSI）是智能体自我进化的关键方向，本文具有一定的探索价值"
+        },
+        {
+          "title": "Hyper Algorithm Design Agent: Evolving Learnable Optimizer from Zero",
+          "authors": "Zipei Yu, Yue-Jiao Gong, Zeyuan Ma",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2609.35328",
+          "tags": [
+            "RSI",
+            "Agent"
+          ],
+          "summary": "Meta-Black-Box Optimization (MetaBBO) is one of the highlights in the recent AI for Optimization trend.\nThis paradigm's bi-level workflow leverages the learnable algorithm design policy at meta level to ensure the performance and generalization improvement on the low-level optimization task.\nWhile MetaBBO helps advance the performance lower bound of the resulted optimization system, it is currently handcrafted and customized case by case to adapt different optimization problems, which inevitably introduces inherent subjectivity and hence restricts the performance upper bound and usability in practice.\nIn this paper, we address this issue by regarding MetaBBO's design loop as coding task, where we could introduce openendedness into MetaBBO with recursive self-improvement capability of advanced coding agents.\nSpecifically, we propose a dual-agent framework: i) a task agent continuously refines the codebase of a target MetaBBO approach through code evolution; ii) a hyper agent progressively modifies the task agent and itself to provide open-ended design behavior; iii) the evolved MetaBBO codebase is evaluated and all in-execution information is fed back to the agents for recursive self-referential improvement.\nAs a result, given a naive MetaBBO template, our framework automates a design evolution and finds novel variants superior to up-to-date human-made MetaBBO baselines.\nSurprisingly, the experimental results also demonstrate that our framework supports fast adaption across different optimization domains.\nSolid interpretation analysis further reveals interesting design principles emerge in such open-ended process.\nThis work serves as the first exploration on automating design of complex learning-assisted optimization algorithms.",
+          "highlights": [
+            "propose a dual-agent framework",
+            "first exploration on automating design of complex learning-assisted optimization algorithms",
+            "Meta-Black-Box Optimization (MetaBBO) is one of the highlights in the recent AI for Optimization trend."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2609.35328",
+          "readReason": "AI Agent 是当前研究热点，本文可能包含创新性的设计思路；递归自改进（RSI）是智能体自我进化的关键方向，本文具有一定的探索价值"
+        },
+        {
+          "title": "HTN-Orchestrate: A Hierarchical Task Network Framework for Multi-Agent Orchestration",
+          "authors": "Yanchen Deng, Jianguo Huang, Yao Long Teng",
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.22195",
+          "tags": [
+            "DeepSeek",
+            "Agent",
+            "Multi-Agent"
+          ],
+          "summary": "Orchestrating multiple agents on a complex task requires reconciling local subtask execution with global task planning.\nDynamic dispatch approaches provide execution flexibility but do not explicitly model subtask hierarchies or dependencies, while predefined workflows impose this structure but fix the decomposition before execution begins.\nTherefore, we introduce HTN-Orchestrate, a two-layer framework that separates these responsibilities through a hierarchical task network (HTN).\nThe Planner maintains subtask hierarchies and dependencies, deferring decomposition until prerequisite results become available, while local Orchestrators schedule workers to execute each leaf subtask.\nResults propagate upward under \\textbf{AND} semantics, and accumulated findings inform a rebuilt task network when the current decomposition cannot resolve the task.\nOn five benchmarks spanning web research, scientific reasoning, and research workflows, HTN-Orchestrate outperforms ReAct, Agent Team, and DeepSeek Harness using the same base model, achieving 89.73% accuracy on BrowseComp and 73.44% on SUPERChem, exceeding Agent Team by 2.45 and 4.69 percentage points, respectively.",
+          "highlights": [
+            "outperforms ReAct",
+            "HTN",
+            "隶属于 cs.AI, cs.CL"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.22195",
+          "readReason": "AI Agent 是当前研究热点，本文可能包含创新性的设计思路；多智能体协作是复杂任务求解的重要范式，本文值得关注"
+        }
+      ],
+      "papers": [
+        {
+          "id": "A1",
+          "anchorId": "A1",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "BlenderWorld: Benchmarking Visual Agents for 3D Creation from Real-World References",
+          "authors": [
+            "Xinyu Fang",
+            "Yuchi Wang",
+            "Weihao Yu",
+            "Rongyao Fang",
+            "Zhaohai Li",
+            "Zhixun Li",
+            "Tiancheng Gu",
+            "Xilin Wei",
+            "Yuhang Zang",
+            "Hongsheng Li",
+            "Dahua Lin",
+            "Guofeng Zhang",
+            "Shuai Bai",
+            "Zhibo Yang",
+            "Dayiheng Liu"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.23986",
+          "tags": [
+            "OpenAI",
+            "Agent",
+            "Embodied AI"
+          ],
+          "summary": "Recent advances in multimodal large language models (MLLMs) have enabled them to act as autonomous agents, creating and editing 3D models via code or direct software manipulation. 多模态大型语言模型（ MLLM ）的最新进展使它们能够充当自主代理，通过代码或直接软件操作创建和编辑3D模型。\nIn practical workflows, these models must infer object shapes, materials, spatial layouts, and lighting from diverse references while strictly following instructions to reconstruct, modify, or design 3D content. 在实际工作流程中，这些模型必须从不同的参考中推断出对象形状、材质、空间布局和光照，同时严格按照说明重建、修改或设计3D内容。\nHowever, existing benchmarks provide limited coverage of such open-ended requests across real-world scenarios. 但是，现有基准在现实场景中对此类开放式请求的覆盖范围有限。\nTo bridge this gap, we introduce BlenderWorld, the first comprehensive benchmark dedicated to evaluating frontier models on realistic 3D creation tasks. 为了弥合这一差距，我们引入了BlenderWorld ，这是第一个致力于评估逼真3D创建任务的前沿模型的综合基准。\nBlenderWorld comprises 223 tasks spanning architecture, products, natural environments, and scientific visualization, driven by text, image, video, and structured specification inputs. BlenderWorld由223项任务组成，涵盖架构、产品、自然环境和科学可视化，由文本、图像、视频和结构化规范输入驱动。\nTo rigorously assess these complex deliverables, we establish a unified evaluation protocol: we render the submitted Blender projects from multiple viewpoints and evaluate them against 2,651 task-specific binary rubrics alongside holistic visual quality scores. 为了严格评估这些复杂的可交付成果，我们建立了一个统一的评估协议：我们从多个角度渲染提交的Blender项目，并根据2,651个特定任务的二元评分细则表和全面的视觉质量评分进行评估。\nBenchmarking thirteen frontier models reveals that GPT-6-Astra achieves the highest overall fused score of 79.9, followed by Opus-5 (73.0) and GPT-5.6-Sol (67.7). 对13个前沿模型进行基准测试显示， GPT-6-Astra的总体融合得分最高，为79.9 ，其次是Opus-5 （ 73.0 ）和GPT-5.6-Sol （ 67.7 ）。\nUltimately, our findings reveal a critical bottleneck: while current models can parse broad instructions, they still profoundly struggle with fine-grained 3D spatial coherence and accurate structural reproduction in Blender, leaving substantial headroom for future 3D-native agentics. 最终，我们的研究结果揭示了一个关键的瓶颈：虽然当前的模型可以解析广泛的指令，但它们仍然在Blender中与精细的3D空间连贯性和准确的结构复制进行着深刻的斗争，为未来的3D原生代理留下了巨大的空间。",
+          "highlights": [
+            "first comprehensive benchmark dedicated to evaluating frontier models on realistic 3D creation tasks",
+            "BlenderWorld",
+            "隶属于 cs.CV"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.23986",
+          "worthReading": true
+        },
+        {
+          "id": "A2",
+          "anchorId": "A2",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "IndusAgent: Agentic Reinforcement Learning for Cross-Category Industrial Anomaly Detection",
+          "authors": [
+            "Rongbin Tan*",
+            "Fangfang Lin*",
+            "Jinguo Luo*",
+            "Min Qiu",
+            "Kejin Cui",
+            "Mengmeng Wang",
+            "Yi Wang",
+            "Jiyuan Wang",
+            "Yue Wang",
+            "Zhenlong Yuan{\\ddag}",
+            "Shuhan Song{\\S}",
+            "Huawei Cao"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2605.20682",
+          "tags": [
+            "Qwen",
+            "Agentic RL",
+            "Agent"
+          ],
+          "summary": "Small defects in unfamiliar product categories can be difficult to distinguish from benign appearance variations in a global view. 在全球范围内，很难将不熟悉的产品类别中的小缺陷与良性外观变化区分开来。\nAdditional reasoning over the same view may leave this ambiguity unresolved. 对同一视图的其他推理可能会使这种模棱两可的问题得不到解决。\nWe introduce IndusAgent, a Qwen3-VL-8B inspection policy trained through supervised fine-tuning and tool-augmented reinforcement learning for cross-category industrial anomaly detection. 我们引入了IndusAgent ，这是一种Qwen3-VL-8B检测策略，通过监督微调和工具增强强化学习进行培训，用于跨类别工业异常检测。\nThe policy selects among six tools for cropping, enhancement, measurement, within-image comparison, texture analysis, and external visual opinions from Qwen3-VL-Max, then integrates returned observations into a structured diagnosis. 该策略从Qwen3-VL-Max的裁剪、增强、测量、图像内比较、纹理分析和外部视觉意见的六个工具中进行选择，然后将返回的观察结果集成到结构化诊断中。\nIndus-CoT provides 3,000 trajectories from 26 Real-IAD categories, generated with actual tool feedback and screened against annotations after teacher generation. Indus-CoT提供来自26个Real-IAD类别的3,000条轨迹，这些轨迹通过实际工具反馈生成，并在教师生成后对照注释进行筛选。\nGRPO optimizes an accuracy-gated objective that conditions localization, type, and tool rewards, including call costs, on final diagnostic correctness while retaining an independent format reward. GRPO优化了一个精度门控目标，该目标在最终诊断正确性方面为本地化、类型和工具奖励（包括呼叫成本）提供条件，同时保留独立的格式奖励。\nAcross five benchmarks, IndusAgent achieves 83.5% mean balanced accuracy, compared with 79.4% for direct Max inference under the common protocol. 在五个基准中， IndusAgent实现了83.5%的平均平衡精度，而在通用协议下，直接最大推断的准确率为79.4%。\nAcross three training seeds, the five-benchmark mean balanced accuracy is 80.5\\% for a weight-matched ungated control and 83.5% for the gated policy. 在三个训练种子中，对于重量匹配的无门控控制，五基准平均平衡准确率为80.5\\ % ，对于门控策略，平均平衡准确率为83.5%。\nEvaluation uses disjoint product categories and a fixed defect vocabulary. 评估使用不相交的产品类别和固定的缺陷词汇。",
+          "highlights": [
+            "IndusAgent",
+            "隶属于 cs.CV",
+            "Small defects in unfamiliar product categories can be difficult to distinguish from benign appearance variations in a gl"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2605.20682",
+          "worthReading": true
+        },
+        {
+          "id": "A3",
+          "anchorId": "A3",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "CoEvo-RSI: When Harnesses Evolve, Which Models Should Follow?",
+          "authors": [
+            "Jiaqi Su",
+            "Guibin Zhang",
+            "Jie-Jing Shao",
+            "Cong Pang",
+            "Tiankuo Yao",
+            "Ivor Tsang",
+            "Haiyan Yin",
+            "Shuicheng Yan"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.25078",
+          "tags": [
+            "DeepSeek",
+            "Qwen",
+            "RSI"
+          ],
+          "summary": "Model--harness co-evolution has emerged as a prominent paradigm for recursive self-improving (RSI) agents, jointly evolving their execution scaffolds and intrinsic capabilities. 模型- Harness协同进化已成为递归自我改善（ RSI ）代理的突出范例，共同发展其执行支架和内在能力。\nWe study the persistent yet often overlooked brain--body mismatch problem in this paradigm, where an evolving harness (body) demands behaviors its model (brain) has not learned or restricts capabilities it already possesses. 我们研究了这种范式中持续存在但经常被忽视的大脑-身体错配问题，在这种范式中，不断发展的线束（身体）要求其模型（大脑）尚未学习的行为或限制其已经拥有的能力。\nWe introduce CoEvo-RSI, a RSI framework that advances model--harness co-evolution through agent-driven, bidirectional historical inheritance. 我们引入了CoEvo-RSI ，这是一个RSI框架，它通过代理驱动的双向历史继承来推进模型- Harness协同进化。\nDrawing on a shared evolutionary archive and execution feedback, a meta-agent coordinates harness development from historical designs with model checkpoint selection or merging and subsequent adaptation under the selected harness, aligning inherited capabilities with evolving execution requirements to reduce brain--body mismatch. 借助共享的进化存档和执行反馈，元代理通过模型检查点选择或合并以及所选线束下的后续适应来协调历史设计中的线束开发，使继承的能力与不断变化的执行要求保持一致，以减少脑-身体不匹配。\nUsing only supervised fine-tuning (SFT) on its own rejection-sampled trajectories, CoEvo-RSI makes Qwen3.5-9B competitive with larger models across diverse vertical applications, including multi-agent failure attribution, role-aware text-to-SQL, and smart-home instruction following. CoEvo-RSI仅在其自身的剔除采样轨迹上使用监督微调（ SFT ） ，使Qwen3.5-9B在不同的垂直应用中与更大的模型竞争，包括多代理失败归因、角色感知文本到SQL和智能家居指令跟踪。\nIt surpasses DeepSeek-V4-Pro on TraceElephant (+14.16 agent accuracy) and GLM-5.3 on HomeBench VM (+4.90 success rate), underscoring the need for brain--body alignment and the potential of bidirectional historical inheritance to advance agent co-evolution. 它超过了TraceElephant上的DeepSeek-V4-Pro （ +14.16药剂准确度）和HomeBench VM上的GLM-5.3 （ +4.90成功率） ，强调了大脑-身体对齐的必要性以及双向历史遗传的潜力，以促进药剂的共同进化。",
+          "highlights": [
+            "surpasses DeepSeek-V4-Pro on TraceElephant (+14",
+            "CoEvo",
+            "隶属于 cs.LG, cs.CL"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.25078",
+          "worthReading": true
+        },
+        {
+          "id": "A4",
+          "anchorId": "A4",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "Zephyrus-R1: Agentic Reinforcement Learning for Weather Reporting",
+          "authors": [
+            "Fengfei Yu",
+            "Marshall Fisher",
+            "Isadora White",
+            "Sumanth Varambally",
+            "Yasaman Jafari",
+            "Shivam Yadav",
+            "Samuel M. Bartlett",
+            "Shawn Roj",
+            "Benjamin J. Moore",
+            "Michael D. Warner",
+            "Luyu Han",
+            "Zhirui Xia",
+            "Duncan Watson-Parris",
+            "Taylor Berg-Kirkpatrick",
+            "Yian Ma",
+            "Rose Yu"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.25625",
+          "tags": [
+            "OpenAI",
+            "Qwen",
+            "Kimi"
+          ],
+          "summary": "Reinforcement learning (RL) has emerged as a key method for training AI models in scientific applications, but RL remains difficult when outputs cannot easily be verified against a known ground-truth answer. 强化学习（ RL ）已成为在科学应用中训练人工智能模型的关键方法，但当无法根据已知的地面真实答案轻松验证输出时， RL仍然很困难。\nNatural-language weather forecast reports are one such domain: they translate atmospheric data into assessments of weather evolution, hazards, and uncertainty for both the general public and key decision-makers. 自然语言天气预报报告就是这样一个领域：它们将大气数据转化为公众和关键决策者对天气演变、灾害和不确定性的评估。\nUnlike numerical weather-analysis questions, they admit many valid outputs, which limits deterministic verification. 与数值天气分析问题不同，它们承认许多有效的输出，这限制了确定性验证。\nTo address this, we develop Zephyrus-R1, a practical framework for RL on scientific weather forecast reporting. 为了解决这个问题，我们开发了Zephyrus-R1 ，这是科学天气预报报告的实用框架。\nWe focus on three key components of the agentic RL pipeline: reward design, curriculum learning, and an analysis of human-expert alignment. 我们专注于代理RL管道的三个关键组成部分：奖励设计、课程学习和人与专家对齐分析。\nTo encourage both report legibility and factual accuracy, we design a reward function that combines a meteorological rubric with bidirectional claim entailment, both evaluated against National Weather Service reference reports. 为了鼓励报告清晰度和事实准确性，我们设计了一个奖励函数，将气象分类和双向索赔相结合，两者都根据国家气象局参考报告进行了评估。\nOur framework optimizes this reward in a simulated tool-calling environment, enabling vision-language agents to gather and analyze forecast evidence across regions and lead times before producing a report. 我们的框架在模拟工具调用环境中优化此奖励，使视觉语言代理能够在生成报告之前收集和分析跨地区和交付周期的预测证据。\nWe use annotations from three meteorologists to audit the claim labels produced by our LLM judges. 我们使用三位气象学家的注释来审核法学硕士评委制作的索赔标签。\nFinally, a curriculum helps small models first develop tool use and scientific reasoning through RL on verifiable weather-analysis questions, then optimize the open-ended report reward. 最后，课程帮助小模型首先通过RL在可验证的天气分析问题上开发工具使用和科学推理，然后优化开放式报告奖励。\nAfter training Qwen3.5-4B with Zephyrus-R1, we improve the mean across six judge-metric scores by 26% over the base model and achieve results competitive with frontier open-weight models. 在使用Zephyrus-R1训练Qwen3.5-4B之后，我们将六个判断指标的平均分比基本模型提高了26% ，并实现了与前沿开放权重模型竞争的结果。\nFor Qwen3.8-27B, we improve the same mean by 13% over the base model, by 6.7% over Kimi-K3, and by 2.7% over GPT-5.6-Luna. 对于Qwen3.8-27B ，我们将相同的平均值比基本模型提高了13% ，比Kimi-K3提高了6.7% ，比GPT-5.6-Luna提高了2.7%。",
+          "highlights": [
+            "first develop tool use and scientific reasoning through RL on verifiable weather-analysis questions",
+            "Zephyrus",
+            "隶属于 cs.LG"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.25625",
+          "worthReading": true
+        },
+        {
+          "id": "A5",
+          "anchorId": "A5",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "HarnessPro: Recursive Harness Self-Improvement with Pareto Optimization for Performance-Cost Trade-offs",
+          "authors": [
+            "Zhuoshi Pan",
+            "ZhiYuan Feng",
+            "Yukuo Cen",
+            "Honglin Lin",
+            "Junru Lu",
+            "Zhongxia Chen",
+            "Shuo Yang",
+            "H. Vicky Zhao",
+            "Jie Tang"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.26770",
+          "tags": [
+            "OpenAI",
+            "Anthropic",
+            "RSI"
+          ],
+          "summary": "Harness development plays a crucial role in building capable AI agents. 线束开发在构建有能力的人工智能代理中起着至关重要的作用。\nRecent approaches improve harnesses through recursive self-improvement (RSI), but their performance gains often come with higher execution costs. 最近的方法通过递归自我改进（ RSI ）来改进线束，但其性能提升通常伴随着更高的执行成本。\nWe introduce HarnessPro, a label-free method for evolving harnesses to improve task performance while reducing execution cost. 我们引入了HarnessPro ，这是一种无标签的方法，用于改进线束，以提高任务性能，同时降低执行成本。\nIn this setting, candidate harnesses are evaluated using LLM-generated tests without access to ground-truth solutions or official tests. 在此设置中，候选线束使用LLM生成的测试进行评估，而无需访问地面真相解决方案或官方测试。\nSpecialized agents diagnose execution trajectories, plan updates with different performance-cost priorities, and implement them as candidate harnesses. 专业代理诊断执行轨迹，使用不同的绩效成本优先级计划更新，并将其作为候选工具来实施。\nRather than returning a single harness, HarnessPro uses normalized weighted squared-distance selection to provide cost-focused (lite), balanced (medium), and performance-focused (heavy) harnesses for different deployment budgets.\nSelected harnesses enter the next iteration, where execution feedback guides further updates.\nOur experiments cover Terminal-Bench 2, SWE-Bench Pro, and ProgramBench, using GPT-5.5 with Codex and GLM-5.2 with Claude Code.\nAcross these benchmarks using GPT-5.5 with Codex, the heavy mode of HarnessPro achieves an average pass-rate gain of 2.0 percentage points and an average per-task cost reduction of 26.1% relative to RHO.\nThis advantage also holds when using GLM-5.2 with Claude Code.\nCode is available at https://github.com/pzs19/HarnessPro",
+          "highlights": [
+            "HarnessPro",
+            "隶属于 cs.LG, cs.CL",
+            "Harness development plays a crucial role in building capable AI agents."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.26770",
+          "worthReading": true
+        },
+        {
+          "id": "A6",
+          "anchorId": "A6",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "Compile Once, Run Cheap: Frozen, Portable Skills for Embodied Agents, and What Recursive Self-Improvement Adds",
+          "authors": [
+            "Jingwen Bai",
+            "Guochao Bai",
+            "Canbo Zhang",
+            "Shuangqi Li",
+            "Minchao Hu",
+            "Weichun Huang",
+            "Shuang Liu"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.25114",
+          "tags": [
+            "Anthropic",
+            "DeepSeek",
+            "RSI"
+          ],
+          "summary": "Embodied AI lacks the data-rich pretraining that gave language models their agents and skills, so new manipulation capability costs demonstrations per task or a frontier model in every episode.\nWe study a third route: a strong general model acts only as an offline author that writes, runs, diagnoses and repairs a manipulation skill in simulation until it passes an exam on layouts drawn after freezing; the frozen skill then runs as code alone or under a cheap caller that reads only its description.\nWe call this skill-level recursive self-improvement Skill-RSI and specify a compile protocol (isolated, audited author; hidden validation layouts; no-feedback and inherit-only controls; tamper-evident ledger) and a reuse protocol that runs the identical files with executors from another model family.\nOn 7 RoboTwin 2.0 tasks with cluttered tables, Claude Code compiled 4 tasks into 7 frozen skills, 5 from a first draft needing only qualification, at USD 4.29-8.22 of author cost each (USD 55 per skill counting the 13 failed campaigns).\nThe other three tasks did not compile in 18 campaigns, including five with GPT-6 and a pre-registered 150-layout run: on the hardest task every campaign scored 78-95 of 100 but had 3-16 safety aborts, failing the gate of 95% success with zero aborts; a 100-episode exam bounds an abort rate only to 3.6%.\nOn hidden layouts, repair that inherits the previous version beat from-scratch rewriting in 8 of 8 controlled campaigns (sign test p = 0.004); an inherit-only lineage attributes most of the gap to inheritance, with development feedback adding a little (3 of 3, p = 0.125).\nWrite-once campaigns found no detectable first-draft effect of practice (minimum detectable effect 14 points).\nThe frozen skills kept 148/150 successes on new layouts with no model and 147/150 with a DeepSeek-flash caller at USD 0.00028-0.00054 per episode; no direct-control baseline was run.",
+          "highlights": [
+            "first draft needing only qualification",
+            "Compile Once, Run Cheap",
+            "隶属于 cs.RO, cs.AI"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.25114",
+          "worthReading": true
+        },
+        {
+          "id": "A7",
+          "anchorId": "A7",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "MOSAIC: More LLMs, Less Cost through Collaborative Reasoning for Compiler Optimizations",
+          "authors": [
+            "Annabelle Sujun Tang",
+            "Christopher Priebe",
+            "Lianhui Qin",
+            "Hadi Esmaeilzadeh"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2602.01935",
+          "tags": [
+            "OpenAI",
+            "Meta",
+            "Agent"
+          ],
+          "summary": "LLM-guided compiler optimization has recently shown promise.\nHowever, current LLM-guided optimizers query a single LLM at every search step, so their cost grows with both that model's price and the search budget.\nA smaller model is cheaper but degrades the search: in our experiments, a recent single-LLM optimizer reaches 10.2% (6.0%) lower speedup on GPU (CPU) with gpt-5-mini than with GPT-5.2.\nAgentic multi-LLM frameworks add controllers, concurrent calls, and shared memory, whose overhead can offset the savings of cheaper models.\nThis paper shows that the optimization search tree itself can coordinate heterogeneous LLMs: the tree already records which proposals improved the program, and we can augment the tree to record which model made them.\nThat evidence can then be used to decide which model should propose next.\nTo this end, we introduce MOSAIC, in which each Monte Carlo tree search (MCTS) node records a program and the LLM that expands it, and the active LLM proposes both a compiler transformation and the LLM for the next step.\nWe also contribute an LLM-aware UCT that favors smaller models and a course-alteration rule that invokes the largest model only after repeated small-model regressions.\nAgainst that single-LLM optimizer run with GPT-5.2 alone and the same number of search iterations and tree parameters, on an NVIDIA GPU (Intel CPU), MOSAIC with eight LLMs improves the geometric-mean speedup on five kernels by 7.2% (14.4%) and the end-to-end Llama-3-8B speedup by 1.61x (1.41x), while reducing kernel compilation time by 1.95x (1.74x) and API cost by 4.47x (4.32x), with GPT-5.2 making only 23.1% (23.9%) of LLM calls.\nWith the same eight models, random or round-robin model choice improves over the single-LLM baseline by only 2.5% on CPU, showing that the gains come from letting the LLMs choose the next model rather than from mixing the pool at random.",
+          "highlights": [
+            "MOSAIC",
+            "隶属于 cs.LG, cs.AI",
+            "LLM-guided compiler optimization has recently shown promise."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2602.01935",
+          "worthReading": true
+        },
+        {
+          "id": "A8",
+          "anchorId": "A8",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "RLTLDR: Self-improvement by Internalizing Self-generated Feedback",
+          "authors": [
+            "Michael Kirchhof",
+            "Eleonora Gualdoni",
+            "Andrew Szot",
+            "Khashayar Gatmiry",
+            "Aryo Lotfi",
+            "Abbas Kazerouni",
+            "Omar Attia",
+            "Sanjoy Chowdhury",
+            "Alexander Toshev"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2609.37633",
+          "tags": [
+            "Qwen",
+            "Agentic RL",
+            "RSI"
+          ],
+          "summary": "The common paradigm of reinforcement learning with verifiable rewards (RLVR) is to let agents make multiple attempts at a task, and optimize towards the successful ones.\nThis becomes problematic in the realms of self-improvement, where tasks are so difficult that the agent has a low or even no chance of success, and where there are no teacher models or example solutions to distill from.\nIn this paper, we introduce RLTLDR.\nAfter each failed attempt, we show the policy the verifier outputs and let it write its own feedback, in the form of a single TL;DR insight.\nThe next rollout is conditioned on all previous insights, and we sequentially sample rollouts until a solution is found.\nMoreover, we enable backpropagation on the in-context insights to internalize a direct task to insight mapping.\nOn challenging tool-calling and coding datasets (filtered to Pass@128=0), standard GRPO training of a Qwen 3.5 9B Thinking policy stays flat at a Pass@1 of 0% to 1%.\nRLTLDR breaks through this learning barrier, achieving a Pass@1 of 14-31% with insights in context during training and, crucially, 12-13% when no insight is in context at eval time.\nWe identify that the key is the task to insight internalization.\nTo study this further, we reduce our approach to SFTLDR, training only on (task, insight) tuples, without showing or backpropagating on any rollouts.\nTraining on only 4k of these tuples recovers almost the full performance of RLTLDR and classical SFT on full rollouts.\nThis demonstrates a promising compacted training paradigm of the form \"on this sort of task, keep this sort of thing in mind\", which we hope to inspire future research on.",
+          "highlights": [
+            "RLTLDR",
+            "隶属于 cs.LG, cs.AI",
+            "In this paper, we introduce RLTLDR."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2609.37633",
+          "worthReading": true
+        },
+        {
+          "id": "A9",
+          "anchorId": "A9",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "OpenCollab: A Multi-Agent Coding Framework with Programmable Collaboration and Controllable Runtime",
+          "authors": [
+            "Chun-Wah Hsu",
+            "Kai Gong",
+            "Yu Wu",
+            "Xianhe Chen",
+            "Mengyang Liu",
+            "Jie Li",
+            "Hanyu Li",
+            "Zhixuan Liu",
+            "Naisheng Tang",
+            "Jiaying Chi",
+            "Ziheng Fan",
+            "Xuning He",
+            "Xiaokang Yang",
+            "Xue Jiang",
+            "Yihong Dong"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2609.38345",
+          "tags": [
+            "Anthropic",
+            "Agent",
+            "Multi-Agent"
+          ],
+          "summary": "Multi-agent coding systems are designed to tackle complex software engineering tasks through collaboration.\nHowever, existing evaluations typically assume configured organizations are followed faithfully, whereas reality differs.\nThis behavioral gap, combined with differences in underlying system components, prevents clear attribution of observed gains.\nTo this end, we introduce OpenCollab, a multi-agent coding framework that provides a unified infrastructure for programmable collaboration and controllable runtime.\nSpecifically, OpenCollab unifies organization design, enforces experimental control on a shared runtime, and tracks execution through fine-grained event streams.\nOn this basis, we define Adherence to quantify whether the declared organization is actually realized.\nOur experiments reveal that agents collaborate very differently across configurations: changing any single dimension shifts Adherence, from 47.2% to as high as 97.2%.\nFurthermore, extensive agentic coding benchmarks show that OpenCollab (Duo) establishes new SOTA performance compared to the mainstream harnesses such as Mini-SWE-agent, OpenHands, Codex CLI, and Claude Code, showing that a well-designed organization can outperform strong existing harnesses, while OpenCollab's single-agent configuration uses the fewest tokens across all evaluated suites.\nOpenCollab establishes a unified multi-agent infrastructure for easy programmable collaboration and controlled causal evaluation.",
+          "highlights": [
+            "outperform strong existing harnesses",
+            "OpenCollab",
+            "隶属于 cs.SE, cs.AI"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2609.38345",
+          "worthReading": true
+        },
+        {
+          "id": "A10",
+          "anchorId": "A10",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "AM-Bench: A Unified Taxonomy and Evaluation Suite for Agentic Misalignment",
+          "authors": [
+            "Eric Zhang",
+            "Terry Jingchen Zhang",
+            "Chijioke Ugwuanyi",
+            "Jerick Shi",
+            "Bernhard Sch\\\"olkopf",
+            "Zhijing Jin"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.24264",
+          "tags": [
+            "Anthropic",
+            "Google",
+            "Agent"
+          ],
+          "summary": "As LLM-based agents are deployed with increasing autonomy in real-world environments, a critical failure mode emerges: agentic misalignment, where agents choose harmful actions over failure.\nHowever, existing safety benchmarks primarily evaluate whether agents comply with explicitly harmful instructions, leaving the conditions that cause agents to choose harmful actions poorly understood.\nTo address this limitation, we propose AM-Bench, a unified taxonomy and 35 scenario evaluation benchmark spanning seven industries for agentic misalignment grounded in the fraud triangle, a well-established criminological framework explaining goal-directed misconduct.\nWe adapt this framework to agentic environments and construct our evaluation suite and detection systems along three dimensions: perceived threat, perceived opportunity, and reasoning.\nWe operationalize each dimension into structured subcategories rooted in prior theory: five threat categories derived from the instrumental convergence thesis, seven opportunity categories drawn from the Emergent Strategic Reasoning Risks (ESRR) taxonomy, and a novel four-question binary reasoning framework synthesized from prior literature.\nOur evaluation of 10 frontier models reveals a 62-percentage-point gap in misalignment across scenarios, with Gemini 3 Flash and Gemini 3.1 Pro exhibiting the highest levels of agentic misalignment while Claude Sonnet 4.6 displays near-zero rates across all conditions.\nOur reasoning framework further reveals that models may exhibit harmful behaviours without explicit situational awareness or explanation, complicating both mitigation and detection.\nAM-Bench scenarios and code are available at https://github.com/AI4Collaboration/Agentic-Misalignment-Bench",
+          "highlights": [
+            "AM",
+            "隶属于 cs.AI",
+            "AM-Bench scenarios and code are available at https://github.com/AI4Collaboration/Agentic-Misalignment-Bench"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.24264",
+          "worthReading": true
+        },
+        {
+          "id": "A11",
+          "anchorId": "A11",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "IF-MAP: Influence-Function-Inspired Agent Prioritization in Multi-Agent Systems",
+          "authors": [
+            "Jie Mao",
+            "Pingchen Lu",
+            "Zikun Qu",
+            "Jiahang Sun",
+            "Xiangyi Wang",
+            "Zhiwei Shang",
+            "Zhiyong Wang",
+            "Guojun Xiong",
+            "Zhongxiang Dai"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.24383",
+          "tags": [
+            "DeepSeek",
+            "Qwen",
+            "Agent"
+          ],
+          "summary": "Improving every agent in an LLM-based multi-agent system can be prohibitively costly, making it important to identify which agent should be prioritized to achieve the greatest system-level gain with limited resources.\nFailure attribution can inform this decision, but an agent's responsibility for failures does not directly reveal the system-level gains achievable by improving it.\nWe therefore introduce IF-MAP, an influence-function-inspired method for identifying agents with high potential for system-level improvement.\nFor each agent, IF-MAP measures end-to-end loss changes under controlled semantic prompt perturbations, fits a regularized local response model in a low-dimensional prompt-embedding subspace, and uses the estimated response norm as a priority score.\nThis black-box procedure requires no access to model parameters or gradients and produces agent priorities that can guide subsequent improvement effort.\nWe evaluate IF-MAP across six multi-agent workflows spanning code generation, question answering, and mathematical reasoning, using the same priorities for prompt optimization and model upgrades.\nOptimizing the selected agents' prompts achieves a macro-average gain of 3.81 percentage points, compared with 1.85 for uniform agent selection.\nAcross five target models, upgrading the selected agents yields macro-average gains of 7.62-16.42 percentage points, compared with 3.81-8.62 for uniform agent selection.\nDespite its probing overhead, IF-MAP reduces Qwen3-8B and DeepSeek-V3.2 token use by 74.2% and 35.2%, respectively, relative to optimizing every agent, and reduces target-model tokens by 63.6-64.9% relative to upgrading every agent.\nThese results support the use of IF-MAP to identify promising agents and direct improvement effort toward greater end-to-end performance gains.",
+          "highlights": [
+            "IF",
+            "隶属于 cs.AI, cs.MA",
+            "We therefore introduce IF-MAP, an influence-function-inspired method for identifying agents with high potential for syst"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.24383",
+          "worthReading": true
+        },
+        {
+          "id": "A12",
+          "anchorId": "A12",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "One Skill Takes Over: Clashing Agent Skills and a One-File Fix",
+          "authors": [
+            "Parsa Razmara",
+            "Seyedarmin Azizi",
+            "Ardalan Aryashad"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.25064",
+          "tags": [
+            "OpenAI",
+            "Anthropic",
+            "Qwen"
+          ],
+          "summary": "Agent Skills are instruction files that tell a coding agent how to do one job.\nUsers install skills from many authors, so two skills for the same job can be active at the same time.\nWe ask what a model does when both skill files are in its context: does it combine their compatible rules, or follow one skill and drop the other?\nWe build SkillClash, 16 pairs of same-job skills in which code checks every rule and a reference output shows the best result that can be reached.\nOn seven models from five families, from 4B open models to Qwen3-235B and GPT-4.1, a skill's rules are followed 93 to 99% of the time when it is loaded alone and 61 to 62% when a same-job skill is loaded next to it.\nMost outputs show takeover: every rule that only one skill asks for is followed, and every rule that only the other skill asks for is dropped.\nThe worked examples inside the skills drive this.\nWhen each skill file instead ends with one example that follows both skills, takeover falls to 1 to 15% on the six models we tested.\nTelling the model which skill has priority does not bring the dropped skill back, and telling it to apply both skills brings the dropped skill back only on the two strong models and leaves the interacting rules broken.\nOne merged skill file written by the strongest model we used, Claude Opus 5.5, lets all seven models follow 96 to 99% of the achievable rules.\nMost of its gain over a plain list of both skills' rules comes from its one worked example, and such an example helps only when it is correct.\nCode and data: https://github.com/prazmara/skillclash",
+          "highlights": [
+            "One Skill Takes Over",
+            "隶属于 cs.AI",
+            "Agent Skills are instruction files that tell a coding agent how to do one job."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.25064",
+          "worthReading": true
+        },
+        {
+          "id": "A13",
+          "anchorId": "A13",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "EvalRx: Agentic Diagnosis and Verified Repair of Foundation Models",
+          "authors": [
+            "Jiaqi Liu",
+            "Ruinan Jin",
+            "Yitong Tang",
+            "Beidi Zhao",
+            "Gexin Huang",
+            "Qiong Zhang",
+            "Xiaoxiao Li"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.25767",
+          "tags": [
+            "Google",
+            "Qwen",
+            "Agent"
+          ],
+          "summary": "Model evaluation reveals where models fail, but rarely why or whether a proposed fix genuinely works.\nWe introduce EvalRx, an open-source agentic framework for statistically grounded model diagnosis and repair.\nEvalRx discovers systematic failure modes, explores candidate mechanisms, formulates falsifiable hypotheses, and verifies them by executing frozen, pre-specified tests before using supported diagnoses to guide tiered repair.\nCandidate repairs are validated against the unchanged model and promoted only when they improve the target behavior without unacceptable regression.\nAcross language, vision-language, and audio-language settings spanning Gemini, Qwen, Gemma, and Nemotron, EvalRx improves performance in all 12 evaluated model family-modality combinations, with gains ranging from +1.4 to +10.9 percentage points (+5.8 points on average).\nThese results show that model evaluation can serve not only to measure failures, but to support an auditable process for diagnosing and repairing them.",
+          "highlights": [
+            "EvalRx",
+            "隶属于 cs.AI",
+            "Model evaluation reveals where models fail, but rarely why or whether a proposed fix genuinely works."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.25767",
+          "worthReading": true
+        },
+        {
+          "id": "A14",
+          "anchorId": "A14",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "BetaMem: Learning to Remember a Changing World for Embodied Agents",
+          "authors": [
+            "Mai Liu",
+            "He Sun",
+            "Siru Zhong",
+            "Kerun Chen",
+            "Hao Yan",
+            "Xiaohui Lv",
+            "Shuai Tao",
+            "Wulong Liu"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.26554",
+          "tags": [
+            "Qwen",
+            "RSI",
+            "Agent"
+          ],
+          "summary": "Long-horizon embodied agents face temporal confusion and incomplete or distorted records, recurring errors from fixed memory rules, and growing storage and retrieval costs.\nWe present BetaMem, a framework for building and evolving traceable long-term memory through six linked layers: working, spatial, entity, episodic, experiential, and procedural memory.\nA dual-level write contract constrains operation executability and source support for content: supervised fine-tuning learns compliant memory operations, while reinforcement learning combines repeated sampling with teacher verification of the original observations to reward complete, accurate records and penalize omissions, distortion, and unsupported content.\nWe formulate failure-driven policy recursive self-improvement through diagnosis along the causal sequence of memory operations and local rule repairs gated by independent replay.\nAtomic tools frame storage, updates, retrieval, and forgetting as cost-utility allocation under storage and read budgets.\nUsing the open-source Qwen3.5-9B model for memory generation, BetaMem achieves overall scores of 48.08% on M3-Bench-robot, 92.08% on LoCoMo, 72.6% on OpenEQA EM-EQA, and 62.4% on EgoLifeQA, the highest among the listed memory methods under their respective evaluation protocols.\nTraining the model for memory generation raises the contract pass rate from 50.9% to 86.2% while reducing output tokens per stored action by 47.3%.\nA separate Qwen3-VL-8B-Instruct evaluation on EMem-Bench achieves an average success rate of 38.4% and an average error recurrence rate of 24.9%.\nWe perform best among evaluated methods using comparably sized open-source models.\nCategory results show that we have advantages in integrating information across observations, recalling events over long histories, and inferring personal habits.",
+          "highlights": [
+            "BetaMem",
+            "隶属于 cs.AI",
+            "Atomic tools frame storage, updates, retrieval, and forgetting as cost-utility allocation under storage and read budgets"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.26554",
+          "worthReading": true
+        },
+        {
+          "id": "A15",
+          "anchorId": "A15",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "OR-License: Evaluating LLM Agents as Real-World Operations Research Practitioners",
+          "authors": [
+            "Peisong Wang",
+            "Feixue Liu",
+            "Yize Meng",
+            "Bowen Liu",
+            "Ruoyu Chen",
+            "Gaoyang Dai",
+            "Xing He",
+            "Aiqian Li",
+            "Fengchi Yuan",
+            "Aochuan Chen",
+            "Chenyi Zi",
+            "Yuhan Li",
+            "Hongchuan Zeng",
+            "Yimo Yan",
+            "Nuo Chen",
+            "Jie Fu",
+            "Zuo-Jun Max Shen",
+            "Yong-Hong KUO",
+            "Jia Li"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.24087",
+          "tags": [
+            "Anthropic",
+            "RSI",
+            "Agent"
+          ],
+          "summary": "Can large language model (LLM) agents deliver expert-level operations research (OR) solutions directly from original client materials, without prior expert reformulation?\nExisting OR benchmarks typically begin with self-contained descriptions or predefined optimization tasks, underrepresenting the translation of original business materials into professionally validated solutions.\nWe introduce OR-License, an end-to-end benchmark of 31 instances across 10 industrial scenarios from paid OR engagements totaling USD 3.68 million.\nIt preserves original requirements, input data, deliverable formats, and information boundaries after de-identification.\nTo study information acquisition, we introduce ORSim, a controlled client simulator that discloses business facts without supplying OR expertise.\nHidden evaluation checks feasibility and compares objective quality against original expert solutions accepted by clients before benchmark construction.\nDeployment-Adjusted Quality (DAQ) averages expert-relative quality across instances, assigning zero to infeasible deliveries.\nAcross 11 frontier LLMs using coding-agent harnesses, several exceed the expert reference in conditional objective quality, but none matches its DAQ; the strongest primary Claude Code configuration achieves 88.39% strict feasibility and a DAQ of 0.87 against the expert reference of 1.\nClient information acquisition extends beyond clarification into solution development and validation, with some later stages showing higher confirmed issue-resolution proportions.\nTrajectory analysis identifies formulation and implementation failures, while task-equalized research-chain completion rates range from 24% to 45% across models on evaluable tasks.\nThese findings motivate sustained information-gap resolution, faithful problem formulation, and evidence-linked self-improvement for reliable long-horizon agents.",
+          "highlights": [
+            "exceed the expert reference in conditional objective quality",
+            "OR",
+            "隶属于 cs.CL, cs.AI"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.24087",
+          "worthReading": true
+        },
+        {
+          "id": "A16",
+          "anchorId": "A16",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "HTN-Orchestrate: A Hierarchical Task Network Framework for Multi-Agent Orchestration",
+          "authors": [
+            "Yanchen Deng",
+            "Jianguo Huang",
+            "Yao Long Teng",
+            "Yixuan Li",
+            "Handuo Zhang",
+            "Ning Wang",
+            "Liangcai Su",
+            "Xinyu Wang",
+            "Bo An"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.22195",
+          "tags": [
+            "DeepSeek",
+            "Agent",
+            "Multi-Agent"
+          ],
+          "summary": "Orchestrating multiple agents on a complex task requires reconciling local subtask execution with global task planning.\nDynamic dispatch approaches provide execution flexibility but do not explicitly model subtask hierarchies or dependencies, while predefined workflows impose this structure but fix the decomposition before execution begins.\nTherefore, we introduce HTN-Orchestrate, a two-layer framework that separates these responsibilities through a hierarchical task network (HTN).\nThe Planner maintains subtask hierarchies and dependencies, deferring decomposition until prerequisite results become available, while local Orchestrators schedule workers to execute each leaf subtask.\nResults propagate upward under \\textbf{AND} semantics, and accumulated findings inform a rebuilt task network when the current decomposition cannot resolve the task.\nOn five benchmarks spanning web research, scientific reasoning, and research workflows, HTN-Orchestrate outperforms ReAct, Agent Team, and DeepSeek Harness using the same base model, achieving 89.73% accuracy on BrowseComp and 73.44% on SUPERChem, exceeding Agent Team by 2.45 and 4.69 percentage points, respectively.",
+          "highlights": [
+            "outperforms ReAct",
+            "HTN",
+            "隶属于 cs.AI, cs.CL"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.22195",
+          "worthReading": true
+        },
+        {
+          "id": "A17",
+          "anchorId": "A17",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "Agentic AI -- Physicist Collaboration in Experimental Particle Physics: A Proof-of-Concept Measurement with LEP Open Data",
+          "authors": [
+            "Anthony Badea",
+            "Marcello Maggi",
+            "Christopher McGinn",
+            "Austin Baty",
+            "Yi Chen",
+            "Hannah Bossi",
+            "Gian Michele Innocenti",
+            "Jingyu Zhang",
+            "Yu-Chen Chen",
+            "Tzu-An Sheng",
+            "Yen-Jie Lee",
+            "Electron-Positron Alliance"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2603.05735",
+          "tags": [
+            "OpenAI",
+            "Anthropic",
+            "Agent"
+          ],
+          "summary": "We present an agentic measurement of the thrust distribution in $e^{+}e^{-}$ collisions at $\\sqrt{s}=91.2$ GeV using ALEPH archived data.\nThis work was carried out through an AI agent-physicist collaboration, using interactive natural-language prompting of Anthropic Claude and OpenAI Codex.\nUnder physicist guidance, the agents wrote and executed all analysis code and drafted the majority of the text included in this paper.\nA fully-corrected thrust spectrum is obtained via Iterative Bayesian Unfolding and Monte Carlo based corrections.\nThe principal contribution of this work is the demonstration of the agentic analysis, with thrust serving as a benchmark observable for the method.\nDedicated precision measurements of thrust are reported in the community elsewhere.\nThis work represents a step toward a theory-experiment loop in which AI agents assist with experimental measurements and theoretical calculations, and synthesize insights by comparing the results, thereby accelerating the cycle that drives discovery in fundamental physics.\nOur work suggests that precision physics, leveraging the open LEP data and advanced theoretical landscape, provides an ideal testing ground for developing AI agent systems for scientific applications.",
+          "highlights": [
+            "Agentic AI",
+            "隶属于 hep-ex, cs.AI",
+            "We present an agentic measurement of the thrust distribution in $e^{+}e^{-}$ collisions at $\\sqrt{s}=91.2$ GeV using ALE"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2603.05735",
+          "worthReading": false
+        },
+        {
+          "id": "A18",
+          "anchorId": "A18",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "EditPPT: Structured Execution and Evaluation for Reliable Slide Editing",
+          "authors": [
+            "Jiheon Kim",
+            "Kyudan Jung",
+            "Jaegul Choo"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2608.20381",
+          "tags": [
+            "Anthropic",
+            "Agent",
+            "Multi-Agent"
+          ],
+          "summary": "Reliable slide editing requires precise modifications to intended objects while preserving the rest of the presentation.\nWe argue that slide editing is a problem of structured, constrained modification rather than open-ended code generation.\nDespite the complexity of real presentations, editing requests can largely be decomposed into the objects to change, the operations to apply, and the state to preserve.\nThis perspective guides both evaluation and execution.\nFor evaluation, we introduce DeckEdit-Bench, 183 editing tasks on 28 human-authored decks whose target and preserved objects are annotated at the shape level, so that intended and unintended changes are scored mostly by deterministic rules.\nFor execution, we present EditPPT, a multi-agent framework that resolves targets before editing, restricts each specialist to a subset of 37 predefined tools, and validates each edit for instruction fulfillment and preservation, correcting or rolling back failed ones.\nAcross five backbone models, EditPPT reaches 66.7-74.9% Task Success while keeping Preservation above 97%.\nEven with an open 27B model and no task-specific fine-tuning, it approaches Claude Code with Sonnet 5 in Task Success while better preserving the original deck.\nThese results suggest that constraining how edits are executed, not only model scale, makes slide editing more reliable.",
+          "highlights": [
+            "EditPPT",
+            "隶属于 cs.CL, cs.AI",
+            "Reliable slide editing requires precise modifications to intended objects while preserving the rest of the presentation."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2608.20381",
+          "worthReading": false
+        },
+        {
+          "id": "A19",
+          "anchorId": "A19",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "Editing as Language: Teaching LLM Agents a Grammar for Native Context Editing",
+          "authors": [
+            "Yunlong Deng",
+            "Yan Li",
+            "Xing Hu",
+            "Yida Zhu",
+            "Sean Du",
+            "Weiyang Liu",
+            "Guangyi Chen"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.25550",
+          "tags": [
+            "Qwen",
+            "Agent",
+            "LLM"
+          ],
+          "summary": "A synopsis in novels folds a story into a few lines; a function in code gathers many steps with a single execution.\nContext editing is native to language itself.\nIn this paper, we propose the Native Context Editing (NCE) framework, which gives language model agents a grammar for natively editing their own context.\nBy encoding context-editing operations in a grammar of dedicated special tokens, we teach the agents to invoke edits through the language itself.\nWe train agents on iteratively constructed trajectory segments, with each teacher edit conditioned on the evolving context.\nThis establishes context editing as an atomic and inherent capability of LLM agents, enabling them to dynamically modify their context as they generate responses over long-horizon reasoning and interaction.\nCompared with context-editing methods that learn to generate tool-use code within specific external harness environments, our approach integrates context editing as an internal mechanism of the model's native generation process, enabling better generalization across diverse real-world workflows.\nOn four long-horizon agentic benchmarks (Terminal-Bench 2.0, SWE-bench Verified, SWE-bench Multilingual, and SWE-bench Pro), NCE improves the average task success rate over the base model by 5.6 percentage points for LongCat-Flash-Lite-Sparse and by 4.5 for Qwen3.6-35B-A3B, while reducing average token usage by 36% and 15%, respectively.",
+          "highlights": [
+            "propose the Native Context Editing (NCE) framework",
+            "Editing as Language",
+            "隶属于 cs.AI"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.25550",
+          "worthReading": false
+        },
+        {
+          "id": "A20",
+          "anchorId": "A20",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "Who Speaks, Who Authorizes, Who Acts? Understanding Trust Boundaries in Multi-Agent LLMs",
+          "authors": [
+            "Junru Zhu",
+            "Xin Chen",
+            "Hang Lyu",
+            "Jiayue Meng",
+            "Muzi Li",
+            "Yifan Chen",
+            "Hengyi Huang",
+            "Yu Sun",
+            "Weiwei Qi"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.24298",
+          "tags": [
+            "Meta",
+            "Agent",
+            "Multi-Agent"
+          ],
+          "summary": "Multi-agent LLM systems exchange messages before acting through tools, but message delivery, signing authority, and tool-side enforcement are separate trust boundaries.\nWe represent them as communication, authorization, and execution structures, and use the authority cut to characterize the smallest independently compromised signer coalition that can construct a policy-valid false-claim proof under stated assumptions.\nControlled paired hidden-state studies reveal four distinctions.\nFirst, no fixed-message routing contrast across four models meets the prespecified large-effect criterion; when relays rewrite messages, executed false-state action rates vary by model and route configuration.\nSecond, presented source-identity cues do not uniformly increase protected-action selection across three models.\nThird, on invalid-proof cases, Nemotron and Llama request protected actions in 52.1% and 54.2% of trials, respectively, yet a deterministic tool gate commits none: request-level and commitment-level safety readouts diverge.\nFinally, a separate single-model authorization check shows that a false claim with a policy-valid compromised-signer proof can pass the gate, since proof validity is not factual truth.\nThese findings motivate evaluating delivered information, qualified authorization, model proposals, and committed actions separately.",
+          "highlights": [
+            "Who Speaks, Who Authorizes, Who Acts? Understanding Trust Boundaries in Multi",
+            "隶属于 cs.AI",
+            "Controlled paired hidden-state studies reveal four distinctions."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.24298",
+          "worthReading": false
+        },
+        {
+          "id": "A21",
+          "anchorId": "A21",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "fxBench: Evaluating and Understanding Formula Suggestions in Spreadsheets",
+          "authors": [
+            "Sanket Mhatre",
+            "Sumit Gulwani",
+            "Vu Le",
+            "Yasharth Bajpai",
+            "Gust Verbruggen"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.24729",
+          "tags": [
+            "Google",
+            "Agent"
+          ],
+          "summary": "Spreadsheets are among the most widely used tools for computations, and formulas are their core building blocks.\nBesides agentic spreadsheet tools, proactive formula suggestions enable significant productivity gains and are now available in popular spreadsheet software (Microsoft Excel and Google Sheets).\nSuch suggestions pose interesting challenges: the right context must be collected and represented for a machine learning model, which must then be able to write a correct formula, in a way that is fast and cheap enough to trigger on every = (or subsequent keystrokes for auto-completion) without taking users out of their editing flow.\nSurprisingly, there is no public benchmark for formula suggestions on real spreadsheets.\nIn this paper, we therefore (1) introduce fxBench as a manually curated benchmark of 503 formula suggestion tasks based on Sheetpedia, (2) break down the formula suggestion problem into four capabilities (gather context, understand context, understand intent, write formula) that a formula suggestion system requires, and (3) evaluate existing and new approaches to understand bottlenecks in these capabilities that pose interesting research directions.\nSpecifically, we annotate each benchmark with the cells that describe intent to determine the theoretical performance limit of a given context selection strategy, we evaluate performance of small and large models on different representations of context, including a dense format with high theoretical coverage at low token counts, and we fine-tune smaller language models to show that we can learn to understand such dense formats.\nAdditionally, we perform quantitative and qualitative analysis on failure modes to understand bottlenecks in the formula writing capability; the best configuration only achieved 58.8% correct suggestions.",
+          "highlights": [
+            "fxBench",
+            "隶属于 cs.LG",
+            "Spreadsheets are among the most widely used tools for computations, and formulas are their core building blocks."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.24729",
+          "worthReading": false
+        },
+        {
+          "id": "A22",
+          "anchorId": "A22",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "Agentic Interpretation: Harness-Governed Evidence Construction for Software Agents",
+          "authors": [
+            "Yifeng He",
+            "Yanjun Wang",
+            "Siwei Cui",
+            "Aritra Sengupta",
+            "Murali Krishna Ramanathan"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.23996",
+          "tags": [
+            "Agent"
+          ],
+          "summary": "Software agents answer behavioral questions about code, such as whether a patch passes tests or which lines caused a failure.\nThese tasks require repository-wide evidence, yet most scaffolds leave intermediate findings in free-form trajectories, making them hard to reuse and easy to disconnect from final answers.\nWe present Agentic Interpretation (AgInt), a framework for harness-governed evidence construction.\nThe model proposes typed records, while a deterministic harness admits, grades, and persists them, reports unresolved requirements, and licenses answers under task-specific rules.\nThe resulting certificate gives the model persistent external state and leaves an auditable decision record.\nFormally, append-only certificate states form a grounding lattice ordered by record inclusion, where each admitted record extends the state by union.\nWe evaluate AgInt with four models on SWE-bench-Live and DeepSWE for patch acceptance and Defects4J and GitBug-Java for fault localization.\nAgInt outperforms the plain agent and Agentic Code Reasoning on all reported patch-acceptance metrics and ranks responsible lines higher while inspecting fewer irrelevant lines in fault localization.\nFor GLM-5, reject-class F1 rises from 0.256 to 0.543 on SWE-bench-Live, All@1 rises from 0.140 to 0.400 on Defects4J, and wasted inspected lines fall from 31.5 to 11.7 on GitBug-Java.\nA matched-template control separates the mechanism: the persistent scaffold drives most fault-localization gains, while the certificate body and gate govern patch-acceptance calibration.\nWith execution licensed, AgInt produces harness-reproduced witnesses for 293 of 475 null-dereference candidates versus 253 for a matched shell agent, and 62 of 117 resource-leak candidates versus 58.\nAcross reported efficiency measurements, it uses 35% fewer executions and reduces cost per candidate by 59%.",
+          "highlights": [
+            "outperforms the plain agent and Agentic Code Reasoning on all reported patch-acceptance metrics and ranks responsible li",
+            "Agentic Interpretation",
+            "隶属于 cs.SE, cs.AI"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.23996",
+          "worthReading": false
+        },
+        {
+          "id": "A23",
+          "anchorId": "A23",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "TempoMoE: Identifying and Steering Fast-Slow Thinking Experts for Efficient Multimodal Reasoning",
+          "authors": [
+            "Xiyue Zhang",
+            "Keru Zhou",
+            "Ziyi Wang",
+            "Bing Hu",
+            "Li Wang"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.25999",
+          "tags": [
+            "Qwen",
+            "Kimi",
+            "Baidu"
+          ],
+          "summary": "Multimodal Mixture-of-Experts (MoE) reasoning models rely on long chain-of-thought (CoT) for complex tasks, yet often overthink easy inputs, increasing token cost and latency, and sometimes degrading accuracy.\nExisting methods optimize reasoning length during training or impose external control at inference, but leave the underlying reasoning mechanism a black box.\nWe find that fast and slow thinking exhibit distinct expert-routing patterns: holding the input fixed and varying only the prompted reasoning tempo produces stable routing shifts.\nSuppressing slow-thinking experts shortens the reasoning chain, whereas suppressing fast-thinking experts lengthens it, providing causal evidence that these experts influence reasoning depth.\nBased on this finding, we propose TempoMoE, a training-free, two-stage framework.\nIt identifies fast- and slow-thinking experts via tempo-contrastive routing analysis and redistributes routing weights within the original top-k set according to sample difficulty.\nIt amplifies fast-thinking experts and suppresses slow-thinking experts on easy inputs and reverses this adjustment on hard ones, enabling difficulty-adaptive control over reasoning depth.\nWe evaluate TempoMoE on Kimi-VL, Qwen3-VL, and ERNIE-4.5-VL across six benchmarks.\nCompared with Vanilla, TempoMoE consistently improves accuracy while reducing output tokens, with accuracy gains of up to 2.6 points and token reductions of up to 35.4%.",
+          "highlights": [
+            "TempoMoE",
+            "隶属于 cs.CL, cs.CV",
+            "Based on this finding, we propose TempoMoE, a training-free, two-stage framework."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.25999",
+          "worthReading": false
+        },
+        {
+          "id": "A24",
+          "anchorId": "A24",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "OpenVLHarness: Real World Visual Agentic Tool-Use with Multimodal Memory",
+          "authors": [
+            "Yu Zhou",
+            "Cheng-Fu Yang",
+            "Rui Sun",
+            "Di Wu",
+            "Sibo Peng",
+            "Mingyang Zhang",
+            "Zhen Yang",
+            "Ruiyi Zhang",
+            "Nanyun Peng",
+            "Zhe Gan",
+            "Kai-Wei Chang"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.26860",
+          "tags": [
+            "Qwen",
+            "Kimi",
+            "Agent"
+          ],
+          "summary": "Multimodal large language models (MLLMs) have made rapid progress on visual reasoning, yet many tasks require evidence that is difficult to obtain through internal reasoning alone: our controlled study on 22 benchmarks shows that simply increasing the inference budget of the base model yields only modest gains.\nSuch tasks demand grounded perception, external knowledge, and numerical measurements obtained through heterogeneous tools, whose outputs must be made interpretable to the model and retained across reasoning steps.\nWe introduce OpenVLHarness, a multimodal reasoning harness organized around a capability layer and persistent multimodal memory.\nThe capability layer combines task-level tool interfaces with evidence rendering, providing consistent access to heterogeneous backends and converting their outputs into model-readable observations.\nPersistent multimodal memory retains the corresponding images, structured data, and web references as addressable artifacts throughout each query.\nA coding interface executes generated programs over stored data, enabling computations that combine results from multiple tools.\nTogether, these mechanisms support an iterative process of acquiring, inspecting, and composing multimodal evidence.\nEvaluated on 22 benchmarks with eight open and proprietary backbones, OpenVLHarness improves average scores by 9.7-12.6 points over matched no-tool baselines, including +11.2 with Qwen3-VL-8B, +9.7 with Kimi K3, and +9.9 with GPT-6 Astra.\nWith GPT-6 Luna at medium reasoning effort, OpenVLHarness outperforms the base model, Codex, and Visual Sketchpad at maximum effort by 7.7-8.5 points while incurring at most 37% of their model-token cost.",
+          "highlights": [
+            "outperforms the base model",
+            "OpenVLHarness",
+            "隶属于 cs.CL, cs.AI"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.26860",
+          "worthReading": false
+        },
+        {
+          "id": "A25",
+          "anchorId": "A25",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "Red-Teaming Multi-Agent Attacks for Loss-of-Control Risks",
+          "authors": [
+            "John Kitaoka",
+            "Thao Amelia Pham",
+            "Carlos Rafael Giudice",
+            "Jacob Merizian"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.24052",
+          "tags": [
+            "OpenAI",
+            "Agent",
+            "Multi-Agent"
+          ],
+          "summary": "AI agents are growing more capable and persistent, and are being deployed in ever larger numbers.\nAs more start collaborating, AI control measures must remain effective when they covertly collude on a harmful objective.\nWe introduce MiniLab, a synthetic series of live services and codebases (5 interconnected services, 249 benign tasks, 8 attack objectives), adapted from internal AI deployment infrastructure.\nWe demonstrate distributed attacks, in which different agents carry out separate attack fragments, and how their covertness evades frontier monitors when reading their trajectories individually.\nWe show how distributed attacks spread across diverse contexts and harmful objectives through 16 human-optimized attacks (weight exfiltration, unmonitored rogue deployment, permission elevation, and more).\nA frontier monitor, GPT-5.6 Sol, reading each agent separately flags only 7% of successful distributed attacks, compared with 87% when a single agent carries out the same side task.\nIndividual attacks can also be composed into longer attack sequences toward a greater loss-of-control outcome, without any individual agent being flagged.\nFinally, we tested whether models can plan these covert attacks: even with execution and monitor feedback, the best model-planned attacks succeed covertly against a single-trajectory GPT-5.6 Sol monitor in at most 25% of executions, compared with 80% for human-crafted plans, though this may scale with model capabilities.\nBy turning worst-case coordinated attacks into reproducible red-team cases, our work provides a foundation for preventing locally benign agent actions from accumulating into system-level loss of control.",
+          "highlights": [
+            "Red",
+            "隶属于 cs.CR, cs.AI",
+            "AI agents are growing more capable and persistent, and are being deployed in ever larger numbers."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.24052",
+          "worthReading": false
+        },
+        {
+          "id": "A26",
+          "anchorId": "A26",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "Muse Glimmer 30B: An On-Device Agentic Model",
+          "authors": [
+            "Arash Ebrahim Abtahizadeh",
+            "Muna Aghamelu",
+            "Adil Ahmed",
+            "Juan C. Angeles Acuna",
+            "Alexis Audran-Reiss",
+            "Asaf Avrahamy",
+            "Yoram Bachrach",
+            "Can Balioglu",
+            "Amar Budhiraja",
+            "Onur \\c{C}elebi",
+            "Gaurav Chaurasia",
+            "Joy Chen",
+            "Lynn Cherif",
+            "Lucia Cipolina-Kun",
+            "Gal Cohen",
+            "Timoth\\'ee Darcet",
+            "Beto de Paola",
+            "Digant Desai",
+            "Sam Devlin",
+            "Derek Dunfield",
+            "Ivan Evtimov",
+            "Maryam Fazel-Zarandi",
+            "Rob Fergus",
+            "Jean-Christophe Gagnon-Audet",
+            "Grant Gardner",
+            "Bhavul Gauri",
+            "Paris Giampouras",
+            "Sujan Kumar Gonugondla",
+            "Antoine Grosnit",
+            "Young Han",
+            "Michael Hassid",
+            "Monuril Islam",
+            "Masoud Jalili Sabet",
+            "Songhao Jia",
+            "Narine Kokhlikyan",
+            "Svetlana Kurtsman",
+            "Sandra Lefdal",
+            "Chee Hau Leow",
+            "Noam Levi",
+            "Mike Lewis",
+            "Sanae Lotfi",
+            "Xiyang Luo",
+            "Despoina Magka",
+            "Saeed Mahloujifar",
+            "Neal Mangaokar",
+            "Ishita Mediratta",
+            "Alexander H. Miller",
+            "Hela Momand",
+            "Saba Nazir",
+            "Kelvin Niu",
+            "Mattia Opper",
+            "Parth Pathak",
+            "Alberto Pepe",
+            "Danielle Pintz",
+            "Mikhail Plekhanov",
+            "Sidhartha Reddy Potu",
+            "Anton Protopopov",
+            "Shengyi Qian",
+            "Shashank Rajput",
+            "Joseph Rocca",
+            "Scott Roy",
+            "Luca Sbordone",
+            "Amin Shakeri",
+            "Tatiana Shavrina",
+            "Michael Shvartsman",
+            "Ruan Silva",
+            "Anya Sims",
+            "Eric Michael Smith",
+            "Hugo Touvron",
+            "Mabel Ubong",
+            "Isabel Urrego",
+            "Yanzheng Xiang",
+            "Zhiyuan Yao",
+            "Alex Yarmula",
+            "He Ye",
+            "Jade Yu",
+            "Luke Zettlemoyer",
+            "Arman Zharmagambetov",
+            "Perpetua Fathima Ahlijah",
+            "Tremo Ahmed",
+            "Enrique Alfonseca",
+            "Pedram Bashiri",
+            "Nikolay Bashlykov",
+            "Aaron Berman",
+            "Rohith Bhatia",
+            "Siddharth Bhattacharya",
+            "Prashant Bhende",
+            "Chloe Bi",
+            "Shuchao Bi",
+            "Clement Anthonioz Blanc",
+            "Allen Bolourchi",
+            "Andrea Caciolai",
+            "Erica Cai",
+            "Xiang Tony Cao",
+            "Yue Cao",
+            "Andrew Caples",
+            "Jinzhao Chang",
+            "Lele Chen",
+            "Moya Chen",
+            "Weijie Chen",
+            "Wenhu Chen",
+            "Xiaobai Chen",
+            "Yinyin Chen",
+            "Zhengxing Chen",
+            "Wei Cheng",
+            "Pavel Chikulaev",
+            "Edward Chou",
+            "Sy Choudhury",
+            "Brian Clerkin",
+            "Marta R. Costa-juss\\`a",
+            "Curtis Davis",
+            "Myra Deng",
+            "Dujian Ding",
+            "Hantian Ding",
+            "Shuangrui Ding",
+            "Jesse Dodge",
+            "Shweta Doshi",
+            "Shirin Eghtesadi",
+            "Faith Eischen",
+            "Athyu Eleti",
+            "Alex Fabbri",
+            "Han Fang",
+            "Paula Farani",
+            "Aiman Farooq",
+            "Christoph Feichtenhofer",
+            "Darius Feher",
+            "Amanda Felix",
+            "Carl Chengyan Fu",
+            "Sean Gahagan",
+            "Yifan Gao",
+            "Itai Gat",
+            "Akashdeep Goel",
+            "Ahuva Goldstand",
+            "Bo He",
+            "David Heineman",
+            "Dylan Herman",
+            "Irene Hjelt",
+            "Joonas Hjelt",
+            "Alexander Holz",
+            "Rui Hou",
+            "Annie Hu",
+            "Yuan-Ting Hu",
+            "Bernie Huang",
+            "Jing Huang",
+            "Kun Huang",
+            "Pere-Llu\\'is Huguet Cabot",
+            "Ashley Hunter",
+            "Srinivasan Iyer",
+            "Somya Jain",
+            "Michael Jiang",
+            "Song Jiang",
+            "Wenwen Jiang",
+            "Lin Jin",
+            "Jacob Kahn",
+            "Melanie Kambadur",
+            "Yingxin Kang",
+            "Justine Kao",
+            "Stephane Kasriel",
+            "Hossein Kavianihamedani",
+            "Ameya Khandekar",
+            "Yash Khare",
+            "Gefen Kohavi",
+            "Kavya Kopparapu",
+            "Praveen Krishnan",
+            "Venu Kuchibhotla",
+            "Ananya Kumar",
+            "Leona Lan",
+            "Jack Lanchantin",
+            "Hunter Lang",
+            "Nikolay Pavlovich Laptev",
+            "Yuanzhi Li",
+            "Yunlu Li",
+            "Asad Liaqat",
+            "Johnson Lin",
+            "Runwei Lin",
+            "Zhichao Lin",
+            "Shaun Lindsay",
+            "Yaron Lipman",
+            "Frederick Liu",
+            "Mengchen Liu",
+            "Qiang Liu",
+            "Yinghai Lu",
+            "Yujie Lu",
+            "Christopher Luc",
+            "Faye Ma",
+            "Pingchuan Ma",
+            "Tengyu Ma",
+            "Wufei Ma",
+            "Xiaodong Ma",
+            "Damir Maksyutov",
+            "Josh Malone",
+            "Udeep Manchanda",
+            "Thomas Mann",
+            "Kalyani Marathe",
+            "Roberto-Rafael Maura-Rivero",
+            "Ruslan Mavlyutov",
+            "Thomas Mesnard",
+            "Julian Michael",
+            "Sagar Miglani",
+            "Todor Mihaylov",
+            "Naureen Mitha",
+            "Archi Mitra",
+            "Leo Mok",
+            "Naila Murray",
+            "Muthukumaravel Muthuraman",
+            "Mergen Nachin",
+            "Nese Demir Nalci",
+            "Saaketh Narayan",
+            "Alyssa Newcomb",
+            "Peter Ney",
+            "Joycelyn Ng",
+            "Devin Norder",
+            "Maxwell Nye",
+            "Rajvardhan Oak",
+            "Cody Ohlsen",
+            "Artidoro Pagnoni",
+            "Yi Pan",
+            "Nilesh Pandey",
+            "Guan Pang",
+            "Richard Yuanzhe Pang",
+            "Mahesh Pasupuleti",
+            "Parth Patel",
+            "Yash Patel",
+            "Vladan Petrovic",
+            "Norman Ponte",
+            "Yundi Qian",
+            "Zengyi Qin",
+            "Jack Rae",
+            "Emmanuel Ramirez",
+            "Ramya Raghavendra",
+            "Nikhila Ravi",
+            "Hongyu Ren",
+            "Riandy Riandy",
+            "Harrison Rudolph",
+            "Kalyan Saladi",
+            "Eduardo S\\'anchez",
+            "Karthik Abinav Sankararaman",
+            "Aman Shankar",
+            "Paresh Shenoy",
+            "Alana Shine",
+            "Hamid Shojanazeri",
+            "Iva Simon-Bubalo",
+            "Mitesh Kumar Singh",
+            "Tiffany Siqi",
+            "Pawan Sisodiya",
+            "Ali Sol",
+            "Sten Sootla",
+            "Leslie St. Pierre",
+            "DiJia Su",
+            "Suraj Subramanian",
+            "Brian Sun",
+            "Tony Sun",
+            "Zhiqing Sun",
+            "Natacha Supper",
+            "Jason Talpalar",
+            "Ellen Xiaoqing Tan",
+            "Liang Tan",
+            "Jean-Christophe Testud",
+            "Parth Thakkar",
+            "Joseph Tighe",
+            "Ty Toledano",
+            "T Tse",
+            "Igor Tufanov",
+            "Alex Vaughan",
+            "Josh Walters",
+            "Alex Wang",
+            "Bethany Wang",
+            "Meng Wang",
+            "Rocky Wang",
+            "Weiyue Wang",
+            "Xiaolan Wang",
+            "Xin Wang",
+            "Zijian Wang",
+            "Bram Wasti",
+            "Quentin Wellens",
+            "Yeming Wen",
+            "Mary Williamson",
+            "Yuncheng Wu",
+            "Fei Xia",
+            "Tian Xie",
+            "David Xu",
+            "Jacob Xu",
+            "Puxin Xu",
+            "Zheng Xu",
+            "Shen Yan",
+            "Megan Yang",
+            "Yining Yang",
+            "Nick Yannopoulos",
+            "Kevin Yao",
+            "Michihiro Yasunaga",
+            "Haoxuan You",
+            "Michael You",
+            "Dingli Yu",
+            "Tianhe Yu",
+            "Summer Yue",
+            "Xiang Yue",
+            "Shuwei Zeng",
+            "Hanwen Zha",
+            "Chen Zhang",
+            "Hongming Zhang",
+            "Kaiyu Zhang",
+            "Meng Zhang",
+            "Mingyang Zhang",
+            "Yi Zhang",
+            "Shengjia Zhao",
+            "Chao Zhou",
+            "Claire Zhou",
+            "Shuyan Zhou",
+            "Yanjun Zhou",
+            "Yaxuan Zhou",
+            "Rosalie Zhu",
+            "Yun Zhu"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.24628",
+          "tags": [
+            "Google",
+            "Qwen",
+            "Agent"
+          ],
+          "summary": "We introduce Muse Glimmer, an open-source 30B parameter causal language model with perception encoder, purpose-built for autonomous agentic tasks on consumer hardware.\nMuse Glimmer integrates multi-step reasoning, reliable tool use and failure recovery into a single model that runs locally on consumer devices without requiring cloud infrastructure.\nThe model accepts text and image inputs and produces text outputs, was trained on data from over a hundred languages, and is quantized to approximately 4-bit precision for efficient single-GPU inference.\nMuse Glimmer achieves state-of-the-art performance for its size class on agentic benchmarks, setting a new standard compared to the models of its size: Gemma4-31B and Qwen3.6-27B on tool use, multi-step planning, and agentic task completion.\nWe release the model under the Apache 2.0 license to foster open-source development of capable, safe, local AI agents.",
+          "highlights": [
+            "Muse Glimmer 30B",
+            "隶属于 cs.CL, cs.AI",
+            "We release the model under the Apache 2.0 license to foster open-source development of capable, safe, local AI agents."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.24628",
+          "worthReading": false
+        },
+        {
+          "id": "A27",
+          "anchorId": "A27",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "LVMH: A Meta-Optimization Harness for Long-Video Agent Memory",
+          "authors": [
+            "Liwei Che",
+            "Benlin Liu",
+            "Dai Li",
+            "Xiangyan Li",
+            "Zijian Wu",
+            "Changjiang Li",
+            "Minghao Guo",
+            "Chengzhi Mao",
+            "Vladimir Pavlovic",
+            "Ranjay Krishna"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.23904",
+          "tags": [
+            "OpenAI",
+            "RSI",
+            "Agent"
+          ],
+          "summary": "Long-video agents must map hours or days of multimodal evidence into a bounded context while respecting token and latency budgets, making memory design a context-management challenge.\nExisting memory systems largely rely on hand-designed policies, leaving open how to jointly optimize memory design for performance and efficiency.\nWe propose Long Video Meta-memory Harness (LVMH), an automated multi-agent framework that formulates memory-policy development as multi-objective code search around a fixed answer model.\nTo guard against self-certification and development-set overfitting, LVMH separates implementation from independent review and enforces protected observation boundaries.\nPersistent meta-memory records past proposals, traces, costs, and failures to guide subsequent policy revisions.\nThrough this harness, we discover Self-Evolving Evidence Memory (SEEM), a \"text-first, vision-second\" policy that answers from compact structured event memory and evidence specialists, consulting localized frames through a selective visual gate.\nThe policy evolved on EgoLifeQA generalizes to unseen benchmarks, outperforming Meta-Harness on both Ego-R1 Bench and Video-MME (L) with GPT-5 mini.\nAcross the three benchmarks, SEEM with GPT-5 achieves 65.7% average accuracy, surpassing the previous state of the art by 7.7 percentage points with approximately 32x lower average evaluation token use and 91x shorter average response time.",
+          "highlights": [
+            "outperforming Meta-Harness on both Ego-R1 Bench and Video-MME (L) with GPT-5 mini",
+            "LVMH",
+            "隶属于 cs.CV, cs.MA"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.23904",
+          "worthReading": false
+        },
+        {
+          "id": "A28",
+          "anchorId": "A28",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "Write Once, Query Many: Evolving Compact Reusable Memory for Long Videos",
+          "authors": [
+            "Kerui Chen",
+            "Jinglu Wang",
+            "Yun Wang",
+            "Xinjiang Wang",
+            "Yan Lu"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.24537",
+          "tags": [
+            "OpenAI",
+            "Qwen",
+            "Agent"
+          ],
+          "summary": "Long videos often exceed the context capacity of multimodal large language models (MLLMs), while agentic search repeats costly video processing and grounding for each query.\nReusable memory can amortize this cost, but must preserve information for questions unknown during construction.\nWe propose Video-EMem, an evolvable video memory harness built on time-anchored perceptual observations.\nThis representation combines compact free-form text with sparse images to preserve semantic content and complementary visual details across temporal scales, supporting temporal navigation without a fixed semantic schema.\nA Writer encodes each video once by consolidating overlapping multiscale observations, and a Reader retrieves and organizes evidence solely from the resulting memory.\nWith the underlying models frozen, we evolve their workflows and operators using distinct feedback: query-independent source fidelity and coverage for the Writer, and QA failures in evidence localization and utilization for the Reader.\nExperiments support this separation for generalization beyond development queries, with our evolution strategy improving average accuracy by 7.2% over the unevolved harness.\nWhile reducing storage by about 99.86% on average relative to raw videos, Video-EMem improves Qwen3-VL-30B by an average of 2.6% across three long-video QA benchmarks over direct input of 2,048 frames.\nUsing the same o3 answer model as the state-of-the-art agentic method, it improves average accuracy by 2.5% with lower per-query latency.",
+          "highlights": [
+            "exceed the context capacity of multimodal large language models (MLLMs)",
+            "Write Once, Query Many",
+            "隶属于 cs.CV, cs.LG"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.24537",
+          "worthReading": false
+        },
+        {
+          "id": "A29",
+          "anchorId": "A29",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "How Do Agentic LLMs Decide to Call Tools? A Tool-Call Vector Shaped by Suppression",
+          "authors": [
+            "Xijie Gong",
+            "Tingxu Han",
+            "Jiahao Zhang",
+            "Wei Song",
+            "Ziqi Ding",
+            "Hanqi Yan",
+            "Youcheng Sun",
+            "Lijie Hu"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.09624",
+          "tags": [
+            "Qwen",
+            "Agent",
+            "LLM"
+          ],
+          "summary": "Tool calling, invoking external tools on demand, is central to agentic LLMs, yet the mechanism that decides whether a model calls a tool or responds directly remains poorly understood.\nAgentic prompts are long and heavily scaffolded, combining role instructions, tool schemas, format templates, and the user's request across hundreds of tokens, creating a noisy, highly entangled context in which no single controllable variable for mechanistic analysis is obvious.\nTo obtain such a variable, we propose a method that converts complex agentic prompts into minimal contrastive pairs in which a single request verb determines the tool-call decision: replacing an execution-verb (e.g., \\textit{write}) with an analysis-verb (e.g., \\textit{discuss}) reliably flips the decision, suggesting it is mediated by a compact internal state.\nWe construct 500 such paired prompts across Python, Java, and C++ (300 for mechanistic analysis, 200 held out for evaluation).\nWe trace the decision to a vector, $\\mu_\\Delta$, that is both causally necessary and sufficient and generalizes beyond the discovery prompts to native multi-turn $\\tau^2$-Bench trajectories and verb-free requests.\nBehavioral ablations show that the scaffold establishes a tool-call prior; Transcoder decomposition then reveals that analysis verbs suppress this prior through features signaling that tool use is unnecessary, whereas execution verbs largely leave it intact.\nDownstream scaffold-reading attention heads and MLP features read out the resulting state, and the same mechanism recurs across seven models from the Qwen, Mistral, and Granite families.\nOur code is available at https://github.com/XijieGo/MI4ToolCalling.",
+          "highlights": [
+            "propose a method",
+            "How Do Agentic LLMs Decide to Call Tools? A Tool",
+            "隶属于 cs.AI, cs.LG"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.09624",
+          "worthReading": false
+        },
+        {
+          "id": "A30",
+          "anchorId": "A30",
+          "group": "A",
+          "groupName": "重点跟进（产业界 / 端云结合）",
+          "title": "Same Simulation, Different Evidence: Where Retrieved Tool Output Costs LLM Agents Accuracy",
+          "authors": [
+            "Ke Zhang",
+            "Sahchit Chundur",
+            "Jerry Peprah Owusu",
+            "Mohammad Javad Abdolhosseini Qomi",
+            "Maziar Raissi"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.26836",
+          "tags": [
+            "OpenAI",
+            "Anthropic",
+            "Agent"
+          ],
+          "summary": "LLM agents that compute the right answer can still answer wrongly.\nAgent harnesses increasingly keep long tool outputs out of the context window, saving them to files that the agent searches or reads on demand.\nWe ask where this costs accuracy with a real scientific tool: PHREEQC, a widely used geochemistry simulator from the USGS, whose reports reach 846.8k characters and whose determinism lets every printed value be traced.\nAgents use it to answer 158 execution-verified multiple-choice items.\nWhen agents read the simulator's report through a section index rather than in context, GPT-5.1 and GPT-5.2 lose 11.3 and 7.9 points of accuracy, while Claude Opus 4.6 and Claude Sonnet 4.6 show no detectable cost.\nRe-running all 11,007 logged simulator calls shows that both GPT models compute the keyed value about as often as before; what changes is the evidence they answer from.\nUnder retrieval they often skip the report, answer from their own higher-precision output files, and misround to a neighboring option, a failure we call evidence substitution.\nWith the simulation held fixed, retrieval still costs GPT-5.2 9.4 points.\nFor GPT-5.4, more frequent correct simulations mask an evidence-use loss of about ten points, leaving a net change indistinguishable from zero.\nNaming the authoritative output raises accuracy by 6.3-7.9 points over plain retrieval for the three GPT models; for GPT-5.1 and GPT-5.2, inlining outputs that fit works as well, while asking for correct rounding does not.\nContext-management choices in agent harnesses should be judged by where accuracy is lost, not only by final accuracy.",
+          "highlights": [
+            "Same Simulation, Different Evidence",
+            "隶属于 cs.AI",
+            "LLM agents that compute the right answer can still answer wrongly."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.26836",
+          "worthReading": false
+        },
+        {
+          "id": "B1",
+          "anchorId": "B1",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "Web Agent Agentic Reinforcement Learning Decision Model Under Multi-Cost and Failure Risk",
+          "authors": [
+            "Qianli Ma",
+            "Limengxi Yue",
+            "Shuyang Xu",
+            "Yanpei Shi",
+            "Hongrui Liu"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.23857",
+          "tags": [
+            "Agentic RL",
+            "Agent",
+            "Embodied AI"
+          ],
+          "summary": "Intelligent agent interactions in real-world web environments are commonly constrained by request budgets, time delays, anti-crawling restrictions, and operational failure risks. 现实Web环境中的智能代理交互通常受到请求预算、时间延迟、反爬网限制和操作故障风险的限制。\nStrategies solely optimizing task success rates often exhibit unusable phenomena such as \"high success but high cost\" or \"low risk but conservative failure.\" This paper proposes a constrained agentic reinforcement learning model for web agents, unifying page access, search requests, and external API calls into a unified long-term decision-making framework with associated costs. 仅优化任务成功率的策略通常表现出不可用的现象，例如“高成功但高成本”或“低风险但保守的失败”。“本文提出了一种用于Web代理的约束代理强化学习模型，将页面访问、搜索请求和外部API调用统一到具有相关成本的统一长期决策框架中。\nIt simultaneously incorporates cost budget constraints and tail risk control into the optimization objective: constructing a multidimensional cost vector comprising cumulative request count, total latency, and failure penalties to achieve budget compliance via Lagrange dual updates, while employing a CVaR risk term to suppress excessive exploration of high-failure-probability paths, thereby achieving an adaptive balance among \"completion rate, cost, and risk.\"\n  Experiments were conducted across 30-70 site/page templates and 800-1,500 end-to-end web tasks, including information extraction, price comparison, form submission, and cross-page navigation.\nInteraction sequences spanned 20-120 steps with tool scales of 30-200. 交互序列跨越20-120个步骤，工具尺度为30-200。\nPerformance was benchmarked against unconstrained RL, budget-constrained RL, and rule-based/scripted web agents, quantifying task completion rates, cost-per-success, failure rates, and policy stability. 根据不受约束的RL、预算受限的RL和基于规则/脚本的Web代理对性能进行基准测试，量化任务完成率、每次成功成本、失败率和策略稳定性。\nResults demonstrate that at equivalent completion rates, our method reduces C-PS by 22%-31% and lowers failure rates by 18%-26% under high failure penalties. 结果表明，在相同的完成率下，我们的方法在高故障罚款下可将C-PS降低22% -31% ，并将故障率降低18% -26%。\nUnder fixed budgets, task completion rates increase by 10%-16%, highlighting the necessity and effectiveness of constraint modeling for practical web agent deployment. 在固定预算下，任务完成率提高10% -16% ，凸显了约束建模在实际Web代理部署中的必要性和有效性。",
+          "highlights": [
+            "increase by 10%",
+            "Web Agent Agentic Reinforcement Learning Decision Model Under Multi",
+            "隶属于 cs.LG, cs.AI"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.23857",
+          "worthReading": true
+        },
+        {
+          "id": "B2",
+          "anchorId": "B2",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "Trackable Skill Library Lifecycle Management for Agentic Reinforcement Learning",
+          "authors": [
+            "Xi Zhu",
+            "Yuanlin Duan",
+            "Changyi Yang",
+            "Kai Mei",
+            "Riyang Bao",
+            "Shichao Zhu",
+            "Dimitris N. Metaxas"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.25126",
+          "tags": [
+            "Agentic RL",
+            "Agent",
+            "LLM"
+          ],
+          "summary": "Skill-augmented agentic RL has emerged as an effective approach to improving LLM agents on long-horizon tasks. 技能增强型代理强化学习已成为改进长期任务LLM代理的有效方法。\nDespite this progress, individual skills may follow distinct trajectories as the policy evolves, with some becoming redundant after the model internalizes their capabilities, others remaining valuable as external scaffolding, and still others turning harmful. 尽管取得了这一进展，但随着政策的演变，个人技能可能会遵循不同的轨迹，其中一些技能在模型内化其能力后变得多余，另一些技能作为外部支架仍然具有价值，还有一些技能变得有害。\nHowever, existing skill library systems fail to identify each skill's true contribution due to free-riding among co-retrieved skills, difficulty confounding across tasks, and the absence of skill-specific counterfactual evidence, which prevents reliable skill lifecycle management. 然而，现有的技能库系统由于在共同检索的技能之间搭便车、难以混淆任务以及缺乏特定技能的反事实证据而无法识别每项技能的真正贡献，这阻碍了可靠的技能生命周期管理。\nWe propose TrackRL, an agentic RL framework where skill tracking drives skill library full lifecycle management. 我们提出了TrackRL ，这是一个代理式RL框架，其中技能跟踪驱动技能库的整个生命周期管理。\nSpecifically, within each GRPO group, we turn grouped sampling into online randomized controlled experiments. 具体而言，在每个GRPO组中，我们将分组抽样转化为在线随机对照实验。\nIndependent random injection and within-group contrasts on the same task isolate each skill's true contribution, and reliability-weighted aggregation accumulates evidence across groups. 同一任务的独立随机注射和组内对比隔离了每项技能的真正贡献，可靠性加权聚合积累了跨组证据。\nAs evidence accumulates, we continuously track skill utility, which measures the skill's causal contribution as external scaffolding, and model mastery, which reflects how far the corresponding capability has been internalized. 随着证据的积累，我们不断跟踪技能效用，将技能的因果关系作为外部支架来衡量，以及模型掌握，这反映了相应能力的内化程度。\nAlong this line, we formulate skill lifecycle management as an evidence-gated state-transition process that governs each skill from generation and admission through protected incubation to retention, retirement, or removal, while a soft capacity bound controls library growth. 沿着这一思路，我们将技能生命周期管理制定为一个循证门控的状态转换过程，从生成和录取到受保护的孵化到保留、退休或移除，管理每个技能，而软容量绑定控制库增长。\nExperiments show that TrackRL outperforms recent skill-augmented RL baselines in both library-assisted and skill-free evaluation, with further analyses revealing how skill value shifts during policy learning and how evidence-driven state transitions shape skill library evolution. 实验表明， TrackRL在图书馆辅助和无技能评估方面都优于最近的技能增强RL基线，进一步分析揭示了政策学习过程中技能价值的转变以及循证驱动的状态转变如何影响技能库的演变。\nOur code is available at https://github.com/xizhu1022/TrackRL. 我们的代码可在https://github.com/xizhu1022/TrackRL上找到。",
+          "highlights": [
+            "outperforms recent skill-augmented RL baselines in both library-assisted and skill-free evaluation",
+            "隶属于 cs.LG, cs.CL",
+            "Skill-augmented agentic RL has emerged as an effective approach to improving LLM agents on long-horizon tasks."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.25126",
+          "worthReading": true
+        },
+        {
+          "id": "B3",
+          "anchorId": "B3",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "MELD: Recursive Self-Improvement via Hierarchical Coordination for Multi-Agent Scientific Discovery",
+          "authors": [
+            "Sizhe Tang",
+            "Zuyuan Zhang",
+            "Zeyu Fang",
+            "Tian Lan"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.24454",
+          "tags": [
+            "RSI",
+            "Agent",
+            "Multi-Agent"
+          ],
+          "summary": "Multi-agent scientific discovery with large language models raises a coupled learning problem: research assignments determine both which experiments are pursued and the experiences from which agents adapt.\nWe introduce MELD, a unified hierarchical test-time training framework that jointly adapts a team-level Coordinator policy and agent-level individual Scientist policies within a single discovery process.\nThe Coordinator generates a joint portfolio of search branches and research directives over a shared derivation tree, while Scientists develop hypotheses and execution plans implemented by a shared frozen Executor.\nBoth levels receive alternating GRPO-style parameter updates under a shared smooth best-of-budget objective, allowing team organization and individual research behavior to co-evolve in a recursive self-improvement loop.\nOur analysis establishes objective alignment for the hierarchy, characterizes conditions for coordination gains over independent parallel discovery and the first-order benefit of private adaptation, and derives a finite-budget regret bound for adapted models.\nOn 22 MLGym and MLE-bench tasks, MELD is best on 20 of them and achieves the highest aggregate normalized scores on MLGym, using a 4B backbone for coordination and research.\nMost baselines use proprietary Scientists, and all systems share one frozen Executor.",
+          "highlights": [
+            "MELD",
+            "隶属于 cs.AI",
+            "Most baselines use proprietary Scientists, and all systems share one frozen Executor."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.24454",
+          "worthReading": true
+        },
+        {
+          "id": "B4",
+          "anchorId": "B4",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "Hyper Algorithm Design Agent: Evolving Learnable Optimizer from Zero",
+          "authors": [
+            "Zipei Yu",
+            "Yue-Jiao Gong",
+            "Zeyuan Ma",
+            "Yuncheng Jiang",
+            "Zhiguang Cao"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2609.35328",
+          "tags": [
+            "RSI",
+            "Agent"
+          ],
+          "summary": "Meta-Black-Box Optimization (MetaBBO) is one of the highlights in the recent AI for Optimization trend.\nThis paradigm's bi-level workflow leverages the learnable algorithm design policy at meta level to ensure the performance and generalization improvement on the low-level optimization task.\nWhile MetaBBO helps advance the performance lower bound of the resulted optimization system, it is currently handcrafted and customized case by case to adapt different optimization problems, which inevitably introduces inherent subjectivity and hence restricts the performance upper bound and usability in practice.\nIn this paper, we address this issue by regarding MetaBBO's design loop as coding task, where we could introduce openendedness into MetaBBO with recursive self-improvement capability of advanced coding agents.\nSpecifically, we propose a dual-agent framework: i) a task agent continuously refines the codebase of a target MetaBBO approach through code evolution; ii) a hyper agent progressively modifies the task agent and itself to provide open-ended design behavior; iii) the evolved MetaBBO codebase is evaluated and all in-execution information is fed back to the agents for recursive self-referential improvement.\nAs a result, given a naive MetaBBO template, our framework automates a design evolution and finds novel variants superior to up-to-date human-made MetaBBO baselines.\nSurprisingly, the experimental results also demonstrate that our framework supports fast adaption across different optimization domains.\nSolid interpretation analysis further reveals interesting design principles emerge in such open-ended process.\nThis work serves as the first exploration on automating design of complex learning-assisted optimization algorithms.",
+          "highlights": [
+            "propose a dual-agent framework",
+            "first exploration on automating design of complex learning-assisted optimization algorithms",
+            "Meta-Black-Box Optimization (MetaBBO) is one of the highlights in the recent AI for Optimization trend."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2609.35328",
+          "worthReading": true
+        },
+        {
+          "id": "B5",
+          "anchorId": "B5",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "World of SWECraft: Agent Collaboration at Scale via Simulated Software Worlds",
+          "authors": [
+            "Shannon Zejiang Shen",
+            "Yapei Chang",
+            "Qiyao Liang",
+            "Benjamin Newman",
+            "Jenny Liang",
+            "Rulin Shao",
+            "Ziqiao Ma",
+            "Junjie Oscar Yin",
+            "Yung-Sung Chuang",
+            "Weijia Shi",
+            "Yejin Choi",
+            "Luke Zettlemoyer",
+            "Pang Wei Koh",
+            "Mohit Iyyer",
+            "Tongshuang Wu",
+            "David Sontag"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.24061",
+          "tags": [
+            "Agent",
+            "Multi-Agent"
+          ],
+          "summary": "As teams of AI agents take on larger projects and long-standing open problems, agent collaboration offers another dimension for scaling inference-time compute.\nTo understand what makes such collaboration effective and scalable, we develop Software World, a framework for simulating multi-agent coworking in realistic software ecosystems.\nIt comes with a pipeline to create environments of real, interdependent Python packages of different topics, sizes, and dependency structures, which we call software worlds.\nIn a simulation, agents maintain packages in the world with a high-level goal of improving software efficiency, and they are free to discover tasks to work on and collaborate with others.\nWe evaluate agents' work in a world collectively by measuring speedup in hidden dependent packages.\nThe framework allows us to study different elements of collaboration by varying communication, ownership, and resource allocation.\nWe run simulations in three different worlds, totaling more than 10,000 hours of agent work across eight models.\nOverall, performance improvement scales with inference-time compute, with the best model improving downstream efficiency by up to 31%.\nWe show that most agents can find meaningful tasks via collaboration, but some frontier models can prematurely stop looking for improvements and make little progress.\nWe release the simulation framework and traces to support future studies of agent collaboration at https://szj.io/sw.",
+          "highlights": [
+            "World of SWECraft",
+            "隶属于 cs.AI, cs.CL",
+            "We evaluate agents' work in a world collectively by measuring speedup in hidden dependent packages."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.24061",
+          "worthReading": false
+        },
+        {
+          "id": "B6",
+          "anchorId": "B6",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "Hippo: Training-Free Agent Self-Evolution via Hippocampal Replay",
+          "authors": [
+            "Yutong Song",
+            "Jiang Wu",
+            "Yuxuan Ren",
+            "Tony Qin",
+            "Baoyuan Wang"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.24453",
+          "tags": [
+            "RSI",
+            "Agent",
+            "LLM"
+          ],
+          "summary": "Motivated by recursive self-improvement (RSI), we study how LLM agents can learn through external memory without updating model parameters.\nExtracting useful experience from a single attempt is difficult: flawed reasoning can produce success, while poor execution can obscure a sound strategy.\nPreserving its value over time is also difficult: our accumulation baseline without consolidation initially improves but eventually performs below a no-memory baseline.\nOur key idea is to compare attempts at the same task to identify reusable decisions and refine when they apply.\nWe introduce Hippo, a memory framework inspired by selective hippocampal encoding and replay that learns from these comparisons when shortcomings are diagnosed.\nIt compares the resulting experience with existing memory to merge overlaps and resolve conflicts through explicit applicability conditions.\nThis allows prior guidance to be revised without storing every lesson as a separate entry.\nExperiments on SWE-bench Verified, WebArena, and Mind2Web show performance gains in all three settings and substantially fewer retained experiences than the accumulation baseline.\nThe gains extend across the evaluated base models of varying capabilities, indicating that memory-based adaptation remains useful even for highly capable models.",
+          "highlights": [
+            "Hippo",
+            "隶属于 cs.AI",
+            "Motivated by recursive self-improvement (RSI), we study how LLM agents can learn through external memory without updatin"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.24453",
+          "worthReading": false
+        },
+        {
+          "id": "B7",
+          "anchorId": "B7",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "EMMA: Event-Driven Multimodal Memory System with Multi-Agent Retrieval",
+          "authors": [
+            "Ruochen Zhao",
+            "Jiazheng Kang",
+            "Gezi Li",
+            "Dongying Lin",
+            "Ting Bai"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.23892",
+          "tags": [
+            "Agent",
+            "Multi-Agent",
+            "LLM"
+          ],
+          "summary": "Long video understanding requires reasoning over hours of content that far exceed the context window of multimodal large language models (MLLMs).\nExisting approaches compress video into fixed-length clips, yet events are fragmented and unrelated content is merged, yielding noisy retrieval.\nTo overcome this challenge, we propose EMMA, an Event-driven Multimodal Memory system with Multi-Agent retrieval, which organizes memory around semantic events in three stages: (1) Event segmentation: a dual-stream detector adaptively locates event boundaries by fusing visual semantic drift with spoken transitions, rather than fixed windows.\n(2) Memory construction: built on the detected events, a three-level hierarchy of raw video, clip-level memory, and event-level memory stores content at progressively higher semantic abstraction.\n(3) Memory retrieval: a multi-agent framework collaboratively queries this hierarchy through query decomposition, tiered search, evidence validation, and answer generation, narrowing evidence from coarse events to precise clips.\nExtensive experiments on three challenging benchmarks demonstrate substantial improvements, showing the effectiveness of our event-aligned memory system.\nCode, prompt templates, and reproduction scripts are available at https://github.com/BAI-LAB/EMMA.",
+          "highlights": [
+            "exceed the context window of multimodal large language models (MLLMs)",
+            "EMMA",
+            "隶属于 cs.CV, cs.AI"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.23892",
+          "worthReading": false
+        },
+        {
+          "id": "B8",
+          "anchorId": "B8",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "KernelClaw: A Multi-Agent Framework for GPU Kernel Optimization with Dual-Memory Mechanisms",
+          "authors": [
+            "Qitong Sun",
+            "Jun Han",
+            "Tianlin Li",
+            "Zhe Tang",
+            "Sheng Chen",
+            "Fei Yang",
+            "Aishan Liu",
+            "Xianglong Liu",
+            "Yang Liu"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2603.10085",
+          "tags": [
+            "Agent",
+            "Multi-Agent",
+            "LLM"
+          ],
+          "summary": "Improving GPU kernel efficiency is crucial for efficient AI systems.\nRecent work has explored leveraging large language models (LLMs) for GPU kernel generation and optimization.\nHowever, existing LLM-based kernel optimization pipelines typically rely on opaque, implicitly learned heuristics within the LLMs to determine optimization strategies.\nThis leads to inefficient trial-and-error and weakly interpretable optimizations.\nOur key insight is to replace implicit heuristics with expert optimization knowledge that is aware of task trajectories.\nSpecifically, we present KernelClaw, a multi-agent framework with a dual-level memory architecture.\nKernelClaw operates by coordinating agents with long-term memory of reusable expert knowledge and short-term memory to prevent repetitive backtracking.\nOn KernelBench Levels 1-3, KernelClaw achieves a 100% success rate and average speedups of 6.98x, 7.89x, and 1.94x over Torch Eager on Levels 1, 2, and 3, respectively, outperforming prior baselines.\nCode is available at https://github.com/0satan0/KernelMem/.",
+          "highlights": [
+            "outperforming prior baselines",
+            "KernelClaw",
+            "隶属于 cs.LG, cs.AI"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2603.10085",
+          "worthReading": false
+        },
+        {
+          "id": "B9",
+          "anchorId": "B9",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "TimelineAgent: An LLM-based Framework for Query-Centric Event Timeline Extraction Across Multiple Documents",
+          "authors": [
+            "Qingkai Min",
+            "Yunxin Bao",
+            "Yifeng Lu",
+            "Zhenyu Feng",
+            "Yulong Chen",
+            "Andreas Vlachos",
+            "Yue Zhang"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.25733",
+          "tags": [
+            "Agent",
+            "Multi-Agent",
+            "LLM"
+          ],
+          "summary": "Query-centric cross-document event timeline extraction aims to construct event timelines from multiple documents under diverse query focuses.\nThe task is very challenging due to the heterogeneous event modeling and reasoning requirements arising from both the intrinsic complexity of cross-document timeline construction and the diversity of query focuses.\nIn this paper, we propose TimelineAgent, an LLM-based multi-agent framework featuring a multi-stage reasoning workflow, where heterogeneous event features are organized into reusable skills and orchestrated through a goal-oriented protocol.\nTo facilitate evaluation, we construct a benchmark covering diverse query focuses.\nExperimental results show that TimelineAgent consistently outperforms existing methods, offering a practical framework for complex real-world timeline construction.",
+          "highlights": [
+            "outperforms existing methods",
+            "TimelineAgent",
+            "隶属于 cs.AI"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.25733",
+          "worthReading": false
+        },
+        {
+          "id": "B10",
+          "anchorId": "B10",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "Reflection-Driven Self-Improving Language Model Agents for Adaptive RAN Slicing",
+          "authors": [
+            "Yuanhao Li",
+            "Haozhe Wang",
+            "Geyong Min",
+            "Nektarios Georgalas",
+            "Wang Miao"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2603.10564",
+          "tags": [
+            "RSI",
+            "Agent"
+          ],
+          "summary": "Adaptive control in AI-native networks remains challenging because tasks such as dynamic Radio Access Network (RAN) slicing require persistent trade-off decisions among spectrum efficiency, service quality, and reconfiguration stability.\nConventional Reinforcement Learning (RL) compresses these competing objectives into handcrafted scalar rewards, requiring exhaustive tuning for a balanced trade-off.\nLanguage model (LM) agents provide a new path toward adaptive control because they can semantically represent complex preference relations, but prompt-based adaptation struggles to retain long-horizon interaction history due to finite context limits.\nWe propose a Reflection-Driven Self-Improvement (ReDSI) framework that replaces scalar rewards with semantic feedback for continuous policy adaptation.\nThis framework is built upon a Small Language Model (SLM) agent for fast decision-making, coupled with a bi-perspective reflection to transform interaction history into preference data, subsequently distilling long-horizon decision experience into the SLM parameters through preference-based fine-tuning.\nEvaluated on a dynamic RAN slicing task, our method achieves an optimal trade-off across multiple competing objectives, outperforming standard RL baselines and existing LM-based agents by demonstrating substantially greater sample efficiency.\nThese results highlight a viable paradigm of self-improving LM agents for reward-free multi-objective continuous control in AI-native networks.",
+          "highlights": [
+            "propose a Reflection-Driven Self-Improvement (ReDSI) framework",
+            "outperforming standard RL baselines and existing LM-based agents by demonstrating substantially greater sample efficienc",
+            "These results highlight a viable paradigm of self-improving LM agents for reward-free multi-objective continuous control"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2603.10564",
+          "worthReading": false
+        },
+        {
+          "id": "B11",
+          "anchorId": "B11",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "Memory as Belief: Bayesian Evolution of Memory for Self-Evolving LLM Agents",
+          "authors": [
+            "Yiming Xu",
+            "Qian Yang",
+            "Zihan Chen",
+            "Yuefei Wu",
+            "Wenhan Zeng",
+            "Bin Shi",
+            "Bo Dong"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.25119",
+          "tags": [
+            "RSI",
+            "Agent",
+            "LLM"
+          ],
+          "summary": "Large language model (LLM) agents increasingly rely on external memory to accumulate past experiences for continual adaptation.\nHowever, effectively reusing memory requires accurately assessing its value, as retrieved experiences may become unreliable when transferred across task contexts.\nDespite its importance, memory valuation remains largely underexplored, with existing methods relying on historical retrieval success rates that overlook the context dependency of memory usefulness and the varying reliability of estimates under different amounts of evidence.\nInspired by the Bayesian brain hypothesis, we propose BEAM (Bayesian-style Evolutionary Agentic Memory), a framework that reformulates memory value evaluation as a parameterized cognitive inference process, where memory value is represented as a context-conditioned dynamic belief rather than a passive historical statistic.\nSpecifically, BEAM infers memory value beliefs from current task contexts and continuously calibrates them using execution feedback as empirical evidence, transforming memory from passive storage into an adaptive cognitive mechanism for continual self-evolution.\nExtensive experiments across reasoning and code generation benchmarks demonstrate that BEAM consistently improves memory utilization and enables continual self-evolution of LLM agents.",
+          "highlights": [
+            "Memory as Belief",
+            "隶属于 cs.LG",
+            "Large language model (LLM) agents increasingly rely on external memory to accumulate past experiences for continual adap"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.25119",
+          "worthReading": false
+        },
+        {
+          "id": "B12",
+          "anchorId": "B12",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "How Data Scales in Agentic Reinforcement Learning: Laws and Synthesis Strategies",
+          "authors": [
+            "Bowei He",
+            "Yankai Chen",
+            "Xiaokun Zhang",
+            "Changjiang Han",
+            "Ye Yuan",
+            "Chong Li",
+            "Xue Liu"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.23946",
+          "tags": [
+            "Agentic RL",
+            "Agent",
+            "LLM"
+          ],
+          "summary": "Pretraining scaling laws treat training data as a one-dimensional quantity: a token count.\nAgentic reinforcement learning (RL) inherits this scalar abstraction, but modern synthesis pipelines now generate \\textit{tasks}, \\textit{environments}, and \\textit{trajectories} independently and at very different costs, turning data into a structured design space.\nThis raises a question pretraining never had to answer: given a synthesis budget, \\textit{which axis} should be scaled?\nWe address this question end-to-end with three tightly coupled contributions.\nFirst, we decompose agentic data into three cardinality axes (task, environment, trajectory), plus a reward-density control variable, and fit per-axis scaling relations on different large language models (LLMs) across math+code, SWE, web, and UI/tool application domains.\nAcross all model sizes, model families, domains, and RL algorithms (PPO and GRPO) we measured, the scaling exponents order as environment $>$ task $>$ trajectory.\nWhen environment diversity is decomposed into world and environment-structure diversity, its advantage is mainly driven by the former, while the latter is just comparable to the task diversity.\nSecond, we use the fitted laws as a common ruler to price synthesis methods, capturing each method's efficiency as a per-axis discount factor and identifying critical synthetic-to-real ratios at which collapse begins; these ratios differ by an order of magnitude across axes.\nThird, we cast budget allocation as a constrained optimization under our laws and discounts, deriving a Chinchilla-style compute-optimal recipe and validating it at held-out scale.\nThe empirical results demonstrate that following the recipe yields up to $1.7\\times$ compute efficiency over the dominant ``scale-the-trajectories'' practice.",
+          "highlights": [
+            "How Data Scales in Agentic Reinforcement Learning",
+            "隶属于 cs.LG, cs.CL",
+            "Pretraining scaling laws treat training data as a one-dimensional quantity: a token count."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.23946",
+          "worthReading": false
+        },
+        {
+          "id": "B13",
+          "anchorId": "B13",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "Janus: a Playground for User-Involved Agentic Permission Management",
+          "authors": [
+            "Natalie Grace Brigham",
+            "Eugene Bagdasarian",
+            "Tadayoshi Kohno",
+            "Franziska Roesner"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2607.01510",
+          "tags": [
+            "Agent"
+          ],
+          "summary": "AI agents that autonomously execute tool calls on a user's behalf raise pressing questions about permission management: what role could users play, and what role should they play?\nDespite many proposed approaches, the user's role in agentic permission management remains underexplored.\nWe introduce Janus, a playground system for implementing and evaluating user-involved agentic permission management designs.\nJanus consists of two components: Janus-Core, a modular agentic system supporting a diverse spectrum of permission management designs, and Janus-Harness, an automated evaluation framework.\nGrounded in a conceptual model that identifies key design axes for user involvement, we implement six permission assistants spanning the design space and evaluate them across three scenarios with four subscenarios each and three synthetic responders.\nWe demonstrate that user involvement is critical and can strengthen privacy and security and that user behavior such as permission fatigue must be accounted for in system design.\nNo single design performs optimally across all contexts, motivating a more principled and context-sensitive approach to deploying permission assistants in agentic systems.\nJanus is publicly available to support future investigation into this dimension of agentic system design.",
+          "highlights": [
+            "Janus",
+            "隶属于 cs.AI, cs.CR",
+            "Despite many proposed approaches, the user's role in agentic permission management remains underexplored."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2607.01510",
+          "worthReading": false
+        },
+        {
+          "id": "B14",
+          "anchorId": "B14",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "Mobius Injection: From One-Shot Prompt Injection to Sustained Resource Exhaustion in AI Agent Infrastructure",
+          "authors": [
+            "Zi Liang",
+            "Ronghua Li",
+            "Yanyun Wang",
+            "Qingqing Ye",
+            "Haibo Hu"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2605.11442",
+          "tags": [
+            "Agent",
+            "LLM"
+          ],
+          "summary": "Large Language Model (LLM) agents have emerged as key intermediaries, orchestrating complex interactions between human users and a wide range of digital services and LLM infrastructures.\nWhile prior research has extensively examined the security of LLMs and agents in isolation, the systemic risk of the agent acting as a disruptive \"hub\" within the user-agent-service chain remains largely overlooked.\nIn this work, we expose a novel threat paradigm by introducing Mobius Injection, a sophisticated attack that weaponizes autonomous agents into zombie nodes to launch what we define as Agent-based and -Oriented DDoS (AbO-DDoS) attacks.\nMobius Injection composes known indirect prompt injection and persistent agent components through a distinct structural mechanism named Semantic Closure, which induces sustained recursive execution of agent components through a single injection event.\nWe demonstrate that this attack is lightweight for the adversary, can evade traditional volumetric DDoS monitors and input filters calibrated for low false-positive rates, and is highly configurable, allowing for surgical targeting of specific environments or model providers.\nTo evaluate the real-world impact, we conduct extensive experiments across three representative claw-style agents and three mainstream coding agents, integrated with 12 frontier proprietary or open-weight LLMs.\nOur results demonstrate that Mobius Injection achieves substantial attack success across diverse tasks, driving single-node call amplification up to 51.0x.\nUnder coordinated multi-node pressure, each infected node still drains about 123k--127k tokens on a shared five-GPU backend; benign request latency rises by abou 23x--24x, and coordinated infections eventually saturate shared capacity until benign traffic is effectively denied service.",
+          "highlights": [
+            "Mobius Injection",
+            "隶属于 cs.CR, cs.AI"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2605.11442",
+          "worthReading": false
+        },
+        {
+          "id": "B15",
+          "anchorId": "B15",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "SCARCE: Emergent Institutions in Long-Horizon Multi-Agent Coding Systems",
+          "authors": [
+            "Abhinav Kumar",
+            "Rediet Abebe",
+            "Eugene Bagdasarian",
+            "Sahar Abdelnabi"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.21029",
+          "tags": [
+            "Agent",
+            "Multi-Agent"
+          ],
+          "summary": "As autonomous agents become widely deployed, coordinating access to shared computing resources and services will become increasingly important.\nRecent incidents have already revealed unplanned coordination between agents, highlighting the safety implications of these interactions.\nYet prior studies of agent negotiation often use stylized games and simulated bargaining, leaving open how these behaviors develop during sustained, long-horizon tasks.\nWe propose SCARCE (Shared Compute ARena for Coding agEnts), a framework in which agents solve sequences of coding tasks under individual deadlines while negotiating access to a shared execution resource.\nThis negotiation determines when and for how long they can inspect programs, compile code, and run tests.\nWe find that agents spontaneously develop informal institutions: persistent rules and commitments grounded in reputation, reciprocity, and precedent.\nThese arrangements, which we call institutional behaviors, carry across tasks and influence resource allocation, with agents sometimes forgoing immediate advantages to honor earlier agreements.\nWe develop a 21-category taxonomy of negotiation strategies and emergent norms and use it to analyze eight models and audit more than 1,500 trajectories across different environmental settings.\nAmong the models tested, newer frontier models exhibit more institutional behaviors than older or lightweight models.\nAlongside cooperation, we observe exclusionary coalitions and rare divide-and-conquer strategies.\nSCARCE provides a controlled setting for proactively and systematically auditing how these relationships emerge, shape access to resources, and affect the safety and coordination of multi-agent systems.",
+          "highlights": [
+            "SCARCE",
+            "隶属于 cs.MA, cs.AI",
+            "As autonomous agents become widely deployed, coordinating access to shared computing resources and services will become "
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.21029",
+          "worthReading": false
+        },
+        {
+          "id": "B16",
+          "anchorId": "B16",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "Conjugate Compilation: Self-Improving Agentic Co-Compilation for Speculative Decoding",
+          "authors": [
+            "Annabelle Sujun Tang",
+            "Rohan Mahapatra",
+            "Christopher Priebe",
+            "Hanyang Xu",
+            "Manya Ghobadi",
+            "Christopher Rossbach",
+            "Hadi Esmaeilzadeh"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.25012",
+          "tags": [
+            "RSI",
+            "Agent",
+            "LLM"
+          ],
+          "summary": "As LLM adoption surges, scaling model serving requires unlocking stranded GPU capacity alongside deploying more GPUs.\nSpeculative decoding brings two models into the serving process: a small draft model proposes tokens that a larger target model verifies.\nYet compiling these models individually leaves their shared execution outside the compiler's optimization boundary.\nWe introduce CONJUGATE COMPILATION, which reframes speculative decoding as a cross-model compilation problem and jointly optimizes the draft and target models within their shared execution rather than treating each in isolation.\nOur key insight is that cross-model compilation should be informed by the measured performance of the co-located shared execution it produces: an optimization that improves a kernel in isolation need not improve the models when they execute together.\nTo expand cross-model opportunities, we devise operand layouts that interleave blocks from both models within common tiles, co-locating GEMM and non-GEMM work while preserving their mathematics.\nWe realize CONJUGATE COMPILATION through a self-improving agentic search system in which an LLM edits cross-model optimization plans using the compiler and GPU execution as its environment.\nEach proposed plan is compiled and evaluated through its co-located shared execution, whose measured score, together with kernel-level verdicts and compiler feedback, informs subsequent proposals, while Monte Carlo tree search accumulates rewards to guide exploration.\nAcross six single-GPU speculative-decoding configurations on NVIDIA B300 and RTX 5090 GPUs, CONJUGATE COMPILATION achieves a geometric-mean per-round speedup of 1.37x over conventional execution.\nInterleaved kernels raise this speedup to 1.45x, reaching 1.59x in the best case.\nCONJUGATE COMPILATION also improves GPU utilization on average by 1.46x on RTX 5090 and 1.50x on B300.",
+          "highlights": [
+            "Conjugate Compilation",
+            "隶属于 cs.LG, cs.DC",
+            "As LLM adoption surges, scaling model serving requires unlocking stranded GPU capacity alongside deploying more GPUs."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.25012",
+          "worthReading": false
+        },
+        {
+          "id": "B17",
+          "anchorId": "B17",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "MASIF: Implicit Failures for Process Observability in Multi-Agent Systems",
+          "authors": [
+            "Yanwei Huang",
+            "Arpit Narechania",
+            "Atanu Sinha"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.25852",
+          "tags": [
+            "Agent",
+            "Multi-Agent"
+          ],
+          "summary": "Multi-agent systems (MAS) can complete a task despite local execution errors that are corrected, bypassed, or carried forward without individually determining its outcome.\nWe call these implicit failures (IFs) and study them as signals for process observability beyond final task outcome.\nAcross 1,828 traces from nine MAS-benchmark configurations, IFs occur in 54.3% of successful and 75.2% of failed traces.\nWe develop taxonomies of error types and subsequent absorption mechanisms, supported by human and cross-model annotation audits.\nCounterfactual replay further probes how repairing an IF changes the final outcome.\nTo examine the practical value of IFs, we evaluate IF-based best-of-N trace selection against existing process reward models, and introduce a novel RL algorithm, IF-GRPO, that uses IF costs to refine preferences among successful trajectories in GRPO.\nExperiments show that IF-GRPO exhibits some gains in accuracy and process metrics.\nImportantly, it exposes trade-offs between task performance, IF count and cost, and token-normalized IF density.\nOverall, our results show that IFs provide complementary process observability into how MAS reach their outcomes, including error recovery, propagation, and IF-based process differences that final task success alone does not expose.",
+          "highlights": [
+            "introduce a novel RL algorithm",
+            "MASIF",
+            "隶属于 cs.AI"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.25852",
+          "worthReading": false
+        },
+        {
+          "id": "B18",
+          "anchorId": "B18",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "StebBench: Diagnosing Real-World Procedural Understanding in AI Agents",
+          "authors": [
+            "Hossein A. Rahmani",
+            "Bin Wu",
+            "Chaeeun Lee",
+            "Fanghua Ye",
+            "Sahan Bulathwela",
+            "Sujay Kumar Jauhar",
+            "Marzieh Fadaee",
+            "Nick Craswell",
+            "Emine Yilmaz"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2610.26679",
+          "tags": [
+            "Agent"
+          ],
+          "summary": "Evaluating an agent's planning ability remains challenging for open-domain tasks, where verifying procedures through execution is often impractical.\nExisting evaluations typically assess only the final plan and do not distinguish procedural errors such as missing, incorrect, or misordered actions.\nWe introduce STEPBENCH, a benchmark of 6,885 verified procedures crawled from wikiHow across 81 open-domain categories.\nFrom each procedure, we derive 5 diagnostic tasks: four with deterministic answers involving withheld, incorrect, or shuffled steps, and one requiring next-step generation.\nWe additionally evaluate full-plan generation to examine how diagnostic performance correlates with end-to-end plan validity.\nUsing the same procedures across tasks lets us directly compare different planning capabilities.\nFor generation, STEPEVAL identifies critical failures that prevent goal completion.\nAcross 14 configurations of 12 models, we find substantial differences across planning capabilities, with step ordering proving the most difficult: the strongest model correctly orders only 63.0% of procedures, dropping to 33.1% for those with nine or more steps.\nIncorrect-step detection also predicts judged plan validity across models, suggesting a lower-cost alternative for evaluating generation quality.\nOn STEPBENCH-Val, comprising 214 procedures published in 2026, comprehension scores and rankings remain stable, suggesting limited influence from memorisation.",
+          "highlights": [
+            "StebBench",
+            "隶属于 cs.AI",
+            "Evaluating an agent's planning ability remains challenging for open-domain tasks, where verifying procedures through exe"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2610.26679",
+          "worthReading": false
+        },
+        {
+          "id": "B19",
+          "anchorId": "B19",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "InfraBench: Evaluating Infrastructure Agents Across Layers, Lifecycle, and Risk",
+          "authors": [
+            "Yuan Gao (Wanxiang)",
+            "Zeren Yang (Wanxiang)",
+            "Junnan Li (Wanxiang)",
+            "Shawn (Wanxiang)",
+            "Zhong",
+            "Ahmed Dajani",
+            "Mai Zheng",
+            "Andrea Arpaci-Dusseau",
+            "Remzi Arpaci-Dusseau"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2608.11234",
+          "tags": [
+            "Agent"
+          ],
+          "summary": "Managing modern computing infrastructure has become a steadily harder problem due to the ever-increasing complexity.\nRecent advances in AI agents create a timely opportunity to automate infrastructure management tasks, but it remains unclear how well such agents can handle real-world infrastructure complexity.\nWe present InfraBench, a benchmark for infrastructure agents organized around system layers, the operational lifecycle, and risk.\nThe current prototype couples container, VM, and bare-metal backends with task-specific verifiers that distinguish functional repair from durability and cleanup, and analyzes retained action-trace findings for unsafe shortcuts.\nWe evaluate 18 agent-model configurations on 12 seed tasks, with three attempts per task.\nMean effective scores range from 45.5% to 89.2%; the strongest configuration completes 77.8% of attempts perfectly.\nIn the available lifecycle checks, pass rates fall from 91.5% for functional repair to 80.9% for durability and 38.9% for cleanup.\nThese results show why immediate recovery is an incomplete measure of operational capability.\nWe use this evidence to motivate a planned expansion toward 40-60 tasks centered on managed cloud infrastructure and redesign after incidents, including provider-native Kubernetes networking.\nThis extension is a research direction; the reported results remain those of the 12-task prototype.\nInfraBench, its tasks, evaluation harness, and live leaderboard are available at infraben.ch.",
+          "highlights": [
+            "InfraBench",
+            "隶属于 cs.AI, cs.OS",
+            "Managing modern computing infrastructure has become a steadily harder problem due to the ever-increasing complexity."
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2608.11234",
+          "worthReading": false
+        },
+        {
+          "id": "B20",
+          "anchorId": "B20",
+          "group": "B",
+          "groupName": "Agent / RSI / Agentic RL 主题",
+          "title": "VACS: Value-Aligned Compositional Shielding for Multi-Agent Reasoning",
+          "authors": [
+            "Yiyao Zhang",
+            "Diksha Goel",
+            "Hussain Ahmad"
+          ],
+          "venue": "arXiv 2026",
+          "arxivId": "arXiv:2609.26135",
+          "tags": [
+            "Agent",
+            "Multi-Agent"
+          ],
+          "summary": "Multi-agent reasoning systems in high-stakes domains must be both accurate and safe, yet agents often follow heterogeneous value priorities (e.g., rigor, conciseness, safety), causing conflicting recommendations.\nExisting methods do not jointly provide: (i) principled inference of each agent's implicit values from behavior, (ii) compositional formal safety guarantees without full online communication, and (iii) value-aware conflict resolution with faithful explanations.\nWe present VACS (Value-Aligned Compositional Shielding), a four-layer framework addressing all three.\nLayer 1 learns value-dimension rewards from pairwise preferences using Bradley-Terry modeling and infers per-agent value weights via deep MaxEnt IRL.\nLayer 2 encodes value constraints in a Lean-inspired DSL and synthesizes compositional assume-guarantee shields for runtime safety.\nLayer 3 resolves disagreement through nucleolus-based credit allocation and Hamiltonian consensus optimization under long-term value constraints.\nLayer 4 extracts a critical reasoning path from co-state sensitivities and generates formally grounded natural-language explanations.\nOur contribution is primarily a unified systems design with formalized interfaces and operational guarantees at the verifier-constrained decision level, rather than a complete end-to-end formal proof of all language-model internals.\nIn controlled proof-of-concept evaluations with role-conditioned agent panels on NEJM-AI QA, MathInstruct-Subset, and a cybersecurity incident-response benchmark (CyberSec-Eval), VACS outperforms strong baselines in accuracy (85.4%, 95.0%, and 90.0%) while reducing logical inconsistency rates to near zero.",
+          "highlights": [
+            "outperforms strong baselines in accuracy (85",
+            "VACS",
+            "隶属于 cs.AI, cs.MA"
+          ],
+          "pdfUrl": "https://arxiv.org/pdf/2609.26135",
+          "worthReading": false
+        }
+      ]
+    },
     {
       "id": "2026-10-19",
       "date": "2026-10-19",

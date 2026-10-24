@@ -146,6 +146,15 @@
 - **产物**：`daily_reports/2026-10-18-arXiv.html`（空），`config.js`/`config.json` 更新（累计 540 篇 / 14 天，今日 +0）。
 - **Git**：pull 因 memory.md 未暂存改动先 stash 再 pull（Already up to date）再 pop，正常恢复；commit `e50aa79`，push 一次成功（`e975adf..e50aa79 main -> main`），SSH 认证正常。
 
+## 2026-10-23 (周五) 执行摘要
+- **结果**：成功。日报 2026-10-23 已生成并推送至 GitHub Pages。
+- **抓取**：ArXiv RSS 4 个分类全部正常（cs.CV=192、cs.LG=339[去重后311]、cs.AI=366[去重后224]、cs.RO=107[去重后75]），共 802 篇 → 关键词过滤 248 篇。
+- **筛选/分组**：相关度阈值 78.0，取前 50 篇强相关 → A组=21、B组=29、C组=0。筛选前原始分组 A组=95、B组=153。
+- **精读推荐**：20 篇 / 50 篇标记值得精读。
+- **产物**：`daily_reports/2026-10-23-arXiv.html`，`config.js`/`config.json` 更新（累计 790 篇 / 19 天，今日 +50）。
+- **Git**：commit `394398b`，push 一次成功（`af1e08c..394398b main -> main`），SSH 认证正常。
+- **备注**：本次数据完整（4 分类齐全），无需补跑。
+
 ## 2026-10-22 (周四) 执行摘要
 - **结果**：成功。日报 2026-10-22 已生成并推送至 GitHub Pages。
 - **抓取**：ArXiv RSS 4 个分类全部正常（cs.CV=212、cs.LG=379[去重后348]、cs.AI=370[去重后213]、cs.RO=120[去重后71]），共 844 篇 → 关键词过滤 213 篇。
@@ -172,3 +181,12 @@
 - **产物**：`daily_reports/2026-10-20-arXiv.html`，`config.js`/`config.json` 更新（累计 640 篇 / 16 天，今日 +50）。
 - **Git**：pull 因 memory.md 未暂存改动先 stash 再 pull（Already up to date）再 pop，正常恢复；commit `a7081a7`，push 一次成功（`7148802..a7081a7 main -> main`），SSH 认证正常。
 - **备注**：本次数据完整（4 分类齐全），无需补跑。
+
+## 2026-10-24 (周六) 执行摘要
+- **结果**：成功（空日报）。日报 2026-10-24 已生成并推送至 GitHub Pages。
+- **抓取**：ArXiv RSS 4 个分类（cs.CV/LG/AI/RO）**全部返回 0 篇**（HTTP 200 但 0 item，无超时错误）；API 回退连续 3 次 `HTTP Error 500: Internal Server Error`。共 0 篇 → 生成空日报。
+- **说明**：今日为周六。ArXiv 公告日程为周一/周三/周五，周六通常无新论文发布，空日报属正常预期；RSS 0 篇 + API 500 也与服务端周末降级/稀疏一致，非本机网络全中断。无需补跑。
+- **筛选/分组**：0 篇 → A组=0、B组=0、C组=0。
+- **精读推荐**：0 篇。
+- **产物**：`daily_reports/2026-10-24-arXiv.html`（空），`config.js`/`config.json` 更新（累计 790 篇 / 20 天，今日 +0）。
+- **Git**：pull 因 memory.md 未暂存改动先 stash 再 pull（Already up to date）再 pop，正常恢复；commit 与 push 见下方步骤 2。SSH 认证正常。

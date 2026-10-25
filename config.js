@@ -4,12 +4,27 @@ const PAPER_ARCHIVE_CONFIG = {
     "subtitle": "Daily arXiv Digest — Agents · RSI · Agentic RL · Frontier LLMs",
     "description": "Automated collection of cutting-edge research papers on AI Agents, Recursive Self-Improvement (RSI), Agentic RL, and releases from leading LLM labs (OpenAI, Anthropic, Google, Meta, Zhipu, DeepSeek, Qwen, Kimi, Hunyuan, Xiaomi, ByteDance, Baidu, etc.).",
     "totalPapers": 790,
-    "totalDays": 20,
-    "lastUpdated": "2026-10-24",
+    "totalDays": 21,
+    "lastUpdated": "2026-10-25",
     "author": "@miclover0",
     "repository": "https://github.com/miclover0/paper-daily"
   },
   "dailyReports": [
+    {
+      "id": "2026-10-25",
+      "date": "2026-10-25",
+      "dateDisplay": "October 25, 2026",
+      "weekday": "Sunday",
+      "filename": "daily_reports/2026-10-25-arXiv.html",
+      "paperCount": 0,
+      "groups": {
+        "A": 0,
+        "B": 0,
+        "C": 0
+      },
+      "featuredPapers": [],
+      "papers": []
+    },
     {
       "id": "2026-10-24",
       "date": "2026-10-24",

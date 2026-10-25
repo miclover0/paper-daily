@@ -189,4 +189,4 @@
 - **筛选/分组**：0 篇 → A组=0、B组=0、C组=0。
 - **精读推荐**：0 篇。
 - **产物**：`daily_reports/2026-10-24-arXiv.html`（空），`config.js`/`config.json` 更新（累计 790 篇 / 20 天，今日 +0）。
-- **Git**：pull 因 memory.md 未暂存改动先 stash 再 pull（Already up to date）再 pop，正常恢复；commit 与 push 见下方步骤 2。SSH 认证正常。
+- **Git**：pull 因 memory.md 未暂存改动先 stash 再 pull（Already up to date）再 pop，正常恢复；commit `e10bb75`，push 一次成功（`394398b..e10bb75 main -> main`），SSH 认证正常。

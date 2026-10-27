@@ -191,6 +191,15 @@
 - **产物**：`daily_reports/2026-10-24-arXiv.html`（空），`config.js`/`config.json` 更新（累计 790 篇 / 20 天，今日 +0）。
 - **Git**：pull 因 memory.md 未暂存改动先 stash 再 pull（Already up to date）再 pop，正常恢复；commit `e10bb75`，push 一次成功（`394398b..e10bb75 main -> main`），SSH 认证正常。
 
+## 2026-10-26 (周一) 执行摘要
+- **结果**：成功。日报 2026-10-26 已生成并推送至 GitHub Pages。
+- **抓取（数据不完整）**：ArXiv RSS 4 分类中 `cs.CV`=205、`cs.LG`=283（去重后）、`cs.AI`=191（去重后）成功；`cs.RO` 3 次 `WinError 10060` 连接超时失败。共 679 篇去重后 → 关键词过滤 189 篇。
+- **筛选/分组**：相关度阈值 77.0，取前 50 篇强相关 → A组=29、B组=21、C组=0。筛选前原始分组 A组=83、B组=106。
+- **精读推荐**：20 篇 / 50 篇标记值得精读。
+- **产物**：`daily_reports/2026-10-26-arXiv.html`，`config.js`/`config.json` 更新（累计 840 篇 / 22 天，今日 +50）。
+- **Git**：pull 先 stash（memory.md 未暂存）再 pull（Already up to date）再 pop，正常恢复；commit `900cdba`，push 一次成功（`09a36c5..900cdba main -> main`），SSH 认证正常。
+- **备注**：本次缺 cs.RO 一个分类（3 次超时失败），属本机到 rss.arxiv.org 该分类网络瓶颈，非服务端降级/周末稀疏。数据覆盖 cs.CV/LG/AI 三类，无需补跑；若需完整覆盖可于后续工作日补录 cs.RO。
+
 ## 2026-10-25 (周日) 执行摘要
 - **结果**：成功（空日报）。日报 2026-10-25 已生成并推送至 GitHub Pages。
 - **抓取**：ArXiv RSS 4 个分类（cs.CV/LG/AI/RO）**全部返回 0 篇**（cs.CV=0、cs.LG=0、cs.AI 超时重试后 0、cs.RO=0，无稳定超时中断）；API 回退连续 3 次 `HTTP Error 500: Internal Server Error`。共 0 篇 → 生成空日报。

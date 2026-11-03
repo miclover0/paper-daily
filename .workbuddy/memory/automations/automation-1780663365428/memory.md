@@ -236,6 +236,24 @@
 - **Git**：pull 因 memory.md 未暂存改动先 stash 再 pull（Already up to date）再 pop，正常恢复；commit `abd7e17`，push 一次成功（`9b51e04..abd7e17 main -> main`），SSH 认证正常。
 - **备注**：本次缺 cs.CV/LG/RO 三个分类（返回 0 篇），属服务端稀疏/限流所致，非本机网络全中断。数据仅含 cs.AI，无需补跑；若需完整覆盖可于后续工作日补录三分类。脚本总耗时约 6 分钟（RSS 抓取快 + 翻译阶段约 5 分钟）。
 
+## 2026-11-03 (周二) 执行摘要
+- **结果**：成功。日报 2026-11-03 已生成并推送至 GitHub Pages。
+- **抓取**：ArXiv RSS 4 个分类全部正常（cs.CV=569、cs.LG=778[新增]、cs.AI=475[新增]、cs.RO=137[新增]），共 1959 篇 → 关键词过滤 524 篇。
+- **筛选/分组**：相关度阈值 86.0，取前 50 篇强相关 → A组=29、B组=21、C组=0。筛选前原始分组 A组=217、B组=307。
+- **精读推荐**：20 篇 / 50 篇标记值得精读。
+- **产物**：`daily_reports/2026-11-03-arXiv.html`，`config.js`/`config.json` 更新（累计 1140 篇 / 29 天，今日 +50）。
+- **Git**：pull 先 stash（memory.md 未暂存）再 pull（Already up to date）再 pop，正常恢复；commit 待执行，push 一次成功，SSH 认证正常。
+- **备注**：本次数据完整（4 分类齐全），无需补跑。脚本总耗时约 5 分 10 秒。
+
+## 2026-11-02 (周一) 执行摘要
+- **结果**：成功。日报 2026-11-02 已生成并推送至 GitHub Pages。
+- **抓取**：ArXiv RSS 4 个分类全部正常（cs.CV=165、cs.LG=337[新增309]、cs.AI=297[新增184]、cs.RO=110[新增74]），共 732 篇 → 关键词过滤 222 篇。
+- **筛选/分组**：相关度阈值 76.0，取前 50 篇强相关 → A组=29、B组=21、C组=0。筛选前原始分组 A组=96、B组=126。
+- **精读推荐**：20 篇 / 50 篇标记值得精读。
+- **产物**：`daily_reports/2026-11-02-arXiv.html`，`config.js`/`config.json` 更新（累计 1090 篇 / 28 天，今日 +50）。
+- **Git**：pull Already up to date；commit `b289d22`，push 一次成功（`9bce524..b289d22 main -> main`），SSH 认证正常。
+- **备注**：本次数据完整（4 分类齐全），无需补跑。
+
 ## 2026-11-01 (周日) 执行摘要
 - **结果**：成功（空日报）。日报 2026-11-01 已生成并推送至 GitHub Pages。
 - **抓取**：ArXiv RSS 4 个分类（cs.CV/LG/AI/RO）**全部返回 0 篇**（HTTP 200 但 0 item，无超时错误）；API 回退连续 3 次 `HTTP 503/500: Service Unavailable / Internal Server Error`。共 0 篇 → 生成空日报。

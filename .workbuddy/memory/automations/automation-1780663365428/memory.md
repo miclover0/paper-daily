@@ -242,7 +242,7 @@
 - **筛选/分组**：相关度阈值 86.0，取前 50 篇强相关 → A组=29、B组=21、C组=0。筛选前原始分组 A组=217、B组=307。
 - **精读推荐**：20 篇 / 50 篇标记值得精读。
 - **产物**：`daily_reports/2026-11-03-arXiv.html`，`config.js`/`config.json` 更新（累计 1140 篇 / 29 天，今日 +50）。
-- **Git**：pull 先 stash（memory.md 未暂存）再 pull（Already up to date）再 pop，正常恢复；commit 待执行，push 一次成功，SSH 认证正常。
+- **Git**：pull 先 stash（memory.md 未暂存）再 pull（Already up to date）再 pop，正常恢复；commit `6ccf45a`，push 一次成功（`b289d22..6ccf45a main -> main`），SSH 认证正常。
 - **备注**：本次数据完整（4 分类齐全），无需补跑。脚本总耗时约 5 分 10 秒。
 
 ## 2026-11-02 (周一) 执行摘要

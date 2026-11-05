@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width,initial-scale=1'>
+<title>论文日报 2026-11-05</title>
+<style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;line-height:1.75;color:#172033;background:#f6f8fb}
+    .layout{display:flex;min-height:100vh}
+    
+    .toc{width:280px;min-width:260px;max-width:320px;background:#fff;border-right:1px solid #e2e8f0;padding:16px 0;overflow-y:auto;position:sticky;top:0;height:100vh;flex-shrink:0}
+    .toc h2{font-size:15px;padding:0 18px 10px;color:#1a1a2e;border-bottom:1px solid #e2e8f0;margin-bottom:6px}
+    .toc ul{list-style:none;padding:0}
+    .toc li{margin:0}
+    .toc .toc-group-header{padding:8px 18px 4px;font-size:13px;font-weight:600;color:#64748b;margin-top:6px}
+    .toc .toc-link{display:block;padding:5px 18px 5px 26px;font-size:12px;color:#475569;text-decoration:none;line-height:1.45;transition:background .15s,border-color .15s;border-left:3px solid transparent}
+    .toc .toc-link:hover{background:#f1f5f9;color:#1e293b;border-left-color:#2563eb}
+    .toc .toc-link.worth-reading{font-weight:500}
+    .toc .toc-link.worth-reading::after{content:' ⭐';font-size:10px}
+    
+    .content{flex:1;padding:24px 48px;min-width:0;overflow-y:auto}
+    .header{margin-bottom:20px;text-align:center;max-width:1100px;margin-left:auto;margin-right:auto}
+    .meta{color:#566074;font-size:14px}
+    .section-header{margin:32px 0 16px;font-size:20px;color:#2563eb;border-bottom:2px solid #2563eb;padding-bottom:8px;max-width:1100px;margin-left:auto;margin-right:auto}
+    .card{border:1px solid #dbe2ea;border-radius:16px;padding:20px;margin:20px 0;background:#fff;box-shadow:0 4px 14px rgba(15,23,42,.04);position:relative;scroll-margin-top:20px;max-width:1100px;margin-left:auto;margin-right:auto;width:auto}
+    .card.worth-reading{border-left:4px solid #f59e0b;background:linear-gradient(135deg,#fffbeb 0%,#fff 100%);max-width:1100px;margin-left:auto;margin-right:auto;width:auto}
+    .worth-badge{position:absolute;top:14px;right:14px;background:linear-gradient(135deg,#f59e0b,#d97706);color:#fff;padding:4px 14px;border-radius:999px;font-size:12px;font-weight:600}
+    h1{font-size:28px;margin:0 0 8px;color:#1a1a2e}
+    h3{margin:0 0 10px;font-size:17px;color:#1e293b;padding-right:90px}
+    p{margin:10px 0}
+    ul{margin:10px 0 0 20px;padding:0}
+    li{margin:8px 0}
+    .chinese-summary{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:12px 14px;margin:12px 0;font-size:14px;color:#334155;line-height:1.85}
+    .chinese-summary strong{color:#1e293b}
+    .bili-line{margin:6px 0;line-height:1.9;font-size:14px;color:#334155}
+    .bili-line{color:#334155}
+    .problem-box{background:#f0f9ff;border:1px solid #bae6fd;border-radius:8px;padding:10px 14px;margin:12px 0;font-size:14px;color:#0369a1;line-height:1.7}
+    .problem-box strong{color:#0284c7}
+    .read-reason-box{background:#fefce8;border:1px solid #fde68a;border-radius:8px;padding:10px 14px;margin:12px 0;font-size:14px;color:#854d0e}
+    .read-reason-box strong{color:#d97706}
+    a{color:#2563eb;word-break:break-all;text-decoration:none}
+    a:hover{text-decoration:underline}
+    .badge{display:inline-block;padding:2px 10px;border-radius:999px;font-size:12px;margin-right:6px}
+    .badge-a{background:#dbeafe;color:#1d4ed8}
+    .badge-b{background:#dcfce7;color:#15803d}
+    .badge-c{background:#fef3c7;color:#b45309}
+    .badge-source{background:#f1f5f9;color:#475569}
+    .tag{display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;margin-right:4px}
+    .nav-back{text-align:center;margin:20px 0;max-width:1100px;margin-left:auto;margin-right:auto}
+    .nav-back a{color:#64748b;text-decoration:none;font-size:14px}
+    .nav-back a:hover{color:#2563eb}
+    .footer{text-align:center;margin-top:40px;padding:20px;color:#94a3b8;font-size:13px;border-top:1px solid #e2e8f0;max-width:1100px;margin-left:auto;margin-right:auto}
+    @media (max-width:768px){
+        .layout{flex-direction:column}
+        .toc{width:100%;min-width:100%;height:auto;max-height:40vh;position:relative;border-right:none;border-bottom:2px solid #e2e8f0}
+        .content{max-width:100%;padding:16px}
+        .card{padding:14px}
+        h3{padding-right:0}
+        .worth-badge{position:static;display:inline-block;margin-bottom:8px}
+    }
+</style>
+</head>
+<body>
+<div class="layout">
+    <aside class="toc">
+        <h2>📑 目录</h2>
+        <ul><li class="toc-group-header"><span class="badge badge-a">A组</span> 重点跟进（产业界 / 端云结合） (26篇)</li>
+<li><a href="#A1" class="toc-link worth-reading">A1 EmoReward: Self-Evolving Reward Calibration for Emotion...</a></li>
+<li><a href="#A2" class="toc-link worth-reading">A2 ParaVT: Taming the Tool Prior Paradox for Parallel Tool...</a></li>
+<li><a href="#A3" class="toc-link worth-reading">A3 Payoff scaling shapes cooperation in LLM agents across ...</a></li>
+<li><a href="#A4" class="toc-link worth-reading">A4 StoreBench: A Live-Commerce Environment for Evaluating ...</a></li>
+<li><a href="#A5" class="toc-link worth-reading">A5 Iterated creation, grading, and revision of data scienc...</a></li>
+<li><a href="#A6" class="toc-link worth-reading">A6 PAYWORTHY: Can LLMs Predict Which Freelance Jobs an AI ...</a></li>
+<li><a href="#A7" class="toc-link worth-reading">A7 Reglos: A Self-Evolving Personal Memory Agent with Recu...</a></li>
+<li><a href="#A8" class="toc-link worth-reading">A8 EviSeek: An Evidence-Centric Agentic Framework for Embo...</a></li>
+<li><a href="#A9" class="toc-link worth-reading">A9 CompressionBench: How can your coding agents compress L...</a></li>
+<li><a href="#A10" class="toc-link worth-reading">A10 Computational Phenomenology of Borderline Personality D...</a></li>
+<li><a href="#A11" class="toc-link worth-reading">A11 AlgoPilot: Cross-Paradigm Reasoning in Language Models ...</a></li>
+<li><a href="#A12" class="toc-link worth-reading">A12 ModalSearcher: Weaving Visual Evidence into Autonomous ...</a></li>
+<li><a href="#A13" class="toc-link worth-reading">A13 ServerBench: How can your coding agents design speciali...</a></li>
+<li><a href="#A14" class="toc-link worth-reading">A14 AutoBCI: Forecast-Guided Agentic Neural Architecture Di...</a></li>
+<li><a href="#A15" class="toc-link worth-reading">A15 Training Specialist LLMs on Your Phone: Forward-Only Op...</a></li>
+<li><a href="#A16" class="toc-link">A16 Agent Harness Awareness: Turning Verified Telemetry int...</a></li>
+<li><a href="#A17" class="toc-link">A17 SlackBench: Benchmarking Agents on Collaborative Projec...</a></li>
+<li><a href="#A18" class="toc-link">A18 RAGAM-AI: A Hybrid Reinforcement Learning based Agentic...</a></li>
+<li><a href="#A19" class="toc-link">A19 MathlibPR: Pull Request Merge-Outcome Benchmark for For...</a></li>
+<li><a href="#A20" class="toc-link">A20 MKD2World: A Typed Spatial MarkDown World Model For Web...</a></li>
+<li><a href="#A21" class="toc-link">A21 Time-Division Multiplexing: The Operational Rhythm and ...</a></li>
+<li><a href="#A22" class="toc-link">A22 HyScale: Scaling Long-Context Training for Learned Spar...</a></li>
+<li><a href="#A23" class="toc-link">A23 MemReward: Graph-Based Experience Memory for LLM Reward...</a></li>
+<li><a href="#A24" class="toc-link">A24 Quantifying out-of-distribution data severity with Wass...</a></li>
+<li><a href="#A25" class="toc-link">A25 Grounded but Not Immune: Confirmation Bias in Agent-as-...</a></li>
+<li><a href="#A26" class="toc-link">A26 AutoEnergyDesign: An LLM-Driven Agent for Automatic Ene...</a></li>
+<li class="toc-group-header"><span class="badge badge-b">B组</span> Agent / RSI / Agentic RL 主题 (24篇)</li>
+<li><a href="#B1" class="toc-link worth-reading">B1 MEA: A Reward-Driven Multi-Agent System for Faithful Mo...</a></li>
+<li><a href="#B2" class="toc-link worth-reading">B2 PyRUA-REAL: Robot Exploration and Adaptive Learning thr...</a></li>
+<li><a href="#B3" class="toc-link worth-reading">B3 Signals: Continuous Diagnostics of AI Agents</a></li>
+<li><a href="#B4" class="toc-link worth-reading">B4 GaP: A Graph-as-Policy Multi-Agent Self-Learning Harnes...</a></li>
+<li><a href="#B5" class="toc-link worth-reading">B5 Compounding Physical RSI: Turning Execution Failure int...</a></li>
+<li><a href="#B6" class="toc-link">B6 Stabilizing On-Policy Targeted Guidance in Agentic Rein...</a></li>
+<li><a href="#B7" class="toc-link">B7 Autonomous agents for electricity-system planning</a></li>
+<li><a href="#B8" class="toc-link">B8 Optimal Value Inference for Reinforcement Learning</a></li>
+<li><a href="#B9" class="toc-link">B9 Memorilla: Latent Semantic Memory for LLMs</a></li>
+<li><a href="#B10" class="toc-link">B10 ViBench 2.0: A Benchmark for Long-Horizon Software Buil...</a></li>
+<li><a href="#B11" class="toc-link">B11 HarnessFlow: MCTS-Guided Harness Optimization for LLM A...</a></li>
+<li><a href="#B12" class="toc-link">B12 SMAT: Staged Multi-Agent Training for Co-Adaptive Exosk...</a></li>
+<li><a href="#B13" class="toc-link">B13 MA-SafeDiffuser: Safe Multi-Agent Planning with Diffusi...</a></li>
+<li><a href="#B14" class="toc-link">B14 KV-PRM: Efficient Process Reward Modeling via KV-Cache ...</a></li>
+<li><a href="#B15" class="toc-link">B15 Neglected Free Lunch from Post-training: Progress Advan...</a></li>
+<li><a href="#B16" class="toc-link">B16 RecoAtlas: A Benchmark and RL Environment for LLM Recom...</a></li>
+<li><a href="#B17" class="toc-link">B17 Pretraining Knows What, Simulation Teaches How: Composi...</a></li>
+<li><a href="#B18" class="toc-link">B18 Route to Remember: Adaptive Memory Selection for LLM Ag...</a></li>
+<li><a href="#B19" class="toc-link">B19 Agents, Think Only When it Helps</a></li>
+<li><a href="#B20" class="toc-link">B20 LegalEvolver: Agentic Legal Judgment Prediction via Rub...</a></li>
+<li><a href="#B21" class="toc-link">B21 Task-Efficient Agent Evaluation Using Cached Traces</a></li>
+<li><a href="#B22" class="toc-link">B22 Evolutionary System Prompt Learning for Reinforcement L...</a></li>
+<li><a href="#B23" class="toc-link">B23 TraceCAD: Trace-Guided Repair for Agentic CAD Generatio...</a></li>
+<li><a href="#B24" class="toc-link">B24 WayPOP: A Panoramic Open-Set Panoptic Tracking Benchmar...</a></li></ul>
+    </aside>
+    <main class="content">
+        <div class='header'>
+            <h1>📚 论文日报</h1>
+            <p class='meta'>2026-11-05 · A组(26)+B组(24)+C组(0) 共 50 篇</p>
+            <p class='meta' style='font-size:13px;color:#64748b'>
+                A组：重点跟进（产业界/端云结合） · B组：Agent/RSI/Agentic RL 主题 · C组：其他AI相关（兜底）
+            </p>
+            <p class='meta' style='font-size:13px;color:#64748b'>⭐ 精读推荐 20 篇，点击左侧目录跳转</p>
+        </div>
+        <div class='nav-back'><a href='./index.html'>← 返回首页</a></div>
+        <h2 class="section-header" id="group-A"><span class="badge badge-a">A组</span> 重点跟进（产业界 / 端云结合）</h2>
+
+<div class='card worth-reading' id='A1'>
+    <div class="worth-badge">⭐ 值得精读</div>
+    <h3><span class='badge badge-a'>A1</span> EmoReward: Self-Evolving Reward Calibration for Emotional Video Generation RL</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2611.06518</span>
+        <span class='tag' style='background:#7c3aed;color:#fff'>Hunyuan</span><span class='tag' style='background:#7c3aed;color:#fff'>Agentic RL</span><span class='tag' style='background:#db2777;color:#fff'>RSI</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要（中英对照）：</strong><br><p class="bili-line">Group Relative Policy Optimization (GRPO) has advanced generative model post-training in verifiable domains such as code and mathematics, but evaluating video quality, especially emotional expression, often depends on subjective aesthetics and has no uniquely correct target. 组相对策略优化（ GRPO ）在代码和数学等可验证领域具有先进的生成模型后训练，但评估视频质量，特别是情感表达，通常取决于主观美学，并且没有唯一正确的目标。</p><p class="bili-line">Existing approaches typically rely on fixed rewards for visual quality, motion quality, and text alignment that poorly capture emotional intent and can invite reward hacking, while RLHF is difficult to scale and subject to individual aesthetic differences that complicate the calibration of facial, body motion, and chromatic cues across narrative contexts.</p><p class="bili-line">We introduce EmoReward, a new self-evolving training mechanism that distills evidence reliability from reward traces collected during an actual training run to adaptively guide multi-reward weight allocation in subsequent training by determining which emotional evidence to trust and how much to weight it.</p><p class="bili-line">EmoReward first plans specific grounding cues from the emotional prompt to guide evaluation, then uses heterogeneous signal primitives to score the generated video during the act stage.</p><p class="bili-line">Reflective Reward Gating calibrates their contributions through instance-level gates for phase, face confidence, conflict, and subtlety, then renormalizes weights over the active set to produce the sample&#x27;s fused reward.</p><p class="bili-line">RewardMemory then estimates each primitive&#x27;s reliability from rollout scores and outcomes within each emotional regime in the finished training run, then fixes bounded multipliers that calibrate fusion weights in the next training run without updating reward models.</p><p class="bili-line">Experiments on HunyuanVideo 1.5 show improvements across multiple RL algorithms and compare EmoReward with other agentic reward methods under SAGE-GRPO.</p><p class="bili-line">Ablations and transfer experiments on SD 3.5 and FLUX further support adaptive reward calibration for visual generation.</p></div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>Existing approaches typically rely on fixed rewards for visual quality</div>
+    <div class="read-reason-box"><strong>📖 精读原因：</strong>Agentic 强化学习将决策与语言模型结合，是智能体研究的前沿方向；递归自改进（RSI）是智能体自我进化的关键方向，本文具有一定的探索价值</div>
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>首次提出：</strong>first plans specific grounding cues from the emotional prompt to guide evaluation</li><li><strong>核心思路：</strong>EmoReward</li><li><strong>研究领域：</strong>隶属于 cs.CV, cs.AI</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2611.06518' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2611.06518" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card worth-reading' id='A2'>
+    <div class="worth-badge">⭐ 值得精读</div>
+    <h3><span class='badge badge-a'>A2</span> ParaVT: Taming the Tool Prior Paradox for Parallel Tool Use in Agentic Video Reinforcement Learning</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2605.20342</span>
+        <span class='tag' style='background:#f59e0b;color:#fff'>Qwen</span><span class='tag' style='background:#2563eb;color:#fff'>Agent</span><span class='tag' style='background:#1d4ed8;color:#fff'>Multi-Agent</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要（中英对照）：</strong><br><p class="bili-line">Training large multimodal models (LMMs) via reinforcement learning (RL) to natively invoke video-processing tools (e.g., cropping) has become a promising route to long-video understanding.</p><p class="bili-line">However, most existing agentic Video-LMMs dispatch tool calls sequentially (i.e., one per turn).</p><p class="bili-line">Sequential tool calling can propagate localization errors, accumulate irrelevant context, and require an additional main-model generation for each successive crop.</p><p class="bili-line">We introduce ParaVT, a multi-agent RL framework for Parallel Video Tool calling, dispatching multiple time-window crops in a single turn, allowing evidence from multiple temporal windows to be examined concurrently.</p><p class="bili-line">Yet applying standard Group Relative Policy Optimization (GRPO) to ParaVT reveals an obstacle we term the Tool Prior Paradox: inherited tool-use priors appear to support exploration while competing with the output format learned during supervised fine-tuning.</p><p class="bili-line">Standard RL can also settle on tool skipping.</p><p class="bili-line">A comparison with a model with weaker tool-use priors shows stable formatting but no tool calls during RL, consistent with a trade-off between format stability and tool exploration.</p><p class="bili-line">We propose PARA-GRPO (Parseability-Anchored and Ratio-gAted GRPO), which augments standard RL with two complementary mechanisms: (i) a format reward that encourages tag closure and penalizes unclosed reasoning blocks, and (ii) a per-prompt randomization of the overview-frame budget to create a reward advantage for tool use when the overview provides insufficient evidence.</p><p class="bili-line">Across six long-video understanding benchmarks, ParaVT improves over the Qwen3-VL baseline by +7.9% on average, with PARA-GRPO raising training-time format reward from 0.13 to a peak of 0.64.</p><p class="bili-line">These findings highlight the need to account for inherited tool-use priors when designing RL methods for long-video understanding.</p></div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 ParaVT 中的问题，Taming the Tool Prior Paradox for Parallel Tool Use in Agent</div>
+    <div class="read-reason-box"><strong>📖 精读原因：</strong>AI Agent 是当前研究热点，本文可能包含创新性的设计思路；多智能体协作是复杂任务求解的重要范式，本文值得关注</div>
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>核心思路：</strong>ParaVT</li><li><strong>研究领域：</strong>隶属于 cs.CV</li><li><strong>研究要点：</strong>However, most existing agentic Video-LMMs dispatch tool calls sequentially (i.e., one per turn).</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2605.20342' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2605.20342" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card worth-reading' id='A3'>
+    <div class="worth-badge">⭐ 值得精读</div>
+    <h3><span class='badge badge-a'>A3</span> Payoff scaling shapes cooperation in LLM agents across languages</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2601.19082</span>
+        <span class='tag' style='background:#d97706;color:#fff'>Anthropic</span><span class='tag' style='background:#ea4335;color:#fff'>Google</span><span class='tag' style='background:#2563eb;color:#fff'>Agent</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要（中英对照）：</strong><br><p class="bili-line">Large language models (LLMs) are increasingly deployed as autonomous agents that negotiate, coordinate, and make decisions on behalf of human users.</p><p class="bili-line">Understanding how they cooperate is therefore important for AI governance and machine behaviour research.</p><p class="bili-line">We examine two factors: payoff magnitude and interaction language.</p><p class="bili-line">Classical game theory predicts that multiplying all payoffs by a positive constant should not change behaviour because the underlying strategic incentives remain unchanged.</p><p class="bili-line">We test this prediction using five widely adopted commercial LLMs playing an iterated prisoner&#x27;s dilemma across ten payoff scales and five languages (English, French, Vietnamese, Chinese and Arabic).</p><p class="bili-line">Contrary to theoretical expectations, changing only the numerical scale of payoffs substantially alters cooperation.</p><p class="bili-line">Models respond differently, often in opposite directions, meaning that averages across models can conceal important behavioural heterogeneity.</p><p class="bili-line">Sensitivity to payoff scale also depends strongly on prompt language.</p><p class="bili-line">Moreover, payoff scale modifies the effects of persona instructions: at sub-unit stakes, where no payoff shown exceeds 1, all five models cooperate more under a selfish than a cooperative persona, whereas Claude and Gemini reverse this pattern at larger scales.</p><p class="bili-line">These findings show that cooperation measures depend critically on payoff scale and language and should not be treated as fixed model traits.</p></div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>解决 Anthropic 领域的关键挑战</div>
+    <div class="read-reason-box"><strong>📖 精读原因：</strong>AI Agent 是当前研究热点，本文可能包含创新性的设计思路；来自 Anthropic 团队的最新研究工作，值得重点关注其技术路线</div>
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>超越现有方法：</strong>exceeds 1</li><li><strong>研究领域：</strong>隶属于 cs.AI, cs.CL</li><li><strong>研究要点：</strong>Large language models (LLMs) are increasingly deployed as autonomous agents that negotiate, coordinate, and make decisio</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2601.19082' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2601.19082" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card worth-reading' id='A4'>
+    <div class="worth-badge">⭐ 值得精读</div>
+    <h3><span class='badge badge-a'>A4</span> StoreBench: A Live-Commerce Environment for Evaluating and Training Autonomous Operator Agents</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2610.10942</span>
+        <span class='tag' style='background:#d97706;color:#fff'>Anthropic</span><span class='tag' style='background:#0ea5e9;color:#fff'>DeepSeek</span><span class='tag' style='background:#f59e0b;color:#fff'>Qwen</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要（中英对照）：</strong><br><p class="bili-line">Reinforcement learning environments are now a primary lever for improving large language model (LLM) capabilities in post-training, yet most agentic benchmarks remain static: the world moves only when the agent acts, the reward is a terminal verdict, and the pass bar is set arbitrarily.</p><p class="bili-line">We introduce StoreBench, a live-commerce environment in which an agent runs a mid-size online apparel store on a production-grade commerce backend, testing long-horizon planning and economic judgment under uncertainty.</p><p class="bili-line">Customers order around the clock, suppliers reprice and fail, and market shocks arrive with partial or no warning.</p><p class="bili-line">The agent acts through the same 29 merchant tools a human operator would use, under a windowed operation budget that makes simulated time a function of actions taken, so model latency cannot influence simulated time.</p><p class="bili-line">Pass thresholds are calibrated against scripted anchor policies, the reward is hardened against a catalogue of reward hacks, and every episode replays identically given a sequence of actions.</p><p class="bili-line">We evaluate seven frontier LLMs on 11 scenarios of 30 to 45 days and a full simulated year, over three world seeds at matched reasoning effort.</p><p class="bili-line">No model matches the scripted smart-triage policy on average: the best, DeepSeek-V4-Pro, passes 49% of task-seed cells against the heuristic&#x27;s 97%.</p><p class="bili-line">Human experts working through the same tools and budgets outscore every model (mean composite 0.708 vs.</p><p class="bili-line">0.700).</p><p class="bili-line">Over a full simulated year under the Claude Code harness, most models show dramatic performance improvement.</p><p class="bili-line">In a GRPO post-training run, Qwen3.5-27B trained on only five disjoint tasks raises its mean composite on the held-out evaluation tasks from 0.136 to 0.373.</p><p class="bili-line">We release five example training-split tasks, ten sample trajectories, and the scoring and verification tooling; the full environment and evaluation suite are withheld to keep the benchmark uncontaminated.</p></div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 StoreBench 中的问题，A Live</div>
+    <div class="read-reason-box"><strong>📖 精读原因：</strong>来自 Anthropic 团队的最新研究工作，值得重点关注其技术路线；来自 DeepSeek 团队的最新研究工作，值得重点关注其技术路线</div>
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>核心思路：</strong>StoreBench</li><li><strong>研究领域：</strong>隶属于 cs.AI, cs.CL</li><li><strong>研究要点：</strong>Customers order around the clock, suppliers reprice and fail, and market shocks arrive with partial or no warning.</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2610.10942' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2610.10942" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card worth-reading' id='A5'>
+    <div class="worth-badge">⭐ 值得精读</div>
+    <h3><span class='badge badge-a'>A5</span> Iterated creation, grading, and revision of data science projects by language models</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2611.05548</span>
+        <span class='tag' style='background:#10a37f;color:#fff'>OpenAI</span><span class='tag' style='background:#d97706;color:#fff'>Anthropic</span><span class='tag' style='background:#ea4335;color:#fff'>Google</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要（中英对照）：</strong><br><p class="bili-line">We evaluate the extent to which agentic AI models can complete an end-to-end data science project, and how this improves with feedback.</p><p class="bili-line">A &#x27;writer&#x27; model with specific tools creates a complete data science project including downloading, cleaning, and analyzing a dataset, and writing a short paper about it.</p><p class="bili-line">The project is executed and a &#x27;grader&#x27; model evaluates it.</p><p class="bili-line">The writer can then revise its submission, and this repeats for a total of three rounds.</p><p class="bili-line">We consider seven models from five developers: Anthropic, OpenAI, Google, DeepSeek, and Z.AI.</p><p class="bili-line">Each model is both a writer and a grader, so there are 49 writer-grader pairs and we run each pair three times.</p><p class="bili-line">Of the 147 initial submissions, 107 run and render, and the average score increases from 59 per cent to 76 per cent after the final round of feedback.</p><p class="bili-line">By writer the extent of the increase ranges from 3 percentage points for Anthropic&#x27;s Opus 5.5 to 46 percentage points for Anthropic&#x27;s Haiku 4.5, and by grader it ranges from 13 percentage points for Google&#x27;s Gemini 3.8 Flash to 32 percentage points for Anthropic&#x27;s Haiku 4.5.</p><p class="bili-line">When a model grades its own writing the score tends to be about 9 percentage points higher than the average of what the other models give it.</p><p class="bili-line">About half of the difference that we see from round to round is within the grader&#x27;s own noise.</p><p class="bili-line">Feedback generally results in the highest marks, but even just having the chance to revise, or having the additional budget, in terms of time or tool calls, without any feedback, results in considerable increases for some of the models but not for others.</p><p class="bili-line">We find that how much such a loop helps depends on which model plays which role, but weaker models generally do not improve stronger models.</p></div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>解决 OpenAI 领域的关键挑战</div>
+    <div class="read-reason-box"><strong>📖 精读原因：</strong>来自 OpenAI 团队的最新研究工作，值得重点关注其技术路线；来自 Anthropic 团队的最新研究工作，值得重点关注其技术路线</div>
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>研究领域：</strong>隶属于 cs.AI, cs.CL</li><li><strong>研究要点：</strong>We evaluate the extent to which agentic AI models can complete an end-to-end data science project, and how this improves</li><li><strong>研究要点：</strong>The project is executed and a &#x27;grader&#x27; model evaluates it.</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2611.05548' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2611.05548" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card worth-reading' id='A6'>
+    <div class="worth-badge">⭐ 值得精读</div>
+    <h3><span class='badge badge-a'>A6</span> PAYWORTHY: Can LLMs Predict Which Freelance Jobs an AI Agent Will Complete?</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2611.05759</span>
+        <span class='tag' style='background:#d97706;color:#fff'>Anthropic</span><span class='tag' style='background:#f59e0b;color:#fff'>Qwen</span><span class='tag' style='background:#ec4899;color:#fff'>Kimi</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要（中英对照）：</strong><br><p class="bili-line">Before an AI agent takes on a paid job, someone has to judge whether it is likely to succeed.</p><p class="bili-line">We test whether frontier language models can make this call before any attempt.</p><p class="bili-line">We propose PAYWORTHY which contains 1{,}494 real freelance job postings, sampled from 18.8M postings made between 2020 and 2026 on a freelancing platform.</p><p class="bili-line">An agent attempts each job from the posting alone in a single run, and an LLM judge acting as the client decides whether to accept the work.</p><p class="bili-line">We ask 18 models to forecast how likely the agent is to succeed and measure how well each model&#x27;s forecasts rank the accepted jobs above the rejected ones (AUC, where 0.5 is a random ranking).</p><p class="bili-line">The answer depends on how the agent is described.</p><p class="bili-line">Told what the agent cannot do, every model ranks the jobs well (AUC 0.66--0.86).</p><p class="bili-line">Told instead that it is a generic agent with a browser and code execution, the same models rank the same jobs about as well as a random ordering (0.45--0.56).</p><p class="bili-line">These results hold under judges from four other model families (Claude, GLM, Kimi and Qwen), and the informed forecasts also rank the verdicts of two human raters.</p><p class="bili-line">Code is available at https://github.com/upwork/Payworthy</p></div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 PAYWORTHY 中的问题，Can LLMs Predict Which Freelance Jobs an AI Agent Will Compl</div>
+    <div class="read-reason-box"><strong>📖 精读原因：</strong>来自 Anthropic 团队的最新研究工作，值得重点关注其技术路线；来自 Qwen 团队的最新研究工作，值得重点关注其技术路线</div>
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>核心思路：</strong>PAYWORTHY</li><li><strong>研究领域：</strong>隶属于 cs.AI, cs.CL</li><li><strong>研究要点：</strong>Before an AI agent takes on a paid job, someone has to judge whether it is likely to succeed.</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2611.05759' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2611.05759" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card worth-reading' id='A7'>
+    <div class="worth-badge">⭐ 值得精读</div>
+    <h3><span class='badge badge-a'>A7</span> Reglos: A Self-Evolving Personal Memory Agent with Recursive Self-Improvement</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2611.06049</span>
+        <span class='tag' style='background:#10a37f;color:#fff'>OpenAI</span><span class='tag' style='background:#f59e0b;color:#fff'>Qwen</span><span class='tag' style='background:#db2777;color:#fff'>RSI</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要（中英对照）：</strong><br><p class="bili-line">Personal agents draw on past conversations to tailor their responses to each user.</p><p class="bili-line">Their memory systems store and update what each user says, and coding agents now also rewrite the harness that turns this memory into the model&#x27;s context.</p><p class="bili-line">Such patches risk overfitting, because one tested only on the failures it targets can fix those cases and help nowhere else.</p><p class="bili-line">We present Reglos, a training-free personal memory agent that tests whether harness changes help beyond the failures they were written to fix.</p><p class="bili-line">Its self-evolving memory adds to each user&#x27;s append-only record with every conversation, as new preferences supersede old ones and facts can be forgotten.</p><p class="bili-line">Its harness improves through recursive self-improvement, in which a coding agent proposes patches from failure traces and a critic from a second model family screens each one for benchmark gaming.</p><p class="bili-line">After the harness is frozen, a fixed evaluator decides which further patches to accept.</p><p class="bili-line">With the same backbone behind every system, Reglos outperforms state-of-the-art memory systems such as Mem0, MemOS and EverOS, reaching 61.3% and 84.0% on PersonaMem-v2 and LongMemEval-S with Qwen3.8-27B, and 57.5% and 87.2% with GPT-5.6 Luna.</p></div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 Reglos 中的问题，A Self</div>
+    <div class="read-reason-box"><strong>📖 精读原因：</strong>递归自改进（RSI）是智能体自我进化的关键方向，本文具有一定的探索价值；来自 OpenAI 团队的最新研究工作，值得重点关注其技术路线</div>
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>超越现有方法：</strong>outperforms state-of-the-art memory systems such as Mem0</li><li><strong>核心思路：</strong>Reglos</li><li><strong>研究领域：</strong>隶属于 cs.AI</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2611.06049' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2611.06049" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card worth-reading' id='A8'>
+    <div class="worth-badge">⭐ 值得精读</div>
+    <h3><span class='badge badge-a'>A8</span> EviSeek: An Evidence-Centric Agentic Framework for Embodied Active Information Seeking</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2611.06434</span>
+        <span class='tag' style='background:#ea4335;color:#fff'>Google</span><span class='tag' style='background:#f59e0b;color:#fff'>Qwen</span><span class='tag' style='background:#2563eb;color:#fff'>Agent</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要（中英对照）：</strong><br><p class="bili-line">Active embodied question answering requires agents to acquire evidence through viewpoint changes and physical interaction.</p><p class="bili-line">The central challenge is to avoid undirected interaction: taking plausible actions without specifying what evidence they should reveal for answering the question.</p><p class="bili-line">Action plans and accumulated histories alone can leave the informational purpose of an interaction implicit.</p><p class="bili-line">We introduce EviSeek, a training-free framework that makes question-derived evidence demands explicit acquisition objectives, linking observation-conditioned actions and selectively retained evidence to the information the agent seeks.</p><p class="bili-line">On 3,436 ESI-Bench questions, EviSeek improves accuracy over the Single-model agent by 7.1 percentage points with Qwen3-VL-32B and 3.7 points with Gemini 3.1 Pro, while improving visual-support-weighted accuracy and reducing mean token usage.</p><p class="bili-line">These findings support making the informational purpose of interaction explicit, with action selection and evidence retention organized around what the agent needs to learn to answer the question.</p></div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 EviSeek 中的问题，An Evidence</div>
+    <div class="read-reason-box"><strong>📖 精读原因：</strong>AI Agent 是当前研究热点，本文可能包含创新性的设计思路；来自 Google 团队的最新研究工作，值得重点关注其技术路线</div>
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>核心思路：</strong>EviSeek</li><li><strong>研究领域：</strong>隶属于 cs.AI</li><li><strong>研究要点：</strong>Active embodied question answering requires agents to acquire evidence through viewpoint changes and physical interactio</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2611.06434' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2611.06434" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card worth-reading' id='A9'>
+    <div class="worth-badge">⭐ 值得精读</div>
+    <h3><span class='badge badge-a'>A9</span> CompressionBench: How can your coding agents compress LLMs?</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2611.06858</span>
+        <span class='tag' style='background:#db2777;color:#fff'>RSI</span><span class='tag' style='background:#2563eb;color:#fff'>Agent</span><span class='tag' style='background:#9333ea;color:#fff'>LLM</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要（中英对照）：</strong><br><p class="bili-line">Recursive self-improvement requires AI systems to improve the models and infrastructure used by subsequent systems.</p><p class="bili-line">LLM compression offers a concrete efficiency objective: retain a pretrained model&#x27;s behavior within a smaller model storage budget.</p><p class="bili-line">We study whether coding agents can carry out this step autonomously.</p><p class="bili-line">We formulate compression as a terminal task in which an agent receives a source checkpoint, storage limit, inference environment, and time budget, then constructs compressed weights and executable inference code.</p><p class="bili-line">The agent controls its algorithm and experiments; perplexity feedback guides search, and independent verification checks the final model.</p><p class="bili-line">Across six agents and six model--size settings, 29 of 36 submissions pass verification.</p><p class="bili-line">Selecting the lowest-perplexity agent design per task yields an average 3.4% perplexity increase over BF16 and 77.33% downstream accuracy, compared with 79.56% for BF16.</p><p class="bili-line">Recorded experiments reveal how agents achieve these outcomes and where improvement breaks down.</p><p class="bili-line">Agents lower PPL in 21 of 24 revisions at nearly fixed storage; complete-model feedback reverses 17 of 79 prior local rankings; and generation and inference tests expose failures that likelihood alone misses.</p><p class="bili-line">The results identify representation design, experimental judgment, and capability validation as central to agent-driven model compression, a measurable component of efficiency-oriented self-improvement.</p></div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 CompressionBench 中的问题，How can your coding agents compress LLMs?</div>
+    <div class="read-reason-box"><strong>📖 精读原因：</strong>AI Agent 是当前研究热点，本文可能包含创新性的设计思路；递归自改进（RSI）是智能体自我进化的关键方向，本文具有一定的探索价值</div>
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>核心思路：</strong>CompressionBench</li><li><strong>研究领域：</strong>隶属于 cs.AI</li><li><strong>研究要点：</strong>Recursive self-improvement requires AI systems to improve the models and infrastructure used by subsequent systems.</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2611.06858' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2611.06858" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card worth-reading' id='A10'>
+    <div class="worth-badge">⭐ 值得精读</div>
+    <h3><span class='badge badge-a'>A10</span> Computational Phenomenology of Borderline Personality Disorder: A Comparative Evaluation of LLM-Simulated Expert Personas and Human Clinical Experts</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2508.19008</span>
+        <span class='tag' style='background:#10a37f;color:#fff'>OpenAI</span><span class='tag' style='background:#d97706;color:#fff'>Anthropic</span><span class='tag' style='background:#ea4335;color:#fff'>Google</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要（中英对照）：</strong><br><p class="bili-line">Building on a human-led thematic analysis of clinical life-story interviews (&gt; 150,000 words) with inpatients with Borderline Personality Disorder, this study examines the capacity of large language models (OpenAI&#x27;s GPT, Google&#x27;s Gemini, and Anthropic&#x27;s Claude) to support qualitative clinical analysis.</p><p class="bili-line">The models&#x27; interpretative potential was evaluated using a mixed-methods approach.</p><p class="bili-line">Study A involved blinded and non-blinded judges in phenomenology and clinical psychology.</p><p class="bili-line">The experts assessed the validity of AI-generated content using semantic congruence, Jaccard coefficients, and multidimensional validity ratings, including credibility, coherence, the substantiveness of results, and grounding in qualitative data.</p><p class="bili-line">In Study B, neural methods were used to embed human- and model-generated theme descriptions in a multidimensional vector space.</p><p class="bili-line">This approach provided an objectified computational measure of the difference between human and model semantics and linguistic style.</p><p class="bili-line">In Study C, complementary non-expert evaluations were conducted (N=115) to examine the influence of thematic verbosity on the perception of human authorship and content validity.</p><p class="bili-line">Overall, the results of AI analysis showed a highly variable overlap (0-58%) with the human interpretation, while all models identified themes originally omitted by human researchers, proving their capacity to mitigate human bias.</p><p class="bili-line">At the thematic level, external evaluators were unable to reliably distinguish human-authored themes from those generated by AI.</p><p class="bili-line">In terms of content validity assessed against raw data by high-level experts in the blinded mode, the performance of Gemini 2.5 Pro was indistinguishable from that of humans.</p><p class="bili-line">The comparison of semantic vector embeddings showed that its style was also the closest to humans.</p></div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>mitigate human bias</div>
+    <div class="read-reason-box"><strong>📖 精读原因：</strong>来自 OpenAI 团队的最新研究工作，值得重点关注其技术路线；来自 Anthropic 团队的最新研究工作，值得重点关注其技术路线</div>
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>核心思路：</strong>Computational Phenomenology of Borderline Personality Disorder</li><li><strong>研究领域：</strong>隶属于 cs.AI, cs.CL</li><li><strong>研究要点：</strong>The models&#x27; interpretative potential was evaluated using a mixed-methods approach.</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2508.19008' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2508.19008" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card worth-reading' id='A11'>
+    <div class="worth-badge">⭐ 值得精读</div>
+    <h3><span class='badge badge-a'>A11</span> AlgoPilot: Cross-Paradigm Reasoning in Language Models via Strategy Selection and Guidance</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2611.04079</span>
+        <span class='tag' style='background:#ea4335;color:#fff'>Google</span><span class='tag' style='background:#f59e0b;color:#fff'>Qwen</span><span class='tag' style='background:#9333ea;color:#fff'>LLM</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要（中英对照）：</strong><br><p class="bili-line">Real-world problems span diverse domains, including program synthesis, symbolic reasoning, planning, and optimization, and often require fundamentally different solution paradigms.</p><p class="bili-line">A central challenge for LLM-based reasoning is twofold: identifying an appropriate problem-solving approach and formulating it correctly.</p><p class="bili-line">In this paper, we propose AlgoPilot, a cross-paradigm reasoning framework that enables adaptive selection of the solving approaches and structured problem formulation prior to execution.</p><p class="bili-line">The AlgoPilot framework contains three components: 1) a SteerLM, trained via supervised fine-tuning (SFT) and reinforcement learning (RL), that adaptively selects the solving strategy (paradigm and modes) based on input problems, 2) the corresponding expert GuideLM, trained via SFT, that generates structured formulation guidance tailored to the selected strategy, and 3) an ExecutionLM that generates solutions conditioned on both the selected strategy and its formulation.</p><p class="bili-line">Unlike prompting-based methods that rely on fixed reasoning templates, our approach learns to adaptively choose and structure problem-solving strategies based on the input.</p><p class="bili-line">We build AlgoPilot on Qwen3-8B and evaluate across 5 problem categories and 13 benchmarks with 66 unique domains, comparing against both the latest similarly scaled small models and large LLMs.</p><p class="bili-line">AlgoPilot significantly improves average accuracy for the same model from 38.4% to 72.9%, outperforming the best large LLM prompting baseline GLM-5 by 11.7%.</p><p class="bili-line">Ablation studies confirm the effectiveness of each component.</p><p class="bili-line">Notably, we show that the learned steering and formulation modules can transfer across execution models, suggesting their potential to improve other LLMs.</p><p class="bili-line">Project page: https://sites.google.com/view/algopilot.</p></div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 AlgoPilot 中的问题，Cross</div>
+    <div class="read-reason-box"><strong>📖 精读原因：</strong>大语言模型是当代 AI 的核心基座，本文对相关方向有参考价值；来自 Google 团队的最新研究工作，值得重点关注其技术路线</div>
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>超越现有方法：</strong>outperforming the best large LLM prompting baseline GLM-5 by 11</li><li><strong>核心思路：</strong>AlgoPilot</li><li><strong>研究领域：</strong>隶属于 cs.AI, cs.CL</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2611.04079' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2611.04079" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card worth-reading' id='A12'>
+    <div class="worth-badge">⭐ 值得精读</div>
+    <h3><span class='badge badge-a'>A12</span> ModalSearcher: Weaving Visual Evidence into Autonomous Cross-Modal Deep Search</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2611.06131</span>
+        <span class='tag' style='background:#f59e0b;color:#fff'>Qwen</span><span class='tag' style='background:#2563eb;color:#fff'>Agent</span><span class='tag' style='background:#9333ea;color:#fff'>LLM</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要（中英对照）：</strong><br><p class="bili-line">Static and incomplete parametric knowledge limits the performance of multimodal large language models on novel-knowledge and knowledge-intensive tasks, especially those requiring multi-hop evidence acquisition.</p><p class="bili-line">Existing multimodal agentic search methods often fix visual evidence at the input or a predefined trajectory position, making it difficult for agents to select search modalities as their information needs evolve and to handle complex real-world queries.</p><p class="bili-line">We define this capability as autonomous cross-modal search: an agent chooses among direct reasoning, text-to-text search, text-to-image search, and reverse-image search, actively introduces visual evidence when appropriate, and switches between and integrates modalities across multiple hops.</p><p class="bili-line">We propose ModalSearch-Pipeline, a scalable procedure for constructing an interleaved multimodal knowledge graph.</p><p class="bili-line">It samples paths with diverse depths and modality compositions and uses backward question construction to obscure entity names and image targets that would expose reasoning shortcuts while retaining necessary disambiguating clues, yielding text-only, image-initialized, and arbitrarily interleaved multi-hop problems.</p><p class="bili-line">We train the ModalSearcher Agent with supervised fine-tuning and reinforcement learning in a live Web environment, and construct ModalSearch-Bench.</p><p class="bili-line">Experiments show that ModalSearcher-8B improves average accuracy by 16.2 points over Qwen3-VL-8B under the same agentic workflow across five multimodal knowledge-intensive QA benchmarks, with consistent gains on independently constructed active visual-search benchmarks.</p></div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 ModalSearcher 中的问题，Weaving Visual Evidence into Autonomous Cross</div>
+    <div class="read-reason-box"><strong>📖 精读原因：</strong>AI Agent 是当前研究热点，本文可能包含创新性的设计思路；大语言模型是当代 AI 的核心基座，本文对相关方向有参考价值</div>
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>核心思路：</strong>ModalSearcher</li><li><strong>研究领域：</strong>隶属于 cs.AI</li><li><strong>研究要点：</strong>We propose ModalSearch-Pipeline, a scalable procedure for constructing an interleaved multimodal knowledge graph.</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2611.06131' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2611.06131" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card worth-reading' id='A13'>
+    <div class="worth-badge">⭐ 值得精读</div>
+    <h3><span class='badge badge-a'>A13</span> ServerBench: How can your coding agents design specialized LLM serving systems?</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2611.06841</span>
+        <span class='tag' style='background:#d97706;color:#fff'>Anthropic</span><span class='tag' style='background:#ea4335;color:#fff'>Google</span><span class='tag' style='background:#2563eb;color:#fff'>Agent</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要（中英对照）：</strong><br><p class="bili-line">Large language model (LLM) coding agents develop software through experimentation, offering an opportunity to design the serving systems supporting their own operation.</p><p class="bili-line">Effective serving requires coordinating implementation and operating decisions under session dependencies, latency constraints, and correctness requirements.</p><p class="bili-line">We introduce ServerBench, a benchmark for agentic design of complete, specialized LLM serving systems.</p><p class="bili-line">Agents experiment against a common objective, dollars per dollar: latency-qualified token value per dollar of GPU cost.</p><p class="bili-line">Stateful replay preserves session dependencies, and independent verification checks the submitted system.</p><p class="bili-line">Across 11 coding-agent models and three deployments, Claude Sonnet 5.5 achieves 2.97 dollars per dollar on Gemma E4B, $4.87\times$ the vLLM reference; 22 of 33 runs yield verified systems, and 13 exceed the strongest baseline.</p><p class="bili-line">Our analysis identifies three findings: high-value designs coordinate capacity improvements with load selection; agents interpret performance feedback through workload-relevant experiments; and reliable delivery requires verification of the execution paths introduced by optimization.</p><p class="bili-line">Overall, ServerBench supports systematic study of how agents translate service objectives and feedback into effective, verified serving systems for given task specifications.</p></div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 ServerBench 中的问题，How can your coding agents design specialized LLM serving sy</div>
+    <div class="read-reason-box"><strong>📖 精读原因：</strong>AI Agent 是当前研究热点，本文可能包含创新性的设计思路；来自 Anthropic 团队的最新研究工作，值得重点关注其技术路线</div>
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>超越现有方法：</strong>exceed the strongest baseline</li><li><strong>核心思路：</strong>ServerBench</li><li><strong>研究领域：</strong>隶属于 cs.AI</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2611.06841' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2611.06841" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card worth-reading' id='A14'>
+    <div class="worth-badge">⭐ 值得精读</div>
+    <h3><span class='badge badge-a'>A14</span> AutoBCI: Forecast-Guided Agentic Neural Architecture Discovery for EEG-Based Brain-Computer Interfaces</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2609.35456</span>
+        <span class='tag' style='background:#d97706;color:#fff'>Anthropic</span><span class='tag' style='background:#2563eb;color:#fff'>Agent</span><span class='tag' style='background:#9333ea;color:#fff'>LLM</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要（中英对照）：</strong><br><p class="bili-line">EEG-based brain-computer interfaces support a broad range of applications, yet designing decoding architectures that perform well across diverse tasks remains challenging.</p><p class="bili-line">We introduce AutoBCI, an agentic framework in which a Designer Agent and a Forecaster Agent support the discovery and selection of EEG decoding architectures across tasks.</p><p class="bili-line">The Designer Agent performs Pool-Guided Architecture Discovery (PGAD), generating and refining architectures through training and validation across multiple EEG tasks, such as emotion recognition, motor imagery, and sleep staging.</p><p class="bili-line">The Forecaster Agent performs Performance Estimation from Early Knowledge (PEEK), using architecture code, the training protocol, and early learning curves to predict full-budget validation performance and select promising candidates for continued training.</p><p class="bili-line">Across 14 EEG datasets spanning motor imagery, emotion recognition, and sleep staging, we evaluate AutoBCI with six LLMs, including Opus 5.5 and GPT 5.6 Sol, and compare the architectures selected by the search procedure against ten baselines: six conventional EEG models and four foundation models.</p><p class="bili-line">The architecture discovered by AutoBCI with Claude Opus 5.5 achieves 64.16% average test balanced accuracy (bAcc), compared with 63.87% for REVE, the strongest baseline on this metric.</p><p class="bili-line">Using ten observed epochs, PEEK reduces mean absolute error in predicting average validation bAcc from 2.20 to 1.36 percentage points, a 38.1% reduction relative to the best-observed-score baseline.</p><p class="bili-line">Code is available at https://github.com/Jiang-Muyun/AutoBCI</p></div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 AutoBCI 中的问题，Forecast</div>
+    <div class="read-reason-box"><strong>📖 精读原因：</strong>AI Agent 是当前研究热点，本文可能包含创新性的设计思路；大语言模型是当代 AI 的核心基座，本文对相关方向有参考价值</div>
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>核心思路：</strong>AutoBCI</li><li><strong>研究领域：</strong>隶属于 cs.AI</li><li><strong>研究要点：</strong>Code is available at https://github.com/Jiang-Muyun/AutoBCI</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2609.35456' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2609.35456" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card worth-reading' id='A15'>
+    <div class="worth-badge">⭐ 值得精读</div>
+    <h3><span class='badge badge-a'>A15</span> Training Specialist LLMs on Your Phone: Forward-Only Optimization via Block-Spectral Coordinates</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2611.04797</span>
+        <span class='tag' style='background:#7c3aed;color:#fff'>Agentic RL</span><span class='tag' style='background:#2563eb;color:#fff'>Agent</span><span class='tag' style='background:#0891b2;color:#fff'>Edge Computing</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要（中英对照）：</strong><br><p class="bili-line">Large language models (LLMs) on personal devices keep user data local, but limited memory restricts their general capability.</p><p class="bili-line">Since most user-specific tasks do not require the breadth of frontier models, a practical solution is to adapt a shared on-device model into lightweight specialists.</p><p class="bili-line">However, backpropagation is prohibitive in memory, and users rarely provide labeled data.</p><p class="bili-line">We present MobileSpec, a system that trains specialists with forward passes alone and learns from automatically checked task outcomes, as in reinforcement learning with verifiable rewards (RLVR).</p><p class="bili-line">Because forward-only updates are built from random perturbations, training is efficient only when these perturbations resemble the weight changes of RLVR, which largely preserve the singular values of pretrained weights and rotate their singular vectors.</p><p class="bili-line">The core algorithm of MobileSpec, FuRA-S, produces such perturbations while training only the block-spectral coordinates of pretrained weights, namely the singular values of their column blocks.</p><p class="bili-line">As we show theoretically and empirically, rescaling these blocks independently shifts their relative contributions to each weight matrix and thereby rotates its singular vectors.</p><p class="bili-line">Since this update can be rewritten as a transformation of the layer input, FuRA-S also adapts INT4 models without modifying their weights.</p><p class="bili-line">With specialists of only 1-5 MB that update 0.015-0.05% of the parameters, MobileSpec raises the success rate of a phone-use agent from 6-23% up to 89-100% and trains a personalized 8B model on an iPhone 16 Pro overnight.</p><p class="bili-line">On RLVR benchmarks, FuRA-S is competitive with full-parameter evolution strategies (ES) and outperforms ES over LoRA adapters and quantized ES on INT4 models.</p></div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 Training Specialist LLMs on Your Phone 中的问题，Forward</div>
+    <div class="read-reason-box"><strong>📖 精读原因：</strong>AI Agent 是当前研究热点，本文可能包含创新性的设计思路；Agentic 强化学习将决策与语言模型结合，是智能体研究的前沿方向</div>
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>超越现有方法：</strong>outperforms ES over LoRA adapters and quantized ES on INT4 models</li><li><strong>核心思路：</strong>Training Specialist LLMs on Your Phone</li><li><strong>研究领域：</strong>隶属于 cs.LG, cs.SY</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2611.04797' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2611.04797" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='A16'>
+    
+    <h3><span class='badge badge-a'>A16</span> Agent Harness Awareness: Turning Verified Telemetry into Operational Control for Tool-Using Agents</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2611.05391</span>
+        <span class='tag' style='background:#10a37f;color:#fff'>OpenAI</span><span class='tag' style='background:#d97706;color:#fff'>Anthropic</span><span class='tag' style='background:#ea4335;color:#fff'>Google</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要（中英对照）：</strong><br><p class="bili-line">Tool descriptions tell an agent what an action can do, but they do not necessarily reveal whether that action is healthy or suitable at the moment of use.</p><p class="bili-line">Execution harnesses often possess this information through monitors, traces, and recent failures while the model choosing the next action does not.</p><p class="bili-line">We call this gap operational blindness.</p><p class="bili-line">We introduce Agent Harness Awareness, a trust-separated design in which the host supplies a small, fresh, verified state snapshot before a consequential action while retaining measurement, enforcement, evaluation, and final dispatch authority.</p><p class="bili-line">We test its tools-and-network instance with ToolRoute, a controlled isolation benchmark that holds the task and candidate semantics constant and varies the operational information available to the model.</p><p class="bili-line">In a 216-decision ablation across GPT-5.6 Sol, Claude Sonnet 5, and Gemini 3.7 Flash, verified tool-health state reduced mean observable policy regret by 96.9% against a same-shape neutral control (4,252 ms to 131 ms) and raised single-dispatch completion from 69.4% to 95.8%.</p><p class="bili-line">In a separate 27-decision end-to-end replication with live local TCP/HTTP execution, OpenTelemetry client spans, and Toxiproxy-injected faults, verified state reduced mean regret from 8,956 ms to 0 ms (zero excess observable operational cost) and completed the live action in 9/9 model-by-fault cases versus 5/9 for the neutral control.</p><p class="bili-line">These studies establish the tools-and-network instance of Agent Harness Awareness: selected host telemetry materially improves pre-dispatch operational choice.</p><p class="bili-line">Runtime state, hardware pressure, economics, retry-aware recovery, and heterogeneous selection remain open empirical extensions of the same architecture.</p></div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 Agent Harness Awareness 中的问题，Turning Verified Telemetry into Operational Control for Tool</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>核心思路：</strong>Agent Harness Awareness</li><li><strong>研究领域：</strong>隶属于 cs.AI, cs.CL</li><li><strong>研究要点：</strong>Execution harnesses often possess this information through monitors, traces, and recent failures while the model choosin</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2611.05391' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2611.05391" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='A17'>
+    
+    <h3><span class='badge badge-a'>A17</span> SlackBench: Benchmarking Agents on Collaborative Projects Grounded in Real Code Repositories</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2611.05512</span>
+        <span class='tag' style='background:#ea4335;color:#fff'>Google</span><span class='tag' style='background:#2563eb;color:#fff'>Agent</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要（中英对照）：</strong><br><p class="bili-line">AI Agents are becoming digital coworkers that can browse the web, write code, run experiments, and assist humans over extended horizons.</p><p class="bili-line">Yet existing benchmarks fall short of real knowledge work: many rely on synthetic data or isolated tasks, missing the complex, multi-party dynamics of collaborative projects, where critical information is scattered across conversations, code, and evolving decisions.</p><p class="bili-line">Even simple workplace questions may require locating relevant channels and direct messages, recovering context from long discussions, inspecting repository state, reconciling stale or conflicting evidence, and synthesizing across sources.</p><p class="bili-line">We introduce SlackBench, a benchmark for evaluating agents on realistic research and engineering workflows that require joint reasoning over workplace communication and evolving repository state.</p><p class="bili-line">Grounded in privacy-preserving reenactments of real academic research projects, SlackBench provides reproducible environments with realistic multi-party dialogue, evolving decisions, and corresponding code changes grounded in GitHub repositories and Google Docs.</p><p class="bili-line">It contains 140 queries spanning heterogeneous-source agentic search, abstention on unanswerable or false-premise questions, goal-directed summarization, and circumstance inference over long conversations.</p><p class="bili-line">These tasks are not reducible to static corpus question answering: agents must determine which conversations matter, traverse threads, inspect repository state, and synthesize evidence across communication and code artifacts.</p><p class="bili-line">Across 33 frontier models and agent harnesses, the best system scores around 80% and most agents score below 66%, highlighting substantial headroom for improvement.</p><p class="bili-line">SlackBench thus provides an extensible framework for evaluating agents in collaborative work environments.</p><p class="bili-line">The SlackBench dataset is available at https://huggingface.co/datasets/HuanzhiMao/SlackBench .</p></div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 SlackBench 中的问题，Benchmarking Agents on Collaborative Projects Grounded in Re</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>核心思路：</strong>SlackBench</li><li><strong>研究领域：</strong>隶属于 cs.AI, cs.CL</li><li><strong>研究要点：</strong>AI Agents are becoming digital coworkers that can browse the web, write code, run experiments, and assist humans over ex</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2611.05512' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2611.05512" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='A18'>
+    
+    <h3><span class='badge badge-a'>A18</span> RAGAM-AI: A Hybrid Reinforcement Learning based Agentic approach powered by Generative AI for Edge Resource Management</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2611.06554</span>
+        <span class='tag' style='background:#2563eb;color:#fff'>Agent</span><span class='tag' style='background:#0891b2;color:#fff'>Edge Computing</span><span class='tag' style='background:#9333ea;color:#fff'>LLM</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要（中英对照）：</strong><br><p class="bili-line">Resource management for distributed edge networks hosting different services has been handled efficiently using Reinforcement learning (RL).</p><p class="bili-line">Reward generalization in complex workflows is still an open issue within the RL realm.</p><p class="bili-line">Therefore, this work proposes RAGAM-AI, a hybrid framework that combines the capabilities of RL algorithms and Generative-AI (Gen-AI) for powering an Agentic AI workflow that optimizes resource allocation at the Multi-access Edge Computing (MEC) units.</p><p class="bili-line">This framework further resolves the reward generalization issue by utilizing Large Language Model (LLM) for feedback.</p><p class="bili-line">A Multi- Agent Soft-Actor Critic (MASAC) using Math{\Sigma}tral as a reward oracle is implemented for managing resource allocations at the MEC.</p><p class="bili-line">RAGAM-AI interprets system state information and evaluates multi-objective trade-offs guiding the resource orchestration loop over distributed edge server agents.</p><p class="bili-line">The complexity of the framework is further brought down by incorporating surrogate reward model.</p><p class="bili-line">The overall performance is evaluated against the single agent SAC, REINFORCE and random policies for benchmarking.</p><p class="bili-line">On using RAGAM-AI, lower allocation deviations for CPU, memory and bandwidth resources are reported while minimizing the latency and data rate costs.</p><p class="bili-line">A scalable AI as a feedback (AIAF) solution optimizing network resources with significant performance improvement is thus presented.</p></div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 RAGAM 中的问题，AI</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>核心思路：</strong>RAGAM</li><li><strong>研究领域：</strong>隶属于 cs.AI, cs.LG</li><li><strong>研究要点：</strong>Resource management for distributed edge networks hosting different services has been handled efficiently using Reinforc</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2611.06554' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2611.06554" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='A19'>
+    
+    <h3><span class='badge badge-a'>A19</span> MathlibPR: Pull Request Merge-Outcome Benchmark for Formal Mathematical Libraries</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2605.07147</span>
+        <span class='tag' style='background:#d97706;color:#fff'>Anthropic</span><span class='tag' style='background:#0ea5e9;color:#fff'>DeepSeek</span><span class='tag' style='background:#f59e0b;color:#fff'>Qwen</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要（中英对照）：</strong><br><p class="bili-line">The ecosystem of Lean and Mathlib has become the de facto standard for large language model (LLM) assisted formal reasoning with remarkable successes in recent years.</p><p class="bili-line">Those successes, however, only consume Mathlib as an essential dependency but do not directly contribute to it.</p><p class="bili-line">In the meantime, the growth of Mathlib has recently been bottlenecked by the review process, which requires human reviewers to judge whether proposed pull requests (PRs) follow the Mathlib&#x27;s conventions and are worth integrating as part of a shared mathematical infrastructure.</p><p class="bili-line">This leads to our central question: can LLMs help review Mathlib PRs?</p><p class="bili-line">To this end, we introduce MathlibPR, a benchmark built from real Mathlib4 PR histories.</p><p class="bili-line">We further propose a staged evaluation protocol and use it to evaluate both LLM models (e.g., DeepSeek, Qwen, Goedel, and Kimina) and LLM agents (e.g., Codex and Claude Code).</p><p class="bili-line">Surprisingly, both LLM models and LLM agents struggle to distinguish merge-ready PRs from build-passing PRs that were revised or never merged.</p><p class="bili-line">By turning Mathlib PR histories into a supervised signal, MathlibPR provides a step toward reviewer assistants and reward models that could help evaluate PRs and steer LLMs toward producing merge-ready Mathlib contributions.</p></div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 MathlibPR 中的问题，Pull Request Merge</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>提出：</strong>propose a staged evaluation protocol and use it to evaluate both LLM model</li><li><strong>核心思路：</strong>MathlibPR</li><li><strong>研究领域：</strong>隶属于 cs.LO, cs.AI</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2605.07147' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2605.07147" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='A20'>
+    
+    <h3><span class='badge badge-a'>A20</span> MKD2World: A Typed Spatial MarkDown World Model For Web Agents</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2611.06544</span>
+        <span class='tag' style='background:#10a37f;color:#fff'>OpenAI</span><span class='tag' style='background:#f59e0b;color:#fff'>Qwen</span><span class='tag' style='background:#2563eb;color:#fff'>Agent</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要（中英对照）：</strong><br><p class="bili-line">Graphical user interface (GUI) agents can improve decision-making with world-model foresight, provided that predicted states accurately reflect post-action interfaces.</p><p class="bili-line">Existing state representations fail to jointly capture interface layout, UI semantics, and explicit locations.</p><p class="bili-line">We introduce Typed Spatial Markdown (TSM), a Markdown-style textual state representation for desktop web interfaces.</p><p class="bili-line">TSM serializes block-level and atomic-level UI elements according to their spatial relationships, jointly encoding their types, visual semantics, explicit locations, optional control states, and hierarchical membership.</p><p class="bili-line">To train a screenshot-to-TSM renderer, we construct AtomBlock-WebUI, a dataset with precise annotations at both granularities.</p><p class="bili-line">By injecting element-type labels into HTML and directly extracting bounding boxes after rendering, we avoid annotation errors caused by post-hoc inference from webpage structures.</p><p class="bili-line">Building on TSM, we propose MKD2World, a desktop web world model trained in two stages for current-state description and action-conditioned next-state prediction.</p><p class="bili-line">During inference, the web agent queries MKD2World as needed and performs a ``digest&#x27;&#x27; step, in which it interprets each predicted state and extracts task-relevant evidence for selecting the best action.</p><p class="bili-line">Experiments show that MKD2World-9B achieves an EleF1 score of 26.50 on the out-of-domain test set, outperforming GPT-5.6-Sol(14.98) by 11.52 points.</p><p class="bili-line">Across Online-Mind2Web tasks, MKD2World-9B improves the success rate of the Qwen3.5-35B web agent from 22.94% to 37.61%, achieving competitive performance among leading open-source GUI world models.</p><p class="bili-line">Code is available at https://github.com/OmniAI-Lab-CUHKSZ/MKD2World.</p></div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 MKD2World 中的问题，A Typed Spatial MarkDown World Model For Web Agents</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>超越现有方法：</strong>outperforming GPT-5</li><li><strong>核心思路：</strong>MKD2World</li><li><strong>研究领域：</strong>隶属于 cs.CV</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2611.06544' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2611.06544" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='A21'>
+    
+    <h3><span class='badge badge-a'>A21</span> Time-Division Multiplexing: The Operational Rhythm and Temporal Organization Layer of Digital Life</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2611.06603</span>
+        <span class='tag' style='background:#f59e0b;color:#fff'>Qwen</span><span class='tag' style='background:#2563eb;color:#fff'>Agent</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要（中英对照）：</strong><br><p class="bili-line">Continual agents must handle urgent interaction while retaining alternatives, replaying errors, and committing safe long-term changes.</p><p class="bili-line">A previous digital-life framework distinguishes online (busy) and offline (idle) channels, but leaves open whether these are separate programs or phases of a common process and how their operations should be ordered.</p><p class="bili-line">Motivated by recent observations of rapidly alternating perceptual representations in primate cortex, we develop a temporal organization layer with phase-tagged micro-epochs, an observable duty cycle, independent content and resource controls, and three nested clocks separating candidate exploration from durable commitment.</p><p class="bili-line">We give a projected duty-cycle update, state its deterministic descent guarantee and the additional noise term required for a stochastic guarantee, and specify coupled busy/idle execution contracts.</p><p class="bili-line">Five synthetic experiments (64 seeds each) examine descent and noise, objective misalignment, gain asymmetry, resource coupling, and dropped replay logs.</p><p class="bili-line">In the gain/noise model the best tested gain ratio is 1.55; decoupled scheduling yields 26.6% versus 11.1% success on a constructed urgent/high-load subset.</p><p class="bili-line">A frozen-backbone Qwen3-8B prototype further checks orchestration, but its proxy outcomes are not task-benchmark evidence.</p><p class="bili-line">The results establish a testable scheduling design and identify its conditions of validity, not machine consciousness or general-purpose agent superiority.</p></div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 Time 中的问题，Division Multiplexing</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>核心思路：</strong>Time</li><li><strong>研究领域：</strong>隶属于 cs.AI, q-bio.NC</li><li><strong>研究要点：</strong>Continual agents must handle urgent interaction while retaining alternatives, replaying errors, and committing safe long</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2611.06603' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2611.06603" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='A22'>
+    
+    <h3><span class='badge badge-a'>A22</span> HyScale: Scaling Long-Context Training for Learned Sparse Attention</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2610.32057</span>
+        <span class='tag' style='background:#0ea5e9;color:#fff'>DeepSeek</span><span class='tag' style='background:#f59e0b;color:#fff'>Qwen</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要（中英对照）：</strong><br><p class="bili-line">We present HyScale, a long-context training system for learned sparse attention.</p><p class="bili-line">Learned sparse attention is a promising architecture for million-token contexts, widely adopted in production since DeepSeek-V3.2.</p><p class="bili-line">Selection, however, grows into the training bottleneck.</p><p class="bili-line">For each query, it scores every previous token whereas sparse attention reads only $k$; worse, current systems materialize a full score table and repeat selection during recomputation.</p><p class="bili-line">Our key insight is that the output of selection is not an activation, but rather a set of indices.</p><p class="bili-line">Building on it, HyScale introduces FlashTopK and selection replay.</p><p class="bili-line">FlashTopK finds each query&#x27;s exact top-$k$ on the fly without a score table, while selection replay reuses forward-pass selection in recomputation.</p><p class="bili-line">Together with holistic system optimizations tackling end-to-end challenges, HyScale speeds up GLM-5.1 training on 1M-token sequences by $2.07\times$ over Megatron-LM on 512 H20 GPUs.</p><p class="bili-line">It also speeds up the CSA layers of DeepSeek-V4-Flash and the QSA layers of Qwen3.8-Flash-Next by $2.01\times$ and $1.57\times$ at 1M tokens on 32 H800 GPUs.</p></div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 HyScale 中的问题，Scaling Long</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>核心思路：</strong>HyScale</li><li><strong>研究领域：</strong>隶属于 cs.AI, cs.DC</li><li><strong>研究要点：</strong>We present HyScale, a long-context training system for learned sparse attention.</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2610.32057' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2610.32057" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='A23'>
+    
+    <h3><span class='badge badge-a'>A23</span> MemReward: Graph-Based Experience Memory for LLM Reward Prediction with Limited Labels</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2603.19310</span>
+        <span class='tag' style='background:#0866ff;color:#fff'>Meta</span><span class='tag' style='background:#f59e0b;color:#fff'>Qwen</span><span class='tag' style='background:#9333ea;color:#fff'>LLM</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要（中英对照）：</strong><br><p class="bili-line">Reinforcement learning (RL) fine-tuning improves large language model (LLM) reasoning using reward signals on sampled rollouts.</p><p class="bili-line">When reward labels are available for only a subset of rollouts, restricting policy updates to that subset leaves the remaining rollouts unused for policy optimization.</p><p class="bili-line">Semi-supervised learning propagates labels from labeled to unlabeled samples, but existing methods either diffuse labels with fixed similarity weights or treat each sample independently, ignoring the relations among queries, thinking processes, and answers.</p><p class="bili-line">We propose MemReward, a graph-based experience memory that propagates rewards to unlabeled rollouts during online policy optimization.</p><p class="bili-line">MemReward stores queries and the rollouts (thinking processes and final answers) of an initial LLM policy as nodes of a heterogeneous graph connected by similarity and structural edges, and warms up a GNN on labeled rollouts to propagate rewards over this graph.</p><p class="bili-line">During online RL fine-tuning, unlabeled rollouts are attached to the graph by query similarity, and the policy is updated with ground-truth rewards on labeled rollouts and GNN-predicted rewards on the rest.</p><p class="bili-line">We evaluate MemReward on 13 benchmarks in mathematics, question answering, and code generation with verifiable rewards, and further with LLM-judge, human-preference, and continuous rewards.</p><p class="bili-line">With ground-truth rewards on only 20% of rollouts, MemReward achieves 96.6% of the performance of fully supervised training (Oracle) on Qwen2.5-1.5B and 97.3% on Qwen2.5-3B, where it also outperforms label propagation and FixMatch-style self-training.</p><p class="bili-line">It carries over to Llama backbones up to 8B and closely approaches Oracle on out-of-domain tasks.</p></div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>existing methods either diffuse labels with fixed similarity weights or treat each sample independently</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>超越现有方法：</strong>outperforms label propagation and FixMatch-style self-training</li><li><strong>核心思路：</strong>MemReward</li><li><strong>研究领域：</strong>隶属于 cs.LG, cs.AI</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2603.19310' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2603.19310" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='A24'>
+    
+    <h3><span class='badge badge-a'>A24</span> Quantifying out-of-distribution data severity with Wasserstein distances: benchmarking large language models for alloy property prediction</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2611.03767</span>
+        <span class='tag' style='background:#ea4335;color:#fff'>Google</span><span class='tag' style='background:#0ea5e9;color:#fff'>DeepSeek</span><span class='tag' style='background:#9333ea;color:#fff'>LLM</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要（中英对照）：</strong><br><p class="bili-line">As general-purpose Large Language Models (LLMs), such as Gemini and DeepSeek, exhibit increasingly advanced reasoning capabilities, a critical question arises: how do their property prediction abilities compare to those of domain-specific pretrained materials models?</p><p class="bili-line">In this study, we evaluate predictions for Ti, steels, high-entropy alloy (HEA) and Al, demonstrating that general-purpose LLMs surprisingly outperform SteelBERT, MatSciBERT, and SciBERT.</p><p class="bili-line">To further enhance performance, we introduce a hybrid approach that utilizes numerical priors from a prior model, such as CatBoost or SteelBERT, to guide the general LLMs (Deepseek V3.1, Gemini-2.5-Flash).</p><p class="bili-line">By inputting these initial estimates from a prior model as prompts, the LLM acts as a reasoning corrector, achieving accuracy superior to the prior model and &quot;unguided mode&quot;.</p><p class="bili-line">Furthermore, we investigate the impact of data strategy using a similarity-based metric, revealing that data quality dominates quantity; using merely 5% of high-similarity reference data of training set as input yields performance similar to the results of using 100% of training set.</p><p class="bili-line">Additionally, the LLMs demonstrate excellent uncertainty calibration, where self-reported &quot;high&quot; confidence strongly correlates with minimal deviation from ground truth.</p><p class="bili-line">Our findings suggest that synergizing general-purpose LLMs with prior model numerical baselines and high-quality data curation creates a cost-effective and accurate paradigm for materials discovery, reducing the need for expensive domain-specific pretraining.</p></div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 Quantifying out 中的问题，of</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>提出：</strong>introduce a hybrid approach</li><li><strong>超越现有方法：</strong>outperform SteelBERT</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2611.03767' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2611.03767" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='A25'>
+    
+    <h3><span class='badge badge-a'>A25</span> Grounded but Not Immune: Confirmation Bias in Agent-as-a-judge</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2611.05662</span>
+        <span class='tag' style='background:#d97706;color:#fff'>Anthropic</span><span class='tag' style='background:#2563eb;color:#fff'>Agent</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要（中英对照）：</strong><br><p class="bili-line">Evaluating open-ended agent tasks increasingly falls to an Agent-as-a-Judge: an evaluator handed tools and the agent&#x27;s full trajectory so it can verify a result against the environment.</p><p class="bili-line">The premise is that a judge that gathers its own evidence should be grounded by it.</p><p class="bili-line">We show that this grounding does not immunize the judge against confirmation bias: a single false pre-screening note, attributed to an authority and carrying no evidential bearing on the correct verdict, overturns up to 40% of a tool-using judge&#x27;s correct verdicts across four judges and five datasets, even though the judge collects decisive evidence.</p><p class="bili-line">The shift is driven by specific properties of the cue.</p><p class="bili-line">We treat this cue as a controlled diagnostic of confirmation bias rather than an adversarial attack.</p><p class="bili-line">Our central contribution is to explain how confirmation bias changes the judge&#x27;s behavior in a trajectory.</p><p class="bili-line">We classify changes in judge behavior and attribute changes to one of three failure modes: over-trust (verify, conclude correctly, then defer), hallucination (fabricate support for the flip), and under-investigation (stop at the first corroborating signal).</p><p class="bili-line">For the two Claude judges, the failure is predominantly over-trust (67-75% of harmful flips), while smaller judges have error modes spread across all three.</p><p class="bili-line">Lightweight mitigations blunt but never remove the bias.</p></div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 Grounded but Not Immune 中的问题，Confirmation Bias in Agent</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>首次提出：</strong>first corroborating signal)</li><li><strong>核心思路：</strong>Grounded but Not Immune</li><li><strong>研究领域：</strong>隶属于 cs.AI, cs.CL</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2611.05662' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2611.05662" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='A26'>
+    
+    <h3><span class='badge badge-a'>A26</span> AutoEnergyDesign: An LLM-Driven Agent for Automatic Energy System Design Optimization</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2610.35160</span>
+        <span class='tag' style='background:#d97706;color:#fff'>Anthropic</span><span class='tag' style='background:#2563eb;color:#fff'>Agent</span><span class='tag' style='background:#9333ea;color:#fff'>LLM</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要（中英对照）：</strong><br><p class="bili-line">The design optimization of building energy systems represents a complex, high-dimensional search problem involving discrete technology selections, continuous sizing parameters, and intricate economic trade-offs in which every candidate must be evaluated by a year-long simulation.</p><p class="bili-line">This paper presents AutoEnergyDesign, in which a Large Language Model (LLM) agent reasons over past simulation results, proposes configuration changes and learns in context from each outcome, while a git-based mechanism reverts changes that do not improve the design.</p><p class="bili-line">The agent couples a reasoning model with explicit memories, a constrained action interface, and an environment-grounded keep/revert feedback signal.</p><p class="bili-line">The simulator covers eight technologies and computes the 25-year Net Present Cost (NPC).</p><p class="bili-line">On a case study with measured building loads, the agent, instantiated with three Claude models (Haiku 5.5, Sonnet 5.5 and Opus 5.5; ten runs of 50 simulations each), is compared with random search, Tree-structured Parzen Estimator (TPE) Bayesian optimization and a (1+1) evolution strategy that shares the agent&#x27;s acceptance rule (ten seeds of 300 evaluations).</p><p class="bili-line">With all three models the agent reaches an NPC of 3.53MEUR, 1.20% and 0.23% below the best results of TPE and of the evolution strategy, and comes within 1% of it after a median of 18 to 27.5 simulations; among the baselines, only the evolution strategy does so, after a median of 192 evaluations.</p><p class="bili-line">Every decision is recorded, making the search auditable.</p></div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 AutoEnergyDesign 中的问题，An LLM</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>核心思路：</strong>AutoEnergyDesign</li><li><strong>研究领域：</strong>隶属于 cs.AI, stat.ML</li><li><strong>研究要点：</strong>The agent couples a reasoning model with explicit memories, a constrained action interface, and an environment-grounded </li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2610.35160' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2610.35160" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+<h2 class="section-header" id="group-B"><span class="badge badge-b">B组</span> Agent / RSI / Agentic RL 主题</h2>
+
+<div class='card worth-reading' id='B1'>
+    <div class="worth-badge">⭐ 值得精读</div>
+    <h3><span class='badge badge-b'>B1</span> MEA: A Reward-Driven Multi-Agent System for Faithful Model Explanations</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2610.02480</span>
+        <span class='tag' style='background:#2563eb;color:#fff'>Agent</span><span class='tag' style='background:#1d4ed8;color:#fff'>Multi-Agent</span><span class='tag' style='background:#9333ea;color:#fff'>LLM</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要（中英对照）：</strong><br><p class="bili-line">Recent years have seen the employment of a plethora of machine learning (ML) models in high-stakes domains, but they remain largely opaque to the practitioners who act on their predictions.</p><p class="bili-line">While post-hoc explanation methods offer a lens into this model behavior, wielding them effectively demands expertise most domain experts lack: navigating high-dimensional outputs, selecting the best explanations, and synthesizing evidence across disparate tools.</p><p class="bili-line">To this end, we present MEA, a multi-agent framework that removes the explanation knowledge barrier entirely: a Proposer agent selects and configures explanation tools based on the question and modality, while an Actor agent is optimized end-to-end against faithfulness, transforming the outputs into natural language explanations grounded in model behavior across tabular, text, and vision modalities.</p><p class="bili-line">Further, we introduce diverse question types spanning feature attribution, counterfactual reasoning, and spurious feature detection, each paired with a perturbation-based faithfulness metric.</p><p class="bili-line">We find that frontier LLMs systematically produce unfaithful explanations.</p><p class="bili-line">By optimizing against faithfulness rewards augmented with a modality-adaptive penalty, MEA consistently outperforms post hoc explainers, agentic, and closed-source baselines across six datasets, with reward-driven optimization yielding faithfulness gains of +28% (tabular), +21% (text), and +34% (vision) over the untrained backbone.</p><p class="bili-line">More broadly, our findings suggest that AI agents themselves can serve as a scalable, adaptable interface to ML explainability, opening a path toward natural-language explainability that generalizes beyond the fixed, single-purpose tools that have long defined the field.</p></div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 MEA 中的问题，A Reward</div>
+    <div class="read-reason-box"><strong>📖 精读原因：</strong>AI Agent 是当前研究热点，本文可能包含创新性的设计思路；多智能体协作是复杂任务求解的重要范式，本文值得关注</div>
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>超越现有方法：</strong>outperforms post hoc explainers</li><li><strong>核心思路：</strong>MEA</li><li><strong>研究领域：</strong>隶属于 cs.AI</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2610.02480' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2610.02480" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card worth-reading' id='B2'>
+    <div class="worth-badge">⭐ 值得精读</div>
+    <h3><span class='badge badge-b'>B2</span> PyRUA-REAL: Robot Exploration and Adaptive Learning through RSI in the Real World</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2611.06768</span>
+        <span class='tag' style='background:#db2777;color:#fff'>RSI</span><span class='tag' style='background:#2563eb;color:#fff'>Agent</span><span class='tag' style='background:#059669;color:#fff'>Embodied AI</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要（中英对照）：</strong><br><p class="bili-line">Coding agents powered by models such as GPT-6-Astra connect spatial reasoning with executable robot behavior, raising the question of how such agents can produce lasting improvements in robot capabilities from physical interaction.</p><p class="bili-line">In this work, we study embodied recursive self-improvement (RSI) through real-world exploration, code refinement, and deployment using PyRUA-REAL, a framework in which coding agents retain interaction experience as persistent memory and reusable executable skills that inform subsequent exploration and improvement.</p><p class="bili-line">Our empirical study places physical manipulation at the center of the improvement process, examining how agents collaborate, what kinds of execution feedback support effective code refinement, and how task specifications and previously acquired skills influence robustness and task transfer.</p><p class="bili-line">We further investigate the efficiency and capability of the resulting programs when deployed without involving an online agent for decision-making.</p><p class="bili-line">Across eight real-world tasks, PyRUA-REAL achieves an average success rate of 91.1%.</p><p class="bili-line">In complementary evaluation on 42 tasks from the RoboDojo benchmark, it achieves an average success rate of 84.4%.</p><p class="bili-line">This study provides empirical guidance for turning physical exploration into reusable robot skills that support continued improvement and robust, efficient deployment.</p></div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 PyRUA 中的问题，REAL</div>
+    <div class="read-reason-box"><strong>📖 精读原因：</strong>AI Agent 是当前研究热点，本文可能包含创新性的设计思路；递归自改进（RSI）是智能体自我进化的关键方向，本文具有一定的探索价值</div>
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>核心思路：</strong>PyRUA</li><li><strong>研究领域：</strong>隶属于 cs.RO</li><li><strong>研究要点：</strong>We further investigate the efficiency and capability of the resulting programs when deployed without involving an online</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2611.06768' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2611.06768" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card worth-reading' id='B3'>
+    <div class="worth-badge">⭐ 值得精读</div>
+    <h3><span class='badge badge-b'>B3</span> Signals: Continuous Diagnostics of AI Agents</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2611.04507</span>
+        <span class='tag' style='background:#2563eb;color:#fff'>Agent</span><span class='tag' style='background:#9333ea;color:#fff'>LLM</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要（中英对照）：</strong><br><p class="bili-line">AI agents can make incorrect decisions or waste resources even when their tools and infrastructure work normally.</p><p class="bili-line">Their nondeterministic behavior makes these problems difficult to reproduce and diagnose.</p><p class="bili-line">We developed Signals to identify such problems from agentic traces and suggest concrete remediations.</p><p class="bili-line">We built the method around a taxonomy of 45 problem types across eight families, with definitions and evidence requirements for each type.</p><p class="bili-line">The method distinguishes realized failures, risk exposures, and inefficiencies, groups related findings into engineering issues called Signals, and assesses their severity from the supporting evidence.</p><p class="bili-line">Each Signal includes actions a developer can take and checks for evaluating the change.</p><p class="bili-line">Further executions can add evidence to an existing Signal or reveal a new problem.</p><p class="bili-line">We evaluated the method on public agent executions and achieved 91.43% F1 when matching Signals to reference issues, about 18 percentage points higher than a one-pass LLM control that used the same model and taxonomy.</p></div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 Signals 中的问题，Continuous Diagnostics of AI Agents</div>
+    <div class="read-reason-box"><strong>📖 精读原因：</strong>AI Agent 是当前研究热点，本文可能包含创新性的设计思路；大语言模型是当代 AI 的核心基座，本文对相关方向有参考价值</div>
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>核心思路：</strong>Signals</li><li><strong>研究领域：</strong>隶属于 cs.AI</li><li><strong>研究要点：</strong>AI agents can make incorrect decisions or waste resources even when their tools and infrastructure work normally.</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2611.04507' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2611.04507" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card worth-reading' id='B4'>
+    <div class="worth-badge">⭐ 值得精读</div>
+    <h3><span class='badge badge-b'>B4</span> GaP: A Graph-as-Policy Multi-Agent Self-Learning Harness For Variational Automation Tasks</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2607.05369</span>
+        <span class='tag' style='background:#2563eb;color:#fff'>Agent</span><span class='tag' style='background:#1d4ed8;color:#fff'>Multi-Agent</span><span class='tag' style='background:#059669;color:#fff'>Embodied AI</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要（中英对照）：</strong><br><p class="bili-line">For robots to work reliably in commercial and industrial applications, recent advances in agentic coding systems have potential to combine interpretable robot programming with the open-world adaptability of model-free policies.</p><p class="bili-line">We focus on &quot;Variational Automation&quot; (VA), a class of tasks that have larger variations in object geometry and pose than fixed automation.</p><p class="bili-line">Model-free policies often struggle to close the reliability gap for VA tasks, which must be executed persistently and reliably in commercial and industrial applications.</p><p class="bili-line">Motivated by prior work on Task and Motion Planning (TAMP) and the Robot Operating System (ROS), we introduce Graph-as-Policy (GaP), a multi-agent coding harness that generates directed computation graphs with perception, planning, and control nodes from a Modular Open Robot Skill Library (MORSL).</p><p class="bili-line">GaP generates an internal simulation environment to rehearse task instances with different graphs in parallel to iteratively refine the graph structure and parameters to improve success rates and throughput.</p><p class="bili-line">Evaluation with 8 new open VA task benchmarks, 4 in simulation and 4 in real-world, suggests that GaP can achieve success rates that significantly outperform baselines.</p><p class="bili-line">Details, code, and data: https://graph-robots.github.io/gap</p></div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 GaP 中的问题，A Graph</div>
+    <div class="read-reason-box"><strong>📖 精读原因：</strong>AI Agent 是当前研究热点，本文可能包含创新性的设计思路；多智能体协作是复杂任务求解的重要范式，本文值得关注</div>
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>超越现有方法：</strong>outperform baselines</li><li><strong>核心思路：</strong>GaP</li><li><strong>研究领域：</strong>隶属于 cs.RO, cs.AI</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2607.05369' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2607.05369" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card worth-reading' id='B5'>
+    <div class="worth-badge">⭐ 值得精读</div>
+    <h3><span class='badge badge-b'>B5</span> Compounding Physical RSI: Turning Execution Failure into Inherited Capability</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2611.06654</span>
+        <span class='tag' style='background:#db2777;color:#fff'>RSI</span><span class='tag' style='background:#059669;color:#fff'>Embodied AI</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要（中英对照）：</strong><br><p class="bili-line">Generalist robot policies are trained on static offline datasets, yet physical manipulation unfolds sequentially across stages.</p><p class="bili-line">Because a weakness in a downstream stage remains unobservable until the policy passes earlier ones, each resolved bottleneck exposes the next hidden failure mode.</p><p class="bili-line">This staged structure calls for Recursive Self-Improvement (RSI), in which a policy iteratively executes, diagnoses failures, and updates itself.</p><p class="bili-line">Moreover, because task completion behaves like a product of stage-level pass rates, recursive gains can multiply across generations.</p><p class="bili-line">In physical environments, three bottlenecks obstruct compounding: terminal execution feedback rarely localizes the stage that caused a failure, failed trajectories do not supply the corrective action, and updating shared parameters can degrade previously mastered skills.</p><p class="bili-line">We propose Compounding Physical RSI, a self-evolving policy framework that turns execution failures into heritable capability.</p><p class="bili-line">First, automated capability-gap assessment traces failed rollouts to the task stage where progression breaks down and formulates a structured improvement objective.</p><p class="bili-line">Second, conditioned on this objective, our remedy stage curates validated, stage-relevant experience and refines the policy via behavior-regularized offline reinforcement learning, without requiring costly online rollouts at each optimization step.</p><p class="bili-line">Third, to safeguard existing skills, our retention stage constructs weight-space candidates between the inherited reference policy and the refined policy, evaluates them across the task suite, and promotes the best candidate as the reference state for the next generation.</p><p class="bili-line">Evaluated across all 42 tasks of the RoboDojo-Sim benchmark, CSU-AI-07 ranks first on the leaderboard with a three-seed mean Overall Score of 26.15 and Success Rate of 20.70%, outperforming the next-best entry by 5.92 points and 5.82 percentage points.</p></div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 Compounding Physical RSI 中的问题，Turning Execution Failure into Inherited Capability</div>
+    <div class="read-reason-box"><strong>📖 精读原因：</strong>递归自改进（RSI）是智能体自我进化的关键方向，本文具有一定的探索价值；具身智能是通向通用 AI 的重要路径，本文值得关注</div>
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>超越现有方法：</strong>outperforming the next-best entry by 5</li><li><strong>首次提出：</strong>first on the leaderboard with a three-seed mean Overall Score of 26</li><li><strong>研究要点：</strong>Generalist robot policies are trained on static offline datasets, yet physical manipulation unfolds sequentially across </li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2611.06654' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2611.06654" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='B6'>
+    
+    <h3><span class='badge badge-b'>B6</span> Stabilizing On-Policy Targeted Guidance in Agentic Reinforcement Learning</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2611.05266</span>
+        <span class='tag' style='background:#7c3aed;color:#fff'>Agentic RL</span><span class='tag' style='background:#2563eb;color:#fff'>Agent</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要（中英对照）：</strong><br><p class="bili-line">Naive on-policy RL is often bottlenecked by the capabilities of the base model --- insufficient coverage can result in an inability to learn from certain rewards.</p><p class="bili-line">At the same time, rewards in modern post-training systems often come from rich textual sources, e.g.</p><p class="bili-line">judge models with a rubric of criteria.</p><p class="bili-line">Can we utilize such structures to provide a rich directional signal that enables improving on otherwise difficult to optimize rewards?</p><p class="bili-line">In this work, we examine a framework we refer to as targeted guidance that learns from per-turn textual feedback via an on-policy self-distillation objective.</p><p class="bili-line">Our focus is not only on directly improving hard-to-optimize behaviors, but on how to do so throughout the training process without degrading baseline RL performance.</p><p class="bili-line">Over a range of settings across an agentic multi-turn software engineering environment, we find success by combining targeted self-distillation with a per-criteria RL reward, and by limiting feedback to turns where the policy specifically fails.</p><p class="bili-line">We further examine the design choices that lead to stable entropy and reduce oscillatory behavior throughout training.</p></div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 Stabilizing On 中的问题，Policy Targeted Guidance in Agentic Reinforcement Learning</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>核心思路：</strong>Stabilizing On</li><li><strong>研究领域：</strong>隶属于 cs.LG</li><li><strong>研究要点：</strong>At the same time, rewards in modern post-training systems often come from rich textual sources, e.g.</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2611.05266' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2611.05266" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='B7'>
+    
+    <h3><span class='badge badge-b'>B7</span> Autonomous agents for electricity-system planning</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2611.05911</span>
+        <span class='tag' style='background:#2563eb;color:#fff'>Agent</span><span class='tag' style='background:#1d4ed8;color:#fff'>Multi-Agent</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要（中英对照）：</strong><br><p class="bili-line">Planning electricity systems requires repeated decisions that connect regional resources, investment, operation and network constraints.</p><p class="bili-line">Here we present an autonomous planning framework that carries prepared regional scenarios through proposal, numerical evaluation, feedback interpretation, redesign and final plan selection.</p><p class="bili-line">Agents propose investment bounds, storage operating conditions and feeder interventions, interpret numerical feedback, and decide how to revise designs and when to stop.</p><p class="bili-line">The framework automatically executes annual investment-and-dispatch optimization and representative-feeder verification, applies fixed acceptance criteria and retains the lowest-cost accepted candidate.</p><p class="bili-line">We evaluate forty carbon-constrained trajectories across ten system-year scenarios in five electricity systems and four countries, using two model deployments and single- and multi-agent architectures.</p><p class="bili-line">All forty retain candidates satisfying the implemented physical and fixed annual operational carbon-budget checks.</p><p class="bili-line">Twenty-eight of forty matched reference designs exceed the new scenario ceilings.</p><p class="bili-line">A separate archive of ninety-six trajectories under a common 1,000 Mt annual ceiling provides matched references and broader regional coverage.</p><p class="bili-line">The results demonstrate autonomous planning under explicit emissions constraints using public regional data and published institutional demand outlooks.</p></div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 Autonomous agents for electricity 中的问题，system planning</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>提出：</strong>present an autonomous planning framework</li><li><strong>超越现有方法：</strong>exceed the new scenario ceilings</li><li><strong>研究要点：</strong>Planning electricity systems requires repeated decisions that connect regional resources, investment, operation and netw</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2611.05911' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2611.05911" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='B8'>
+    
+    <h3><span class='badge badge-b'>B8</span> Optimal Value Inference for Reinforcement Learning</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2609.09981</span>
+        <span class='tag' style='background:#2563eb;color:#fff'>Agent</span><span class='tag' style='background:#9333ea;color:#fff'>LLM</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要（中英对照）：</strong><br><p class="bili-line">We study offline inference for the optimal value in reinforcement learning under finite state and action spaces.</p><p class="bili-line">Two new nuisances are derived as fixed points of a self-induced Bellman equation, in which we approximate the maximum Bellman operator by its softmax correspondence.</p><p class="bili-line">We propose a debiased estimator through the Neyman orthogonality and establish its asymptotic normality under diverging horizons even when the behavior policy changes with time, as long as the nuisances have the statistical rates that can be achieved by many machine learning methods.</p><p class="bili-line">We provide a concrete estimating procedure for these nuisances and show they can lead to valid inference.</p><p class="bili-line">Synthetic experiments validate the numerical performance of our inference method, and we implement it in real-life decision-making problems, including bike repositioning and AI agentic tool use.</p></div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>解决 Agent 领域的关键挑战</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>研究领域：</strong>隶属于 stat.ML, cs.LG</li><li><strong>研究要点：</strong>We study offline inference for the optimal value in reinforcement learning under finite state and action spaces.</li><li><strong>研究要点：</strong>We provide a concrete estimating procedure for these nuisances and show they can lead to valid inference.</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2609.09981' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2609.09981" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='B9'>
+    
+    <h3><span class='badge badge-b'>B9</span> Memorilla: Latent Semantic Memory for LLMs</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2610.21375</span>
+        <span class='tag' style='background:#2563eb;color:#fff'>Agent</span><span class='tag' style='background:#9333ea;color:#fff'>LLM</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要（中英对照）：</strong><br><p class="bili-line">Memory enables large language models (LLMs) to use information beyond their parameters, such as past user conversations, long documents, or an agent&#x27;s earlier actions.</p><p class="bili-line">For a frozen LLM, access to this accumulated knowledge is limited to what a memory system places in its context window.</p><p class="bili-line">However, gathering and combining relevant information needed for each query while keeping the model&#x27;s context short remains challenging for existing systems.</p><p class="bili-line">Here we introduce Memorilla, a memory system that gathers information from an entire document collection into a fixed number of query-dependent &#x27;memory tokens&#x27; for a frozen LLM.</p><p class="bili-line">Memorilla encodes documents (such as user chats, book chapters) once into reusable embeddings, then learns to retrieve and place query-specific information in the LLM&#x27;s input embedding space.</p><p class="bili-line">Using only 16 memory tokens, Memorilla achieves the best performance against baselines including Mem0 and MemoRAG on five of eight benchmarks spanning personalization, long-document and knowledge-intensive question answering.</p><p class="bili-line">Notably, on FactKG, it reaches 84.33% accuracy versus 80.43% with full-context inference, while using 108x fewer tokens to represent the source documents.</p><p class="bili-line">Furthermore, Memorilla can facilitate continual learning in agentic systems where the document count (the agent&#x27;s past turns) increases throughout the trajectory.</p><p class="bili-line">In a TextWorld environment, we show that Memorilla reduces the agent&#x27;s tendency to wander between rooms it has already explored, and improves its average success rate from 18.6% with full-history in-context learning to 24.2%.</p><p class="bili-line">Overall, Memorilla aids frozen LLMs in accumulating and using knowledge effectively across long-context interactions and takes a step towards building continually learning AI systems.</p></div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 Memorilla 中的问题，Latent Semantic Memory for LLMs</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>核心思路：</strong>Memorilla</li><li><strong>研究领域：</strong>隶属于 cs.LG, cs.AI</li><li><strong>研究要点：</strong>For a frozen LLM, access to this accumulated knowledge is limited to what a memory system places in its context window.</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2610.21375' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2610.21375" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='B10'>
+    
+    <h3><span class='badge badge-b'>B10</span> ViBench 2.0: A Benchmark for Long-Horizon Software Building</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2611.05620</span>
+        <span class='tag' style='background:#2563eb;color:#fff'>Agent</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要（中英对照）：</strong><br><p class="bili-line">On Replit, our agentic engineering platform, users now build entire products without writing code, through successive feature requests to an agent.</p><p class="bili-line">Yet existing coding benchmarks evaluate single, fully specified tasks, and many are near saturation.</p><p class="bili-line">We introduce ViBench 2.0, a benchmark for long-horizon software building that we use to select our platform&#x27;s models.</p><p class="bili-line">Its 17 full-stack web products, modeled on widely used software, grow over 241 feature requests and are judged only when finished, as a user would judge them: a browser agent runs 544 test plans, and a build passes only if every plan does, under a grading protocol validated to keep this strict score reliable.</p><p class="bili-line">Evaluating nine models, we find a reliability gap: the three strongest pass up to 98% of test plans yet deliver a fully working product in at most 65% of builds, and no open-weight model delivers one.</p><p class="bili-line">The gap is closing fast: across three releases of one model family, pass@1 on the public products rises from 3% to 53% while the cost per build falls by more than half.</p><p class="bili-line">We release eight products with the harness and grader, hold out nine, and report lessons from production use.</p></div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 ViBench 2.0 中的问题，A Benchmark for Long</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>核心思路：</strong>ViBench 2.0</li><li><strong>研究领域：</strong>隶属于 cs.AI, cs.SE</li><li><strong>研究要点：</strong>On Replit, our agentic engineering platform, users now build entire products without writing code, through successive fe</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2611.05620' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2611.05620" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='B11'>
+    
+    <h3><span class='badge badge-b'>B11</span> HarnessFlow: MCTS-Guided Harness Optimization for LLM Agents</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2611.06254</span>
+        <span class='tag' style='background:#2563eb;color:#fff'>Agent</span><span class='tag' style='background:#9333ea;color:#fff'>LLM</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要（中英对照）：</strong><br><p class="bili-line">The performance of large language model (LLM) agents depends on both the underlying model and the harness that governs interaction with tools and the environment.</p><p class="bili-line">Yet harness design remains largely manual, and automating it requires navigating an open-ended search space through costly end-to-end evaluations.</p><p class="bili-line">We introduce HarnessFlow, a framework for optimizing complete executable harnesses under a limited candidate-evaluation budget, with the model and task environment held fixed.</p><p class="bili-line">HarnessFlow organizes candidates and their evaluation histories in a refinement tree, using a Monte Carlo Tree Search (MCTS)-based policy to balance exploitation and exploration.</p><p class="bili-line">A coding agent refines selected harnesses using archived code, execution feedback, and a library of reusable harness mechanisms.</p><p class="bili-line">With 15 refinement attempts per benchmark, HarnessFlow achieves the highest mean test scores among the compared methods on six benchmarks spanning agentic tasks, coding, and web interaction.</p><p class="bili-line">The optimized harnesses achieve an average score of 69.48%, outperforming the initial harnesses and Meta-Harness by 10.89 and 3.95 percentage points, respectively, while incurring lower average per-task execution costs than hand-engineered baselines.</p><p class="bili-line">These results suggest that structured harness search offers a promising route toward automating the design of capable and efficient LLM agents.</p></div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 HarnessFlow 中的问题，MCTS</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>超越现有方法：</strong>outperforming the initial harnesses and Meta-Harness by 10</li><li><strong>核心思路：</strong>HarnessFlow</li><li><strong>研究领域：</strong>隶属于 cs.AI</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2611.06254' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2611.06254" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='B12'>
+    
+    <h3><span class='badge badge-b'>B12</span> SMAT: Staged Multi-Agent Training for Co-Adaptive Exoskeleton Control</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2603.07618</span>
+        <span class='tag' style='background:#2563eb;color:#fff'>Agent</span><span class='tag' style='background:#1d4ed8;color:#fff'>Multi-Agent</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要（中英对照）：</strong><br><p class="bili-line">Effective exoskeleton assistance requires co-adaptation: as the device alters joint dynamics, the user reorganizes neuromuscular coordination, creating a non-stationary learning problem.</p><p class="bili-line">Most learning-based approaches do not explicitly account for the sequential nature of human motor adaptation, leading to training instability and poorly timed assistance.</p><p class="bili-line">We propose Staged Multi-Agent Training (SMAT), a four-stage curriculum inspired by how users acclimate to a wearable device.</p><p class="bili-line">In SMAT, a musculoskeletal human actor and a bilateral hip exoskeleton actor are trained progressively: the human first learns unassisted gait, then adapts to the added device mass; the exoskeleton subsequently learns a positive assistance pattern against a stabilized human policy, and finally both agents co-adapt with full torque capacity and bidirectional feedback.</p><p class="bili-line">We implement SMAT in the MyoAssist simulation environment using a 26-muscle lower-limb model and an attached hip exoskeleton.</p><p class="bili-line">Our musculoskeletal simulations demonstrate that the learned exoskeleton control policy produces an average 10.1% reduction in simulated hip muscle activation relative to the no-assist condition.</p><p class="bili-line">We validated the learned controller in an offline setting using open-source gait data, then deployed it to a physical hip exoskeleton for treadmill experiments with five subjects.</p><p class="bili-line">The resulting policy delivers consistent assistance and predominantly positive mechanical power without the need for any explicitly imposed timing shift (mean positive power: 13.6 W at 6 Nm RMS torque to 23.8 W at 9.3 Nm RMS torque, with minimal negative power) consistently across all subjects without subject-specific retraining.</p></div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 SMAT 中的问题，Staged Multi</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>无需标注：</strong>without subject-specific retraining</li><li><strong>首次提出：</strong>first learns unassisted gait</li><li><strong>研究要点：</strong>We propose Staged Multi-Agent Training (SMAT), a four-stage curriculum inspired by how users acclimate to a wearable dev</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2603.07618' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2603.07618" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='B13'>
+    
+    <h3><span class='badge badge-b'>B13</span> MA-SafeDiffuser: Safe Multi-Agent Planning with Diffusion Probabilistic Models</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2611.05524</span>
+        <span class='tag' style='background:#2563eb;color:#fff'>Agent</span><span class='tag' style='background:#1d4ed8;color:#fff'>Multi-Agent</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要（中英对照）：</strong><br><p class="bili-line">We propose MA-SafeDiffuser, a multi-agent extension of SafeDiffuser that equips diffusion-based trajectory planners with finite-time diffusion invariance guarantees for joint-agent safety specifications.</p><p class="bili-line">Building on the single-agent construction that embeds control barrier function (CBF) constraints into reverse-diffusion updates, we: (i) formalize joint safe sets as intersections of per-agent and pairwise barrier sets; (ii) derive centralized and decentralized (communication-aware) constrained denoising procedures with provable invariance under mild assumptions; (iii) address local-trap and deadlock phenomena via time-varying specifications and liveness CBFs; and (iv) develop a lightweight benchmarking suite including a multi-agent Maze2D domain.</p><p class="bili-line">Empirically, MA-SafeDiffuser reduces violation counts relative to unconstrained diffusion baselines, while retaining planning quality.</p><p class="bili-line">We provide algorithms, proofs, and reference implementations.</p></div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>address local-trap and deadlock phenomena via time-varying specifications and liveness CBFs; and (iv) develop a lightweight benchmarking suite includi</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>核心思路：</strong>MA</li><li><strong>研究领域：</strong>隶属于 cs.AI, cs.MA</li><li><strong>研究要点：</strong>Empirically, MA-SafeDiffuser reduces violation counts relative to unconstrained diffusion baselines, while retaining pla</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2611.05524' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2611.05524" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='B14'>
+    
+    <h3><span class='badge badge-b'>B14</span> KV-PRM: Efficient Process Reward Modeling via KV-Cache Transfer for Multi-Agent Test-Time Scaling</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2607.09153</span>
+        <span class='tag' style='background:#2563eb;color:#fff'>Agent</span><span class='tag' style='background:#1d4ed8;color:#fff'>Multi-Agent</span><span class='tag' style='background:#9333ea;color:#fff'>LLM</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要（中英对照）：</strong><br><p class="bili-line">Process Reward Models (PRMs) have been proven to be highly effective in guiding test-time scaling (TTS) methods, which significantly boost the capabilities of LLM-based multi-agent systems.</p><p class="bili-line">However, existing PRMs are text-based: they re-encode the entire trajectory text from scratch.</p><p class="bili-line">In long multi-agent rollouts, the scoring cost, growing quadratically with respect to sequence length L, creates a severe computational bottleneck, severely limiting PRMs&#x27; application in long-context scenarios.</p><p class="bili-line">To resolve this, we introduce KV-PRM, a highly efficient process reward model that eliminates the heavy text re-encoding by directly reading the KV cache produced naturally during the LLM&#x27;s generation phase.</p><p class="bili-line">By processing a single &quot;verify token&quot; against the pre-existing KV cache, KV-PRM reduces the scoring cost from O(L^2) to O(L).</p><p class="bili-line">We formally prove that the KV cache contains strictly greater information capacity than text, and is more efficient for downstream reward modeling.</p><p class="bili-line">Empirically, across the MATH, GSM8K, and AIME benchmarks, KV-PRM matches or strictly outperforms text-PRMs under various TTS methods such as Beam Search, MCTS, and Weighted Voting, with up to a 5,000x reduction in scoring FLOPs, a 37x reduction in latency, and a 34x reduction in per-sequence memory footprint compared to text-based PRMs.</p></div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>solve this</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>超越现有方法：</strong>outperforms text-PRMs under various TTS methods such as Beam Search</li><li><strong>核心思路：</strong>KV</li><li><strong>研究领域：</strong>隶属于 cs.AI</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2607.09153' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2607.09153" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='B15'>
+    
+    <h3><span class='badge badge-b'>B15</span> Neglected Free Lunch from Post-training: Progress Advantage for LLM Agents</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2606.26080</span>
+        <span class='tag' style='background:#2563eb;color:#fff'>Agent</span><span class='tag' style='background:#9333ea;color:#fff'>LLM</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要（中英对照）：</strong><br><p class="bili-line">Process reward models enable fine-grained, step-level evaluation of LLMs, yet building them for agentic settings remains prohibitively difficult: long-horizon interactions, irreversible actions, and stochastic environment feedback make both human annotation and Monte Carlo estimation infeasible at scale.</p><p class="bili-line">In this work, we show that reinforcement learning (RL) post-training already provides the ingredients for effective step-level scoring, eliminating the need for dedicated reward model training altogether.</p><p class="bili-line">Concretely, we derive an implicit advantage under a general stochastic Markov decision process, which we term progress advantage -- log-probability ratio between the RL-trained policy and its reference policy exactly recovers the optimal advantage function.</p><p class="bili-line">This formulation makes the resulting signal annotation-free, domain-agnostic, and available as a byproduct of the standard RL post-training pipeline.</p><p class="bili-line">We validate the effectiveness of the progress advantage across three different applications: test-time scaling, uncertainty quantification, and failure attribution on five benchmarks and four model families.</p><p class="bili-line">Across all settings, it consistently outperforms confidence-based baselines and, despite requiring no task-specific training, surpasses dedicated trained reward models.</p><p class="bili-line">We complement these results with deeper analyses on characteristics of progress advantage, offering practical guidance for adoption in real-world agentic systems.</p></div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 Neglected Free Lunch from Post 中的问题，training</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>超越现有方法：</strong>outperforms confidence-based baselines and</li><li><strong>核心思路：</strong>Neglected Free Lunch from Post</li><li><strong>研究领域：</strong>隶属于 cs.LG, cs.AI</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2606.26080' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2606.26080" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='B16'>
+    
+    <h3><span class='badge badge-b'>B16</span> RecoAtlas: A Benchmark and RL Environment for LLM Recommendation Agents Optimizing Set-Level Utility</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2605.18805</span>
+        <span class='tag' style='background:#2563eb;color:#fff'>Agent</span><span class='tag' style='background:#9333ea;color:#fff'>LLM</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要（中英对照）：</strong><br><p class="bili-line">LLM recommender agents increasingly produce structured reports: sets of items accompanied by natural-language justifications.</p><p class="bili-line">Yet existing benchmarks often focus on reranking small candidate sets or judging reports primarily by semantic plausibility, providing limited support for evaluating and training agents based on set-level utility.</p><p class="bili-line">We introduce Recommender Atlas (Agentic Tasks for Learning and Assessment in Shopping), or RecoAtlas, a benchmark and reinforcement learning environment grounded in user behavior.</p><p class="bili-line">RecoAtlas provides a shopping toolkit for product retrieval, complementarity, and diversity.</p><p class="bili-line">Given a shopping query, an agent uses these tools to generate a structured recommendation report.</p><p class="bili-line">Behavioral reference sets support exact-recovery evaluation and the training of a learned bundle-level reward that supplies feedback for policy optimization with RL.</p><p class="bili-line">Its controlled tool environment exposes agents to semantic and behavior-aligned tools, enabling systematic analysis of how LLM reasoning, tool signals, and tool-use policies contribute to performance.</p><p class="bili-line">Across controlled experiments, performance scales with model capacity and test-time compute, and improves with stronger tools, while semantic plausibility does not necessarily translate into behavior-grounded utility.</p><p class="bili-line">RecoAtlas provides a foundation for training and evaluating shopping assistants to move beyond semantic plausibility toward coherent, behaviorally grounded recommendation sets.</p></div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 RecoAtlas 中的问题，A Benchmark and RL Environment for LLM Recommendation Agents</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>核心思路：</strong>RecoAtlas</li><li><strong>研究领域：</strong>隶属于 cs.IR, cs.AI</li><li><strong>研究要点：</strong>LLM recommender agents increasingly produce structured reports: sets of items accompanied by natural-language justificat</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2605.18805' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2605.18805" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='B17'>
+    
+    <h3><span class='badge badge-b'>B17</span> Pretraining Knows What, Simulation Teaches How: Compositional Generalization for Agentic Robotics</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2610.35817</span>
+        <span class='tag' style='background:#2563eb;color:#fff'>Agent</span><span class='tag' style='background:#059669;color:#fff'>Embodied AI</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要（中英对照）：</strong><br><p class="bili-line">Frontier models such as GPT-6 Astra now directly control robots and can generalize better than vision-language-action models (VLAs).</p><p class="bili-line">We argue that this ability could arise from two distinct, composable skills: semantic reasoning, to understand what a task asks for in a scene, and motion control, to move the robot to do it.</p><p class="bili-line">We show that small open VLMs are already capable of the first and mainly lack the second.</p><p class="bili-line">We introduce Zero-real Agent Policy (ZAP), a recipe that teaches this missing motion skill, entirely in simulation on simple primitive tasks and from the model&#x27;s own successes, with no frontier teacher or distillation and no real-world robot data.</p><p class="bili-line">ZAP reaches 96.7% success on real-world tasks, matching GPT-6 Astra in our harness while running 3x faster and 17x cheaper, and 74.0% on a bimanual adaptation of RoboLab-120, on par with GPT-6 Astra&#x27;s 72.2%.</p><p class="bili-line">ZAP also generalizes to new objects, goals, and strategies, and in simulation to a robot embodiment on which it never trained.</p></div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 Pretraining Knows What, Simulation Teaches How 中的问题，Compositional Generalization for Agentic Robotics</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>首次提出：</strong>first and mainly lack the second</li><li><strong>核心思路：</strong>Pretraining Knows What, Simulation Teaches How</li><li><strong>研究领域：</strong>隶属于 cs.RO, cs.AI</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2610.35817' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2610.35817" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='B18'>
+    
+    <h3><span class='badge badge-b'>B18</span> Route to Remember: Adaptive Memory Selection for LLM Agents</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2611.05636</span>
+        <span class='tag' style='background:#db2777;color:#fff'>RSI</span><span class='tag' style='background:#2563eb;color:#fff'>Agent</span><span class='tag' style='background:#9333ea;color:#fff'>LLM</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要（中英对照）：</strong><br><p class="bili-line">The memory of production agents is increasingly becoming a bottleneck and is built almost exclusively from text: key points are extracted from out-of-limit context and retrieved into context at query time.</p><p class="bili-line">Therefore, every new query incurs an additional cost that grows with the accumulated history.</p><p class="bili-line">Weight memory is a complementary alternative that internalizes knowledge into model parameters and answers with no context at all, and has recently proven effective in self-evolving agents for internalizing skills and behaviors.</p><p class="bili-line">However, its application in episodic and semantic memory, such as user-specific facts, remains comparatively unexplored, and a gap remains between earlier attempts at weight memory and text-based systems regarding recall performance.</p><p class="bili-line">We study how to make weight memory competitive as a long-term factual store by applying on-policy self-distillation (OPSD).</p><p class="bili-line">It trains a context-free student from a teacher, which is the same model conditioned on the user&#x27;s memory, together with a verify-then-regenerate router that lets weight and text memory each cover the queries they handle best.</p><p class="bili-line">On the HaluMem benchmark, OPSD matches or surpasses strong text-memory baselines, including full-context prompting and retrieval systems, while reading fewer tokens per query.</p><p class="bili-line">We further conduct an extensive study that characterizes the behavior of weight memory and analyzes how different training recipes affect its performance.</p><p class="bili-line">As agent harnesses move toward persistent, multi-session deployments, these results position weight memory as a practical, low-cost component of agent memory and provide insights into feasible training and evaluation protocols for combining it with retrieval.</p></div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 Route to Remember 中的问题，Adaptive Memory Selection for LLM Agents</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>超越现有方法：</strong>surpasses strong text-memory baselines</li><li><strong>核心思路：</strong>Route to Remember</li><li><strong>研究领域：</strong>隶属于 cs.AI</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2611.05636' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2611.05636" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='B19'>
+    
+    <h3><span class='badge badge-b'>B19</span> Agents, Think Only When it Helps</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2611.05709</span>
+        <span class='tag' style='background:#2563eb;color:#fff'>Agent</span><span class='tag' style='background:#9333ea;color:#fff'>LLM</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要（中英对照）：</strong><br><p class="bili-line">LLM agent distillation transfers agentic capabilities to student models by training on complete teacher trajectories that typically interleave thoughts and actions.</p><p class="bili-line">We question how critical thought supervision is for agents&#x27; ultimate action performance.</p><p class="bili-line">To answer this, we disentangle their impacts by independently perturbing teacher thoughts and actions during distillation.</p><p class="bili-line">On widely adopted agent benchmarks across model scales, altering or discarding thoughts has little effect on student performance.</p><p class="bili-line">We find, however, that thought supervision becomes important when information about the thought is not disclosed in the corresponding action during training.</p><p class="bili-line">By identifying such discrepant cases, our findings challenge the common practice of distilling entire teacher trajectories for LLM agents, and offer a new insight that thought supervision can be a discernible choice for efficiency depending on whether the information of thought is disclosed in the action.</p></div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>解决 Agent 领域的关键挑战</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>研究领域：</strong>隶属于 cs.AI, cs.LG</li><li><strong>研究要点：</strong>We question how critical thought supervision is for agents&#x27; ultimate action performance.</li><li><strong>研究要点：</strong>To answer this, we disentangle their impacts by independently perturbing teacher thoughts and actions during distillatio</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2611.05709' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2611.05709" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='B20'>
+    
+    <h3><span class='badge badge-b'>B20</span> LegalEvolver: Agentic Legal Judgment Prediction via Rubric-Guided Self-Evolution</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2611.06381</span>
+        <span class='tag' style='background:#2563eb;color:#fff'>Agent</span><span class='tag' style='background:#9333ea;color:#fff'>LLM</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要（中英对照）：</strong><br><p class="bili-line">As LLM-based agents develop, they have been increasingly applied in the legal domain.</p><p class="bili-line">Legal Judgment Prediction~(LJP) requires models to conduct multi-step reasoning and external legal evidence retrieval.</p><p class="bili-line">Existing legal search agents&#x27; performance is often constrained by the quality of retrieval queries.</p><p class="bili-line">They often formulate queries directly from the initial user request, overlooking latent legal issues and legally salient details.</p><p class="bili-line">To address this issue, we propose \emph{LegalEvolver}, a query optimization framework specifically designed to generate legally informative queries for LJP-oriented retrieval.</p><p class="bili-line">Sampling high-quality optimized queries and their corresponding search trajectories is challenging, as relying solely on unguided high-temperature rollouts is both inefficient and constrained by the model&#x27;s initial capabilities.</p><p class="bili-line">We therefore heuristically optimize queries as seeds, improving the efficiency of trajectory generation.</p><p class="bili-line">Furthermore, we summarize rollout experience into rubrics and use them to guide multi-round iterative self-evolution.</p><p class="bili-line">Iteratively performing rubric optimization and rubric-guided RL enables the model to surpass its initial performance ceiling.</p><p class="bili-line">End-to-end performance on extensive benchmarks demonstrates the effectiveness of query optimization on LJP.</p><p class="bili-line">Comparisons with direct SFT followed by RL demonstrate the effectiveness of rubric guidance.</p><p class="bili-line">Evolving rubrics further outperform fixed rubrics, confirming the benefits of self-evolution.</p></div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>address this issue</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>超越现有方法：</strong>surpass its initial performance ceiling</li><li><strong>核心思路：</strong>LegalEvolver</li><li><strong>研究领域：</strong>隶属于 cs.AI, cs.CL</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2611.06381' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2611.06381" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='B21'>
+    
+    <h3><span class='badge badge-b'>B21</span> Task-Efficient Agent Evaluation Using Cached Traces</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2611.06803</span>
+        <span class='tag' style='background:#2563eb;color:#fff'>Agent</span><span class='tag' style='background:#9333ea;color:#fff'>LLM</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要（中英对照）：</strong><br><p class="bili-line">Efficient benchmarking estimates a system&#x27;s full benchmark performance from a small number of task executions.</p><p class="bili-line">Standard approaches rely solely on the binary correctness of executions from a collection of already-evaluated reference systems.</p><p class="bili-line">An agentic system, however, produces a rich trace for each execution that can reveal substantially more about its capabilities.</p><p class="bili-line">Leveraging this information requires useful trace representations.</p><p class="bili-line">We propose representing a trace by extracting a structured summary of it with an LLM and embedding the summary with a standard text encoder.</p><p class="bili-line">These representations preserve correctness- and task-related signal while minimizing the presence of system identity-, model family- and harness-related signals that dominate raw trace embeddings.</p><p class="bili-line">Given this representation for each task execution from all reference systems, we construct low-dimensional representations of the systems and predict a new system&#x27;s score from its position among the reference systems.</p><p class="bili-line">On SWE-bench Verified and Terminal-Bench 2.0, augmenting an item-response model with this geometry-based prediction reduces mean absolute error from 0.13 to 0.08 (Wilcoxon $p &lt; 10^{-4}$) and from 0.14 to 0.12 (Wilcoxon $p &lt; 10^{-3}$), respectively, when provided a single random executed task.</p><p class="bili-line">Further, given access to the full set of reference systems, our approach dominates baselines for any given number of executed tasks on both benchmarks.</p></div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 Task 中的问题，Efficient Agent Evaluation Using Cached Traces</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>核心思路：</strong>Task</li><li><strong>研究领域：</strong>隶属于 cs.AI</li><li><strong>研究要点：</strong>Efficient benchmarking estimates a system&#x27;s full benchmark performance from a small number of task executions.</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2611.06803' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2611.06803" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='B22'>
+    
+    <h3><span class='badge badge-b'>B22</span> Evolutionary System Prompt Learning for Reinforcement Learning in LLMs</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2602.14697</span>
+        <span class='tag' style='background:#2563eb;color:#fff'>Agent</span><span class='tag' style='background:#9333ea;color:#fff'>LLM</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要（中英对照）：</strong><br><p class="bili-line">Building agentic systems that can autonomously self-improve from experience is a longstanding goal of AI.</p><p class="bili-line">Large language models (LLMs) today primarily self-improve via two mechanisms: self-reflection for context updates, and reinforcement learning (RL) for weight updates.</p><p class="bili-line">In this work, we propose Evolutionary System Prompt Learning (E-SPL), a method for jointly improving a model&#x27;s experiential context and its weights.</p><p class="bili-line">In each RL iteration, E-SPL samples trajectories under multiple system prompts in parallel, then uses them to jointly update the weights with RL and evolve the system prompts with self-reflection.</p><p class="bili-line">E-SPL encourages a natural division between procedural knowledge in weights and interpretable declarative knowledge in system prompts.</p><p class="bili-line">Most notably, in an easy-to-hard generalization setting (AIME $\rightarrow$ BeyondAIME), E-SPL improves RL success rate from 38.8% $\rightarrow$ 45.1%.</p><p class="bili-line">E-SPL also improves RL on AIME 2025 (56.3% $\rightarrow$ 60.6%), HMMT 2025 (50.0% $\rightarrow$ 52.7%), and agentic search (44.2% $\rightarrow$ 48.6% on gpt-oss-120b).</p><p class="bili-line">Across all settings, E-SPL outperforms both RL-only and evolution-only baselines, demonstrating that weight updates and context updates are deeply synergistic and can together yield gains in generalization that neither achieves alone.</p><p class="bili-line">Code is available at https://github.com/LunjunZhang/E-SPL.</p></div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>解决 Agent 领域的关键挑战</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>超越现有方法：</strong>outperforms both RL-only and evolution-only baselines</li><li><strong>研究领域：</strong>隶属于 cs.AI, cs.LG</li><li><strong>研究要点：</strong>Building agentic systems that can autonomously self-improve from experience is a longstanding goal of AI.</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2602.14697' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2602.14697" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='B23'>
+    
+    <h3><span class='badge badge-b'>B23</span> TraceCAD: Trace-Guided Repair for Agentic CAD Generation</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2608.03062</span>
+        <span class='tag' style='background:#2563eb;color:#fff'>Agent</span><span class='tag' style='background:#9333ea;color:#fff'>LLM</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要（中英对照）：</strong><br><p class="bili-line">LLM-based CAD agents produce executable parametric programs, but their correction loops may lose evidence about satisfied requirements, faulty operations, and prior repairs.</p><p class="bili-line">We introduce TraceCAD, a recovery layer that links requested features, modeling steps, failure evidence, and candidate outcomes as persistent state.</p><p class="bili-line">TraceCAD diagnoses likely faulty operations, searches bounded edits in their dependency regions, validates candidates through execution and preservation checks, and retains successful and failed repair outcomes in reusable skill memory.</p><p class="bili-line">On DeepCAD-derived benchmarks with 200-model ablations and a 1K-model comparison, TraceCAD achieves competitive geometric quality in terms of IoU, Chamfer distance, and Hausdorff distance.</p><p class="bili-line">Removing persistent state nearly halves recovery score; removing localized search more than doubles geometric regression and doubles code-agent invocations.</p><p class="bili-line">Initializing the skill store on disjoint training models further reduces retries, token cost, and latency.</p><p class="bili-line">These results demonstrate that persistent, localized, and reusable recovery improves final CAD quality and repair reliability.</p></div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>针对 TraceCAD 中的问题，Trace</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>核心思路：</strong>TraceCAD</li><li><strong>研究领域：</strong>隶属于 cs.AI, cs.GR</li><li><strong>研究要点：</strong>We introduce TraceCAD, a recovery layer that links requested features, modeling steps, failure evidence, and candidate o</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2608.03062' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2608.03062" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+
+<div class='card' id='B24'>
+    
+    <h3><span class='badge badge-b'>B24</span> WayPOP: A Panoramic Open-Set Panoptic Tracking Benchmark</h3>
+    <p class='meta'>
+        <span class='badge badge-source'>arXiv: 2611.05801</span>
+        <span class='tag' style='background:#2563eb;color:#fff'>Agent</span>
+    </p>
+    <div class="chinese-summary"><strong>📝 中文摘要（中英对照）：</strong><br><p class="bili-line">Holistic perception for autonomous agents requires reliably segmenting and associating scene elements across time and camera views, including objects outside a fixed semantic taxonomy.</p><p class="bili-line">Existing open-set panoptic benchmarks focus on individual images or views, while panoramic tracking benchmarks assume closed-set taxonomies.</p><p class="bili-line">Consequently, these benchmarks do not evaluate whether unknown objects can be consistently segmented and tracked across synchronized multi-camera sequences.</p><p class="bili-line">We introduce WayPOP, a panoramic open-set panoptic tracking benchmark built on real Waymo PVPS sequences augmented with diverse out-of-taxonomy 3D assets from Objaverse.</p><p class="bili-line">Inserted objects are placed at fixed locations in the 3D scene and rendered using calibrated vehicle-mounted cameras as the ego vehicle and surrounding traffic move, providing temporally and cross-view consistent panoptic annotations and auxiliary LiDAR range observations.</p><p class="bili-line">WayPOP contains approximately 670 curated assets instantiated as 980 unique unknown-object tracks, yielding 53,452 unknown-object mask annotations across 21,300 camera images.</p><p class="bili-line">Our evaluation protocol defines a hierarchy of tasks from view-independent open-set panoptic segmentation to full panoramic open-set panoptic tracking, using known/unknown PQ and (w)STQ metrics.</p><p class="bili-line">We benchmark representative open-set and open-vocabulary segmentation methods with temporal and cross-camera association.</p><p class="bili-line">Our results reveal substantial limitations of current methods in truly open-set scenarios, highlighting robust unknown-object localization and identity association across time and views as major open challenges.</p></div>
+    <div class="problem-box"><strong>🔍 主要解决问题：</strong>current methods in truly open-set scenarios</div>
+    
+    <p><strong>📌 核心亮点：</strong></p>
+    <ul><li><strong>核心思路：</strong>WayPOP</li><li><strong>研究领域：</strong>隶属于 cs.CV, cs.LG</li><li><strong>研究要点：</strong>Existing open-set panoptic benchmarks focus on individual images or views, while panoramic tracking benchmarks assume cl</li></ul>
+    <p>
+        <a href='https://arxiv.org/pdf/2611.05801' target='_blank'>📄 论文链接</a>
+         | <a href="https://arxiv.org/abs/2611.05801" target="_blank">📋 arXiv 页面</a>
+    </p>
+</div>
+        <div class='nav-back'><a href='./index.html'>← 返回首页</a></div>
+        <div class='footer'>
+            <p>由 WorkBuddy 论文日报管道自动生成</p>
+            <p>投递时间：2026-11-05 23:03 · <a href='https://github.com/miclover0/paper-daily'>miclover0/paper-daily</a></p>
+        </div>
+    </main>
+</div>
+</body></html>
